@@ -10,14 +10,8 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <script>scripts\testset.gml</script>
-  </scripts>
-  <objects name="objects">
-    <object>objects\object0</object>
-    <object>objects\object1</object>
-    <object>objects\object2</object>
-  </objects>
+  <scripts name="scripts"/>
+  <objects name="objects"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>
