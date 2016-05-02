@@ -13,6 +13,9 @@
   <objects name="objects">
     <object>objects\ctrl</object>
   </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_Main</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
