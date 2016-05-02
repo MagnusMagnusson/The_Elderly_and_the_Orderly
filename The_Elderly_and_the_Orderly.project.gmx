@@ -8,16 +8,20 @@
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
     <sprite>sprites\spr_icons</sprite>
+    <sprite>sprites\spr_uibutton</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_person.gml</script>
+    <script>scripts\station_name.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
     <objects name="UI">
       <object>objects\o_ui_profile</object>
+      <object>objects\o_ui_orderly</object>
+      <object>objects\o_ui_stations</object>
     </objects>
   </objects>
   <rooms name="rooms">
