@@ -26,6 +26,34 @@
           <argument>
             <kind>1</kind>
             <string>selected = 0;
+hidden = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(mouse_check_button_pressed(mb_left)){
+    if(mouse_x &lt; 32 &amp;&amp; mouse_y &lt; 32){
+        hidden = !hidden;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -54,30 +82,40 @@ xx = room_width - 256 + 8;
 yy = 16;
 Y = room_height - 128
 
-for(var i = 0; i &lt; (room_width - 256) div 64;i++){
-    for(var j = 0; j &lt; 2;j++){
-        draw_sprite(spr_stations,i+j*i % 2, i * 64,Y + j*64);
+if(!hidden){
+    for(var i = 0; i &lt; (room_width - 256) div 64;i++){
+        for(var j = 0; j &lt; 2;j++){
+            draw_sprite(spr_stations,i+j*i % 2, i * 64,Y + j*64);
+        }
+    }
+    
+    draw_rectangle(room_width - 256,room_height - 0,room_width,room_height - 128,true);
+    
+    
+    if(selected != noone ||true){
+        /*insert getting stuff heres*/
+        
+        cost = 3.50;
+        capacity = 9;
+        orderlies = 2;
+        happyMod = 1;
+        moneyMod = 1;
+        
+        draw_text(xx,Y +0*yy, "cost: " + string(cost));
+        draw_text(xx,Y +1*yy,"capacity: " + string(capacity));
+        draw_text(xx,Y +2*yy,"orderlies: " + string(orderlies));
+        draw_text(xx + 32,Y +3*yy, string(happyMod));
+        draw_text(xx + 32,Y +4*yy, string(moneyMod));
     }
 }
 
-draw_rectangle(room_width - 256,room_height - 0,room_width,room_height - 128,true);
+draw_set_color(c_white);
+draw_rectangle(room_width - 32 - string_width(string(ctrl.funds)),0,room_width,32,true);
+draw_set_color(c_black);
+draw_sprite(spr_icons,1,room_width - 32 - string_width(string(ctrl.funds)),0);
+draw_text(room_width - string_width(string(ctrl.funds)),16,ctrl.funds);
 
-
-if(selected != noone ||true){
-    /*insert getting stuff heres*/
-    
-    cost = 3.50;
-    capacity = 9;
-    orderlies = 2;
-    happyMod = 1;
-    moneyMod = 1;
-    
-    draw_text(xx,Y +0*yy, "cost: " + string(cost));
-    draw_text(xx,Y +1*yy,"capacity: " + string(capacity));
-    draw_text(xx,Y +2*yy,"orderlies: " + string(orderlies));
-    draw_text(xx + 32,Y +3*yy, string(happyMod));
-    draw_text(xx + 32,Y +4*yy, string(moneyMod));
-}
+draw_sprite(spr_icons,2,0,0);
 </string>
           </argument>
         </arguments>

@@ -70,6 +70,7 @@ if(selected != noone ||true){/*
     draw_sprite(spr_icons,0,xx,yy+32);//Heart
     draw_healthbar(xx +offset,yy+32,xx +offset + 128,yy + 64,happiness,
         c_black,c_red,c_green,0,true,false); //Happy
+    draw_rectangle(xx,yy,xx + 128,yy +64,true);
 
 }
 </string>
