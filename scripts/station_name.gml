@@ -1,4 +1,10 @@
-if(argument0){
-};
+switch(argument0){
+    case 0:{
+        return "Bingo";
+    }
+    default:{
+        return "404, n/a";
+    }
+}
 
-return "Bingo";
+return "404, n/a";
