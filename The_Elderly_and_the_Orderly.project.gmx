@@ -7,11 +7,18 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
+    <sprite>sprites\spr_icons</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <scripts name="scripts">
+    <script>scripts\draw_person.gml</script>
+  </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
+    <objects name="UI">
+      <object>objects\o_ui_profile</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>
