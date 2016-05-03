@@ -1,11 +1,11 @@
-///ctrl.wallMatrix_reserve(x,y,direction)
+///wallmatrix_reserve(x,y,direction)
 
 var _x,_y,dir,myid;
 
 _x = argument0;
 _y = argument1;
 dir = argument2; // 3
-myid = matrix[_x,_y];
+myid = ctrl.matrix[_x,_y];
 
 
 if(dir & 1 > 0){

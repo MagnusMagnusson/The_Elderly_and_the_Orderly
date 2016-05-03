@@ -32,6 +32,7 @@
       <script>scripts\matrix_reserve.gml</script>
       <script>scripts\wallmatrix_is_empty.gml</script>
       <script>scripts\wallmatrix_reserve.gml</script>
+      <script>scripts\wallmatrix_empty.gml</script>
     </scripts>
     <scripts name="store">
       <script>scripts\station_info.gml</script>

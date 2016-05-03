@@ -51,7 +51,9 @@ dir = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button_pressed(mb_right)){
+            <string>
+
+if(mouse_check_button_pressed(mb_right)){
     if(stage == 0){
         instance_destroy();
     }
@@ -60,10 +62,31 @@ dir = 0;
     }
 }
 
-if(mouse_check_button(mb_left)){
-    xx = (mouse_x + 15 ) div 31;
-    yy = (mouse_y + 15 ) div 31;
-    stage++;
+if(mouse_check_button_pressed(mb_left)){
+    if(stage == 0){
+        xx = (mouse_x + 15 ) div 31;
+        yy = (mouse_y + 15 ) div 31;
+        stage++;
+    }
+    else{
+        var _xx,_yy;
+        _xx = (mouse_x + 15 ) div 31;
+        _yy = (mouse_y + 15 ) div 31;
+        if(yy == _yy){
+            for(var i = min(_xx,xx); i &lt; max(xx,_xx); i++){
+                if(wallmatrix_empty(i,yy,8)){
+                    wallmatrix_reserve(i,yy,8);
+                }
+            }
+        }
+        if(xx == _xx){
+            for(var i = min(_yy,yy); i &lt; max(_yy,yy); i++){
+                if(wallmatrix_empty(xx,i,4)){
+                    wallmatrix_reserve(xx,i,4);
+                }
+            }
+        }
+    }
 }
 </string>
           </argument>

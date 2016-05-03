@@ -98,7 +98,7 @@ for(var i = 0; i &lt; room_width; i+=31){
         tile_add(bg_parquet, irandom(4)*31, 0,31, 31,i,j,255);
     }
 }
-}*/
+
 </string>
           </argument>
         </arguments>
@@ -182,7 +182,7 @@ if(timeLeft &lt;= 0){
 
 for(var i = 0; i &lt; room_width div 31; i += 1){
     for(var j = 0; j &lt; room_height div 31; j += 1){
-        draw_text(i*31 + 15, j*31 + 15,wallMatrix[i,j]);
+        //draw_text(i*31 + 15, j*31 + 15,wallMatrix[i,j]);
                      /*   for(var k = 0; k &lt; 4; k++){
             var num,_i,_j;
             _j = (k &lt; 2);
