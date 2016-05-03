@@ -36,12 +36,12 @@ if(dir & 4 > 0){
     if(myid != noone){
         if(ctrl.matrix[_x-1,_y] != myid){
             ctrl.wallMatrix[_x,_y] = ctrl.wallMatrix[_x,_y] | 4;
-            ctrl.wallMatrix[_x-1,_y] = ctrl.wallMatrix[_x+1,_y] | 1;
+            ctrl.wallMatrix[_x-1,_y] = ctrl.wallMatrix[_x-1,_y] | 1;
         }
     }
     else{
         ctrl.wallMatrix[_x,_y] = ctrl.wallMatrix[_x,_y] | 4;
-        ctrl.wallMatrix[_x-1,_y] = ctrl.wallMatrix[_x+1,_y] | 1;
+        ctrl.wallMatrix[_x-1,_y] = ctrl.wallMatrix[_x-1,_y] | 1;
     }
 }
 if(dir & 8 > 0){
