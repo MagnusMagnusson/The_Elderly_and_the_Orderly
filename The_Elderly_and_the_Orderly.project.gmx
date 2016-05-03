@@ -10,12 +10,28 @@
     <sprite>sprites\spr_icons</sprite>
     <sprite>sprites\spr_uibutton</sprite>
     <sprite>sprites\spr_stations</sprite>
+    <sprite>sprites\spr_bed</sprite>
+    <sprite>sprites\sprite5</sprite>
+    <sprite>sprites\spr_wall</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+    <background>background\background1</background>
+    <background>background\background2</background>
+    <background>background\bg_grass</background>
+    <background>background\bg_tiles</background>
+    <background>background\bg_parquet</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_person.gml</script>
     <script>scripts\station_name.gml</script>
+    <scripts name="Collision">
+      <script>scripts\matrix_is_empty.gml</script>
+      <script>scripts\matrix_reserve.gml</script>
+      <script>scripts\wallmatrix_is_empty.gml</script>
+      <script>scripts\wallmatrix_reserve.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
@@ -26,8 +42,11 @@
         <object>objects\o_ui_orderly</object>
       </objects>
       <objects name="NIGHT">
-        <object>objects\ui_store</object>
+        <object>objects\o_ui_store</object>
       </objects>
+    </objects>
+    <objects name="Room_stuffies">
+      <object>objects\o_bed</object>
     </objects>
   </objects>
   <rooms name="rooms">
