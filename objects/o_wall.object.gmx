@@ -69,22 +69,24 @@ if(mouse_check_button_pressed(mb_left)){
         stage++;
     }
     else{
-        var _xx,_yy;
+        var _xx,_yy,legal,C;
         _xx = (mouse_x + 15 ) div 31;
         _yy = (mouse_y + 15 ) div 31;
-        if(yy == _yy){
-            for(var i = min(_xx,xx); i &lt; max(xx,_xx); i++){
-                if(wallmatrix_empty(i,yy,8)){
-                    wallmatrix_reserve(i,yy,8);
+        C = 0;
+        legal = wallmatrix_range_empty(xx,yy,_xx,_yy);
+        if(legal){
+            stage = 0;
+            if(yy == _yy){
+                for(var i = min(_xx,xx); i &lt; max(xx,_xx); i++){
+                    C += wallmatrix_reserve(i,yy,8);
                 }
             }
-        }
-        if(xx == _xx){
-            for(var i = min(_yy,yy); i &lt; max(_yy,yy); i++){
-                if(wallmatrix_empty(xx,i,4)){
-                    wallmatrix_reserve(xx,i,4);
+            if(xx == _xx){
+                for(var i = min(_yy,yy); i &lt; max(_yy,yy); i++){
+                    C += wallmatrix_reserve(xx,i,4);
                 }
             }
+        ctrl.funds -= 15*C;
         }
     }
 }
@@ -111,7 +113,7 @@ if(mouse_check_button_pressed(mb_left)){
           <argument>
             <kind>1</kind>
             <string>///draw wall 
-draw_set_color(c_red);
+draw_set_color(c_green);
 if(stage == 0){
     draw_circle((mouse_x + 15) div 31* 31,( mouse_y + 15) div 31 *31,5,false);
 }
@@ -121,6 +123,9 @@ else{
     Y = ( mouse_y + 15) div 31 *31;
     XX =(xx) * 31;
     YY = ( yy) *31;
+    if(!wallmatrix_range_empty(xx,yy, X div 31,Y div 31)){
+        draw_set_color(c_red);
+    }
     draw_circle(X,Y,5,false);
     draw_line_width(X,Y,XX,YY,5);
     draw_circle(XX,YY,5,false);
