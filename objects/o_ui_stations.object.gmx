@@ -55,10 +55,10 @@ var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
 offset = 32;
 yoffset = string_height("Lol") + 4;
 
-if(selected != noone ||true){
+if(selected != noone){// ||true){
     
-    xx = 0;
-    yy = 128;
+    xx = selected.x;
+    yy = selected.y;
         
     draw_sprite(spr_uibutton,0,xx, yy + yoffset*7);
     if(mouse_check_button(mb_left)){
