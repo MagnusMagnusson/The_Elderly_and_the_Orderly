@@ -153,18 +153,29 @@ if(timeLeft &lt;= 0){
 for(var i = 0; i &lt; room_width div 31; i += 1){
     for(var j = 0; j &lt; room_height div 31; j += 1){
         draw_text(i*31 + 15, j*31 + 15,wallMatrix[i,j]);
+                     /*   for(var k = 0; k &lt; 4; k++){
+            var num,_i,_j;
+            _j = (k &lt; 2);
+            _i = !(k &gt; 0 &amp;&amp; k &lt; 3);
+            num = power(2,k) + power(2,(k+1)%4)
+            if(wallMatrix[i,j] &amp; num == num){
+                draw_sprite(spr_courner,0,(i + _i)*31-2,(j + _j)*31-4);
+            }
+        }*/
+        
         if(wallMatrix[i,j] &amp; 1 &gt; 0){
-            draw_sprite(spr_wall,0,i*31,j*31);
+            draw_sprite(spr_wall,0,2+(1+i)*31 - 4,j*31-4);
         }
         if(wallMatrix[i,j] &amp; 2 &gt; 0){
-            draw_sprite(spr_wall,1,i*31,j*31);
+            draw_sprite_ext(spr_wall,0,(i)*31,2+(j+1)*31 - 4,1,1,90,c_white,1);
         }
         if(wallMatrix[i,j] &amp; 4 &gt; 0){
-            draw_sprite(spr_wall,2,i*31,j*31);
+            draw_sprite(spr_wall,0,(i)*31 -2,j*31-4);
         }
         if(wallMatrix[i,j] &amp; 8 &gt; 0){
-            draw_sprite(spr_wall,3,i*31,j*31);
+            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 -2,1,1,90,c_white,1);
         }
+        
     }
 }
 </string>
