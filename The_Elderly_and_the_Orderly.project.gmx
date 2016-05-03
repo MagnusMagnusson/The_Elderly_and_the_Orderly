@@ -53,6 +53,8 @@
       <object>objects\o_bed</object>
       <object>objects\o_wall</object>
     </objects>
+    <object>objects\O_Orderly</object>
+    <object>objects\Person</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>
