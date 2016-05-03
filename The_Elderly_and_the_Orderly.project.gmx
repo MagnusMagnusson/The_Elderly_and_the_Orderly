@@ -33,6 +33,9 @@
       <script>scripts\wallmatrix_is_empty.gml</script>
       <script>scripts\wallmatrix_reserve.gml</script>
     </scripts>
+    <scripts name="store">
+      <script>scripts\station_info.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
@@ -48,6 +51,7 @@
     </objects>
     <objects name="Room_stuffies">
       <object>objects\o_bed</object>
+      <object>objects\o_wall</object>
     </objects>
   </objects>
   <rooms name="rooms">
