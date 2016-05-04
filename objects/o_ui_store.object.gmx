@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected = 0;
+            <string>selected = noone;
 hidden = false;
 </string>
           </argument>
@@ -49,12 +49,54 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///
+            <string>/// mouse presses
+var press = noone;
+var Y = room_height - 128;
 
 if(mouse_check_button_pressed(mb_left)){
-    if(mouse_x &lt; 32 &amp;&amp; mouse_y &lt; 32){
+    if(mouse_x &lt; 64 &amp;&amp; mouse_y &lt; 64){
         hidden = !hidden;
     }
+}
+
+if(!hidden){
+    if(mouse_check_button_pressed(mb_left)){
+        for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
+            for(var j = 0; j &lt; 2;j++){
+                //draw_sprite(spr_stations,2*i + j, i * 64,Y + j*64);
+                if(mouse_x &gt; i * 64 &amp;&amp; mouse_x &lt; (1+i) * 64){
+                    if(mouse_y &gt; Y + j * 64 &amp;&amp; mouse_y &lt; Y +(1+j) * 64){
+                        press = 2*i + j;
+                    }
+                }
+            }
+        }
+    }
+    
+    if(press != noone &amp;&amp; press &lt; ds_grid_width(ctrl.store)){
+        var I;
+        I = instance_create(0,0,ctrl.store[#press,0]);
+        I.name = ctrl.store[#press,1]
+        I.desc = ctrl.store[#press,2]
+        I.price = ctrl.store[#press,3]
+        I.width = ctrl.store[#press,4]
+        I.height = ctrl.store[#press,5]
+        I.being_built = true;
+    }
+    
+    if(mouse_check_button_pressed(mb_right)){
+        for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
+            for(var j = 0; j &lt; 2;j++){
+                //draw_sprite(spr_stations,2*i + j, i * 64,Y + j*64);
+                if(mouse_x &gt; i * 64 &amp;&amp; mouse_x &lt; (1+i) * 64){
+                    if(mouse_y &gt; Y + j * 64 &amp;&amp; mouse_y &lt; Y +(1+j) * 64){
+                        selected = 2*i + j;
+                    }
+                }
+            }
+        }
+    }
+    
 }
 </string>
           </argument>
@@ -95,14 +137,14 @@ if(!hidden){
     draw_rectangle(room_width - 256,room_height - 0,room_width,room_height - 128,true);
     
     
-    if(selected != noone ||true){
+    if(selected != noone &amp;&amp; selected &lt; ds_grid_width(ctrl.store)){
         /*insert getting stuff heres*/
         
-        cost = 3.50;
-        capacity = 9;
-        orderlies = 2;
-        happyMod = 1;
-        moneyMod = 1;
+        cost = ctrl.store[#selected,4];
+        capacity = 0;
+        orderlies = 0;
+        happyMod = 0;
+        moneyMod = 0;
         
         draw_text(xx,Y +0*yy, "cost: " + string(cost));
         draw_text(xx,Y +1*yy,"capacity: " + string(capacity));

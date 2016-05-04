@@ -54,7 +54,7 @@ store = store_init();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Collition matrix
+            <string>///Collision matrix
 
 matrix = 0;
 wallMatrix = 0;
