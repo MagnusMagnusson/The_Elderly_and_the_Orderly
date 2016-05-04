@@ -25,8 +25,34 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected = noone;
+            <string>///Create UI, is different between day and night
+selected = noone;
+alarm[0] = 3*(30/fps);
 
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Nothing
 
 </string>
           </argument>
@@ -54,21 +80,37 @@
 var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
 offset = 32;
 yoffset = string_height("Lol") + 4;
+xmove_offset = string_width("Move");
+xsell_offset = string_width("Sell");
 
-if(selected != noone){// ||true){
+if(selected != noone){
+    if(!ctrl.isDay){
     
-    xx = selected.x;
-    yy = selected.y;
-        
-    draw_sprite(spr_uibutton,0,xx, yy + yoffset*7);
-    if(mouse_check_button(mb_left)){
-        if(mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 64){
-            if(mouse_y &gt; yy+ yoffset * 7 &amp;&amp; mouse_y &lt; yy + yoffset * 7 + 32){
-                show_message("LEAVE ME ALONE!");
-            } 
+        xx = x;
+        yy = y;
+        if(!alarm[0]){
+                
+            //if xx, yy, offset, yoffset or any constants are changed,
+            //you need to change it to the same in Draw event.
+            // the last constant in each line is the end of the sprite
+            if(mouse_check_button_pressed(mb_left) &amp;&amp; selected.being_built == false){
+                if(mouse_x &gt; xx + xmove_offset &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
+                    if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                        selected.being_built = true;
+                        with(object_index){
+                            instance_destroy();
+                        }
+                    } 
+                }
+                if(mouse_x &gt; 2* xx + xsell_offset &amp;&amp; mouse_x &lt; 2* xx + xsell_offset + 40){
+                    if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                        show_message("Here you should be able to sell it....should be implemented after lunch");
+                    }  
+                }
+                
+            }
         }
     }
-    
 }
 
 </string>
@@ -93,19 +135,50 @@ if(selected != noone){// ||true){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(0,0,"This is working");
+            <string>///UI for stations when clicked
+//draw_text(0,0,"This is working");
 
 var xx,yy,offset,yoffset;
 var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
+var sell = false;
+var move = false;
 offset = 32;
 yoffset = string_height("Lol") + 4;
+xmove_offset = string_width("Move");
+xsell_offset = string_width("Sell");
 
-if(selected != noone ||true){/*
+//UI for clicking a bed, it has name, description, level (might not apply) depth and two buttons (sell and move)
+if(selected.object_index == o_bed){
+    xx = selected.x
+    yy = selected.y;
+    name = "Bed";
+    desc = "Here the residents can sleep";
+    level = 1;
+    depth = -100; //Add price
+    
+    //Drawing the profile
+    //draw_sprite(spr_bed, 0, xx, yy);
+    draw_text(xx + offset, yy , name + " (level " + string(level) + ")");
+    draw_text(xx + offset, yy + yoffset,desc);
+    
+    //If xx, offset, yy, yoffset or any constants are changed then it also
+    //needs to be changed in Step event.
+    if(!ctrl.isDay){
+        draw_sprite(spr_button_debug,0,xx + offset, yy + (2*yoffset));
+        draw_sprite(spr_button_debug,0,xx + offset + offset, yy + (2*yoffset)); //please erase me when sprite is right size
+        draw_sprite(spr_button_debug,0, 2*xx+offset, yy + (2* yoffset));
+        draw_sprite(spr_button_debug,0, 2*xx+offset + offset, yy + (2* yoffset)); //please erase me
+        draw_text(2*xx+offset, yy +(2*yoffset), "Sell");
+        draw_text(xx+offset, yy + (2*yoffset), "Move");
+    }
+}
+//if(selected != noone ){ //!= noone){
+/*
     xx = selected.x;
     yy = selected.y;
     happiness = selected.happiness;
     name = selected.name;*/
-    
+/*    
     xx = 0;
     yy = 128;
     name = "Bingo";

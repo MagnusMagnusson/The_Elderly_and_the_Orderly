@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Config
 
-isDay = true;
+isDay = !true;
 dayDuration = 5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 2000;
@@ -121,8 +121,8 @@ for(var i = 0; i &lt; room_width; i+=31){
             <kind>1</kind>
             <string>///Basic room
 //Create instance of 2 beds, tv station, orderly and two residents//
-bed1 = instance_create(31*3+2,31*5,o_bed);
-bed2 = instance_create(31+2,31*5,o_bed);
+bed1 = instance_create(31*4 + 4,31*6 + 4,o_bed);
+bed2 = instance_create(31*2 + 4,31*6 + 4,o_bed);
 bed1.being_built = false;
 bed2.being_built = false;
 

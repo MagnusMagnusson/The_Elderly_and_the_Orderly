@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Station</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -66,7 +66,7 @@ if(being_built){
 
     x = (mouse_x div 31 * 31);
     y = (mouse_y div 31 * 31);
-    if(mouse_check_button_pressed(mb_left)){
+    if(mouse_check_button_pressed(mb_right)){
         if(isValid){
             being_built = false;
             ctrl.funds -= 1234;//Needs costssssss
@@ -97,7 +97,8 @@ if(being_built){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var bed_profile = instance_create(x, y, o_ui_stations);
+            <string>///Click for menu
+var bed_profile = instance_create(x, y, o_ui_stations);
 
 bed_profile.selected = id;
 </string>

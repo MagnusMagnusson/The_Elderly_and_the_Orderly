@@ -14,6 +14,7 @@
     <sprite>sprites\sprite5</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_courner</sprite>
+    <sprite>sprites\spr_button_debug</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -54,12 +55,12 @@
     <objects name="Room_stuffies">
       <object>objects\o_bed</object>
       <object>objects\o_wall</object>
+      <object>objects\TV</object>
+      <object>objects\Bingo</object>
+      <object>objects\Station</object>
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
-    <object>objects\Station</object>
-    <object>objects\TV</object>
-    <object>objects\Bingo</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_basic</room>
