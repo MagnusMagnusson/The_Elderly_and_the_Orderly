@@ -76,7 +76,8 @@ alarm[0] = 3*(30/fps);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xx,yy,offset,yoffset;
+            <string>
+var xx,yy,offset,yoffset;
 var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
 offset = 32;
 yoffset = string_height("Lol") + 4;
@@ -85,7 +86,6 @@ xsell_offset = string_width("Sell");
 
 if(selected != noone){
     if(!ctrl.isDay){
-    
         xx = x;
         yy = y;
         if(!alarm[0]){
@@ -93,10 +93,12 @@ if(selected != noone){
             //if xx, yy, offset, yoffset or any constants are changed,
             //you need to change it to the same in Draw event.
             // the last constant in each line is the end of the sprite
-            if(mouse_check_button_pressed(mb_left) &amp;&amp; selected.being_built == false){
+            if(mouse_check_button_pressed(mb_left)){
                 if(mouse_x &gt; xx + xmove_offset &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
                     if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                        selected.move_bed = true;
                         selected.being_built = true;
+                        //TODO: fjarlægja gömlu staðsetningu úr matrix
                         with(object_index){
                             instance_destroy();
                         }
@@ -104,7 +106,12 @@ if(selected != noone){
                 }
                 if(mouse_x &gt; 2* xx + xsell_offset &amp;&amp; mouse_x &lt; 2* xx + xsell_offset + 40){
                     if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
-                        show_message("Here you should be able to sell it....should be implemented after lunch");
+                        ctrl.funds += selected.price/2;
+                        //TODO: fjarlægja úr matrix
+                        instance_destroy();
+                        with(selected){
+                            instance_destroy();
+                        }
                     }  
                 }
                 
@@ -154,7 +161,8 @@ if(selected.object_index == o_bed){
     name = "Bed";
     desc = "Here the residents can sleep";
     level = 1;
-    depth = -100; //Add price
+    depth = -100; 
+    //Add price
     
     //Drawing the profile
     //draw_sprite(spr_bed, 0, xx, yy);

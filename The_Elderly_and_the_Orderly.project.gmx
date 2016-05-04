@@ -38,6 +38,8 @@
     </scripts>
     <scripts name="store">
       <script>scripts\station_info.gml</script>
+      <script>scripts\store_get_id.gml</script>
+      <script>scripts\store_init.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -55,16 +57,18 @@
     <objects name="Room_stuffies">
       <object>objects\o_bed</object>
       <object>objects\o_wall</object>
-      <object>objects\TV</object>
-      <object>objects\Bingo</object>
-      <object>objects\Station</object>
+      <object>objects\o_Bingo</object>
+      <object>objects\o_Station</object>
+      <object>objects\o_TV</object>
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_basic</room>
+    <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_Main</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
