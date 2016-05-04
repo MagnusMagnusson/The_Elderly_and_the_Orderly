@@ -57,9 +57,15 @@
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
+    <object>objects\Station</object>
+    <object>objects\TV</object>
+    <object>objects\Bingo</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room2</room>
+    <room>rooms\rm_basic</room>
     <room>rooms\rm_Main</room>
+    <room>rooms\rm_magnuss_chamber</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
