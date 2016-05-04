@@ -38,6 +38,7 @@
         </sprites>
       </sprites>
     </sprites>
+    <sprite>sprites\spr_btn</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

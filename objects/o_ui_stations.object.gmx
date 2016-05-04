@@ -76,7 +76,7 @@ alarm[0] = 3*(30/fps);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///UI for Stations
 var xx,yy,offset,yoffset;
 var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
 offset = 32;
@@ -94,8 +94,10 @@ if(selected != noone){
             //you need to change it to the same in Draw event.
             // the last constant in each line is the end of the sprite
             if(mouse_check_button_pressed(mb_left)){
+                //Move bed
                 if(mouse_x &gt; xx + xmove_offset &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
                     if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                        ctrl.profileActive = false;
                         //Remove old position from matrix
                         matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
                         selected.move_bed = true;
@@ -105,6 +107,7 @@ if(selected != noone){
                         }
                     } 
                 }
+                //Sell bed
                 if(mouse_x &gt; 2* xx + xsell_offset &amp;&amp; mouse_x &lt; 2* xx + xsell_offset + 40){
                     if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
                         ctrl.funds += selected.price/2;
@@ -113,6 +116,7 @@ if(selected != noone){
                         with(selected){
                             instance_destroy();
                         }
+                        ctrl.profileActive = false;
                     }  
                 }
                 
@@ -156,13 +160,14 @@ xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
 
 //UI for clicking a bed, it has name, description, level (might not apply) depth and two buttons (sell and move)
-if(selected.object_index == o_bed){
+if(selected.object_index == o_bed ){//&amp;&amp; !ctrl.profileActive){
     xx = selected.x
     yy = selected.y;
     name = "Bed";
     desc = "Here the residents can sleep";
     level = 1;
     depth = -100; 
+    ctrl.profileActive = true;
     //Add price
     
     //Drawing the profile
