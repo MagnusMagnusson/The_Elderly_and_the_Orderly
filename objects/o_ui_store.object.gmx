@@ -49,11 +49,37 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///
+            <string>/// mouse presses
+var press = noone;
+var Y = room_height - 128;
 
-if(mouse_check_button_pressed(mb_left)){
-    if(mouse_x &lt; 32 &amp;&amp; mouse_y &lt; 32){
-        hidden = !hidden;
+if(!hidden){
+    if(mouse_check_button_pressed(mb_left)){
+        for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
+            for(var j = 0; j &lt; 2;j++){
+                //draw_sprite(spr_stations,2*i + j, i * 64,Y + j*64);
+                if(mouse_x &gt; i * 64 &amp;&amp; mouse_x &lt; (1+i) * 64){
+                    if(mouse_y &gt; Y + j * 64 &amp;&amp; mouse_y &lt; Y +(1+j) * 64){
+                        press = 2*i + j;
+                    }
+                }
+            }
+        }
+    }
+    //0 - object_index
+//1 - name
+//2 - desc
+//3 - price
+//4 - width
+//5 - height
+    if(press != noone){
+        var I;
+        I = instance_create(0,0,ctrl.store[#press,0]);
+        I.name = ctrl.store[#press,1]
+        I.desc = ctrl.store[#press,2]
+        I.price = ctrl.store[#press,3]
+        I.width = ctrl.store[#press,4]
+        I.height = ctrl.store[#press,5]
     }
 }
 </string>
