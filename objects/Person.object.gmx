@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///initialize target to location
 
 target_x=x;
 target_y=y;
@@ -52,7 +52,7 @@ target_y=y;
           <argument>
             <kind>1</kind>
             <string>/// Select if this was clicked
-global.selected_person=self;
+global.selected_person=id;
 
 
 </string>

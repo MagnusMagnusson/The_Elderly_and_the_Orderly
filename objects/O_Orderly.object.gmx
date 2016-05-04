@@ -90,7 +90,7 @@ if( target_y &lt; y )
             <kind>1</kind>
             <string>///set target
 
-if(global.selected_person==self)
+if(global.selected_person==id)
 {
     target_x=mouse_x
     target_y=mouse_y
