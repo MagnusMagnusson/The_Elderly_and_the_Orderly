@@ -44,6 +44,7 @@
     </scripts>
     <script>scripts\destroy_instance.gml</script>
     <script>scripts\deltafy.gml</script>
+    <script>scripts\inside_house.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
