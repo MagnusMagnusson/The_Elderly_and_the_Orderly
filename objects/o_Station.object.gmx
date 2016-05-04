@@ -25,8 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected = 0;
-hidden = false;
+            <string>///initializing procedure - empty
+being_built = true;
+mannable=false;
+manned=false;
+residentcapacity=0;
+width = 0;
+height = 0;
+price = 0;
+name = "station template";
+desc = "please get a real station.";
+
+
 </string>
           </argument>
         </arguments>
@@ -49,19 +59,40 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///
+            <string>///check if valid to build, and build if clicked
+var isValid;
+isValid = true;
+image_blend = c_white;
 
-if(mouse_check_button_pressed(mb_left)){
-    if(mouse_x &lt; 32 &amp;&amp; mouse_y &lt; 32){
-        hidden = !hidden;
+
+//If we're not already placed
+if(being_built){
+    //are we valid?
+    if(!matrix_is_empty(x div 31,y div 31,width,height) || !wallmatrix_is_empty(x div 31,y div 31,width,height)){
+        isValid = false;
+        image_blend = c_red;
+    }
+    //move me
+    x = (mouse_x div 31 * 31);
+    y = (mouse_y div 31 * 31);
+    //We are pressed
+    if(mouse_check_button_pressed(mb_left)){
+        if(isValid){//and valid
+            if(ctrl.funds &gt;= price){//and affordable
+                being_built = false;
+                ctrl.funds -= price;
+                matrix_reserve(x div 31, y div 31, width,height,id);//place me.
+            }
+        }
     }
 }
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="6" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -78,47 +109,10 @@ if(mouse_check_button_pressed(mb_left)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-var cost, capacity, orderlies, happyMod, moneyMod,xx,yy;
-xx = room_width - 256 + 8;
-yy = 16;
-Y = room_height - 128
-
-if(!hidden){
-    for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
-        for(var j = 0; j &lt; 2;j++){
-            draw_sprite(spr_stations,2*i + j, i * 64,Y + j*64);
-            draw_text(i * 64,Y + j*64,ctrl.store[#(2*i + j),1]);
-        }
-    }
-    
-    draw_rectangle(room_width - 256,room_height - 0,room_width,room_height - 128,true);
-    
-    
-    if(selected != noone ||true){
-        /*insert getting stuff heres*/
-        
-        cost = 3.50;
-        capacity = 9;
-        orderlies = 2;
-        happyMod = 1;
-        moneyMod = 1;
-        
-        draw_text(xx,Y +0*yy, "cost: " + string(cost));
-        draw_text(xx,Y +1*yy,"capacity: " + string(capacity));
-        draw_text(xx,Y +2*yy,"orderlies: " + string(orderlies));
-        draw_text(xx + 32,Y +3*yy, string(happyMod));
-        draw_text(xx + 32,Y +4*yy, string(moneyMod));
-    }
+            <string>if(!being_built){
+    var profile = instance_create(x, y, o_ui_stations);
+    profile.selected = id;
 }
-
-draw_set_color(c_white);
-draw_rectangle(room_width - 32 - string_width(string(ctrl.funds)),0,room_width,32,true);
-draw_set_color(c_black);
-draw_sprite(spr_icons,1,room_width - 32 - string_width(string(ctrl.funds)),0);
-draw_text(room_width - string_width(string(ctrl.funds)),16,ctrl.funds);
-
-draw_sprite(spr_icons,2,0,0);
 </string>
           </argument>
         </arguments>
