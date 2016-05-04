@@ -6,8 +6,8 @@ w = argument2;
 h = argument3;
 ID = argument4;
 
-for(var i = _x; i < _x + w; i++){
-    for(var j = _y; j < _y + h; j++){
+for(var i = _x; i < (_x + w); i++){
+    for(var j = _y; j < (_y + h); j++){
         ctrl.matrix[i,j] = noone;
     }
 }
