@@ -36,7 +36,7 @@
       <script>scripts\wallmatrix_range_empty.gml</script>
     </scripts>
     <scripts name="store">
-      <script>scripts\station_info.gml</script>
+      <script>scripts\station_init.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -57,15 +57,15 @@
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
-    <object>objects\Station</object>
-    <object>objects\TV</object>
-    <object>objects\Bingo</object>
+    <object>objects\o_Station</object>
+    <object>objects\o_TV</object>
+    <object>objects\o_Bingo</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\room2</room>
     <room>rooms\rm_basic</room>
     <room>rooms\rm_Main</room>
-    <room>rooms\rm_magnuss_chamber</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
