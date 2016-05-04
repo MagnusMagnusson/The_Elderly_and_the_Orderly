@@ -53,6 +53,12 @@ hidden = false;
 var press = noone;
 var Y = room_height - 128;
 
+if(mouse_check_button_pressed(mb_left)){
+    if(mouse_x &lt; 64 &amp;&amp; mouse_y &lt; 64){
+        hidden = !hidden;
+    }
+}
+
 if(!hidden){
     if(mouse_check_button_pressed(mb_left)){
         for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
@@ -75,6 +81,7 @@ if(!hidden){
         I.price = ctrl.store[#press,3]
         I.width = ctrl.store[#press,4]
         I.height = ctrl.store[#press,5]
+        I.being_built = true;
     }
     
     if(mouse_check_button_pressed(mb_right)){
