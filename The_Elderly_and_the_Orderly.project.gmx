@@ -18,6 +18,26 @@
     <sprites name="stations">
       <sprite>sprites\spr_tv</sprite>
     </sprites>
+    <sprites name="People">
+      <sprites name="residence">
+        <sprites name="hair">
+          <sprite>sprites\spr_person_hair_fm_1</sprite>
+          <sprite>sprites\spr_person_hair_ml_1</sprite>
+        </sprites>
+        <sprites name="head">
+          <sprite>sprites\spr_person_head_ml_1</sprite>
+          <sprite>sprites\spr_person_head_fm_1</sprite>
+        </sprites>
+        <sprites name="body">
+          <sprite>sprites\spr_person_body_fm_1</sprite>
+          <sprite>sprites\spr_person_body_ml_1</sprite>
+        </sprites>
+        <sprites name="legs">
+          <sprite>sprites\spr_person_feet_fm_1</sprite>
+          <sprite>sprites\spr_person_feet_ml_1</sprite>
+        </sprites>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
