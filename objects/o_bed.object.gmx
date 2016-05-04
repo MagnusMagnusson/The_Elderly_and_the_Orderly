@@ -124,8 +124,8 @@ bed_profile.selected = id;
             <kind>1</kind>
             <string>///draw self and id
 draw_self();
-draw_text(x,y,instance_position(x,y,o_bed));
-draw_text(x,y+16,id);
+//draw_text(x,y,instance_position(x,y,o_bed));
+//draw_text(x,y+16,id);
 </string>
           </argument>
         </arguments>

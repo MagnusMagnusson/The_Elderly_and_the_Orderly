@@ -62,6 +62,7 @@
     <object>objects\Bingo</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_basic</room>
     <room>rooms\rm_Main</room>
   </rooms>
   <help>
