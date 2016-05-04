@@ -43,6 +43,7 @@
       <script>scripts\store_get_id.gml</script>
     </scripts>
     <script>scripts\destroy_instance.gml</script>
+    <script>scripts\deltafy.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
@@ -65,6 +66,7 @@
     <object>objects\o_Station</object>
     <object>objects\o_TV</object>
     <object>objects\o_Bingo</object>
+    <object>objects\O_Resident</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_magnuss_chamber</room>
