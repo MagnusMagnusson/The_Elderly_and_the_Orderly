@@ -65,6 +65,7 @@
     <room>rooms\room2</room>
     <room>rooms\rm_basic</room>
     <room>rooms\rm_Main</room>
+    <room>rooms\rm_magnuss_chamber</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
