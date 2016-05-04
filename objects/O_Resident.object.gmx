@@ -45,13 +45,13 @@
 var choice=irandom(300);
 if(choice==1)
 {
-    target_x=irandom(0,room_width);
-    target_y=irandom(0,room_height);
+    target_x=irandom(room_width);
+    target_y=irandom(room_height);
     
     while(! inside_house(target_x,targety))
     {
-        target_x=irandom(0,room_width);
-        target_y=irandom(0,room_height);
+        target_x=irandom(room_width);
+        target_y=irandom(room_height);
     }
 }
 </string>

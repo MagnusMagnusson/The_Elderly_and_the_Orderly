@@ -14,6 +14,7 @@
     <sprite>sprites\sprite5</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_courner</sprite>
+    <sprite>sprites\spr_button_debug</sprite>
     <sprites name="stations">
       <sprite>sprites\spr_tv</sprite>
     </sprites>
@@ -32,8 +33,8 @@
     <script>scripts\station_name.gml</script>
     <scripts name="Collision">
       <script>scripts\matrix_is_empty.gml</script>
-      <script>scripts\matrix_reserve.gml</script>
       <script>scripts\matrix_clear.gml</script>
+      <script>scripts\matrix_reserve.gml</script>
       <script>scripts\wallmatrix_is_empty.gml</script>
       <script>scripts\wallmatrix_reserve.gml</script>
       <script>scripts\wallmatrix_clear.gml</script>
@@ -41,11 +42,14 @@
       <script>scripts\wallmatrix_range_empty.gml</script>
     </scripts>
     <scripts name="store">
-      <script>scripts\store_init.gml</script>
+      <script>scripts\station_info.gml</script>
       <script>scripts\store_get_id.gml</script>
+      <script>scripts\store_init.gml</script>
     </scripts>
     <script>scripts\destroy_instance.gml</script>
     <script>scripts\deltafy.gml</script>
+    <script>scripts\script15.gml</script>
+    <script>scripts\inside_house.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
@@ -62,6 +66,9 @@
     <objects name="Room_stuffies">
       <object>objects\o_bed</object>
       <object>objects\o_wall</object>
+      <object>objects\o_Bingo</object>
+      <object>objects\o_Station</object>
+      <object>objects\o_TV</object>
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
@@ -72,10 +79,10 @@
     <object>objects\object13</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_magnuss_chamber</room>
-    <room>rooms\room2</room>
     <room>rooms\rm_basic</room>
+    <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_Main</room>
+    <room>rooms\room2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
