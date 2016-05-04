@@ -69,6 +69,7 @@
     <object>objects\o_TV</object>
     <object>objects\o_Bingo</object>
     <object>objects\O_Resident</object>
+    <object>objects\object13</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_magnuss_chamber</room>
