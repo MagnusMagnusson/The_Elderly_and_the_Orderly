@@ -57,6 +57,9 @@
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
+    <object>objects\Station</object>
+    <object>objects\TV</object>
+    <object>objects\Bingo</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Main</room>

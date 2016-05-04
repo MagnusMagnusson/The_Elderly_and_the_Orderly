@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>being_built = true;
+            <string>///initialize as being built
+being_built = true;
 
 image_blend = c_red
 </string>
@@ -50,7 +51,8 @@ image_blend = c_red
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var isValid;
+            <string>///check if valid to build, and build if clicked
+var isValid;
 isValid = true;
 image_blend = c_white;
 
@@ -120,7 +122,8 @@ bed_profile.selected = id;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>///draw self and id
+draw_self();
 draw_text(x,y,instance_position(x,y,o_bed));
 draw_text(x,y+16,id);
 </string>
