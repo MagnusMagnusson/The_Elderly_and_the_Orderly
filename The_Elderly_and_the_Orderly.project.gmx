@@ -33,8 +33,10 @@
     <scripts name="Collision">
       <script>scripts\matrix_is_empty.gml</script>
       <script>scripts\matrix_reserve.gml</script>
+      <script>scripts\matrix_clear.gml</script>
       <script>scripts\wallmatrix_is_empty.gml</script>
       <script>scripts\wallmatrix_reserve.gml</script>
+      <script>scripts\wallmatrix_clear.gml</script>
       <script>scripts\wallmatrix_empty.gml</script>
       <script>scripts\wallmatrix_range_empty.gml</script>
     </scripts>
