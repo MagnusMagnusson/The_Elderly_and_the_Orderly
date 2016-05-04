@@ -38,6 +38,7 @@
     <scripts name="store">
       <script>scripts\station_init.gml</script>
     </scripts>
+    <script>scripts\destroy_instance.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
