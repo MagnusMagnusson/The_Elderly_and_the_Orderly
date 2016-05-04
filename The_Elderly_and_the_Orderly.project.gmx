@@ -50,7 +50,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\draw_person.gml</script>
-    <script>scripts\station_name.gml</script>
     <scripts name="Collision">
       <script>scripts\matrix_is_empty.gml</script>
       <script>scripts\matrix_clear.gml</script>
@@ -66,10 +65,12 @@
       <script>scripts\store_get_id.gml</script>
       <script>scripts\store_init.gml</script>
     </scripts>
+    <script>scripts\station_name.gml</script>
     <script>scripts\destroy_instance.gml</script>
     <script>scripts\deltafy.gml</script>
     <script>scripts\script15.gml</script>
     <script>scripts\inside_house.gml</script>
+    <script>scripts\act_on.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\ctrl</object>
