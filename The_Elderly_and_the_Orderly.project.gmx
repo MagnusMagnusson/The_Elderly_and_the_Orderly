@@ -36,7 +36,8 @@
       <script>scripts\wallmatrix_range_empty.gml</script>
     </scripts>
     <scripts name="store">
-      <script>scripts\station_init.gml</script>
+      <script>scripts\store_init.gml</script>
+      <script>scripts\store_get_id.gml</script>
     </scripts>
     <script>scripts\destroy_instance.gml</script>
   </scripts>

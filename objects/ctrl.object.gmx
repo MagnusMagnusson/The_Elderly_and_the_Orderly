@@ -33,8 +33,7 @@ timeLeft = dayDuration;
 funds = 2000;
 day = 1;
 
-
-
+store = store_init();
 </string>
           </argument>
         </arguments>

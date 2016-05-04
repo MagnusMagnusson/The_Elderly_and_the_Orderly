@@ -49,7 +49,9 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button_pressed(mb_left)){
+            <string>///
+
+if(mouse_check_button_pressed(mb_left)){
     if(mouse_x &lt; 32 &amp;&amp; mouse_y &lt; 32){
         hidden = !hidden;
     }
@@ -83,9 +85,10 @@ yy = 16;
 Y = room_height - 128
 
 if(!hidden){
-    for(var i = 0; i &lt; (room_width - 256) div 64;i++){
+    for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
         for(var j = 0; j &lt; 2;j++){
-            draw_sprite(spr_stations,i+j*i % 2, i * 64,Y + j*64);
+            draw_sprite(spr_stations,2*i + j, i * 64,Y + j*64);
+            draw_text(i * 64,Y + j*64,ctrl.store[#(2*i + j),1]);
         }
     }
     
