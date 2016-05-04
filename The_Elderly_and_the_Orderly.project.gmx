@@ -72,9 +72,6 @@
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
-    <object>objects\o_Station</object>
-    <object>objects\o_TV</object>
-    <object>objects\o_Bingo</object>
     <object>objects\O_Resident</object>
     <object>objects\object13</object>
   </objects>

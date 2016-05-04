@@ -96,9 +96,10 @@ if(selected != noone){
             if(mouse_check_button_pressed(mb_left)){
                 if(mouse_x &gt; xx + xmove_offset &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
                     if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                        //Remove old position from matrix
+                        matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
                         selected.move_bed = true;
                         selected.being_built = true;
-                        //TODO: fjarlægja gömlu staðsetningu úr matrix
                         with(object_index){
                             instance_destroy();
                         }
@@ -107,7 +108,7 @@ if(selected != noone){
                 if(mouse_x &gt; 2* xx + xsell_offset &amp;&amp; mouse_x &lt; 2* xx + xsell_offset + 40){
                     if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
                         ctrl.funds += selected.price/2;
-                        //TODO: fjarlægja úr matrix
+                        matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
                         instance_destroy();
                         with(selected){
                             instance_destroy();
