@@ -23,10 +23,10 @@
         <sprites name="hair">
           <sprite>sprites\spr_person_hair_fm_1</sprite>
           <sprite>sprites\spr_person_hair_ml_1</sprite>
+          <sprite>sprites\spr_person_hair_fm_2</sprite>
           <sprite>sprites\spr_person_hair_ml_2</sprite>
           <sprite>sprites\spr_person_hair_ml_3</sprite>
           <sprite>sprites\spr_person_hair_ml_4</sprite>
-          <sprite>sprites\spr_person_hair_fm_2</sprite>
         </sprites>
         <sprites name="head">
           <sprite>sprites\spr_person_head_ml_1</sprite>
@@ -77,17 +77,17 @@
     <scripts name="store">
       <script>scripts\station_info.gml</script>
       <script>scripts\store_get_id.gml</script>
-      <script>scripts\draw_cool_button.gml</script>
       <script>scripts\store_init.gml</script>
-      <script>scripts\inside_range.gml</script>
+      <script>scripts\randomize_person.gml</script>
+      <script>scripts\draw_cool_button.gml</script>
     </scripts>
     <script>scripts\station_name.gml</script>
+    <script>scripts\inside_range.gml</script>
     <script>scripts\destroy_instance.gml</script>
     <script>scripts\deltafy.gml</script>
     <script>scripts\script15.gml</script>
     <script>scripts\inside_house.gml</script>
     <script>scripts\act_on.gml</script>
-    <script>scripts\randomize_person.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_clock</font>
@@ -116,7 +116,7 @@
     <object>objects\O_Orderly</object>
     <object>objects\Person</object>
     <object>objects\O_Resident</object>
-    <object>objects\object13</object>
+    <object>objects\testify</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_basic</room>
