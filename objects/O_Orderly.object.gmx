@@ -63,6 +63,7 @@ if(global.selected_person==id)
 {
     target_x=mouse_x
     target_y=mouse_y
+    global.selected_person = noone;
 }
 </string>
           </argument>
