@@ -54,7 +54,7 @@ var xx,yy,offset;
 var happiness,name;
 offset = 32;
 
-if(selected != noone ||true){/*
+if(selected != O_Resident){/*
     xx = selected.x;
     yy = selected.y;
     happiness = selected.happiness;

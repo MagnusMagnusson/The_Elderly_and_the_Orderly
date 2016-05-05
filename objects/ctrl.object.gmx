@@ -127,7 +127,7 @@ for(var i = 0; i &lt; room_width; i+=31){
             <kind>1</kind>
             <string>///Basic room
 /*Basic room with 2 beds, tv station, oderly and 2 residents*/
-
+audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
 //Residents
 resident1 = instance_create(31*10, 31*20, O_Resident);
 resident2 = instance_create(31*8, 31*15, O_Resident);
