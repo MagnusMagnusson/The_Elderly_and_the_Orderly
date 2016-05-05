@@ -11,6 +11,9 @@ switch(argument0.type)
     case "bingo":
         if(argument0.isrunning)
             argument1.happiness = argument1.happiness + 0.05*argument0.prizelevel;
+    case "Bed":
+        if(argument0.isrunning)
+            //Add happiness for player??
     default:
         argument1.happiness =argument1.happiness + 0.01
 }
