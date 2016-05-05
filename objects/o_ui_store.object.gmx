@@ -67,7 +67,7 @@ if(mouse_check_button_pressed(mb_left)){
     draw_set_font(fnt_normal);
 }
 
-if(!hidden){
+if(!hidden &amp;&amp; !ctrl.isDay){
     if(mouse_check_button_pressed(mb_left)){
         for(var i = 0; i &lt; ds_grid_width(ctrl.store) div 2;i++){
             for(var j = 0; j &lt; 2;j++){
