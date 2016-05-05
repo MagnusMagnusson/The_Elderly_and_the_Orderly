@@ -35,6 +35,10 @@ day = 1;
 profileActive = false; //for clicking stations
 
 global.built_stations=ds_list_create();
+for(var i=0;i &lt; instance_number(o_Station);i++)
+{
+    ds_list_add(global.built_stations,instance_find(o_Station,i));
+}
 
 store = store_init();
 </string>
