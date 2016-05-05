@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Functions
+            <string>///call the inherited event
 event_inherited();
 
 
@@ -53,6 +53,7 @@ event_inherited();
 width = 1;
 height = 2;
 type = "Bed";
+visitweight=0.2;
 </string>
           </argument>
         </arguments>
