@@ -175,7 +175,7 @@ if(!decided)
 if(decided)
 {
     time_decided=time_decided+deltafy(1);
-    if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone &amp;&amp; !current_station.isrunning)) 
+    if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
     {
         decided=false;
         time_decided=0;

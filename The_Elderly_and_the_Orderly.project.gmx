@@ -103,7 +103,7 @@
         <object>objects\o_ui_day</object>
       </objects>
       <objects name="NIGHT">
-        <object>objects\o_bed</object>
+        <object>objects\o_ui_store</object>
       </objects>
     </objects>
     <objects name="Room_stuffies">
