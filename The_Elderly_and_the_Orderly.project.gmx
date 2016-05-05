@@ -73,6 +73,9 @@
     <script>scripts\inside_house.gml</script>
     <script>scripts\act_on.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_clock</font>
+  </fonts>
   <objects name="objects">
     <object>objects\ctrl</object>
     <objects name="UI">
