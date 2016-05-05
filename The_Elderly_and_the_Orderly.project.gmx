@@ -103,7 +103,7 @@
         <object>objects\o_ui_day</object>
       </objects>
       <objects name="NIGHT">
-        <object>objects\o_ui_store</object>
+        <object>objects\o_bed</object>
       </objects>
     </objects>
     <objects name="Room_stuffies">
@@ -111,10 +111,8 @@
       <object>objects\o_wall</object>
       <object>objects\o_Station</object>
       <object>objects\o_TV</object>
-      <object>objects\o_Bingo</object>
     </objects>
     <object>objects\O_Orderly</object>
-    <object>objects\Person</object>
     <object>objects\O_Resident</object>
     <object>objects\testify</object>
   </objects>
