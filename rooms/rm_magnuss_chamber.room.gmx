@@ -55,6 +55,7 @@
     <instance objName="ctrl" x="96" y="64" name="inst_9192F308" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_bed" x="64" y="96" name="inst_CAD0ABB9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_ui_store" x="256" y="224" name="inst_40FE3020" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_ui_day" x="96" y="256" name="inst_4A932E53" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

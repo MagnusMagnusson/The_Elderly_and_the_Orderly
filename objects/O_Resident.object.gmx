@@ -8,6 +8,44 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///initialize variables
+decided=false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -41,18 +79,52 @@
             <kind>1</kind>
             <string>///choose whether to change target to random
 
-
-var choice=irandom(300);
-if(choice==1)
+if(!decided)
 {
-    target_x=irandom(room_width);
-    target_y=irandom(room_height);
-    
-    while(! inside_house(target_x,targety))
+    var choice=irandom(100);
+    if(-1 &lt; choice &amp;&amp; choice &lt; 30))
     {
+        //20% chance of choosing a random spot
         target_x=irandom(room_width);
         target_y=irandom(room_height);
+        
+        while(! inside_house(target_x,targety))
+        {
+            target_x=irandom(room_width);
+            target_y=irandom(room_height);
+        }
+        decided=true;
     }
+    else if( 29 &lt; choice &amp;&amp; choice &lt; 60)
+    {
+        //30% chance of choosing a random station to visit
+        //use proportional "roulette style" selection
+        var listsize = ds_list_size(global.built_stations);
+        var weightsum=0;
+        for(var i =0; i &lt; listsize; i++)
+        {
+            weigtsum=weightsum+global.built_stations[i].visitweight;
+        }
+        choosepoint=random(weightsum);
+        for(var i=0;i&lt;listsize;i++)
+        {
+            chosenstation=global.built_stations[i];
+            weightsum=weightsum-global.built_stations[i].visitweight;
+            if(weightsum &lt;= choosepoint)
+            {
+                break;
+            }               
+        }
+        target_x=chosenstation.x;
+        target_y=chosenstation.y;  
+        decided=true;      
+    }
+    else
+    {
+        //TBD
+    
+    }
+    
 }
 </string>
           </argument>
