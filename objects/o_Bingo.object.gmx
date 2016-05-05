@@ -49,8 +49,8 @@ prizelevel=1;
 isrunning=false;
 manned=false;
 type="bingo";
-width = 2; 
-height = 2; 
+width = 3; 
+height = 3; 
 </string>
           </argument>
         </arguments>
