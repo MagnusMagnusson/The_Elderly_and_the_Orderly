@@ -105,16 +105,18 @@ with(o_ui_stations){
             <kind>1</kind>
             <string>///UI for Stations
 var xx,yy,offset,yoffset;
-var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix,profile_width;
+var name, desc, level, happyMod, moneyMod, capacity, orderlies, prefix, profile_width;
+//32 is a magic number since it works
 offset = 32;
 yoffset = string_height("Lol") + 4;
 xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
+//Description of the station
 desc = ctrl.store[#1,2];
 
-
-//What happens when station is clicked
+//This decides what happens when station is clicked
 if(selected != noone){
+    //To prevent another profile selected while moving the station....I think?
     ctrl.isClicked = true; 
     name = selected.type;
     if(!ctrl.isDay){

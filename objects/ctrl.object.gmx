@@ -131,12 +131,16 @@ for(var i = 0; i &lt; room_width; i+=31){
 //Residents
 resident1 = instance_create(31*10, 31*20, O_Resident);
 resident2 = instance_create(31*8, 31*15, O_Resident);
+
+//Orderly
+//orderly = instance_create(31*20, 31*16, O_Orderly);
 //The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
 bed2 = instance_create(31*2 ,31*6 ,o_bed);
 bed1.being_built = false;
 bed2.being_built = false;
 
+//TV
 tv = instance_create(31*6 , 31*7, o_TV);
 tv.being_built = false;
 
