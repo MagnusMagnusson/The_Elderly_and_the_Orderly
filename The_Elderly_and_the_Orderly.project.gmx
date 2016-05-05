@@ -96,7 +96,6 @@
       <script>scripts\station_info.gml</script>
       <script>scripts\store_get_id.gml</script>
       <script>scripts\store_init.gml</script>
-      <script>scripts\randomize_person.gml</script>
       <script>scripts\draw_cool_button.gml</script>
     </scripts>
     <script>scripts\station_name.gml</script>
@@ -106,6 +105,7 @@
     <script>scripts\script15.gml</script>
     <script>scripts\inside_house.gml</script>
     <script>scripts\act_on.gml</script>
+    <script>scripts\randomize_person.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_clock</font>
@@ -118,6 +118,7 @@
         <object>objects\o_ui_profile</object>
         <object>objects\o_ui_stations</object>
         <object>objects\o_ui_orderly</object>
+        <object>objects\o_ui_store</object>
         <object>objects\o_ui_day</object>
       </objects>
       <objects name="NIGHT">
@@ -126,10 +127,10 @@
     </objects>
     <objects name="Room_stuffies">
       <object>objects\o_bed</object>
-      <object>objects\o_wall</object>
-      <object>objects\o_Station</object>
-      <object>objects\o_TV</object>
       <object>objects\o_Bingo</object>
+      <object>objects\o_TV</object>
+      <object>objects\o_Station</object>
+      <object>objects\o_wall</object>
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\O_Resident</object>
