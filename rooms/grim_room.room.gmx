@@ -52,7 +52,6 @@
   </views>
   <instances>
     <instance objName="ctrl" x="96" y="64" name="inst_9192F308" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="96" y="256" name="inst_4A932E53" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="O_Resident" x="416" y="544" name="inst_F9A6A72B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="O_Resident" x="416" y="480" name="inst_6E866C08" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="O_Resident" x="416" y="416" name="inst_F6D73CF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -68,6 +67,7 @@
     <instance objName="o_TV" x="960" y="416" name="inst_7F00833B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="o_TV" x="960" y="512" name="inst_2517E622" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="ctrl" x="416" y="192" name="inst_159C5D9A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="o_ui_day" x="224" y="32" name="inst_9BD73ADA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -33,6 +33,7 @@ timeLeft = dayDuration;
 funds = 2000;
 day = 1;
 profileActive = false; //for clicking stations
+isclicked=false;
 
 global.built_stations=ds_list_create();
 for(var i=0;i &lt; instance_number(o_Station);i++)
