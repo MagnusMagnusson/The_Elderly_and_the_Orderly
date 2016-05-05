@@ -78,9 +78,9 @@ if(!hidden){
         I = instance_create(0,0,ctrl.store[#press,0]);
         I.name = ctrl.store[#press,1]
         I.desc = ctrl.store[#press,2]
-        I.price = ctrl.store[#press,3]
-        I.width = ctrl.store[#press,4]
-        I.height = ctrl.store[#press,5]
+        I.price = ctrl.store[#press,4]
+        I.width = ctrl.store[#press,5]
+        I.height = ctrl.store[#press,6]
         I.being_built = true;
     }
     
