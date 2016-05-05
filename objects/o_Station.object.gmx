@@ -39,6 +39,8 @@ type= "template";
 visitweight=1;
 desc = "please get a real station.";
 isrunning=true;
+runnable=false;
+mannable=false;
 
 alarm[0] = 3 * (30/fps);
 
