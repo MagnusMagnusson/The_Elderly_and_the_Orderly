@@ -141,8 +141,10 @@ if(!decided)
                 break;
             }               
         }
-        target_x=chosenstation.x;
-        target_y=chosenstation.y;  
+        if(chosenstation != noone){
+            target_x=chosenstation.x;
+            target_y=chosenstation.y;  
+        }
         current_station=chosenstation;
         decided=true;      
     }
