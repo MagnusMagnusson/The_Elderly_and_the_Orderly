@@ -9,9 +9,9 @@ var store = ds_grid_create(n,7);
 //0 - object_index
 //1 - name
 //2 - desc
-//3 - price
-//4 - width
-//5 - height
+//4 - price
+//5 - width
+//6 - height
 
 //0
 store[#i,0] = o_Station; //obj_index
