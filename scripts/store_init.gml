@@ -9,14 +9,14 @@ var store = ds_grid_create(n,7);
 //0 - object_index
 //1 - name
 //2 - desc
-//3 - price
-//4 - width
-//5 - height
+//4 - price
+//5 - width
+//6 - height
 
 //0
 store[#i,0] = o_Station; //obj_index
 store[#i,1] = "Template Station"; //name
-store[#i,2] = "please pick a real station"; //desc
+store[#i,2] = "Let's play Bingo!"; //desc
 store[#i,3] = 0; //spr_icon
 store[#i,4] = 0; //price
 store[#i,5] = 0; //width
