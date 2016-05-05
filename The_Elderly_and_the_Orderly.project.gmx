@@ -136,11 +136,11 @@
     <object>objects\Person</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\grim_room</room>
-    <room>rooms\rm_basic</room>
     <room>rooms\rm_magnuss_chamber</room>
+    <room>rooms\rm_basic</room>
+    <room>rooms\grim_room</room>
     <room>rooms\rm_Main</room>
-    <room>rooms\room2</room>
+    <room>rooms\room8</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

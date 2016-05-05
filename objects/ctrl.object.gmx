@@ -291,7 +291,7 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
             <kind>1</kind>
             <string>///Create Bed
 //For debugging 
-instance_create(x, y, o_bed);
+//instance_create(x, y, o_bed);
 </string>
           </argument>
         </arguments>
