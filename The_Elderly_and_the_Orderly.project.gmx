@@ -80,6 +80,7 @@
         <object>objects\o_ui_profile</object>
         <object>objects\o_ui_stations</object>
         <object>objects\o_ui_orderly</object>
+        <object>objects\o_ui_day</object>
       </objects>
       <objects name="NIGHT">
         <object>objects\o_ui_store</object>
@@ -98,8 +99,8 @@
     <object>objects\object13</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_basic</room>
+    <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_Main</room>
     <room>rooms\room2</room>
   </rooms>

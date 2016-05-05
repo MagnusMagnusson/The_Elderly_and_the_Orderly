@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///initializing procedure - empty
+            <string>///initializing procedure
 being_built = true;
 move_bed = false;
 mannable=false;
@@ -35,6 +35,7 @@ width = 0;
 height = 0;
 price = 0;
 name = "station template";
+type= "template";
 desc = "please get a real station.";
 alarm[0] = 3 * (30/fps);
 
@@ -109,11 +110,11 @@ if(being_built){
             if(isValid){
                 being_built = false;
                 move_bed = false;
+                ctrl.isClicked = false;
                 matrix_reserve(x div 31, y div 31, width,height,id);//place me.
             }
         }
     }
-    
     else{
         //We are pressed
         if(mouse_check_button_pressed(mb_left)){
@@ -121,9 +122,13 @@ if(being_built){
                 if(ctrl.funds &gt;= price){//and affordable
                     being_built = false;
                     ctrl.funds -= price;
+                    ds_list_add(global.built_stations,id);
                     matrix_reserve(x div 31, y div 31, width,height,id);//place me.
                 }
             }
+        }
+        if(mouse_check_button_pressed(mb_right)){
+            instance_destroy();
         }
     }
 }
@@ -166,7 +171,8 @@ if(being_built){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(!being_built &amp;&amp; !move_bed){
+            <string>///show profile when clicked
+if(!being_built &amp;&amp; !move_bed){
     var profile = instance_create(x, y, o_ui_stations);
     profile.selected = id;
 }

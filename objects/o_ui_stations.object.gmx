@@ -34,6 +34,33 @@ alarm[0] = 3*(30/fps);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///There is only one ui at a time
+
+with(o_ui_stations){
+    if(id != other.id &amp;&amp; !ctrl.isClicked){
+        instance_destroy();
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="0">
       <action>
@@ -85,6 +112,7 @@ xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
 
 if(selected != noone){
+    ctrl.isClicked = true;
     if(!ctrl.isDay){
         xx = x;
         yy = y;
@@ -95,7 +123,7 @@ if(selected != noone){
             // the last constant in each line is the end of the sprite
             if(mouse_check_button_pressed(mb_left)){
                 //Move bed
-                if(mouse_x &gt; xx + xmove_offset &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
+                if(mouse_x &gt; xx+offset  &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
                     if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
                         ctrl.profileActive = false;
                         //Remove old position from matrix
@@ -108,7 +136,7 @@ if(selected != noone){
                     } 
                 }
                 //Sell bed
-                if(mouse_x &gt; 2* xx + xsell_offset &amp;&amp; mouse_x &lt; 2* xx + xsell_offset + 40){
+                if(mouse_x &gt; xx + xsell_offset + xmove_offset + 4 &amp;&amp; mouse_x &lt; xx + xsell_offset + xmove_offset + 40){
                     if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
                         ctrl.funds += selected.price/2;
                         matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
@@ -180,9 +208,9 @@ if(selected.object_index == o_bed ){//&amp;&amp; !ctrl.profileActive){
     if(!ctrl.isDay){
         draw_sprite(spr_button_debug,0,xx + offset, yy + (2*yoffset));
         draw_sprite(spr_button_debug,0,xx + offset + offset, yy + (2*yoffset)); //please erase me when sprite is right size
-        draw_sprite(spr_button_debug,0, 2*xx+offset, yy + (2* yoffset));
+        draw_sprite(spr_button_debug,0, (xx+offset+xmove_offset), yy + (2* yoffset));
         draw_sprite(spr_button_debug,0, 2*xx+offset + offset, yy + (2* yoffset)); //please erase me
-        draw_text(2*xx+offset, yy +(2*yoffset), "Sell");
+        draw_text(xx+offset+xmove_offset + 4, yy +(2*yoffset), "Sell");
         draw_text(xx+offset, yy + (2*yoffset), "Move");
     }
 }
