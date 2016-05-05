@@ -134,7 +134,7 @@ resident2 = instance_create(31*8, 31*15, O_Resident);
 
 //Orderly
 orderly = instance_create(31*20, 31*16, O_Orderly);
-global.selected_person = noone;
+global.selected_person = noone; //ugly hack
 //The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
 bed2 = instance_create(31*2 ,31*6 ,o_bed);
@@ -153,6 +153,9 @@ matrix_reserve(bed2.x div 31, bed2.y div 31, bed2.width, bed2.height, bed2.id );
 //TV
 matrix_reserve(tv.x div 31, tv.y div 31, tv.width, tv.height, tv.id);
 
+//Remove before alpha day!!!!
+bingoTEST = instance_create(31*29 ,31* 15 ,o_Bingo);
+matrix_reserve(bingoTEST.x div 31, bingoTEST.y div 31, bingoTEST.width, bingoTEST.height, bingoTEST.id);
 
 
 

@@ -392,7 +392,15 @@ if(selected != noone ){
             draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
         }
         else{
-            draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+            if(selected.runnable){
+                draw_sprite(spr_btn, 2, xx + offset + profile_width, yy + (move_y * yoffset));
+                draw_text(xx + offset + profile_width, yy + (move_y * yoffset), "Activate");
+                move_y += 1;
+                draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+            }
+            else{
+                draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+            }
         }
     }
     
