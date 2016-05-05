@@ -38,6 +38,8 @@ name = "station template";
 type= "template";
 visitweight=1;
 desc = "please get a real station.";
+isrunning=true;
+
 alarm[0] = 3 * (30/fps);
 
 
