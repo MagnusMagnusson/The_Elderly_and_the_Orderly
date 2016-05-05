@@ -48,6 +48,28 @@ current_station=noone;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Create random person
+randomize_person(choose(true, false));
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -91,7 +113,7 @@ if(!decided)
         target_x=irandom(room_width);
         target_y=irandom(room_height);
         
-        while(! inside_house(target_x,targety))
+        while(! inside_house(target_x,target_y))
         {
             target_x=irandom(room_width);
             target_y=irandom(room_height);
@@ -106,21 +128,23 @@ if(!decided)
         var weightsum=0;
         for(var i =0; i &lt; listsize; i++)
         {
-            weigtsum=weightsum+global.built_stations[i].visitweight;
+            weigtsum=weightsum+global.built_stations[|i].visitweight;
         }
         choosepoint=random(weightsum);
         var chosenstation = noone;
         for(var i=0;i&lt;listsize;i++)
         {
-            chosenstation=global.built_stations[i];
-            weightsum=weightsum-global.built_stations[i].visitweight;
+            chosenstation=global.built_stations[|i];
+            weightsum=weightsum-global.built_stations[|i].visitweight;
             if(weightsum &lt;= choosepoint)
             {
                 break;
             }               
         }
-        target_x=chosenstation.x;
-        target_y=chosenstation.y;  
+        if(chosenstation != noone){
+            target_x=chosenstation.x;
+            target_y=chosenstation.y;  
+        }
         current_station=chosenstation;
         decided=true;      
     }
@@ -151,7 +175,7 @@ if(!decided)
 if(decided)
 {
     time_decided=time_decided+deltafy(1);
-    if((target_x==x &amp;&amp; target_y==y)|| !current_station.isrunning) 
+    if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
     {
         decided=false;
         time_decided=0;
@@ -169,6 +193,29 @@ if(decided)
     }
     
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_person(x, y, id);
 </string>
           </argument>
         </arguments>

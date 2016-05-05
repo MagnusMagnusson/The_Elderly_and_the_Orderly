@@ -106,7 +106,7 @@ if(being_built){
     y = (mouse_y div 31 * 31);
     //moving the bed
     
-    if(move_bed &amp;&amp; !ctrl.profileActive){
+    if(move_bed){
         x = (mouse_x div 31 * 31);
         y = (mouse_y div 31 * 31);
         if(mouse_check_button_pressed(mb_right)){
