@@ -105,12 +105,15 @@ with(o_ui_stations){
             <kind>1</kind>
             <string>///UI for Stations
 var xx,yy,offset,yoffset;
-var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix;
+var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix,profile_width;
 offset = 32;
 yoffset = string_height("Lol") + 4;
 xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
 desc = ctrl.store[#1,2];
+
+
+//What happens when station is clicked
 if(selected != noone){
     ctrl.isClicked = true; 
     name = selected.type;
@@ -125,24 +128,55 @@ if(selected != noone){
         }
         else if(name == "TV"){
             desc = ctrl.store[#3,2];
-        } 
+        }
+        profile_width = string_width(desc);
+        //Draw profile left side of object
+        if(xx + string_width(desc) + offset &gt; room_width){
+            offset = -32;
+            xmove_offset = -string_width("Move");
+            xsell_offset = -string_width("Sell");
+            profile_width = -string_width(desc);
+        }
+        
+        //draw profile higher on screen - NOT WORKING!
+        /*if(yy + 7 * yoffset &gt; room_height){
+            yoffset = -(string_height("Lol") + 4);
+            move_y = -8;
+        } */
         if(!alarm[0]){  
             //if xx, yy, offset, yoffset or any constants are changed,
             //you need to change it to the same in Draw event.
             // the last constant in each line is the end of the sprite
             if(mouse_check_button_pressed(mb_left)){
-                //Move bed
-                if(mouse_x &gt; xx+offset  &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
-                    if(mouse_y &gt; yy + (6* yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
-                        ctrl.profileActive = false;
-                        //Remove old position from matrix
-                        matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
-                        selected.move_bed = true;
-                        selected.being_built = true;
-                        with(object_index){
+                
+                if(xx + string_width(desc) + offset &gt; room_width){
+                    //Move bed
+                    if(mouse_x &gt; xx + offset + profile_width &amp;&amp; mouse_x &lt; xx + offset + profile_width - xmove_offset ){
+                        if(mouse_y &gt; yy + (6* yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                            ctrl.profileActive = false;
+                            //Remove old position from matrix
+                            matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
+                            selected.move_bed = true;
+                            selected.being_built = true;
+                            with(object_index){
+                                instance_destroy();
+                            }
+                        } 
+                    }
+                    //Sell bed
+                    //xx + string_width(desc) + offset
+                    if(mouse_x &gt; xx + offset + profile_width - xsell_offset - xmove_offset &amp;&amp; mouse_x &lt; xx + offset + profile_width - (2* xsell_offset) - xmove_offset){
+                        if(mouse_y &gt; yy + (6 * yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                            //update funds to price of station/2
+                            ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2; 
+                            matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
                             instance_destroy();
-                        }
-                    } 
+                            with(selected){
+                                instance_destroy();
+                            }
+                            ctrl.profileActive = false;
+                        }  
+                    }
                 }
                 //Sell bed
                 if(mouse_x &gt; xx + string_width(desc) + offset - xsell_offset &amp;&amp; mouse_x &lt; xx + string_width(desc) + offset){
@@ -161,10 +195,14 @@ if(selected != noone){
                         instance_destroy();
                         with(selected){
                             instance_destroy();
-                        }
-                        ctrl.profileActive = false;
-                    }  
+                            with(selected){
+                                instance_destroy();
+                            }
+                            ctrl.profileActive = false;
+                        }  
+                    }
                 }
+                
                 
             }
         }
@@ -194,16 +232,19 @@ if(selected != noone){
           <argument>
             <kind>1</kind>
             <string>///UI for stations when clicked
-//draw_text(0,0,"This is working");
 
 var xx,yy,offset,yoffset, xmove_offset, xsell_offset;
-var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix, sell;
+var name, desc, level, happyMod, moneyMod, capacity,orderlies,prefix, sell, profile_width;
 var sell = false;
 var move = false;
 offset = 32;
 yoffset = string_height("Lol") + 4;
 xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
+
+
+//To reverse info on profile when profile is too low on screen 
+move_y = 0; //not working correctly
 
 //UI for clicking a station, it has name, description, level (might not apply), happiness, price(when selling) depth and two buttons (sell and move)
 
@@ -249,31 +290,88 @@ if(selected != noone ){
     if(happyMod &gt;= 0){
         prefix = "+";
     }
-
-    //Drawing the profile
-    draw_text(xx + offset, yy , name + " (level " + string(level) + ")");
-    draw_text(xx + offset, yy + yoffset,desc);
     
-    //If xx, offset, yy, yoffset or any constants are changed then it also
-    //needs to be changed in Step event.
-    draw_text(xx + offset, yy+ (2*yoffset), "Capacity: " + string(capacity));
-    draw_text(xx + offset, yy+(3*yoffset), "Orderlies: " + string(orderlies));
-    draw_text(xx + offset, yy + (4*yoffset), "Happiness: " + prefix + string(happyMod));
-    draw_text(xx + offset, yy + (5*yoffset), "Cost: " + prefix + string(moneyMod));
-    
-    //Only able to move and sell during night time
-    if(!ctrl.isDay){    
-        //Move button and text
-        draw_sprite(spr_btn, 0, xx + offset, yy + (6 * yoffset));
-        draw_text(xx + offset, yy + (6 * yoffset), "Move");
-        //Sell button and text
-        draw_sprite(spr_btn, 1, xx + string_width(desc) + offset - xsell_offset, yy + (6 * yoffset));
-        draw_text(xx + string_width(desc) + offset - xsell_offset, yy + (6 * yoffset), "Sell");
-        
-        draw_rectangle(xx + offset - 1, yy - 1, xx + string_width(desc) + offset, yy + 7 * yoffset, true);
+    profile_width = string_width(desc);
+    //Draw profile left side of object
+    if(xx + string_width(desc) + offset &gt; room_width){
+        offset = -32;
+        xmove_offset = -string_width("Move");
+        xsell_offset = -string_width("Sell");
+        profile_width = -string_width(desc);
     }
+    
+    //draw profile higher on screen - NOT WORKING!
+    /*if(yy + 7 * yoffset &gt; room_height){
+        yoffset = -(string_height("Lol") + 4);
+        move_y = -8;
+    }*/
+    //The profile is drawn to the left of station
+    if(xx + string_width(desc) + offset &gt; room_width){
+         //Drawing the profile
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset) , name + " (level " + string(level) + ")");
+        move_y += 1;
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset),desc);
+        move_y += 1;
+        //If xx, offset, yy, yoffset or any constants are changed then it also
+        //needs to be changed in Step event.
+    
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Capacity: " + string(capacity));
+        move_y += 1;
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Orderlies: " + string(orderlies));
+        move_y += 1;
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
+        move_y += 1;
+        draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Cost: " + prefix + string(moneyMod));
+        move_y += 1;
+        if(!ctrl.isDay){ 
+               
+            //Move button and text
+            draw_sprite(spr_btn, 0, xx + offset + profile_width, yy + (move_y * yoffset));
+            draw_text(xx + offset + profile_width, yy + (move_y * yoffset), "Move");
+            //Sell button and text
+            draw_sprite(spr_btn, 1, xx + offset + profile_width - xsell_offset - xmove_offset, yy + (move_y * yoffset));
+            draw_text(xx + offset + profile_width - xsell_offset - xmove_offset, yy + (move_y * yoffset), "Sell");
+            move_y += 1;
+            draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+        }
+        else{
+            draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+        }
+    }
+    //Profile drawn to the right of station
     else{
-        draw_rectangle(xx + offset - 1, yy - 1, xx + string_width(desc) + offset, yy + 6 * yoffset, true);
+    
+        //Drawing the profile
+        draw_text(xx + offset , yy + (move_y*yoffset) , name + " (level " + string(level) + ")");
+        move_y += 1;
+        draw_text(xx + offset , yy + (move_y*yoffset),desc);
+        move_y += 1;
+        //If xx, offset, yy, yoffset or any constants are changed then it also
+        //needs to be changed in Step event.
+    
+        draw_text(xx + offset, yy + (move_y*yoffset), "Capacity: " + string(capacity));
+        move_y += 1;
+        draw_text(xx + offset, yy + (move_y*yoffset), "Orderlies: " + string(orderlies));
+        move_y += 1;
+        draw_text(xx + offset, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
+        move_y += 1;
+        draw_text(xx + offset, yy + (move_y*yoffset), "Cost: " + prefix + string(moneyMod));
+        move_y += 1;
+        //Only able to move and sell during night time
+        if(!ctrl.isDay){ 
+               
+            //Move button and text
+            draw_sprite(spr_btn, 0, xx + offset, yy + (move_y * yoffset));
+            draw_text(xx + offset, yy + (move_y * yoffset), "Move");
+            //Sell button and text
+            draw_sprite(spr_btn, 1, xx + offset + profile_width - xsell_offset, yy + (move_y * yoffset));
+            draw_text(xx + offset + profile_width - xsell_offset, yy + (move_y * yoffset), "Sell");
+            move_y += 1;
+            draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+        }
+        else{
+            draw_rectangle(xx + offset + profile_width, yy - 1, xx + offset, yy + (move_y * yoffset), true);
+        }
     }
     
 }

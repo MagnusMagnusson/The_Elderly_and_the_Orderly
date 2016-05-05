@@ -28,8 +28,8 @@ store[#i,1] = "a Wall"; //name
 store[#i,2] = "Essential for a pretty home"; //desc
 store[#i,3] = 1; //spr_icon
 store[#i,4] = 15; //price
-store[#i,5] = 0; //width
-store[#i,6] = 0; //height
+store[#i,5] = 1; //width
+store[#i,6] = 1; //height
 i++;
 //2
 store[#i,0] = o_bed; //obj_index
@@ -48,7 +48,7 @@ store[#i,2] = "clean the dust please."; //desc
 store[#i,3] = 3; //spr_icon
 store[#i,4] = 150; //price
 store[#i,5] = 1; //width
-store[#i,6] = 2; //height
+store[#i,6] = 1; //height
 i++;
 
 
