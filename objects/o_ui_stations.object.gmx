@@ -147,8 +147,17 @@ if(selected != noone){
                 //Sell bed
                 if(mouse_x &gt; xx + string_width(desc) + offset - xsell_offset &amp;&amp; mouse_x &lt; xx + string_width(desc) + offset){
                     if(mouse_y &gt; yy + (6 * yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
-                        ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2; //update funds to price of station/2
+                        //update funds to price of station/2
+                        ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2;
+                        //remove station from matrix and list, then destroy it
                         matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
+                        for(var i =0; i &lt; ds_list_size(global.built_stations);i++)
+                        {
+                            if(global.built_stations[|i]==selected)
+                            {
+                                ds_list_delete(global.built_stations,i);
+                            }
+                        }
                         instance_destroy();
                         with(selected){
                             instance_destroy();
