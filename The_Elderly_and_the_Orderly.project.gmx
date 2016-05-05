@@ -114,7 +114,7 @@
     </objects>
     <object>objects\O_Orderly</object>
     <object>objects\O_Resident</object>
-    <object>objects\testify</object>
+    <object>objects\Person</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_basic</room>
