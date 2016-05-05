@@ -57,6 +57,14 @@ if(mouse_check_button_pressed(mb_left)){
     if(mouse_x &lt; 64 &amp;&amp; mouse_y &lt; 64){
         hidden = !hidden;
     }
+    //Check if there is a new day command
+    draw_set_font(fnt_clock);
+    var w = string_width("Start New Day");
+    if(inside_range(mouse_x,mouse_y,(room_width - w) div 2,0,(room_width +w) div 2,string_height("L"))){
+        ctrl.timeLeft = ctrl.dayDuration;
+        ctrl.isDay = true;
+    }
+    draw_set_font(fnt_normal);
 }
 
 if(!hidden){
@@ -96,7 +104,6 @@ if(!hidden){
             }
         }
     }
-    
 }
 </string>
           </argument>
@@ -163,6 +170,14 @@ draw_sprite(spr_icons,1,room_width - 32 - string_width(string(ctrl.funds)),0);
 draw_text(room_width - string_width(string(ctrl.funds)),16,ctrl.funds);
 
 draw_sprite(spr_icons,2,0,0);
+
+draw_set_font(fnt_clock);
+
+var w = string_width("Start New Day");
+draw_cool_button((room_width - w) div 2,0,w,string_height("Start New Day"),0,"Start New Day");
+
+
+draw_set_font(fnt_normal);
 </string>
           </argument>
         </arguments>
