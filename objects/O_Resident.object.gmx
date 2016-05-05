@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Person</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -113,7 +113,7 @@ if(!decided)
         target_x=irandom(room_width);
         target_y=irandom(room_height);
         
-        while(! inside_house(target_x,targety))
+        while(! inside_house(target_x,target_y))
         {
             target_x=irandom(room_width);
             target_y=irandom(room_height);
@@ -141,8 +141,10 @@ if(!decided)
                 break;
             }               
         }
-        target_x=chosenstation.x;
-        target_y=chosenstation.y;  
+        if(chosenstation != noone){
+            target_x=chosenstation.x;
+            target_y=chosenstation.y;  
+        }
         current_station=chosenstation;
         decided=true;      
     }
@@ -173,7 +175,7 @@ if(!decided)
 if(decided)
 {
     time_decided=time_decided+deltafy(1);
-    if((target_x==x &amp;&amp; target_y==y)|| !current_station.isrunning) 
+    if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
     {
         decided=false;
         time_decided=0;
