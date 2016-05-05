@@ -2,7 +2,7 @@
 //creates a new store listing and returns it as a ds_Grid
 
 var n,i;
-n = 4;
+n = 6;
 i = 0;
 var store = ds_grid_create(n,7);
 
@@ -50,6 +50,27 @@ store[#i,4] = 150; //price
 store[#i,5] = 1; //width
 store[#i,6] = 1; //height
 i++;
+
+//4
+store[#i,0] = o_Bingo; //obj_index
+store[#i,1] = "Bingo Set"; //name
+store[#i,2] = "Fun for ages 8 to 80, for the entire family"; //desc
+store[#i,3] = 4; //spr_icon
+store[#i,4] = 300; //price
+store[#i,5] = 2; //width
+store[#i,6] = 2; //height
+i++;
+
+//5
+store[#i,0] = o_Bingo; //obj_index
+store[#i,1] = "Bingo Set"; //name
+store[#i,2] = "Fun for ages 8 to 80, for the entire family"; //desc
+store[#i,3] = 4; //spr_icon
+store[#i,4] = 300; //price
+store[#i,5] = 2; //width
+store[#i,6] = 2; //height
+i++;
+
 
 
 return store;
