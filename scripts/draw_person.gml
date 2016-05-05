@@ -9,7 +9,27 @@ head = people.head;
 body = people.body;
 hair = people.hair;
 legs = people.legs;
-draw_sprite(legs,0,_x,_y);
-draw_sprite(body,0,_x,_y);
-draw_sprite(head,0,_x,_y);
-draw_sprite(hair,0,_x,_y);
+
+var sub;
+if(people.xprevious > people.x){
+    sub = 1;
+}
+else{
+    if(people.xprevious < people.x){
+        sub = 3;
+    }
+    else{
+        if(people.yprevious < people.y){
+            sub = 0;
+        }
+        else{
+            sub = 2;
+        }
+    }
+    
+}
+
+draw_sprite(legs,sub,_x,_y);
+draw_sprite(body,sub,_x,_y);
+draw_sprite(head,sub,_x,_y);
+draw_sprite(hair,sub,_x,_y);
