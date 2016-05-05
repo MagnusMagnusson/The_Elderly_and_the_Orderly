@@ -122,20 +122,26 @@ for(var i = 0; i &lt; room_width; i+=31){
           <argument>
             <kind>1</kind>
             <string>///Basic room
-//Create instance of 2 beds, tv station, orderly and two residents//
+/*Basic room with 2 beds, tv station, oderly and 2 residents*/
+
+//The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
 bed2 = instance_create(31*2 ,31*6 ,o_bed);
-
-//Add the beds to the matrix
-matrix_reserve(bed1.x div 31, bed1.y div 31, bed1.width, bed1.height, bed1.id );
-matrix_reserve(bed2.x div 31, bed2.y div 31, bed2.width, bed2.height, bed2.id );
-
 bed1.being_built = false;
 bed2.being_built = false;
 
+tv = instance_create(31*6 , 31*7, o_TV);
+tv.being_built = false;
 
 
-//Add rest when those object have been created
+//Objects added to the matrix
+matrix_reserve(bed1.x div 31, bed1.y div 31, bed1.width, bed1.height, bed1.id );
+matrix_reserve(bed2.x div 31, bed2.y div 31, bed2.width, bed2.height, bed2.id );
+matrix_reserve(tv.x div 31, tv.y div 31, tv.width, tv.height, tv.id);
+
+
+
+
 
 </string>
           </argument>

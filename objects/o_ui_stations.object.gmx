@@ -113,9 +113,19 @@ xsell_offset = string_width("Sell");
 desc = ctrl.store[#1,2];
 if(selected != noone){
     ctrl.isClicked = true; 
+    name = selected.type;
     if(!ctrl.isDay){
         xx = x;
         yy = y;
+        if(name == "Bed"){
+            desc = ctrl.store[#2,2];
+        }
+        else if(name == "bingo"){
+            desc = ctrl.store[#1,2];
+        }
+        else if(name == "TV"){
+            desc = ctrl.store[#3,2];
+        } 
         if(!alarm[0]){  
             //if xx, yy, offset, yoffset or any constants are changed,
             //you need to change it to the same in Draw event.
