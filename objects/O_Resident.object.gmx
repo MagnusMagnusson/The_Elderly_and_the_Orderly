@@ -128,14 +128,14 @@ if(!decided)
         var weightsum=0;
         for(var i =0; i &lt; listsize; i++)
         {
-            weigtsum=weightsum+global.built_stations[i].visitweight;
+            weigtsum=weightsum+global.built_stations[|i].visitweight;
         }
         choosepoint=random(weightsum);
         var chosenstation = noone;
         for(var i=0;i&lt;listsize;i++)
         {
-            chosenstation=global.built_stations[i];
-            weightsum=weightsum-global.built_stations[i].visitweight;
+            chosenstation=global.built_stations[|i];
+            weightsum=weightsum-global.built_stations[|i].visitweight;
             if(weightsum &lt;= choosepoint)
             {
                 break;
