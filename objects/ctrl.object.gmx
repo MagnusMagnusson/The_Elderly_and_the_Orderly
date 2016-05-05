@@ -172,7 +172,8 @@ matrix_reserve(tv.x div 31, tv.y div 31, tv.width, tv.height, tv.id);
             <kind>1</kind>
             <string>///music
 
-audio_play_sound(snd_entertainer,1,true);
+
+audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
 </string>
           </argument>
         </arguments>
