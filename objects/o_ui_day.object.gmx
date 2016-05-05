@@ -7,7 +7,62 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var totalminutes = 13*60;
+var duration = ctrl.dayDuration;
+var currtime = ctrl.timeLeft;
+var totminute = ((duration - currtime) / duration) * totalminutes;
+
+var currdate = date_create_datetime(1995,06,20,8,0,0)
+currdate = date_inc_minute(currdate,totminute);
+var hour = date_get_hour(currdate);
+var minute = string(date_get_minute(currdate));
+
+if(string_length(minute)&lt;2){
+
+minute = "0" + minute;
+}
+var time = string(hour) + ":" +minute;
+
+draw_set_font(fnt_clock);
+if(ctrl.isDay){
+    draw_set_color($FA540C);
+    draw_rectangle(0,0,16 + string_width(" 8:00 "), 16 + string_height( " 8:00 "),false);
+    draw_set_color(c_white);
+    draw_set_valign(fa_middle);
+    draw_set_halign(fa_center);
+    draw_text((16 + string_width(" 8:00 ")) div 2,(16 + string_height( " 8:00 "))div 2,time);
+    draw_set_halign(fa_left);
+    
+    draw_set_valign(fa_top);
+    draw_set_color(0);
+}
+draw_set_font(fnt_normal);
+/*dayDuration
+timeLeft
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

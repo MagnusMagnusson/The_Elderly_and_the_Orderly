@@ -120,7 +120,9 @@ if(!hidden){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if(ctrl.isDay){
+    exit;
+}
 var cost, capacity, orderlies, happyMod, moneyMod,xx,yy;
 xx = room_width - 256 + 8;
 yy = 16;
