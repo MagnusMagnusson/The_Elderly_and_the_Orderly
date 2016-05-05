@@ -113,7 +113,6 @@ if(being_built){
             }
         }
     }
-    
     else{
         //We are pressed
         if(mouse_check_button_pressed(mb_left)){
@@ -124,6 +123,9 @@ if(being_built){
                     matrix_reserve(x div 31, y div 31, width,height,id);//place me.
                 }
             }
+        }
+        if(mouse_check_button_pressed(mb_right)){
+            instance_destroy();
         }
     }
 }
