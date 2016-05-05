@@ -20,6 +20,7 @@
     <sprite>sprites\spr_button_debug</sprite>
     <sprites name="stations">
       <sprite>sprites\spr_tv</sprite>
+      <sprite>sprites\spr_bingo</sprite>
     </sprites>
     <sprites name="People">
       <sprites name="residence">
@@ -51,6 +52,20 @@
           <sprite>sprites\spr_person_feet_ml_2</sprite>
           <sprite>sprites\spr_person_feet_ml_3</sprite>
           <sprite>sprites\spr_person_feet_ml_4</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="orderlies">
+        <sprites name="hair">
+          <sprite>sprites\spr_orderly_hair_1</sprite>
+        </sprites>
+        <sprites name="head">
+          <sprite>sprites\spr_orderly_head_1</sprite>
+        </sprites>
+        <sprites name="body">
+          <sprite>sprites\spr_orderly_body_2</sprite>
+        </sprites>
+        <sprites name="feet">
+          <sprite>sprites\spr_orderly_feet_1</sprite>
         </sprites>
       </sprites>
     </sprites>
