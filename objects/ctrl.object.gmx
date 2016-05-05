@@ -134,6 +134,7 @@ resident2 = instance_create(31*8, 31*15, O_Resident);
 
 //Orderly
 orderly = instance_create(31*20, 31*16, O_Orderly);
+global.selected_person = noone;
 //The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
 bed2 = instance_create(31*2 ,31*6 ,o_bed);
