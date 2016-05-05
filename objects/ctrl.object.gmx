@@ -28,7 +28,7 @@
             <string>///Initialize variables
 
 isDay = !true;
-dayDuration = 0.1 * room_speed * 60 //5 minutes per day
+dayDuration = 5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 2000;
 day = 1;

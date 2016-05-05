@@ -82,7 +82,7 @@ decided=false;
 if(!decided)
 {
     var choice=irandom(100);
-    if(-1 &lt; choice &amp;&amp; choice &lt; 30))
+    if(-1 &lt; choice &amp;&amp; choice &lt; 30)
     {
         //20% chance of choosing a random spot
         target_x=irandom(room_width);

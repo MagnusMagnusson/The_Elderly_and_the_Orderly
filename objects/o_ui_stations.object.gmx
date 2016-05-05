@@ -110,7 +110,7 @@ offset = 32;
 yoffset = string_height("Lol") + 4;
 xmove_offset = string_width("Move");
 xsell_offset = string_width("Sell");
-
+desc = ctrl.store[#1,2];
 if(selected != noone){
     ctrl.isClicked = true; 
     if(!ctrl.isDay){
@@ -123,7 +123,7 @@ if(selected != noone){
             if(mouse_check_button_pressed(mb_left)){
                 //Move bed
                 if(mouse_x &gt; xx+offset  &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
-                    if(mouse_y &gt; yy + (2* yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                    if(mouse_y &gt; yy + (6* yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
                         ctrl.profileActive = false;
                         //Remove old position from matrix
                         matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
@@ -135,8 +135,8 @@ if(selected != noone){
                     } 
                 }
                 //Sell bed
-                if(mouse_x &gt; xx + xsell_offset + xmove_offset + 4 &amp;&amp; mouse_x &lt; xx + xsell_offset + xmove_offset + 40){
-                    if(mouse_y &gt; yy + (2 * yoffset) &amp;&amp; mouse_y &lt; yy + (2 * yoffset) + 20){
+                if(mouse_x &gt; xx + string_width(desc) + offset - xsell_offset &amp;&amp; mouse_x &lt; xx + string_width(desc) + offset){
+                    if(mouse_y &gt; yy + (6 * yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
                         ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2; //update funds to price of station/2
                         matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
                         instance_destroy();
@@ -248,8 +248,8 @@ if(selected != noone ){
         draw_sprite(spr_btn, 0, xx + offset, yy + (6 * yoffset));
         draw_text(xx + offset, yy + (6 * yoffset), "Move");
         //Sell button and text
-        draw_sprite(spr_btn, 1, (xx+offset+xmove_offset), yy + (6 * yoffset));
-        draw_text(xx + offset + xmove_offset + 4, yy + (6 * yoffset), "Sell");
+        draw_sprite(spr_btn, 1, xx + string_width(desc) + offset - xsell_offset, yy + (6 * yoffset));
+        draw_text(xx + string_width(desc) + offset - xsell_offset, yy + (6 * yoffset), "Sell");
         
         draw_rectangle(xx + offset - 1, yy - 1, xx + string_width(desc) + offset, yy + 7 * yoffset, true);
     }
