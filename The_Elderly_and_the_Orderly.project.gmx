@@ -64,6 +64,7 @@
     <scripts name="store">
       <script>scripts\station_info.gml</script>
       <script>scripts\store_get_id.gml</script>
+      <script>scripts\script18.gml</script>
       <script>scripts\store_init.gml</script>
     </scripts>
     <script>scripts\station_name.gml</script>
@@ -73,6 +74,10 @@
     <script>scripts\inside_house.gml</script>
     <script>scripts\act_on.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_clock</font>
+    <font>fonts\fnt_normal</font>
+  </fonts>
   <objects name="objects">
     <object>objects\ctrl</object>
     <objects name="UI">
