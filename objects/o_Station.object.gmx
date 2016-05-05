@@ -109,6 +109,7 @@ if(being_built){
             if(isValid){
                 being_built = false;
                 move_bed = false;
+                ctrl.isClicked = false;
                 matrix_reserve(x div 31, y div 31, width,height,id);//place me.
             }
         }
