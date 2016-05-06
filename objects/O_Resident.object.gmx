@@ -43,7 +43,7 @@
 decided=false;
 time_decided=0;
 current_station=noone;
-happiness=50
+happiness=irandom_range(50,90);
 mybed = noone;
 name = randomize_name();
 </string>
