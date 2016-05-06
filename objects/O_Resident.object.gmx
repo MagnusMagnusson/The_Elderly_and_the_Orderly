@@ -44,7 +44,7 @@ decided=false;
 time_decided=0;
 current_station=noone;
 happiness=50
-
+mybed = noone;
 </string>
           </argument>
         </arguments>
@@ -105,7 +105,7 @@ randomize_person(choose(true, false));
             <kind>1</kind>
             <string>///choose what to do if not decided
 
-if(!decided)
+if(!decided &amp;&amp; ctrl.isDay)
 {
     var choice=irandom(100);
     if(-1 &lt; choice &amp;&amp; choice &lt; 30)
@@ -173,7 +173,7 @@ if(!decided)
           <argument>
             <kind>1</kind>
             <string>///choose whether or not to abandon decided course
-if(decided)
+if(decided  &amp;&amp; ctrl.isDay)
 {
     time_decided=time_decided+deltafy(1);
     if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
@@ -193,6 +193,49 @@ if(decided)
                
     }
     
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///let's get you to sleep
+if(!ctrl.isDay){
+    if(mybed == noone || !instance_exists(mybed)){
+        var canSleep = false;
+        with(o_bed){
+            if(myperson == noone){
+                canSleep = true;
+                myperson = other.id;
+                other.mybed = id;
+                break;
+            }
+        }
+        if(!canSleep){
+            if(happiness &gt;= 5){
+                happiness = 5;
+            }
+        }
+    }
+    else{
+        x = mybed.x - 15;
+        y = mybed.y - 31;
+    }
 }
 </string>
           </argument>
