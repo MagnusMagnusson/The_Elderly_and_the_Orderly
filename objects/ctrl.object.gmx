@@ -28,7 +28,7 @@
             <string>///Initialize variables
 
 isDay = !true;
-dayDuration = 1 * room_speed * 60 //5 minutes per day
+dayDuration = 5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 2000;
 day = 1;
@@ -102,13 +102,7 @@ for(var i = 0; i &lt; room_width div 31; i++){
 
 for(var i = 0; i &lt; room_width; i+=31){
     for(var j = 0; j &lt; room_width; j+=31){
-        if(i &gt;= 31 &amp;&amp; i &lt;= 961){
-            if(j &gt;= 151 &amp;&amp; j &lt;= 558){
-                tile_add(bg_parquet, irandom(4)*31, 0,31, 31,i,j,255);
-                continue;
-            }
-        }
-        tile_add(bg_grass, irandom(19)*31, 0,31, 31,i,j,255);
+        //tile_add(bg_parquet, irandom(4)*31, 0,31, 31,i,j,255);
     }
 }
 
@@ -169,6 +163,30 @@ matrix_reserve(bingoTEST.x div 31, bingoTEST.y div 31, bingoTEST.width, bingoTES
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///music
+
+
+audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
 </string>
           </argument>
         </arguments>

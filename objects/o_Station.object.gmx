@@ -30,7 +30,6 @@ being_built = false;
 move_bed = false;
 mannable=false;
 manned=false;
-image_speed = 0;
 residentcapacity=0;
 width = 0;
 height = 0;

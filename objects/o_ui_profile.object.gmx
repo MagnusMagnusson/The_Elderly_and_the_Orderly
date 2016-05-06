@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-99</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,33 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///init
-selected = noone;
-active = false;
-alarm[0] = 5;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///nothing
+            <string>selected = noone;
 </string>
           </argument>
         </arguments>
@@ -74,25 +48,7 @@ alarm[0] = 5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///This code isn't working
-/*if(active == true){
-    var xx = selected.x;
-    var yy = selected.y;
-    offset = 32;
-    if(mouse_check_button_pressed(mb_any)){
-        if(mouse_x &gt; xx + 128 || mouse_x &lt; xx + offset || mouse_y &gt; yy + 64 || mouse_y &lt; yy){
-            with(object_index){
-                instance_destroy();
-            }
-        }
-    }
-    active = false;
-}*/
-
-if(mouse_check_button_pressed(mb_any) &amp;&amp; !alarm[0]){
-    instance_destroy();
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -114,26 +70,31 @@ if(mouse_check_button_pressed(mb_any) &amp;&amp; !alarm[0]){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xx,yy,offset;
+            <string>draw_text(0,0,"This is working");
+
+var xx,yy,offset;
 var happiness,name;
 offset = 32;
 
-//Position of profile
-xx = selected.x;
-yy = selected.y;
+if(selected != O_Resident){/*
+    xx = selected.x;
+    yy = selected.y;
+    happiness = selected.happiness;
+    name = selected.name;*/
+    
+    xx = 500; //Throw out once we have clickable residents.
+    yy = 500;
+    happiness = 100;
+    name = "Jónas";//To here
+    
+    draw_person(xx,yy,selected); //Picture
+    draw_text(xx + offset, yy,"Name : " + name);//name
+    draw_sprite(spr_icons,0,xx,yy+32);//Heart
+    draw_healthbar(xx +offset,yy+32,xx +offset + 128,yy + 64,happiness,
+        c_black,c_red,c_green,0,true,false); //Happy
+    draw_rectangle(xx,yy,xx + 128,yy +64,true);
 
-happiness = selected.happiness;
-name = randomize_name();
-
-draw_person(xx + offset,yy,selected); //Picture
-draw_text(xx + (2*offset), yy,"Name : " + name);//name
-draw_sprite(spr_icons,0, xx + offset,yy+32);//Heart
-draw_healthbar(xx +(2*offset),yy+32,xx +offset + 128,yy + 64,happiness,
-    c_black,c_red,c_green,0,true,false); //Happy
-draw_rectangle(xx + offset,yy,xx + 128,yy +64,true);
-active = true;
-
-
+}
 </string>
           </argument>
         </arguments>

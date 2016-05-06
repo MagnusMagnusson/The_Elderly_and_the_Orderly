@@ -52,11 +52,20 @@ alarm[0] = 3*(30/fps);
             <kind>1</kind>
             <string>///There is only one ui at a time
 
-with(o_ui_stations){
-    if(id != other.id &amp;&amp; !ctrl.isClicked){
-        instance_destroy();
-    }
+if(instance_number(o_ui_stations) != 1)
+{
+    for(var i=0;i &lt; instance_number(o_ui_stations);i++)
+    {
+        if( id != instance_find(o_ui_stations,i))
+        {
+            with(instance_find(o_ui_stations,i))
+            {
+                instance_destroy();
+            }
+        }
+    }    
 }
+
 </string>
           </argument>
         </arguments>
