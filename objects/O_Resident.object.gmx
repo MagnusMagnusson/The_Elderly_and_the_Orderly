@@ -45,6 +45,7 @@ time_decided=0;
 current_station=noone;
 happiness=50
 mybed = noone;
+name = randomize_name();
 </string>
           </argument>
         </arguments>

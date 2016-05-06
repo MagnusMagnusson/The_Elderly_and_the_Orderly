@@ -123,7 +123,7 @@ xx = selected.x;
 yy = selected.y;
 
 happiness = selected.happiness;
-name = randomize_name();
+name = selected.name;
 
 draw_person(xx + offset,yy,selected); //Picture
 draw_text(xx + (2*offset), yy,"Name : " + name);//name
