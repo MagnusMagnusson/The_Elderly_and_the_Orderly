@@ -2,11 +2,11 @@
 var first;
 var last;
 var n,m;
-n = 5;
+n = 4;
 m = 4;
 
 //Male names
-if(argument0 == 0){
+if(argument0){
     //First name
     first[0] = "James";
     first[1] = "Alex";
@@ -26,7 +26,7 @@ else{
     //First name
     first[0] = "Fay";
     first[1] = "Lady";
-    n = 2;
+    n = 1;
     //Last name
     last[0] = "bloomberg";
     last[1] = "tinklebottom";
