@@ -106,6 +106,7 @@
     <script>scripts\inside_house.gml</script>
     <script>scripts\act_on.gml</script>
     <script>scripts\randomize_person.gml</script>
+    <script>scripts\randomize_name.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_clock</font>
@@ -137,8 +138,8 @@
     <object>objects\Person</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\grim_room</room>
     <room>rooms\rm_basic</room>
+    <room>rooms\grim_room</room>
     <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_Main</room>
     <room>rooms\room2</room>
