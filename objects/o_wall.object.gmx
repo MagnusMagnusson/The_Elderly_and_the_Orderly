@@ -51,7 +51,9 @@ dir = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>if(ctrl.isDay){
+    instance_destroy();
+}
 
 if(mouse_check_button_pressed(mb_right)){
     if(stage == 0){
