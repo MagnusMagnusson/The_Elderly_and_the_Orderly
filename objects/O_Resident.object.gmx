@@ -45,29 +45,11 @@ time_decided=0;
 current_station=noone;
 happiness=irandom_range(50,90);
 mybed = noone;
-name = randomize_name();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Create random person
-randomize_person(choose(true, false));
+gender = choose(true, false);
+//randomize name
+name = randomize_name(gender);
+//random person
+randomize_person(gender);
 </string>
           </argument>
         </arguments>

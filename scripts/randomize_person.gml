@@ -5,6 +5,7 @@ m = 4;
 f = 1;
 var prefix;
 
+//argument0 is gender, 0 is male, 1 is female
 if(argument0){
     prefix = "ml_";
     n = m;
@@ -30,3 +31,5 @@ body = asset_get_index(str);
 str = "spr_person_feet_"+prefix+string(irandom(n-1)+1);
 show_debug_message(str);
 legs = asset_get_index(str);
+
+
