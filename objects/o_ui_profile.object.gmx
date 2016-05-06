@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-99</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>selected = noone;
+active = false;
 </string>
           </argument>
         </arguments>
@@ -48,7 +49,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>///This code isn't working
+/*if(active == true){
+    var xx = selected.x;
+    var yy = selected.y;
+    offset = 32;
+    if(mouse_check_button_pressed(mb_any)){
+        if(mouse_x &gt; xx + 128 || mouse_x &lt; xx + offset || mouse_y &gt; yy + 64 || mouse_y &lt; yy){
+            with(object_index){
+                instance_destroy();
+            }
+        }
+    }
+    active = false;
+}*/
+</string>
           </argument>
         </arguments>
       </action>
@@ -70,31 +85,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(0,0,"This is working");
-
-var xx,yy,offset;
+            <string>var xx,yy,offset;
 var happiness,name;
 offset = 32;
 
-if(selected != O_Resident){/*
-    xx = selected.x;
-    yy = selected.y;
-    happiness = selected.happiness;
-    name = selected.name;*/
-    
-    xx = 500; //Throw out once we have clickable residents.
-    yy = 500;
-    happiness = 100;
-    name = "Jónas";//To here
-    
-    draw_person(xx,yy,selected); //Picture
-    draw_text(xx + offset, yy,"Name : " + name);//name
-    draw_sprite(spr_icons,0,xx,yy+32);//Heart
-    draw_healthbar(xx +offset,yy+32,xx +offset + 128,yy + 64,happiness,
-        c_black,c_red,c_green,0,true,false); //Happy
-    draw_rectangle(xx,yy,xx + 128,yy +64,true);
+//Position of profile
+xx = selected.x;
+yy = selected.y;
 
-}
+happiness = selected.happiness;
+name = randomize_name();
+
+draw_person(xx + offset,yy,selected); //Picture
+draw_text(xx + (2*offset), yy,"Name : " + name);//name
+draw_sprite(spr_icons,0, xx + offset,yy+32);//Heart
+draw_healthbar(xx +(2*offset),yy+32,xx +offset + 128,yy + 64,happiness,
+    c_black,c_red,c_green,0,true,false); //Happy
+draw_rectangle(xx + offset,yy,xx + 128,yy +64,true);
+active = true;
+
+
 </string>
           </argument>
         </arguments>
