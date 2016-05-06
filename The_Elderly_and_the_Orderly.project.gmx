@@ -70,6 +70,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_btn</sprite>
+    <sprite>sprites\spr_smile</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

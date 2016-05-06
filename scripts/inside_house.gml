@@ -2,4 +2,4 @@
 
 //can be extended for arbitrary house shapes by iterating through
 //covering rectangles
-return (32 < argument0 && argument0 < 992 && 160 <argument1 && argument1 < 576);
+return (31 < argument0 && argument0 < 992 && 151 <argument1 && argument1 < 558);
