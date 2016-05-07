@@ -5,21 +5,18 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\snd_entertainer</sound>
-    <sound>sound\snd_maple_leaf</sound>
+    <sounds name="Music">
+      <sound>sound\snd_maple_leaf</sound>
+      <sound>sound\snd_entertainer</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
-    <sprite>sprites\spr_icons</sprite>
-    <sprite>sprites\spr_uibutton</sprite>
-    <sprite>sprites\spr_stations</sprite>
-    <sprite>sprites\spr_bed</sprite>
     <sprite>sprites\sprite5</sprite>
-    <sprite>sprites\spr_wall</sprite>
-    <sprite>sprites\spr_courner</sprite>
-    <sprite>sprites\spr_button_debug</sprite>
     <sprites name="stations">
       <sprite>sprites\spr_tv</sprite>
+      <sprite>sprites\spr_bed</sprite>
+      <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_bingo</sprite>
     </sprites>
     <sprites name="People">
@@ -69,20 +66,28 @@
         </sprites>
       </sprites>
     </sprites>
-    <sprite>sprites\spr_btn</sprite>
-    <sprite>sprites\spr_smile</sprite>
+    <sprites name="UI">
+      <sprite>sprites\spr_btn</sprite>
+      <sprite>sprites\spr_button_debug</sprite>
+      <sprite>sprites\spr_icons</sprite>
+      <sprite>sprites\spr_uibutton</sprite>
+      <sprite>sprites\spr_stations</sprite>
+      <sprite>sprites\spr_courner</sprite>
+      <sprite>sprites\spr_smile</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
-    <background>background\background1</background>
-    <background>background\background2</background>
-    <background>background\bg_grass</background>
-    <background>background\bg_tiles</background>
-    <background>background\bg_parquet</background>
+    <backgrounds name="Tiles">
+      <background>background\background1</background>
+      <background>background\background2</background>
+      <background>background\background0</background>
+      <background>background\bg_parquet</background>
+      <background>background\bg_grass</background>
+      <background>background\bg_tiles</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\draw_person.gml</script>
     <scripts name="Collision">
       <script>scripts\matrix_is_empty.gml</script>
       <script>scripts\matrix_clear.gml</script>
@@ -94,20 +99,25 @@
       <script>scripts\wallmatrix_range_empty.gml</script>
     </scripts>
     <scripts name="store">
-      <script>scripts\station_info.gml</script>
       <script>scripts\store_get_id.gml</script>
       <script>scripts\store_init.gml</script>
       <script>scripts\draw_cool_button.gml</script>
     </scripts>
-    <script>scripts\station_name.gml</script>
-    <script>scripts\inside_range.gml</script>
-    <script>scripts\destroy_instance.gml</script>
-    <script>scripts\deltafy.gml</script>
-    <script>scripts\script15.gml</script>
-    <script>scripts\inside_house.gml</script>
-    <script>scripts\act_on.gml</script>
-    <script>scripts\randomize_person.gml</script>
-    <script>scripts\randomize_name.gml</script>
+    <scripts name="randomizers">
+      <script>scripts\randomize_person.gml</script>
+      <script>scripts\draw_person.gml</script>
+      <script>scripts\randomize_name.gml</script>
+    </scripts>
+    <scripts name="stations">
+      <script>scripts\act_on.gml</script>
+      <script>scripts\station_name.gml</script>
+    </scripts>
+    <scripts name="Misc">
+      <script>scripts\inside_house.gml</script>
+      <script>scripts\destroy_instance.gml</script>
+      <script>scripts\inside_range.gml</script>
+      <script>scripts\deltafy.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_clock</font>
@@ -133,9 +143,11 @@
       <object>objects\o_Station</object>
       <object>objects\o_wall</object>
     </objects>
-    <object>objects\O_Orderly</object>
-    <object>objects\O_Resident</object>
-    <object>objects\Person</object>
+    <objects name="People">
+      <object>objects\O_Orderly</object>
+      <object>objects\O_Resident</object>
+      <object>objects\Person</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_basic</room>
