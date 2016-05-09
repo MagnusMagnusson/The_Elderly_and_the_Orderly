@@ -1,8 +1,10 @@
 ///store_init()
 //creates a new store listing and returns it as a ds_Grid
+//If you change the order of stations or add to the store then it also needs to be added
+//to the ui draw event
 
 var n,i;
-n = 6;
+n = 9;
 i = 0;
 var store = ds_grid_create(n,7);
 
@@ -62,15 +64,33 @@ store[#i,6] = 2; //height
 i++;
 
 //5
-store[#i,0] = o_Bingo; //obj_index
-store[#i,1] = "Bingo Set"; //name
-store[#i,2] = "Fun for ages 8 to 80, for the entire family"; //desc
-store[#i,3] = 4; //spr_icon
-store[#i,4] = 300; //price
-store[#i,5] = 2; //width
-store[#i,6] = 2; //height
+store[#i,0] = o_disco; //obj_index
+store[#i,1] = "A Disco floor"; //name
+store[#i,2] = "Let's get boogie with it!"; //desc
+store[#i,3] = 5; //spr_icon
+store[#i,4] = 400; //price
+store[#i,5] = 3; //width
+store[#i,6] = 3; //height
 i++;
 
+//6
+store[#i,0] = o_sofa; //obj_index
+store[#i,1] = "A sofa"; //name
+store[#i,2] = "It's every bit as comfy as it looks.#just ignore the stains."; //desc
+store[#i,3] = 6; //spr_icon
+store[#i,4] = 100; //price
+store[#i,5] = 3; //width
+store[#i,6] = 1; //height
+i++;
 
+//7
+store[#i,0] = o_disco; //obj_index
+store[#i,1] = "A Disco floor"; //name
+store[#i,2] = "Let's get boogie with it!"; //desc
+store[#i,3] = 5; //spr_icon
+store[#i,4] = 400; //price
+store[#i,5] = 3; //width
+store[#i,6] = 3; //height
+i++;
 
 return store;
