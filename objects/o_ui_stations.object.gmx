@@ -166,7 +166,7 @@ if(selected != noone){
                 if(xx + string_width(desc) + offset &gt; room_width){
                     //Move station
                     if(mouse_x &gt; xx + offset + profile_width &amp;&amp; mouse_x &lt; xx + offset + profile_width - xmove_offset ){
-                        if(mouse_y &gt; yy + (6* yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                        if(mouse_y &gt; yy + (5* yoffset) &amp;&amp; mouse_y &lt; yy + (5 * yoffset) + 20){
                             ctrl.profileActive = false;
                             //Remove old position from matrix
                             matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
@@ -179,7 +179,7 @@ if(selected != noone){
                     }
                     //Sell station
                     if(mouse_x &gt; xx + offset + profile_width - xsell_offset - xmove_offset &amp;&amp; mouse_x &lt; xx + offset + profile_width - (2* xsell_offset) - xmove_offset){
-                        if(mouse_y &gt; yy + (6 * yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                        if(mouse_y &gt; yy + (5 * yoffset) &amp;&amp; mouse_y &lt; yy + (5 * yoffset) + 20){
                             //update funds to price of station/2
                             ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2; 
                             matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
@@ -201,7 +201,7 @@ if(selected != noone){
                 else{
                     //Move station
                     if(mouse_x &gt; xx+offset  &amp;&amp; mouse_x &lt; xx + xmove_offset + 40){
-                        if(mouse_y &gt; yy + (6* yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                        if(mouse_y &gt; yy + (5* yoffset) &amp;&amp; mouse_y &lt; yy + (5 * yoffset) + 20){
                             ctrl.profileActive = false;
                             //Remove old position from matrix
                             matrix_clear(xx div 31, yy div 31, selected.width, selected.height, selected.id);
@@ -214,7 +214,7 @@ if(selected != noone){
                     }
                     //Sell station
                     if(mouse_x &gt; xx + string_width(desc) + offset - xsell_offset &amp;&amp; mouse_x &lt; xx + string_width(desc) + offset){
-                        if(mouse_y &gt; yy + (6 * yoffset) &amp;&amp; mouse_y &lt; yy + (6 * yoffset) + 20){
+                        if(mouse_y &gt; yy + (5 * yoffset) &amp;&amp; mouse_y &lt; yy + (5 * yoffset) + 20){
                             //update funds to price of station/2
                             ctrl.funds += ctrl.store[#store_get_id(ctrl.store, selected.object_index), 4]/2;
                             //remove station from matrix and list, then destroy it
@@ -334,7 +334,7 @@ if(selected != noone ){
         capacity = 4;
         happyMod = 1;
         moneyMod = -10;
-        sell = ctrl.store[#1,4]/2;
+        sell = ctrl.store[#4,4]/2;
     }
     else if(name == "TV"){
         desc = ctrl.store[#3,2];
@@ -346,19 +346,28 @@ if(selected != noone ){
         moneyMod = -1;
         sell = ctrl.store[#3,4]/2;
     }
-    else if(name == "bingo"){
-        desc = "Get description from????";
+    else if(name == "Disco"){
+        desc = ctrl.store[#5,2];
         level = 1;
         orderlies = 1;
         capacity = 5;
         happyMod = 2;
         moneyMod = -2;
-        sell = 100/2; //Insert price from store / 2;
+        sell = ctrl.store[#5,4]/2; 
+    } 
+    else if(name == "Sofa"){
+        desc = ctrl.store[#6,2];
+        level = 1;
+        orderlies = 1;
+        capacity = 3;
+        happyMod = 2;
+        moneyMod = 0;
+        sell = ctrl.store[#6,4]/2; 
     } 
     prefix = "";
-    if(happyMod &gt;= 0){
+    /*if(happyMod &gt;= 0){
         prefix = "+";
-    }
+    }*/
     
     profile_width = string_width(desc);
     //Draw profile left side of object
@@ -388,8 +397,8 @@ if(selected != noone ){
         move_y += 1;
         draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Orderlies: " + string(orderlies));
         move_y += 1;
-        draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
-        move_y += 1;
+        //draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
+        //move_y += 1;
         draw_text(xx + offset + profile_width, yy + (move_y*yoffset), "Cost: " + string(moneyMod));
         move_y += 1;
         if(!ctrl.isDay){ 
@@ -430,8 +439,8 @@ if(selected != noone ){
         move_y += 1;
         draw_text(xx + offset, yy + (move_y*yoffset), "Orderlies: " + string(orderlies));
         move_y += 1;
-        draw_text(xx + offset, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
-        move_y += 1;
+        //draw_text(xx + offset, yy + (move_y*yoffset), "Happiness: " + prefix + string(happyMod));
+        //move_y += 1;
         draw_text(xx + offset, yy + (move_y*yoffset), "Cost: " + prefix + string(moneyMod));
         move_y += 1;
         //Only able to move and sell during night time

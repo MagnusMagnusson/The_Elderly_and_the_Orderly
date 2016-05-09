@@ -111,7 +111,7 @@ randomize_person(gender);
             <kind>1</kind>
             <string>///choose what to do if not decided
 
-if(!decided)
+if(!decided &amp;&amp; ctrl.isDay)
 {
     var choice=irandom(100);
     if(-1 &lt; choice &amp;&amp; choice &lt; 30)
@@ -179,7 +179,7 @@ if(!decided)
           <argument>
             <kind>1</kind>
             <string>///choose whether or not to abandon decided course
-if(decided)
+if(decided &amp;&amp; ctrl.isDay)
 {
     time_decided=time_decided+deltafy(1);
     if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
