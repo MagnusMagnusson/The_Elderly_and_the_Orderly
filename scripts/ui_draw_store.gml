@@ -1,6 +1,4 @@
-if(ctrl.isDay){
-    exit;
-}
+
 
 
 var cost, capacity, orderlies, happyMod, moneyMod,xx,yy;

@@ -1,3 +1,4 @@
+//Night menu
 //Fastar hæðir, skrifað inn í hverja t.d. staff, resident, store...
 //when hover, make light over þá hæð.
 //If these 2 sentences are changed then ui_draw_menu also needs to change
