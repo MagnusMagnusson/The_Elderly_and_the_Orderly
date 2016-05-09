@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>selected = noone;
 hidden = false;
+state = "menu";
 
 </string>
           </argument>
@@ -50,7 +51,17 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// mouse presses
+            <string>/// mouse presses in UI
+
+//Switch sentence, change state calls scripts
+switch(state){
+    case "staff":
+        ui_step_staff();
+        break;
+    case "menu":
+        ui_step_menu();
+}
+
 var press = noone;
 var Y = room_height - 128;
 
@@ -130,7 +141,9 @@ if(!hidden &amp;&amp; !ctrl.isDay){
           <argument>
             <kind>1</kind>
             <string>///Draw Night UI
-
+ui_draw_menu();
+ui_draw_infobox();
+display_set_gui_size(display_get_width(), display_get_height());
 if(ctrl.isDay){
     exit;
 }
