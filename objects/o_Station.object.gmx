@@ -28,7 +28,7 @@
             <string>///initializing procedure
 being_built = false;
 move_bed = false;
-mannable=false;
+
 manned=false;
 residentcapacity=0;
 width = 0;
@@ -42,6 +42,13 @@ isrunning=true;
 runnable=false;
 mannable=false;
 
+//currentresidentcount and currentresidents list 
+//track who is in the station
+for(var i=0;i&lt;residentcapacity;i++)
+{
+       currentresidents[i]=noone;
+}
+currentresidentcount=0;
 alarm[0] = 3 * (30/fps);
 
 
