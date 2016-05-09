@@ -1,5 +1,7 @@
 ///store_init()
 //creates a new store listing and returns it as a ds_Grid
+//If you change the order of stations or add to the store then it also needs to be added
+//to the ui draw event
 
 var n,i;
 n = 9;
@@ -61,7 +63,7 @@ store[#i,5] = 2; //width
 store[#i,6] = 2; //height
 i++;
 
-//6
+//5
 store[#i,0] = o_disco; //obj_index
 store[#i,1] = "A Disco floor"; //name
 store[#i,2] = "Let's get boogie with it!"; //desc
@@ -71,7 +73,7 @@ store[#i,5] = 3; //width
 store[#i,6] = 3; //height
 i++;
 
-//7
+//6
 store[#i,0] = o_sofa; //obj_index
 store[#i,1] = "A sofa"; //name
 store[#i,2] = "It's every bit as comfy as it looks.#just ignore the stains."; //desc
@@ -81,7 +83,7 @@ store[#i,5] = 3; //width
 store[#i,6] = 1; //height
 i++;
 
-//8
+//7
 store[#i,0] = o_disco; //obj_index
 store[#i,1] = "A Disco floor"; //name
 store[#i,2] = "Let's get boogie with it!"; //desc
