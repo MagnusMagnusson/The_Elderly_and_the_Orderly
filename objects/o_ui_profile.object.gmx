@@ -76,7 +76,7 @@ var xx,yy,offset;
 var happiness,name;
 offset = 32;
 
-<<<<<<< HEAD
+
 if(selected != O_Resident){/*
     xx = selected.x;
     yy = selected.y;
@@ -94,7 +94,7 @@ if(selected != O_Resident){/*
     draw_healthbar(xx +offset,yy+32,xx +offset + 128,yy + 64,happiness,
         c_black,c_red,c_green,0,true,false); //Happy
     draw_rectangle(xx,yy,xx + 128,yy +64,true);
-=======
+
 //Position of profile
 xx = selected.x;
 yy = selected.y;
@@ -114,8 +114,6 @@ draw_sprite(spr_smile,2 - (happiness div 33), xx + offset,yy+32);//Heart
 draw_healthbar(xx +(2*offset),yy+32,xx +offset + 128,yy + 64,happiness,
     c_black,c_red,c_green,0,true,false); //Happy
 active = true;
-
->>>>>>> 09f7b261046268e3137f81551aa45ed937c2ad65
 
 }
 </string>

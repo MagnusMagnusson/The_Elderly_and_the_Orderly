@@ -54,6 +54,7 @@ width = 1;
 height = 2;
 type = "Bed";
 visitweight=0.2;
+image_speed = 0;
 </string>
           </argument>
         </arguments>

@@ -99,12 +99,11 @@ for(var i = 0; i &lt; room_width div 31; i++){
           <argument>
             <kind>1</kind>
             <string>///randTiles
-
-<<<<<<< HEAD
 for(var i = 0; i &lt; room_width; i+=31){
     for(var j = 0; j &lt; room_width; j+=31){
         //tile_add(bg_parquet, irandom(4)*31, 0,31, 31,i,j,255);
-=======
+    }
+}
 for(var i = 0; i &lt; room_width; i+=16){
     for(var j = 0; j &lt; room_width; j+=16){
         if(i &gt;= 31 &amp;&amp; i &lt;= 961){
@@ -114,7 +113,6 @@ for(var i = 0; i &lt; room_width; i+=16){
             }
         }
         tile_add(bg_grass, irandom(19)*31, 0,31, 31,i,j,255);
->>>>>>> 09f7b261046268e3137f81551aa45ed937c2ad65
     }
 }
 
