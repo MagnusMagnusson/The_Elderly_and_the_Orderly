@@ -66,6 +66,13 @@ current_station=noone;
             <kind>1</kind>
             <string>///Create random person
 randomize_person(choose(true, false));
+happiness=irandom_range(50,90);
+mybed = noone;
+gender = choose(true, false);
+//randomize name
+name = randomize_name(gender);
+//random person
+randomize_person(gender);
 </string>
           </argument>
         </arguments>

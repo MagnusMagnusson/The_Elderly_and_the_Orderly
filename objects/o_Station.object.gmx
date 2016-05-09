@@ -103,6 +103,10 @@ if(being_built){
         isValid = false;
         image_blend = c_red;
     }
+    if(y &gt; 576){
+        isValid = false;
+        image_blend = c_red;
+    }
     //move me
     x = (mouse_x div 31 * 31);
     y = (mouse_y div 31 * 31);

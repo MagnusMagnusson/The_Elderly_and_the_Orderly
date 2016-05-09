@@ -26,11 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize variables
-
+randomize();
 isDay = !true;
-dayDuration = 5 * room_speed * 60 //5 minutes per day
+dayDuration = 0.75 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
-funds = 2000;
+funds = 500;
 day = 1;
 profileActive = false; //for clicking stations
 isclicked=false;
@@ -100,9 +100,21 @@ for(var i = 0; i &lt; room_width div 31; i++){
             <kind>1</kind>
             <string>///randTiles
 
+<<<<<<< HEAD
 for(var i = 0; i &lt; room_width; i+=31){
     for(var j = 0; j &lt; room_width; j+=31){
         //tile_add(bg_parquet, irandom(4)*31, 0,31, 31,i,j,255);
+=======
+for(var i = 0; i &lt; room_width; i+=16){
+    for(var j = 0; j &lt; room_width; j+=16){
+        if(i &gt;= 31 &amp;&amp; i &lt;= 961){
+            if(j &gt;= 151 &amp;&amp; j &lt;= 558){
+                tile_add(bg_parquet, irandom(4)*16, 0,16, 16,i,j,255);
+                continue;
+            }
+        }
+        tile_add(bg_grass, irandom(19)*31, 0,31, 31,i,j,255);
+>>>>>>> 09f7b261046268e3137f81551aa45ed937c2ad65
     }
 }
 
@@ -128,7 +140,9 @@ for(var i = 0; i &lt; room_width; i+=31){
             <kind>1</kind>
             <string>///Basic room
 /*Basic room with 2 beds, tv station, oderly and 2 residents*/
-audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
+randomize();
+var i = choose(snd_entertainer,snd_maple_leaf);
+audio_play_sound(i,1,true);
 //Residents
 resident1 = instance_create(31*10, 31*20, O_Resident);
 resident2 = instance_create(31*8, 31*15, O_Resident);
@@ -155,8 +169,20 @@ matrix_reserve(bed2.x div 31, bed2.y div 31, bed2.width, bed2.height, bed2.id );
 matrix_reserve(tv.x div 31, tv.y div 31, tv.width, tv.height, tv.id);
 
 //Remove before alpha day!!!!
-bingoTEST = instance_create(31*11 ,31* 16 ,o_Bingo);
+/*bingoTEST = instance_create(31*11 ,31* 16 ,o_Bingo);
 matrix_reserve(bingoTEST.x div 31, bingoTEST.y div 31, bingoTEST.width, bingoTEST.height, bingoTEST.id);
+*/
+for(var i = 1; i &lt;=961 div 31;i++){
+    wallmatrix_reserve(i,151 div 31,2);
+    
+    wallmatrix_reserve(i,558 div 31,8);
+}
+
+for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
+    wallmatrix_reserve(1,i,4);
+    
+    wallmatrix_reserve(961 div 31,i,1);
+}
 
 
 
@@ -209,11 +235,15 @@ audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timeLeft--;
+            <string>
 
-if(timeLeft &lt;= 0){
-    isDay = !isDay;
-    timeLeft = dayDuration;
+if(isDay){
+    timeLeft--;
+    if(timeLeft &lt;= 0){
+        isDay = !isDay;
+        timeLeft = dayDuration;
+        funds += 250;
+    }
 }
 </string>
           </argument>

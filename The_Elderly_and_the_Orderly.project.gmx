@@ -73,75 +73,12 @@
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
-    <background>background\background1</background>
-    <background>background\background2</background>
-    <background>background\bg_grass</background>
-    <background>background\bg_tiles</background>
-    <background>background\bg_parquet</background>
   </backgrounds>
   <paths name="paths"/>
-  <scripts name="scripts">
-    <script>scripts\draw_person.gml</script>
-    <scripts name="Collision">
-      <script>scripts\matrix_is_empty.gml</script>
-      <script>scripts\matrix_clear.gml</script>
-      <script>scripts\matrix_reserve.gml</script>
-      <script>scripts\wallmatrix_is_empty.gml</script>
-      <script>scripts\wallmatrix_reserve.gml</script>
-      <script>scripts\wallmatrix_clear.gml</script>
-      <script>scripts\wallmatrix_empty.gml</script>
-      <script>scripts\wallmatrix_range_empty.gml</script>
-    </scripts>
-    <scripts name="store">
-      <script>scripts\station_info.gml</script>
-      <script>scripts\store_get_id.gml</script>
-      <script>scripts\store_init.gml</script>
-      <script>scripts\draw_cool_button.gml</script>
-    </scripts>
-    <script>scripts\station_name.gml</script>
-    <script>scripts\inside_range.gml</script>
-    <script>scripts\destroy_instance.gml</script>
-    <script>scripts\deltafy.gml</script>
-    <script>scripts\script15.gml</script>
-    <script>scripts\inside_house.gml</script>
-    <script>scripts\act_on.gml</script>
-    <script>scripts\randomize_person.gml</script>
-  </scripts>
-  <fonts name="fonts">
-    <font>fonts\fnt_clock</font>
-    <font>fonts\fnt_normal</font>
-  </fonts>
-  <objects name="objects">
-    <object>objects\ctrl</object>
-    <objects name="UI">
-      <objects name="DAY">
-        <object>objects\o_ui_profile</object>
-        <object>objects\o_ui_stations</object>
-        <object>objects\o_ui_orderly</object>
-        <object>objects\o_ui_day</object>
-      </objects>
-      <objects name="NIGHT">
-        <object>objects\o_ui_store</object>
-      </objects>
-    </objects>
-    <objects name="Room_stuffies">
-      <object>objects\o_bed</object>
-      <object>objects\o_Bingo</object>
-      <object>objects\o_TV</object>
-      <object>objects\o_Station</object>
-      <object>objects\o_wall</object>
-    </objects>
-    <object>objects\O_Orderly</object>
-    <object>objects\O_Resident</object>
-    <object>objects\Person</object>
-  </objects>
-  <rooms name="rooms">
-    <room>rooms\rm_basic0</room>
-    <room>rooms\rm_magnuss_chamber</room>
-    <room>rooms\rm_basic</room>
-    <room>rooms\rm_Main</room>
-    <room>rooms\room8</room>
-  </rooms>
+  <scripts name="scripts"/>
+  <fonts name="fonts"/>
+  <objects name="objects"/>
+  <rooms name="rooms"/>
   <help>
     <rtf>help.rtf</rtf>
   </help>
