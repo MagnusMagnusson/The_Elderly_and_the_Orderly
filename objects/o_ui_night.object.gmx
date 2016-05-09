@@ -54,22 +54,24 @@ state = noone;
             <string>/// mouse presses in UI
 
 //Switch sentence, change state calls scripts
-switch(state){
-    case "staff":
-        ui_step_staff();
-        break;
-    case "resident":
-        ui_step_resident();
-        break;
-    case "startDay":
-        ui_step_startDay();
-        break;
-    case "store":
-        ui_step_store();
-        break;
-    default:
-        ui_step_menu();
-        break;
+    if(!ctrl.isDay){
+    switch(state){
+        case "staff":
+            ui_step_staff();
+            break;
+        case "resident":
+            ui_step_resident();
+            break;
+        case "startDay":
+            ui_step_startDay();
+            break;
+        case "store":
+            ui_step_store();
+            break;
+        default:
+            ui_step_menu();
+            break;
+    }
 }
 </string>
           </argument>
@@ -98,22 +100,24 @@ ui_draw_menu();
 ui_draw_infobox();
 display_set_gui_size(display_get_width(), display_get_height());
 
-switch(state){
-    case "staff":
-        ui_draw_staff();
-        break;
-    case "resident":
-        ui_draw_resident();
-        break;
-    case "startDay":
-        ui_draw_startDay();
-        break;
-    case "store":
-        ui_draw_store();
-        break;
-    default:
-        ui_draw_menu();
-        break;
+    if(!ctrl.isDay){
+    switch(state){
+        case "staff":
+            ui_draw_staff();
+            break;
+        case "resident":
+            ui_draw_resident();
+            break;
+        case "startDay":
+            ui_draw_startDay();
+            break;
+        case "store":
+            ui_draw_store();
+            break;
+        default:
+            ui_draw_menu();
+            break;
+    }
 }
 </string>
           </argument>
