@@ -7,21 +7,21 @@ yoffset = (display_get_height()/1.5)/10;
 /*CLICKS*/
 if(mouse_check_button_pressed(mb_left)){
     //Select store
-    if(mouse_x > 0 && mouse_x < xwidth && mouse_y > 0 && mouse_y < yoffset){
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth && display_mouse_get_y() > 0 && display_mouse_get_y() < yoffset){
         state = "store";
     }
     //Select Orderlies
-    if(mouse_x > 0 && mouse_x < xwidth && mouse_y  > yoffset && mouse_y < yoffset*2){
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth && display_mouse_get_y() > yoffset && display_mouse_get_y() < yoffset*2){
         state = "staff"
     }
     
     //Select Residents
-    if(mouse_x > 0 && mouse_x < xwidth && mouse_y > yoffset*2 && mouse_y < yoffset*3){
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth && display_mouse_get_y() > yoffset*2 && display_mouse_get_y() < yoffset*3){
         state = "resident";
     }
          
     //Select Start Day   
-    if(mouse_x > 0 && mouse_x < xwidth && mouse_y > yoffset*3 && mouse_y < yoffset*4){
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth && display_mouse_get_y() > yoffset*3 && display_mouse_get_y() < yoffset*4){
         state = "startDay";
     }
 }

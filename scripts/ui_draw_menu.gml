@@ -16,7 +16,7 @@ draw_set_colour(c_black);
 draw_set_colour(c_fuchsia);
 //Draw box for each item within the menu
 for(var i = 0; i < 4; i ++){
-    if(mouse_x > 0 && mouse_x < xwidth && mouse_y > yoffset*i && mouse_y <= yoffset * (i+1)){
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth && display_mouse_get_y() > yoffset*i && display_mouse_get_y() <= yoffset * (i+1)){
         draw_set_colour(c_aqua);
     }
    draw_rectangle(0,yoffset*i, xwidth, yoffset *(i+1), true);
