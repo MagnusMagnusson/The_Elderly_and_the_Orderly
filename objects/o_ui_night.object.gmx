@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>selected = noone;
 hidden = false;
+state = "menu";
 
 </string>
           </argument>
@@ -50,9 +51,16 @@ hidden = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// mouse presses
+            <string>/// mouse presses in UI
 
 //Switch sentence, change state calls scripts
+switch(state){
+    case "staff":
+        ui_step_staff();
+        break;
+    case "menu":
+        ui_step_menu();
+}
 
 var press = noone;
 var Y = room_height - 128;
