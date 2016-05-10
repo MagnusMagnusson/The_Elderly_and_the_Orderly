@@ -104,7 +104,7 @@ isValid = true;
 image_blend = c_white;
 
 //If we're not already placed
-if(being_built){
+if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     //are we valid?
     if(!matrix_is_empty(x div 31,y div 31,width,height) || !wallmatrix_is_empty(x div 31,y div 31,width,height)){
         isValid = false;
@@ -136,6 +136,8 @@ if(being_built){
         if(mouse_check_button_pressed(mb_left)){
             if(isValid){//and valid
                 if(ctrl.funds &gt;= price){//and affordable
+                    o_ui_night.I = noone;
+                    o_ui_night.cancel_build = false;
                     being_built = false;
                     ctrl.funds -= price;
                     ds_list_add(global.built_stations,id);
@@ -188,7 +190,7 @@ if(being_built){
           <argument>
             <kind>1</kind>
             <string>///show profile when clicked
-if(!being_built &amp;&amp; !move_bed){
+if(!being_built &amp;&amp; !move_bed &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     var profile = instance_create(x, y, o_ui_stations);
     profile.selected = id;
 }

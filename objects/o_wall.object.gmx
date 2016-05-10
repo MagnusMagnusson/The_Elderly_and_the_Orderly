@@ -64,7 +64,7 @@ if(mouse_check_button_pressed(mb_right)){
     }
 }
 
-if(mouse_check_button_pressed(mb_left)){
+if(mouse_check_button_pressed(mb_left) &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     if(stage == 0){
         xx = (mouse_x + 15 ) div 31;
         yy = (mouse_y + 15 ) div 31;
