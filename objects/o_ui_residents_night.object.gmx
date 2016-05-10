@@ -112,7 +112,7 @@ switch(state){
             draw_set_color(0)
             draw_rectangle(X,Y,X+100000,Y + 64 + 20 + 31,true)
             draw_set_color(c_red);
-            draw_circle(device_mouse_x_to_gui(0),device_mouse_y_to_gui(0),4,false);
+            draw_circle(realmx(),realmy(),4,false);
             draw_set_color(c_green);
             draw_circle(mouse_x,mouse_y,4,false);
             draw_set_color(0);
