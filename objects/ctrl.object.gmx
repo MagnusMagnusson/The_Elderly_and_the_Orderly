@@ -28,7 +28,7 @@
             <string>///Initialize variables
 randomize();
 isDay = !true;
-dayDuration = 0.75 * room_speed * 60 //5 minutes per day
+dayDuration = 0.5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 500;
 day = 1;
@@ -44,6 +44,8 @@ for(var i=0;i &lt; instance_number(o_Station);i++)
 }
 
 store = store_init();
+
+dark = 1;
 </string>
           </argument>
         </arguments>
@@ -306,6 +308,67 @@ if(mouse_wheel_down()){
     view_yview[0] = mouse_y-view_hview*camy;
     
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>    shader_reset();
+/*
+if(shader_is_compiled(shade_makestuffblue)){
+    shader_set(shade_makestuffblue);
+    draw_surface(viewsurf, 0, 0);
+    shader_reset();
+}
+else{
+    show_debug_message("SHADER BROKEN!!!!");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///shader
+    dark += deltafy((1 - 3 * isDay) / 200)
+    dark = clamp(dark,.9,1.3);
+
+    shader_set(shade_makestuffblue);
+var uni = shader_get_uniform(shade_makestuffblue,"var_0");
+    shader_set_uniform_f(uni,dark);
 </string>
           </argument>
         </arguments>

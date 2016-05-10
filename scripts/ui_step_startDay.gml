@@ -11,6 +11,7 @@ else{
         y = 1;
         x = -256;
         ctrl.isDay = true;
+        state = "menu";
     }
 }
 
