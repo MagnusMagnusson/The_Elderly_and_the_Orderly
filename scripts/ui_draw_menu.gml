@@ -1,5 +1,8 @@
+//Night menu
+
 //Fastar hæðir, skrifað inn í hverja t.d. staff, resident, store...
 //when hover, make light over þá hæð.
+
 
 //The menu box
 draw_set_colour(c_white);

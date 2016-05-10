@@ -1,1 +1,1 @@
-
+ctrl.isDay = true
