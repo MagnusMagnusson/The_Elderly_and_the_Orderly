@@ -14,6 +14,8 @@ var store = ds_grid_create(n,7);
 //4 - price
 //5 - width
 //6 - height
+//7 - # of orderlies needed
+//8 - # of residents at a time
 
 //0
 /*store[#i,0] = o_Station; //obj_index
@@ -23,6 +25,7 @@ store[#i,3] = 0; //spr_icon
 store[#i,4] = 0; //price
 store[#i,5] = 0; //width
 store[#i,6] = 0; //height
+
 i++;*/
 //1
 store[#i,0] = o_wall; //obj_index

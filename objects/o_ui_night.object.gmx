@@ -28,6 +28,7 @@
             <string>selected = noone;
 hidden = false;
 state = noone;
+infoState = noone;
 
 </string>
           </argument>

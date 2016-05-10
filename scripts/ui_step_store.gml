@@ -4,7 +4,12 @@ if(mouse_check_button_pressed(mb_left)){
         state = "menu";
     }
 }
-
+//hover over stations in store
+if(display_mouse_get_x() > 0 && display_mouse_get_x() < 64){
+    if(display_mouse_get_y() > yoffset && display_mouse_get_y() < 2*yoffset){
+        infoState = "store";
+    }
+}
 /// mouse presses
 var press = noone;
 var Y = room_height - 128;
