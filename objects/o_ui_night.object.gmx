@@ -28,7 +28,10 @@
             <string>selected = noone;
 hidden = false;
 state = noone;
+//Hover over certain items (mainly store)
 infoState = noone;
+//Selected an item
+infoSelected =noone;
 
 </string>
           </argument>
