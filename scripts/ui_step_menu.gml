@@ -10,7 +10,6 @@ if(mouse_check_button_pressed(mb_left) && display_mouse_get_x() > 0 && display_m
     //Select store
     if(display_mouse_get_y() > 0 && display_mouse_get_y() < yoffset){
         state = "store";
-        press = noone;
     }
     //Select Orderlies
     if(display_mouse_get_y() > yoffset && display_mouse_get_y() < yoffset*2){

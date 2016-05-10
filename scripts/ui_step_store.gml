@@ -1,48 +1,39 @@
 //make sprite appear more to right instead of at the beginning of store menu box
 var xbeginoffset = 4;
 var yoffset = 64;
-
+press = noone
 
 //Selected
 if(mouse_check_button_pressed(mb_left)){
     //Player presses go back button, 32 might need to change it is based on size of sprite
-    if(display_mouse_get_x() > 0 && display_mouse_get_x() < 64 && display_mouse_get_y() > 0 && display_mouse_get_y() < 64){
-        instance_destroy();
+    if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
         state = "menu";
     }
-    /*if(ctrl.isclicked && being_built){
-        with(ctrl.selected){
-            instance_destroy();
-            ctrl.isclicked = false;
-        }
-    }*/
-    if(display_mouse_get_x() > xbeginoffset && display_mouse_get_x() < 64){
-        //If you have selected a station before then we must destroy it when you select another
-        
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > xbeginoffset && realmx() < 64){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoSelected = "wall";
             press = 0;
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             infoSelected = "tv";
             press = 2;
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             infoSelected = "disco";
             press = 4;
         }
     }
-    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < display_get_width()/6){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
         //If you have selected a station before then we must destroy it when you select another
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoSelected = "bed";
             press = 1;
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             infoSelected = "bingo";
             press = 3;
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             infoSelected = "sofa";
             press = 5;
         }
@@ -64,25 +55,25 @@ if(mouse_check_button_pressed(mb_left)){
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
 else{  
-    if(display_mouse_get_x() > xbeginoffset && display_mouse_get_x() < 64){ 
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > xbeginoffset && realmx() < 64){ 
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoState = "store";
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             infoState = "store";
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             infoState = "store";
         }
     }
-    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < display_get_width()/6){
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoState = "store";
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             infoState = "store";
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             infoState = "store";
         }
     }

@@ -104,7 +104,7 @@ isValid = true;
 image_blend = c_white;
 
 //If we're not already placed
-if(being_built){
+if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     //are we valid?
     if(!matrix_is_empty(x div 31,y div 31,width,height) || !wallmatrix_is_empty(x div 31,y div 31,width,height)){
         isValid = false;

@@ -19,25 +19,25 @@ for (var i = 0; i < ds_grid_width(ctrl.store); i = i+2){
 
 //TODO: do stuff when station is selected from the store
 if(mouse_check_button_pressed(mb_left)){
-    if(display_mouse_get_x() > xbeginoffset && display_mouse_get_x() < 64){
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > xbeginoffset && realmx() < 64){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
            
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             
         }
     }
-    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < display_get_width()/6){
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             
         }
     }
@@ -46,30 +46,30 @@ if(mouse_check_button_pressed(mb_left)){
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
 else{
-    if(display_mouse_get_x() > 0 && display_mouse_get_x() < 64){
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > 0 && realmx() < 64){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             i = 0;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             i = 2;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             i = 4;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
     }
-    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < ((display_get_width()/6)/2)+64){
-        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < ((display_get_gui_width()/6)/2)+64){
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             i = 1;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
-        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             i = 3;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
-        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             i = 5;
             ui_draw_infobox(ctrl.store[#i, 1], ctrl.store[#i,2], ctrl.store[#i,4], ctrl.store[#i, 7], ctrl.store[#i, 8]);
         }
