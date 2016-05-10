@@ -137,6 +137,7 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
             if(isValid){//and valid
                 if(ctrl.funds &gt;= price){//and affordable
                     o_ui_night.I = noone;
+                    o_ui_night.cancel_build = false;
                     being_built = false;
                     ctrl.funds -= price;
                     ds_list_add(global.built_stations,id);

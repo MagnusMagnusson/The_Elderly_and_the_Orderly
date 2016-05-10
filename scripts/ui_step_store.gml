@@ -11,6 +11,26 @@ if(mouse_check_button_pressed(mb_left)){
     }
     if(realmx() > xbeginoffset && realmx() < 64){
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
+            with(I){
+                instance_destroy();
+            }
+        }
+        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
+            infoSelected = "bed";
+            press = 1;
+        }
+        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
+            infoSelected = "bingo";
+            press = 3;
+        }
+        if(realmy() > 5*yoffset && realmy() < 6*yoffset){
+            infoSelected = "sofa";
+            press = 5;
+        }
+    }
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+        //If you have selected a station before then we must destroy it when you select another
+        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoSelected = "wall";
             press = 0;
         }
@@ -21,21 +41,6 @@ if(mouse_check_button_pressed(mb_left)){
         if(realmy() > 4*yoffset && realmy() < 5*yoffset){
             infoSelected = "disco";
             press = 4;
-        }
-    }
-    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
-        //If you have selected a station before then we must destroy it when you select another
-        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
-            infoSelected = "bed";
-            press = 1;
-        }
-        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoSelected = "bingo";
-            press = 3;
-        }
-        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoSelected = "sofa";
-            press = 5;
         }
     }
     //Station selected appears where the mouse is
@@ -51,6 +56,7 @@ if(mouse_check_button_pressed(mb_left)){
         I.width = ctrl.store[#press,5]
         I.height = ctrl.store[#press,6]
         I.being_built = true;
+        cancel_build = true
     }
 } 
 //if item is hovered over, then ifo needs to show in infobox

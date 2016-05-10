@@ -33,6 +33,7 @@ infoState = noone;
 //Selected an item
 infoSelected =noone;
 I = noone;
+cancel_build = false;
 </string>
           </argument>
         </arguments>
