@@ -190,7 +190,7 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
           <argument>
             <kind>1</kind>
             <string>///show profile when clicked
-if(!being_built &amp;&amp; !move_bed){
+if(!being_built &amp;&amp; !move_bed &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     var profile = instance_create(x, y, o_ui_stations);
     profile.selected = id;
 }
