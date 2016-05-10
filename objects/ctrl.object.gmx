@@ -34,6 +34,8 @@ funds = 500;
 day = 1;
 profileActive = false; //for clicking stations
 isclicked=false;
+camerax = mouse_x;
+cameray = mouse_y;
 
 global.built_stations=ds_list_create();
 for(var i=0;i &lt; instance_number(o_Station);i++)
@@ -233,7 +235,7 @@ audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>///timer
 
 if(isDay){
     timeLeft--;
@@ -242,6 +244,67 @@ if(isDay){
         timeLeft = dayDuration;
         funds += 250;
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///camera
+
+if(mouse_check_button_pressed(mb_right)){
+    camera_x = mouse_x;
+    camera_y = mouse_y;
+}
+if(mouse_check_button(mb_right)){
+    view_xview[0] += camera_x - mouse_x;
+    view_yview[0] += camera_y - mouse_y;
+}
+
+if(mouse_wheel_up()){
+    
+    var camx,camy;
+    camx=(mouse_x-view_xview)/view_wview;
+    camy=(mouse_y-view_yview)/view_hview;
+
+    view_wview[0] -= 31;
+    view_hview -= 31 / (1 + 1/3);
+    view_wview[0] = max(31,view_wview[0]);
+    view_hview[0] = max(31 / (1 + 1/3),view_hview[0]);
+    
+    view_xview[0] = mouse_x-view_wview*camx;
+    view_yview[0] = mouse_y-view_hview*camy;
+}
+
+if(mouse_wheel_down()){
+    
+    var camx,camy;
+    camx = (mouse_x-view_xview)/view_wview;
+    camy = (mouse_y-view_yview)/view_hview;
+
+    view_wview[0] += 31;
+    view_hview += 31 / (1 + 1/3);
+    view_wview[0] = min(room_width*2,view_wview[0]);
+    view_hview[0] = min(room_width * 2 / (1 + 1/3),view_hview[0]);
+    
+    view_xview[0] = mouse_x-view_wview*camx;
+    view_yview[0] = mouse_y-view_hview*camy;
+    
 }
 </string>
           </argument>
@@ -342,7 +405,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,2);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,2);
 </string>
           </argument>
         </arguments>
@@ -365,7 +429,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,1);
+            <string>///Debut
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,1);
 </string>
           </argument>
         </arguments>
@@ -388,7 +453,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,8);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,8);
 </string>
           </argument>
         </arguments>
@@ -411,7 +477,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,4);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,4);
 </string>
           </argument>
         </arguments>
