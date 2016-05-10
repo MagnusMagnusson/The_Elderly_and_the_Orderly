@@ -1,5 +1,66 @@
+//make sprite appear more to right instead of at the beginning of store menu box
+var xbeginoffset = 4;
+var yoffset = 64;
+//Selected
+if(mouse_check_button_pressed(mb_left)){
+    //Player presses go back button, 32 might need to change it is based on size of sprite
+    if(display_mouse_get_x() > 0 && display_mouse_get_x() < 64 && display_mouse_get_y() > 0 && display_mouse_get_y() < 64){
+        state = "menu";
+    }
+    if(display_mouse_get_x() > xbeginoffset && display_mouse_get_x() < 64){
+        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+            infoSelected = "wall";
+        }
+        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+            infoSelected = "tv";
+        }
+        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+            infoSelected = "disco";
+        }
+    }
+    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < display_get_width()/6){
+        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+            infoSelected = "bed";
+        }
+        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+            infoSelected = "bingo";
+        }
+        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+            infoSelected = "sofa";
+        }
+    }
+} 
+//if item is hovered over, then ifo needs to show in infobox
+//info it needs is name, description, price, number of orderlies needed, number of residents that 
+//can use them, upgrade?
+else{  
+    if(display_mouse_get_x() > xbeginoffset && display_mouse_get_x() < 64){ 
+        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+            infoState = "store";
+        }
+        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+            infoState = "store";
+        }
+        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+            infoState = "store";
+        }
+    }
+    if(display_mouse_get_x() > (display_get_width()/6)/2 && display_mouse_get_x() < display_get_width()/6){
+        if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+            infoState = "store";
+        }
+        if(display_mouse_get_y() > 3*yoffset && display_mouse_get_y() < 4*yoffset){
+            infoState = "store";
+        }
+        if(display_mouse_get_y() > 4*yoffset && display_mouse_get_y() < 5*yoffset){
+            infoState = "store";
+        }
+    }
+}
+
+//Not sure what to do with this at the moment
 /// mouse presses
-var press = noone;
+/*var press = noone;
 var Y = room_height - 128;
 
 if(mouse_check_button_pressed(mb_left)){
@@ -54,4 +115,4 @@ if(!hidden && !ctrl.isDay){
             }
         }
     }
-}
+}*/
