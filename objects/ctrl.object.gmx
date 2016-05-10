@@ -405,7 +405,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,2);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,2);
 </string>
           </argument>
         </arguments>
@@ -428,7 +429,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,1);
+            <string>///Debut
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,1);
 </string>
           </argument>
         </arguments>
@@ -451,7 +453,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,8);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,8);
 </string>
           </argument>
         </arguments>
@@ -474,7 +477,8 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>wallmatrix_reserve(mouse_x div 31, mouse_y div 31,4);
+            <string>///Debug
+//wallmatrix_reserve(mouse_x div 31, mouse_y div 31,4);
 </string>
           </argument>
         </arguments>
