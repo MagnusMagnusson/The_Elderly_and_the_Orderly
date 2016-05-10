@@ -1,0 +1,59 @@
+///Astar(x,y,targetx,targety)
+//returns 
+
+//naming paramaters since GML won't
+var startx=argument0;
+var starty=argument1;
+var targetx=argument2;
+var targety=argument3;
+
+
+var tempcoords[0]=startx;
+tempcoords[1]=starty;
+
+
+var checking=ds_list_create();
+var checked=ds_list_create();
+ds_list_add(checking,tempcoords);
+
+while(!array_length_1d(checking)==0)
+{
+    minimum=-1;
+    minindex=0;
+    //choose cheapest square, sq, from checking
+    for(var i=0;i<array_length_1d(checking))
+    {
+        //ccost is sum of distance from start and distance to target
+        var gcost=orthodist(checking[|i][0],checking[|i][1],startx,starty);
+        var hcost=orthodist(checking[|i][0],checking[|i][1],targetx,targety);
+        var scost=gcost+hcost;
+        if(minimum<0)
+            minumum=scost;
+        else if(scost<minimum)
+        {
+            minimum=scost;
+            minindex=i;
+        }
+    }
+    //minindex now points at cheapest square in checking    
+    //add sq's neighbours to checking, unless they are in checked.
+    neigbours=grid_neighbours(checking[minindex][0],checking[minindex][1])
+   
+    for(var i=0;i<array_length_1d(neighbours);i++)
+    {
+        var checkedbefore=false;
+        for(var j=0;j<ds_list_size(checked);i++)
+        {
+            if(neighbours[i]==checked[|j]
+                checkedbefore=true;
+        }
+        if(!checkedbefore)
+            ds_list_add(checking,neighbours[i]);
+        
+    }
+    ds_list_add(checked,checking[|minindex]);
+    ds_list_delete(checking,minindex);
+     //add sq to checked     
+    
+}
+

@@ -31,7 +31,11 @@ state = noone;
 //Hover over certain items (mainly store)
 infoState = noone;
 //Selected an item
-infoSelected =noone;
+//Is station selected
+infoSelected =false;
+//info showing on hover in store
+infoHover = noone;
+//Item created (in store)
 I = noone;
 cancel_build = false;
 </string>
