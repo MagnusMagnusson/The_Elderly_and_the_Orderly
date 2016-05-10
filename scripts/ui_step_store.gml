@@ -41,7 +41,9 @@ if(mouse_check_button_pressed(mb_left)){
     //Station selected appears where the mouse is
     if(press != noone && press < ds_grid_width(ctrl.store)){
         show_debug_message(string(press));
-        var I;
+        with(I){
+            instance_destroy();
+        }
         I = instance_create(0,0,ctrl.store[#press,0]);
         I.name = ctrl.store[#press,1]
         I.desc = ctrl.store[#press,2]

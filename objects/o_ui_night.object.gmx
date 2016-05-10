@@ -32,7 +32,7 @@ state = noone;
 infoState = noone;
 //Selected an item
 infoSelected =noone;
-
+I = noone;
 </string>
           </argument>
         </arguments>
