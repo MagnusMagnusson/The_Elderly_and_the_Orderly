@@ -35,6 +35,7 @@ infoState = noone;
 infoSelected =false;
 //info showing on hover in store
 infoHover = noone;
+hover = true;
 //Item created (in store)
 I = noone;
 cancel_build = false;
