@@ -141,6 +141,9 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
                     o_ui_night.hover = true;
                     being_built = false;
                     ctrl.funds -= price;
+                    var tex = instance_create(x,y,o_fadetext);
+                    tex.text = price;
+                    audio_play_sound(snd_cash,1,false);
                     ds_list_add(global.built_stations,id);
                     matrix_reserve(x div 31, y div 31, width,height,id);//place me.
                 }
