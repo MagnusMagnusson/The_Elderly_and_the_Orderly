@@ -5,42 +5,56 @@ press = noone
 
 //Selected
 if(mouse_check_button_pressed(mb_left)){
-    //Player presses go back button, 32 might need to change it is based on size of sprite
+    //Player presses go back button, 64 might need to change, it is based on size of something
     if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+        with(I){
+                instance_destroy();   
+        }
+        infoSelected = false;  
+        hover = true;
         state = "menu";
     }
     if(realmx() > xbeginoffset && realmx() < 64){
+        //Cancel
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             with(I){
-                instance_destroy();
+                instance_destroy();   
             }
+            infoSelected = false;  
+            hover = true;
         }
         if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoSelected = "bed";
+            infoSelected = true;
             press = 1;
+            hover = false;
         }
         if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoSelected = "bingo";
+            infoSelected = true;
             press = 3;
+            hover = false
         }
         if(realmy() > 5*yoffset && realmy() < 6*yoffset){
-            infoSelected = "sofa";
+            infoSelected = true;
             press = 5;
+            hover = false
         }
     }
     if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
         //If you have selected a station before then we must destroy it when you select another
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
-            infoSelected = "wall";
+            infoSelected = true;
             press = 0;
+            hover = false;
         }
         if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoSelected = "tv";
+            infoSelected = true;
             press = 2;
+            hover = false;
         }
         if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoSelected = "disco";
+            infoSelected = true;
             press = 4;
+            hover = false
         }
     }
     //Station selected appears where the mouse is
@@ -48,6 +62,8 @@ if(mouse_check_button_pressed(mb_left)){
         show_debug_message(string(press));
         with(I){
             instance_destroy();
+            infoSelected = false;
+            hover = true;
         }
         I = instance_create(0,0,ctrl.store[#press,0]);
         I.name = ctrl.store[#press,1]
@@ -62,27 +78,37 @@ if(mouse_check_button_pressed(mb_left)){
 //if item is hovered over, then ifo needs to show in infobox
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
-else{  
-    if(realmx() > xbeginoffset && realmx() < 64){ 
+else if(hover && state == "store"){ 
+    if(realmx() > xbeginoffset && realmx() < 64){
+        if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+            infoHover = "back";
+        }
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
-            infoState = "store";
+            infoHover = "cancel";
         }
         if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoState = "store";
+            infoHover = "bed";
         }
         if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoState = "store";
+            infoHover = "bingo";
+        }
+        if(realmy() > 5*yoffset && realmy() < 6*yoffset){
+            infoHover = "sofa";
         }
     }
-    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+    else if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+        //If you have selected a station before then we must destroy it when you select another
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
-            infoState = "store";
+            infoHover = "wall";
         }
         if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoState = "store";
+            infoHover = "tv";
         }
         if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoState = "store";
+            infoHover = "disco";
         }
+    } 
+    else{
+        infoHover = noone;
     }
 }

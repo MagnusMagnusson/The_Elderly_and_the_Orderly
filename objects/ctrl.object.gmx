@@ -28,7 +28,7 @@
             <string>///Initialize variables
 randomize();
 isDay = !true;
-dayDuration = 0.75 * room_speed * 60 //5 minutes per day
+dayDuration = 0.5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 500;
 day = 1;
@@ -44,6 +44,8 @@ for(var i=0;i &lt; instance_number(o_Station);i++)
 }
 
 store = store_init();
+
+dark = 1;
 </string>
           </argument>
         </arguments>
@@ -193,30 +195,6 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///music
-
-
-audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -240,9 +218,7 @@ audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
 if(isDay){
     timeLeft--;
     if(timeLeft &lt;= 0){
-        isDay = !isDay;
-        timeLeft = dayDuration;
-        funds += 250;
+        ui_step_startNight();
     }
 }
 </string>
@@ -311,6 +287,72 @@ if(mouse_wheel_down()){
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(shaded){
+        shader_reset();
+        }
+/*
+if(shader_is_compiled(shade_makestuffblue)){
+    shader_set(shade_makestuffblue);
+    draw_surface(viewsurf, 0, 0);
+    shader_reset();
+}
+else{
+    show_debug_message("SHADER BROKEN!!!!");
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>shaded = !false;
+if(shaded){
+///shader
+    dark += deltafy((1 - 3 * isDay) / 200)
+    dark = clamp(dark,1,2.2);
+
+    shader_set(shade_makestuffblue);
+var uni = shader_get_uniform(shade_makestuffblue,"var_0");
+    shader_set_uniform_f(uni,dark);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -328,7 +370,8 @@ if(mouse_wheel_down()){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw_text(16,16,instance_number(o_bed));
+            <string>///Drawing stuff
+//draw_text(16,16,instance_number(o_bed));
 
 for(var i = 0; i &lt; room_width div 31; i += 1){
     for(var j = 0; j &lt; room_height div 31; j += 1){
@@ -356,6 +399,14 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
             draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 -2,1,1,90,c_white,1);
         }
         
+    }
+}
+
+//Drawing "Good night!"
+if(isDay){
+    timeLeft--;
+    if(timeLeft &lt;= 0){
+        ui_draw_startNight();
     }
 }
 </string>
