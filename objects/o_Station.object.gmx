@@ -146,9 +146,10 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
                 }
             }
         }
-        if(mouse_check_button_pressed(mb_right)){
+        //For debug, shouldn't need anymore unless cancel button doesn't work
+        /*if(mouse_check_button_pressed(mb_right)){
             instance_destroy();
-        }
+        }*/
     }
 }
 /*if(move_bed){

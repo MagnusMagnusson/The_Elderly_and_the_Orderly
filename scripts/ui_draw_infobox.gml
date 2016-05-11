@@ -9,7 +9,59 @@ xoffset = 4;
 yoffset = string_height("Loy");
 
 if(infoSelected){
-    
+    if(state == "store" && instance_exists(I)){
+        switch(I.object_index){
+            //#0 in store
+            case(o_wall):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#0,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, ctrl.store[#0,2] , yoffset, display_get_width()/6);
+                break;
+            //#1 in store
+            case(o_bed):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, statPrice + string(ctrl.store[#1,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#1,8]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_width()/6);
+                break;
+            //#2 in store
+            case(o_TV):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_width()/6);
+                break;
+            //#3 in store
+            case(o_Bingo):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#3,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
+                break;
+            //#4 in store
+            case(o_disco):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#4,8]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#4,2] , yoffset, display_get_width()/6);
+                break;
+            //#5 in store
+            case(o_sofa):
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#5,1] , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#5,4]) , yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#5,7]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#5,8]), yoffset, display_get_width()/6);
+                draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#5,2] , yoffset, display_get_width()/6);
+                break;
+            default:
+                break;
+            
+        }
+    }
 }
 else{
     //Each item in store menu has info that appears in infobox when mouse hovers over it
