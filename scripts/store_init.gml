@@ -1,7 +1,7 @@
 ///store_init()
 //creates a new store listing and returns it as a ds_Grid
 //If you change the order of stations or add to the store then it also needs to be added
-//to the ui draw event
+//to the ui draw event and ui_draw_infobox scripts
 
 var n,i;
 n = 6;
