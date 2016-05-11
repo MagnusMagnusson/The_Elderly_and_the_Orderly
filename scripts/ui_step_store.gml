@@ -5,17 +5,23 @@ press = noone
 
 //Selected
 if(mouse_check_button_pressed(mb_left)){
-    //Player presses go back button, 32 might need to change it is based on size of sprite
+    //Player presses go back button, 64 might need to change, it is based on size of something
     if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+        with(I){
+                instance_destroy();   
+        }
+        infoSelected = false;  
+        hover = true;
         state = "menu";
     }
     if(realmx() > xbeginoffset && realmx() < 64){
+        //Cancel
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             with(I){
-                instance_destroy(); 
-                hover = true;   
+                instance_destroy();   
             }
-            
+            infoSelected = false;  
+            hover = true;
         }
         if(realmy() > 3*yoffset && realmy() < 4*yoffset){
             infoSelected = true;
