@@ -242,9 +242,7 @@ audio_play_sound(choose(snd_entertainer,snd_maple_leaf),1,true);
 if(isDay){
     timeLeft--;
     if(timeLeft &lt;= 0){
-        isDay = !isDay;
-        timeLeft = dayDuration;
-        funds += 250;
+        ui_step_startNight();
     }
 }
 </string>
@@ -364,7 +362,7 @@ else{
             <kind>1</kind>
             <string>///shader
     dark += deltafy((1 - 3 * isDay) / 200)
-    dark = clamp(dark,.9,1.3);
+    dark = clamp(dark,1,2.2);
 
     shader_set(shade_makestuffblue);
 var uni = shader_get_uniform(shade_makestuffblue,"var_0");
@@ -391,7 +389,8 @@ var uni = shader_get_uniform(shade_makestuffblue,"var_0");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw_text(16,16,instance_number(o_bed));
+            <string>///Drawing stuff
+//draw_text(16,16,instance_number(o_bed));
 
 for(var i = 0; i &lt; room_width div 31; i += 1){
     for(var j = 0; j &lt; room_height div 31; j += 1){
@@ -419,6 +418,14 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
             draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 -2,1,1,90,c_white,1);
         }
         
+    }
+}
+
+//Drawing "Good night!"
+if(isDay){
+    timeLeft--;
+    if(timeLeft &lt;= 0){
+        ui_draw_startNight();
     }
 }
 </string>
