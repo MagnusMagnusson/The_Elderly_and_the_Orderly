@@ -72,8 +72,11 @@ if(mouse_check_button_pressed(mb_left)){
 //if item is hovered over, then ifo needs to show in infobox
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
-else if(hover){ 
+else if(hover && state == "store"){ 
     if(realmx() > xbeginoffset && realmx() < 64){
+        if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+            infoHover = "back";
+        }
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoHover = "cancel";
         }
@@ -87,7 +90,7 @@ else if(hover){
             infoHover = "sofa";
         }
     }
-    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+    else if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
         //If you have selected a station before then we must destroy it when you select another
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoHover = "wall";
@@ -99,4 +102,7 @@ else if(hover){
             infoHover = "disco";
         }
     } 
+    else{
+        infoHover = noone;
+    }
 }
