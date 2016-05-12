@@ -10,9 +10,11 @@ _x = argument0;
 _y = argument1;
 dir = argument2;
 
-if(_x < 0 || _y < 0 || _x >= room_width div  31 || room_height >= room_height div 31)
-myid = ctrl.matrix[_x,_y];
+if(_x < 0 || _y < 0 || _x >= room_width div  31 || _y >= room_height div 31){
+    return false;
+}
 
+myid = ctrl.matrix[_x,_y];
 if(dir & 1 > 0){
     if(myid != noone){
         if(ctrl.matrix[_x + 1,_y] == myid){
