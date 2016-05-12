@@ -135,7 +135,7 @@ switch(state){
                 draw_text(_x + 64 +2,_y + 48 +2,string(I.happiness ) + "%");
                 draw_set_color(0)
                 draw_text(_x + 64,_y + 48,string(I.happiness ) + "%");
-                draw_set_halign(fa_right);
+                draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
             }
             
@@ -144,6 +144,7 @@ switch(state){
         break;
     }
 }
+
 </string>
           </argument>
         </arguments>
