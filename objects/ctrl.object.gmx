@@ -141,7 +141,11 @@ for(var i = 0; i &lt; room_width; i+=16){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Basic room
+            <string>if(!instance_exists(o_ui_night)){
+    instance_create(0,0,o_ui_night);
+}
+
+///Basic room
 /*Basic room with 2 beds, tv station, oderly and 2 residents*/
 randomize();
 var i = choose(snd_entertainer,snd_maple_leaf);
