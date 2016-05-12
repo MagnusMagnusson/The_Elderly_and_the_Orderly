@@ -4,7 +4,7 @@
 //to the ui draw event and ui_draw_infobox scripts
 
 var n,i;
-n = 6;
+n = 8;
 i = 0;
 var store = ds_grid_create(n,9);
 
@@ -87,6 +87,30 @@ store[#i,5] = 3; //width
 store[#i,6] = 1; //height
 store[#i,7] = 0; //orderlies to man
 store[#i,8] = 3; //# of residents at a time
+i++;
+
+//6
+store[#i,0] = o_carpet; //obj_index
+store[#i,1] = "A Carpet"; //name
+store[#i,2] = "Look at those handcrafted pixels"; //desc
+store[#i,3] = 7; //spr_icon
+store[#i,4] = 125; //price
+store[#i,5] = 3; //width
+store[#i,6] = 3; //height
+store[#i,7] = 0; //orderlies to man
+store[#i,8] = 0; //# of residents at a time
+i++;
+
+//7
+store[#i,0] = o_carpet; //obj_index
+store[#i,1] = "A Carpet"; //name
+store[#i,2] = "Look at those handcrafted pixels"; //desc
+store[#i,3] = 7; //spr_icon
+store[#i,4] = 125; //price
+store[#i,5] = 3; //width
+store[#i,6] = 3; //height
+store[#i,7] = 0; //orderlies to man
+store[#i,8] = 0; //# of residents at a time
 i++;
 
 return store;

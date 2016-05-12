@@ -1,5 +1,5 @@
 if(y > 0){
-    audio_play_sound(snd_rooster,1,false);
+    audio_play_sound(snd_chime,1,false);
     y = -1;
     x = display_get_gui_width() + 256
     bounce = 0;
