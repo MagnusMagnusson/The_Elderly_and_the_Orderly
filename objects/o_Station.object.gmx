@@ -195,10 +195,15 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
           <argument>
             <kind>1</kind>
             <string>///show profile when clicked
-if(!being_built &amp;&amp; !move_bed &amp;&amp; realmx() &gt; display_get_gui_width()/6){
-    var profile = instance_create(x, y, o_ui_stations);
-    profile.selected = id;
-}
+/*if(realmx() &gt; display_get_gui_width()/6 &amp;&amp; realmx &lt; display_get_gui_width()){
+    var station_id = id;
+    //show_message(station_id.type);
+    if(station_id.type == "Bed"){
+        //show_message("This is a bed!!!!");
+    }
+}*/
+
+
 </string>
           </argument>
         </arguments>
