@@ -4,7 +4,9 @@
 var tempx = argument0;
 var tempy = argument1;
 var cellsize=31;
-//make temps into pixel coordinates
+//make temps into pixel coordinates - do the is empty scripts use pixel or tile
+//done? double check - nope
+//the aboce suggestion seems wrong
 var resultsize=0;
 var results;
 var tempcoords;
@@ -15,7 +17,7 @@ if(matrix_is_empty(tempx,tempy,2,1)
     tempcoords[0]=tempx+1;
     tempcoords[1]=tempy;
     results[resultsize]=tempcoords;
-    results +=1;
+    resultsize +=1;
 }
 
 //check if left neighbour is reachable
@@ -25,7 +27,7 @@ if(matrix_is_empty(tempx-1,tempy,2,1)
     tempcoords[0]=tempx-1;
     tempcoords[1]=tempy;
     results[resultsize]=tempcoords;
-    results +=1;
+    resultsize +=1;
 }
 //check if top neighbour is reachable
 if(matrix_is_empty(tempx,tempy-1,2,1)
@@ -34,7 +36,7 @@ if(matrix_is_empty(tempx,tempy-1,2,1)
     tempcoords[0]=tempx;
     tempcoords[1]=tempy-1;
     results[resultsize]=tempcoords;
-    results +=1;
+    resultsize +=1;
 }
 //check if bottom neighbour is reachable
 if(matrix_is_empty(tempx,tempy,1,2)
@@ -43,7 +45,7 @@ if(matrix_is_empty(tempx,tempy,1,2)
     tempcoords[0]=tempx;
     tempcoords[1]=tempy+1;
     results[resultsize]=tempcoords;
-    results +=1;
+    resultsize +=1;
 }
 
 if(resultsize=0)
