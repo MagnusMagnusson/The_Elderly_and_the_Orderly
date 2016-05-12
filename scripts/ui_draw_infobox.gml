@@ -1,40 +1,101 @@
-//switch sentence between store, station, person. Store is default case.
-draw_set_colour(c_gray);
-draw_rectangle(0 , display_get_height()/1.5, display_get_width()/6 , display_get_height(), false);
-draw_set_colour(c_black);
-//Set font of funds to 14
-draw_set_font(fnt_funds);
-//Draw sprite for funds
-draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.funds))-40,  display_get_height()/1.5 + 4);
-//Amount player has
-draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
-//Font back to 12
-draw_set_font(fnt_normal);
+/*This handles all info that appears in infobox*/
+//Draw the infobox
+scr_draw_box();
+
+//Variable for making cancel always show info on hover
 var hoverCancel = false;
-var xoffset, yoffset, hoverCancel;
+
+//To make things in infobox be in correct place
+var xoffset, yoffset;
+
 xoffset = 4;
-yoffset = string_height("Loy"); 
+yoffset = string_height("Loy");
+ 
+//Change stat* values to change in infobox
+var statName, statPrice, statOrderlies, statResidents, sellPrice;
+statName = "Station: ";
+statPrice = "Price: ";
+statOrderlies = "Orderlies: ";
+statResidents = "Residents: ";
+sellPrice = "Sell Price: ";
+/*Add for later??*/
+        //Level
+        //Upgrade
+        
+//Are you hovering over the cancel button
 if(state == "store" && realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
     hoverCancel = true;
 }
-else{hoverCancel = false;}      
+//No I am not hovering over it
+else{
+    hoverCancel = false;
+} 
+
+//This makes station info disappear when holding station in "hand" and cancel info appear     
 if(hoverCancel){
-        draw_set_colour(c_gray);
-        draw_rectangle(0 , display_get_height()/1.5, display_get_width()/6 , display_get_height(), false);
-        draw_set_colour(c_black);
-        //Set font of funds to 14
-        draw_set_font(fnt_funds);
-        //Draw sprite for funds
-        draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.funds))-40,  display_get_height()/1.5 + 4);
-        //Amount player has
-        draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
-        //Font back to 12
-        draw_set_font(fnt_normal);
+        //Draw the infobox
+        scr_draw_box();
         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);      
 }
-
+//Station in room is selected, will need to do some magic if we want to make walls also selectable/sellable
+if(o_Station.station_selected){
+    //1 - name
+    //2 - desc
+    //4 - price
+    //7 - orderlies to man
+    //8 - # of residents at a time
+    //Use if because Magnus said oh god switch!
+    
+    //Draw the infobox
+    scr_draw_box();
+    
+    //show_message(o_Station.station_id.type);
+    if(o_Station.station_id.type == "Bed"){
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, "Sell Price: +" + string(ctrl.store[#1,4]/2) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#1,8]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_width()/6);
+    }
+    if(o_Station.station_id.type == "bingo"){
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, "Sell Price" + string(ctrl.store[#3,4]) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);          
+    }
+    if(o_Station.station_id.type == "TV"){
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_width()/6);
+                
+    }
+    else if(o_Station.station_id.type == "Disco"){
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#6,1] , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#6,4]) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#6,2] , yoffset, display_get_width()/6);
+        
+    }
+    else if(o_Station.station_id.type == "Dancefloor"){
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#4,8]), yoffset, display_get_width()/6);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#4,2] , yoffset, display_get_width()/6); 
+    }
+    
+    
+}
+//or just regular station info
 if(infoSelected && !hoverCancel){
     if(state == "store" && instance_exists(I)){
+        //Draw the infobox
+        scr_draw_box();
+        
         switch(I.object_index){
             //#0 in store
             case(o_wall):
@@ -67,7 +128,7 @@ if(infoSelected && !hoverCancel){
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
                 break;
             //#4 in store
-            case(o_disco):
+            case(o_carpet):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_width()/6);
@@ -91,14 +152,9 @@ if(infoSelected && !hoverCancel){
 else if(!hoverCancel){
     //Each item in store menu has info that appears in infobox when mouse hovers over it
     if(state == "store" && !hoverCancel){
-        /*Change stat values to change in infobox*/
-        statName = "Station: ";
-        statPrice = "Price: ";
-        statOrderlies = "Orderlies: ";
-        statResidents = "Residents: ";
-        /*Add for later*/
-        //Level
-        //Upgrade
+        o_Station.station_selected = false;
+        //Draw the info box
+        scr_draw_box();
         
         /*What each number stands for*/
         //1 - name
@@ -147,7 +203,7 @@ else if(!hoverCancel){
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
                 break;
-            //#4 in store
+            //#4 in store, shouldn't really be case disco but carpet or dancefloor...but it works
             case("disco"):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);

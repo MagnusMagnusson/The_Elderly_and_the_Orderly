@@ -1,20 +1,23 @@
 //make sprite appear more to right instead of at the beginning of store menu box
-var xbeginoffset = 4;
-var yoffset = 64;
+var xbeginoffset = 12;
+var yoffset = 72;
 press = noone
 var n = ds_grid_width(ctrl.store) div 2;
 //Selected
 if(mouse_check_button_pressed(mb_left)){
     //Player presses go back button, 64 might need to change, it is based on size of something
-    if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+    if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < sprite_get_width(spr_store_icons)){
         with(I){
                 instance_destroy();   
         }
+        //back button
+        back_effect = true;
+        
         infoSelected = false;  
         hover = true;
         state = "menu";
     }
-    if(realmx() > xbeginoffset && realmx() < 64){
+    if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons)){
         //Cancel
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             with(I){
@@ -26,18 +29,17 @@ if(mouse_check_button_pressed(mb_left)){
         //Draw left hand column
         for(var i = 3; i < 3 + n; i++){
             if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
-                show_message("LEFT " + string(i));
-                infoselected = true;
+                infoSelected = true;
                 press = 2*i - 5;
                 hover = false;
             }
         }
     }
-    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < (display_get_gui_width()/6)/2 + sprite_get_width(spr_store_icons)){
         //If you have selected a station before then we must destroy it when you select another
         for(var i = 2; i < 3 + n; i++){
             if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
-                infoselected = true;
+                infoSelected = true;
                 press = 2*i - 4;
                 hover = false;
             }
@@ -48,8 +50,6 @@ if(mouse_check_button_pressed(mb_left)){
         show_debug_message(string(press));
         with(I){
             instance_destroy();
-            infoSelected = false;
-            hover = true;
         }
         I = instance_create(0,0,ctrl.store[#press,0]);
         I.name = ctrl.store[#press,1]
@@ -65,8 +65,9 @@ if(mouse_check_button_pressed(mb_left)){
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
 else if(hover && state == "store"){ 
-    if(realmx() > xbeginoffset && realmx() < 64){
+    if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons)){
         if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+            
             infoHover = "back";
         }
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
@@ -82,7 +83,7 @@ else if(hover && state == "store"){
             infoHover = "sofa";
         }
     }
-    else if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
+    else if(realmx() > (display_get_gui_width()/6)/2 && realmx() < (display_get_gui_width()/6)/2+sprite_get_width(spr_store_icons)){
         //If you have selected a station before then we must destroy it when you select another
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
             infoHover = "wall";
