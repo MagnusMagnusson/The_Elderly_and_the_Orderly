@@ -199,9 +199,10 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
             <string>///show profile when clicked
 if(!being_built &amp;&amp; realmx() &gt; display_get_width()/6){
     station_id = id;
-    show_message(station_id.type);
+    //show_message(station_id.type);
     //if(station_id.type == "Bed"){
     station_selected = true;
+    //show_message(station_selected);
     //}
 }
 </string>

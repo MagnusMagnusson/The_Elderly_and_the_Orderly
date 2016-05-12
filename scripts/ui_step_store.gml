@@ -66,22 +66,28 @@ if(mouse_check_button_pressed(mb_left)){
 //can use them, upgrade?
 else if(hover && state == "store"){ 
     if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons)){
-        if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
-            
-            infoHover = "back";
-        }
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
+            hoverCancel = true;
             infoHover = "cancel";
         }
-        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoHover = "bed";
+        else{
+            hoverCancel = false;
+            if(realmx() > 0 && realmx() < 64 && realmy() > 0 && realmy() < 64){
+                
+                infoHover = "back";
+                o_Station.station_selected = false;
+            }
+            if(realmy() > 3*yoffset && realmy() < 4*yoffset){
+                infoHover = "bed";
+            }
+            if(realmy() > 4*yoffset && realmy() < 5*yoffset){
+                infoHover = "bingo";
+            }
+            if(realmy() > 5*yoffset && realmy() < 6*yoffset){
+                infoHover = "sofa";
+            }
         }
-        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoHover = "bingo";
-        }
-        if(realmy() > 5*yoffset && realmy() < 6*yoffset){
-            infoHover = "sofa";
-        }
+        
     }
     else if(realmx() > (display_get_gui_width()/6)/2 && realmx() < (display_get_gui_width()/6)/2+sprite_get_width(spr_store_icons)){
         //If you have selected a station before then we must destroy it when you select another
