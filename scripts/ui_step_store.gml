@@ -29,8 +29,7 @@ if(mouse_check_button_pressed(mb_left)){
         //Draw left hand column
         for(var i = 3; i < 3 + n; i++){
             if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
-                show_message("LEFT " + string(i));
-                infoselected = true;
+                infoSelected = true;
                 press = 2*i - 5;
                 hover = false;
             }
@@ -40,7 +39,7 @@ if(mouse_check_button_pressed(mb_left)){
         //If you have selected a station before then we must destroy it when you select another
         for(var i = 2; i < 3 + n; i++){
             if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
-                infoselected = true;
+                infoSelected = true;
                 press = 2*i - 4;
                 hover = false;
             }
@@ -51,8 +50,6 @@ if(mouse_check_button_pressed(mb_left)){
         show_debug_message(string(press));
         with(I){
             instance_destroy();
-            infoSelected = false;
-            hover = true;
         }
         I = instance_create(0,0,ctrl.store[#press,0]);
         I.name = ctrl.store[#press,1]
