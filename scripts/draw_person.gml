@@ -18,4 +18,5 @@ legs = people.legs;
 draw_sprite(legs,(4 - facing) % 4,_x,_y);
 draw_sprite(body,(4 - facing) % 4,_x,_y);
 draw_sprite(head,(4 - facing) % 4,_x,_y);
+draw_sprite(spr_person_eyes,((4 - facing) % 4) + (4*ctrl.isDay),_x,_y);
 draw_sprite(hair,(4 - facing) % 4,_x,_y);

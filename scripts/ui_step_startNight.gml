@@ -11,6 +11,8 @@ else{
         y = 1;
         x = -256;
         ctrl.isDay = false;
+        funds += funds_get();
+        timeLeft = dayDuration;
     }
 }
 
