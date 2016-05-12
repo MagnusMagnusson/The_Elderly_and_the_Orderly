@@ -38,6 +38,8 @@ infoHover = noone;
 hover = true;
 //Item created (in store)
 I = noone;
+//Back button click effect
+back_effect = false;
 cancel_build = false;
 </string>
           </argument>

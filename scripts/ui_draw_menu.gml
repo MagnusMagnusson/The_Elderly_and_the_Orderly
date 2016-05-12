@@ -5,7 +5,7 @@
 
 if(!ctrl.isDay){
     //The menu box
-    draw_set_colour(c_white);
+    draw_set_colour($ffcc99);
     draw_rectangle(0, 0,display_get_width()/6 , display_get_height()/1.5, false);
     
     button[0] = "Store";
