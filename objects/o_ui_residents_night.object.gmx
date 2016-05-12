@@ -31,6 +31,26 @@ selected = noone;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -49,7 +69,8 @@ selected = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//0 = old
+            <string>///LOKOL
+//0 = old
 //1 = applicants
 switch(state){
     case 0:{
@@ -57,6 +78,38 @@ switch(state){
         if(mouse_check_button_pressed(mb_left)){
             selected = noone;
             for(var i = 0; i &lt; instance_number(O_Resident);i++){
+                var X,Y;
+                X = display_get_width() div 2 + 62*(i % 5);
+                Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+                if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
+                    selected = i;
+                }
+            }
+        }
+        break;
+    }
+    case 1:{
+        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        if(mouse_check_button_pressed(mb_left)){
+            var bx,by;
+            bx = (4/6)*(display_get_width() div 2);
+            by = (11/10)*display_get_height() div 2;
+            if(realmx() &gt; bx &amp;&amp; realmy() &gt; by &amp;&amp; realmx() &lt; bx + 31 &amp;&amp; realmy() &lt; by + 31){
+                if(selected != noone){
+                    var I = instance_find(o_applicant,selected);
+                    with(I){
+                        var J = instance_create(room_width div 2, room_height div 2, O_Resident);
+                        J.name = I.name;
+                        J.hair = I.hair;
+                        J.head = I.head;
+                        J.body = I.body;
+                        J.legs = I.legs;
+                        instance_destroy();
+                    }
+                }
+            }
+            selected = noone;
+            for(var i = 0; i &lt; instance_number(o_applicant);i++){
                 var X,Y;
                 X = display_get_width() div 2 + 62*(i % 5);
                 Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
@@ -90,15 +143,18 @@ switch(state){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//0 = old
+            <string>///Draw the UI
+//0 = old
 //1 = applicants
 draw_set_font(fnt_screen)
 switch(state){
     case 0:{
+        //We're viewing old residents (They are all old, hohohohoh)
         draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
-        for(var i = 0; i &lt; instance_number(O_Resident);i++){
+        for(var i = 0; i &lt; instance_number(O_Resident);i++){//For each resident we currently have
             var I = instance_find(O_Resident,i);
             
+            //Draw the person on screen
             var X,Y;
             X = display_get_width() div 2 + 62*(i % 5);
             Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
@@ -106,25 +162,19 @@ switch(state){
             draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.hair,0,X,Y,2,2,0,c_white,1);
-            
+            //Draw how happy they are
             draw_sprite(spr_smile,4-round(I.happiness / 25),X+15,Y + 64+15);
-            
-            draw_set_color(0)
-            draw_rectangle(X,Y,X+62,Y + 64 + 20 + 31,true)
-            draw_set_color(c_red);
-            draw_circle(realmx(),realmy(),4,false);
-            draw_set_color(c_green);
-            draw_circle(mouse_x,mouse_y,4,false);
-            draw_set_color(0);
-            draw_text(512,32,window_get_width());
         }
         
-        if(selected != noone){
+        if(selected != noone){ //If someone is selected
             var I = instance_find(O_Resident,selected);
+            //Where to draw information about them
             var _x,_y;
             _x = 445
             _y = 450
+            //Draw general information on them
             draw_text(_x,_y,I.name)
+            //Happy
             draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
             draw_set_color(c_white){
                 draw_set_halign(fa_center);
@@ -137,14 +187,45 @@ switch(state){
                 draw_text(_x + 64,_y + 48,string(I.happiness ) + "%");
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
+            //end happy
             }
             
         }
-        draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
+        //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
+        break;
+    }
+    case 1:{
+        //Applicants
+        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(spr_icons,0,(4/6)*(display_get_width() div 2), (11/10)*display_get_height() div 2)
+        //For each applicant
+        for(var i = 0; i &lt; instance_number(o_applicant);i++){
+            var I = instance_find(o_applicant,i);
+            
+            //Draw information
+            var X,Y;
+            X = display_get_width() div 2 + 62*(i % 5);
+            Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+            draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
+            draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
+            draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
+            draw_sprite_ext(I.hair,0,X,Y,2,2,0,c_white,1);
+            
+            draw_sprite(spr_smile,4-round(I.happiness / 25),X+15,Y + 64+15);
+        }
+        
+        if(selected != noone){ //If an applicant is accepted
+            var I = instance_find(o_applicant,selected);
+            //SHIIiiIIIiIIinEeEEe Ooonn you craaaaazy diamond!
+            var _x,_y;
+            _x = 445
+            _y = 450
+            draw_text(_x,_y,I.name)
+        }
+        //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
         break;
     }
 }
-
 </string>
           </argument>
         </arguments>

@@ -13,6 +13,7 @@ else{
         ctrl.isDay = false;
         funds += funds_get();
         timeLeft = dayDuration;
+        applicants_get();
     }
 }
 
