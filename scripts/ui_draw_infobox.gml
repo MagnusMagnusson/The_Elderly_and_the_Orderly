@@ -10,12 +10,30 @@ draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.fun
 draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
 //Font back to 12
 draw_set_font(fnt_normal);
-
-var xoffset, yoffset;
+var hoverCancel = false;
+var xoffset, yoffset, hoverCancel;
 xoffset = 4;
-yoffset = string_height("Loy");
+yoffset = string_height("Loy"); 
+if(state == "store" && realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
+    hoverCancel = true;
+}
+else{hoverCancel = false;}      
+if(hoverCancel){
+        draw_set_colour(c_gray);
+        draw_rectangle(0 , display_get_height()/1.5, display_get_width()/6 , display_get_height(), false);
+        draw_set_colour(c_black);
+        //Set font of funds to 14
+        draw_set_font(fnt_funds);
+        //Draw sprite for funds
+        draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.funds))-40,  display_get_height()/1.5 + 4);
+        //Amount player has
+        draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
+        //Font back to 12
+        draw_set_font(fnt_normal);
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);      
+}
 
-if(infoSelected){
+if(infoSelected && !hoverCancel){
     if(state == "store" && instance_exists(I)){
         switch(I.object_index){
             //#0 in store
@@ -70,9 +88,9 @@ if(infoSelected){
         }
     }
 }
-else{
+else if(!hoverCancel){
     //Each item in store menu has info that appears in infobox when mouse hovers over it
-    if(state == "store"){
+    if(state == "store" && !hoverCancel){
         /*Change stat values to change in infobox*/
         statName = "Station: ";
         statPrice = "Price: ";
@@ -95,9 +113,9 @@ else{
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"Back to Menu", yoffset, display_get_width()/6);
                 break;
             //Maybe move this outside?
-            case("cancel"):
+            /*case("cancel"):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);
-                break;
+                break;*/
             //#0 in store
             //Wall isn't a station so it doesn't have orderlies or residents to use it.
             case("wall"):
