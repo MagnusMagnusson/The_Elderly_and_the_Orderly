@@ -2,7 +2,7 @@
 var xbeginoffset = 4;
 var yoffset = 64;
 press = noone
-
+var n = ds_grid_width(ctrl.store) div 2;
 //Selected
 if(mouse_check_button_pressed(mb_left)){
     //Player presses go back button, 64 might need to change, it is based on size of something
@@ -23,38 +23,24 @@ if(mouse_check_button_pressed(mb_left)){
             infoSelected = false;  
             hover = true;
         }
-        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoSelected = true;
-            press = 1;
-            hover = false;
-        }
-        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoSelected = true;
-            press = 3;
-            hover = false
-        }
-        if(realmy() > 5*yoffset && realmy() < 6*yoffset){
-            infoSelected = true;
-            press = 5;
-            hover = false
+        //Draw left hand column
+        for(var i = 3; i < 3 + n; i++){
+            if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
+                show_message("LEFT " + string(i));
+                infoselected = true;
+                press = 2*i - 5;
+                hover = false;
+            }
         }
     }
     if(realmx() > (display_get_gui_width()/6)/2 && realmx() < display_get_gui_width()/6){
         //If you have selected a station before then we must destroy it when you select another
-        if(realmy() > 2*yoffset && realmy() < 3*yoffset){
-            infoSelected = true;
-            press = 0;
-            hover = false;
-        }
-        if(realmy() > 3*yoffset && realmy() < 4*yoffset){
-            infoSelected = true;
-            press = 2;
-            hover = false;
-        }
-        if(realmy() > 4*yoffset && realmy() < 5*yoffset){
-            infoSelected = true;
-            press = 4;
-            hover = false
+        for(var i = 2; i < 3 + n; i++){
+            if(realmy() > i*yoffset && realmy() < (i+1)*yoffset){
+                infoselected = true;
+                press = 2*i - 4;
+                hover = false;
+            }
         }
     }
     //Station selected appears where the mouse is
