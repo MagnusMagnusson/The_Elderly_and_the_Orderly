@@ -42,8 +42,6 @@ isrunning=true;
 runnable=false;
 mannable=false;
 
-station_selected = false;
-station_id = noone;
 //currentresidentcount and currentresidents list 
 //track who is in the station
 for(var i=0;i&lt;residentcapacity;i++)
@@ -198,8 +196,8 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
             <kind>1</kind>
             <string>///show profile when clicked
 if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
-    ctrl.station_id = object_index;
-    ctrl.station_selected = true;
+    ctrl.selected_id = object_index;
+    ctrl.selected_stuff = true;
 }
 
 </string>

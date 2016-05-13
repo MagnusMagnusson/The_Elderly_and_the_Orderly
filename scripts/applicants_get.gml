@@ -9,7 +9,8 @@ for(var i = 0; i < instance_number(O_Resident);i++){
     happ += I.happiness;
 }
 
-var n = (happ / instance_number(O_Resident))/100 * 15 
+var n = ((happ / instance_number(O_Resident))/100 * 15 ) 
+* reputation_get_normalized()
 
 show_message(n);
 for(var j = 0; j < n; j++){
