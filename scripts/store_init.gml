@@ -83,18 +83,17 @@ store[#i,8] = 0; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 
-
 //5
-store[#i,0] = o_sofa; //obj_index
-store[#i,1] = "A sofa"; //name
-store[#i,2] = "It's every bit as comfy as it looks.#just ignore the stains."; //desc
-store[#i,3] = 6; //spr_icon
+store[#i,0] = o_toilet; //obj_index
+store[#i,1] = "A Toilet Stall"; //name
+store[#i,2] = "This could have been a bullethell game"; //desc
+store[#i,3] = 8; //spr_icon
 store[#i,4] = 100; //price
-store[#i,5] = 3; //width
-store[#i,6] = 1; //height
+store[#i,5] = 2; //width
+store[#i,6] = 3; //height
 store[#i,7] = 0; //orderlies to man
-store[#i,8] = 3; //# of residents at a time
-store[#i,9] = 500; //Level
+store[#i,8] = 1; //# of residents at a time
+store[#i,9] = 1; //Level
 i++;
 
 
@@ -123,17 +122,27 @@ store[#i,8] = 5; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 
-//8
-store[#i,0] = o_toilet; //obj_index
-store[#i,1] = "A Toilet Stall"; //name
-store[#i,2] = "This could have been a bullethell game"; //desc
-store[#i,3] = 8; //spr_icon
-store[#i,4] = 100; //price
-store[#i,5] = 2; //width
-store[#i,6] = 3; //height
-store[#i,7] = 0; //orderlies to man
-store[#i,8] = 1; //# of residents at a time
-store[#i,9] = 1; //Level
-i++;
 
 return store;
+
+
+
+/*
+//5
+store[#i,0] = o_sofa; //obj_index
+store[#i,1] = "A sofa"; //name
+store[#i,2] = "It's every bit as comfy as it looks.#just ignore the stains."; //desc
+store[#i,3] = 6; //spr_icon
+store[#i,4] = 100; //price
+store[#i,5] = 3; //width
+store[#i,6] = 1; //height
+store[#i,7] = 0; //orderlies to man
+store[#i,8] = 3; //# of residents at a time
+store[#i,9] = 500; //Level
+i++;
+*/
+
+
+
+
+
