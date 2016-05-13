@@ -146,8 +146,10 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// move to target if not on target
+            <string>/// move to target if not on target and path exists
 
+if(tilepath==noone)
+    exit;
 if( x-1*30.0/fps &lt;= target_x &amp;&amp; target_x &lt;= x+1.0*30/fps )
 {
     x=target_x;
@@ -212,6 +214,13 @@ if( target_y &lt; y )
             <string>/// Select if this was clicked
 global.selected_person=id;
 
+///show profile when clicked
+///show profile when clicked
+if(realmx() &gt; display_get_gui_width()/6){
+    ctrl.selected_id = object_index;
+    ctrl.selected_stuff = true;
+    ctrl.select_peeps = id;
+}
 
 </string>
           </argument>

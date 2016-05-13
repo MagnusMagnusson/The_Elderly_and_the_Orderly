@@ -115,7 +115,7 @@ keyboard_check_pressed(vk_enter)){
             break;
         }
         case 2:{
-            game_end();
+            room_goto(rm_magnuss_chamber);
             break;
         }
     }

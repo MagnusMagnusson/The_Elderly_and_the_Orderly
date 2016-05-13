@@ -32,8 +32,8 @@ if(mouse_check_button_pressed(mb_left)){
                 infoSelected = true;
                 press = 2*i - 5;
                 hover = false;
-                selected_id = noone;
-                selected_stuff = false;
+                station_id = noone;
+                station_selected = false;
             }
         }
     }
@@ -44,8 +44,8 @@ if(mouse_check_button_pressed(mb_left)){
                 infoSelected = true;
                 press = 2*i - 4;
                 hover = false;
-                selected_id = noone;
-                selected_stuff = false;
+                station_id = noone;
+                station_selected = false;
             }
         }
     }
