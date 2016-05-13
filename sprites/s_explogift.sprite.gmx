@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>31</bbox_right>
-  <bbox_top>0</bbox_top>
-  <bbox_bottom>29</bbox_bottom>
+  <bbox_left>1</bbox_left>
+  <bbox_right>30</bbox_right>
+  <bbox_top>1</bbox_top>
+  <bbox_bottom>30</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -67,10 +67,5 @@
     <frame index="44">images\s_explogift_44.png</frame>
     <frame index="45">images\s_explogift_45.png</frame>
     <frame index="46">images\s_explogift_46.png</frame>
-    <frame index="47">images\s_explogift_47.png</frame>
-    <frame index="48">images\s_explogift_48.png</frame>
-    <frame index="49">images\s_explogift_49.png</frame>
-    <frame index="50">images\s_explogift_50.png</frame>
-    <frame index="51">images\s_explogift_51.png</frame>
   </frames>
 </sprite>
