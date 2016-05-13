@@ -29,8 +29,13 @@
 
 target_x=x;
 target_y=y;
-//tilepath=ds_queue_create();
+tilepath=noone;
+path_length=0;
+index_into_path=0;
 
+//debugging purposes
+
+max_Astar_iterations=0;
 </string>
           </argument>
         </arguments>
@@ -76,8 +81,73 @@ target_y=y;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///create path to target if none exists
+if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
+{
+    tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31);
+    path_length=array_length_1d(tilepath);
+    index_into_path=0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///move target along path to final target
+
+if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
+{
+    var target_tile=tilepath[index_into_path];
+    var target_tile_x=target_tile[0]*32+16;
+    var target_tile_y=target_tile[1]*32+16;
+    if(x==target_tile_x &amp;&amp; y==target_tile_y)
+    {
+        index_into_path+=1;
+        if(path_length&lt;index_into_path)
+        {
+            tilepath=noone
+            path_length=0;
+            index_into_path=0;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// move to target if not on target
-/*
+
 if( x-1*30.0/fps &lt;= target_x &amp;&amp; target_x &lt;= x+1.0*30/fps )
 {
     x=target_x;
@@ -121,41 +191,6 @@ if( target_y &lt; y )
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>//the path creation actually belongs in choose target
-//making a single global grid would be more efficient if the game
-//starts slowing down.
-var cellsize=31;
-grid=mp_grid_create(0,0,room_width/cellsize,room_height/cellsize,cellsize,cellsize);
-
-var path=path_add();
-
-mp_grid_add_instances(path,o_Station,true);
-
-mp_grid_path(grid,path,x,y,target_x,target_y,false);
-
-path_start(path,1,"",true);
-
-
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="6" enumb="4">
       <action>
@@ -178,6 +213,35 @@ path_start(path,1,"",true);
 global.selected_person=id;
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+
+draw_text(x,y+40,target_x);
+draw_text(x,y+31,target_y);
+
+draw_text(x,y+50,tilepath);
+draw_text(x,y+60,path_length);
 </string>
           </argument>
         </arguments>

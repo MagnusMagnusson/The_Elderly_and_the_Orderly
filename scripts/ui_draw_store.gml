@@ -3,7 +3,7 @@
 //TODO: Scrollbar!
 
 draw_set_colour($ffcc99);
-draw_rectangle(0, 0,display_get_width()/6 , display_get_height()/1.5, false);
+draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
 //Back to menu
 draw_sprite(spr_go_back,0,0,4);
 
@@ -32,14 +32,14 @@ for (var i = k; i < sprite_get_number(spr_store_icons); i = i+2){
     if(i+1 >= sprite_get_number(spr_store_icons)){
         break;
     }
-    if(realmx() > (display_get_width()/6)/2 && realmx() < (display_get_width()/6)/2 + sprite_get_width(spr_store_icons) && realmy() > yy && realmy() < yy + 64){
+    if(realmx() > (display_get_gui_width()/6)/2 && realmx() < (display_get_gui_width()/6)/2 + sprite_get_width(spr_store_icons) && realmy() > yy && realmy() < yy + 64){
         draw_set_color(c_red);
-        draw_rectangle((display_get_width()/6)/2, yy, (display_get_width()/6)/2 + sprite_get_width(spr_store_icons), yy + 64, true);
+        draw_rectangle((display_get_width()/6)/2, yy, (display_get_gui_width()/6)/2 + sprite_get_width(spr_store_icons), yy + 64, true);
         draw_set_colour($ffcc99);
-        draw_sprite(spr_store_icons, i+1, (display_get_width()/6)/2, yy);
+        draw_sprite(spr_store_icons, i+1, (display_get_gui_width()/6)/2, yy);
     }
     else{
-        draw_sprite(spr_store_icons, i+1, (display_get_width()/6)/2, yy);
+        draw_sprite(spr_store_icons, i+1, (display_get_gui_width()/6)/2, yy);
     }
 }
 /*if(back_effect){

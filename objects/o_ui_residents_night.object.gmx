@@ -96,15 +96,20 @@ switch(state){
             by = (11/10)*display_get_height() div 2;
             if(realmx() &gt; bx &amp;&amp; realmy() &gt; by &amp;&amp; realmx() &lt; bx + 31 &amp;&amp; realmy() &lt; by + 31){
                 if(selected != noone){
-                    var I = instance_find(o_applicant,selected);
-                    with(I){
-                        var J = instance_create(room_width div 2, room_height div 2, O_Resident);
-                        J.name = I.name;
-                        J.hair = I.hair;
-                        J.head = I.head;
-                        J.body = I.body;
-                        J.legs = I.legs;
-                        instance_destroy();
+                    if(instance_number(o_bed) &gt;= instance_number(O_Resident)+1){
+                        var I = instance_find(o_applicant,selected);
+                        with(I){
+                            var J = instance_create(room_width div 2, room_height div 2, O_Resident);
+                            J.name = I.name;
+                            J.hair = I.hair;
+                            J.head = I.head;
+                            J.body = I.body;
+                            J.legs = I.legs;
+                            instance_destroy();
+                        }
+                    }
+                    else{
+                        ctrl.error = "There aren't enough beds to go around!#Buy more beds before accepting new elderlies!";
                     }
                 }
             }
