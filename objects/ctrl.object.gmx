@@ -37,7 +37,11 @@ isclicked=false;
 camerax = mouse_x;
 cameray = mouse_y;
 days = 0;
+
 error = "";
+
+station_selected = false;
+station_id = noone;
 
 global.built_stations=ds_list_create();
 for(var i=0;i &lt; instance_number(o_Station);i++)
