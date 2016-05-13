@@ -29,7 +29,7 @@
 ///Initialize variables
 image_speed = 0;
 type="toilet";
-width = 3;
+width = 2;
 height = 3;
 
 ind = 0;
