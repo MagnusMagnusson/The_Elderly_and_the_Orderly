@@ -40,8 +40,10 @@ days = 0;
 
 error = "";
 
-station_selected = false;
-station_id = noone;
+//For showing info about station/persons when clicked in room
+selected_stuff = false;
+selected_id = noone;
+select_peeps = noone;
 
 global.built_stations=ds_list_create();
 for(var i=0;i &lt; instance_number(o_Station);i++)
@@ -203,6 +205,34 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(mouse_check_button_pressed(mb_left) &amp;&amp; realmx() &gt;  display_get_gui_width()/6){
+    //For showing info about station/persons when clicked in room
+    selected_stuff = false;
+    selected_id = noone;
+    select_peeps = noone;
+}
 </string>
           </argument>
         </arguments>

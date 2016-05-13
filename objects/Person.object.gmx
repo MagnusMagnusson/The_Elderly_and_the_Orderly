@@ -212,6 +212,13 @@ if( target_y &lt; y )
             <string>/// Select if this was clicked
 global.selected_person=id;
 
+///show profile when clicked
+///show profile when clicked
+if(realmx() &gt; display_get_gui_width()/6){
+    ctrl.selected_id = object_index;
+    ctrl.selected_stuff = true;
+    ctrl.select_peeps = id;
+}
 
 </string>
           </argument>

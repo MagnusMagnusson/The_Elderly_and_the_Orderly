@@ -29,8 +29,9 @@ sellPrice = "Sell Price: ";
 }*/
 
 //For clicking stations in room, currently only works on one bed (the one on the right side)
-if(!infoSelected && ctrl.station_selected){
-    show_debug_message(ctrl.station_id);
+if(!infoSelected && ctrl.selected_stuff){
+    //show_debug_message(ctrl.selected_id);
+    //show_message("You are here");
     //1 - name
     //2 - desc
     //4 - price
@@ -40,6 +41,7 @@ if(!infoSelected && ctrl.station_selected){
     
     //Draw the infobox
     scr_draw_box();
+    
     //if station is clicked
     scr_station_clicked();
     
