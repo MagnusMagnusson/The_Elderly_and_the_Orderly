@@ -12,6 +12,7 @@ statResidents = "Residents: ";
 sellPrice = "Sell Price: ";
 
 if(ctrl.selected_id == o_TV){
+    draw_sprite_ext(spr_store_icons, 3, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
@@ -20,6 +21,7 @@ if(ctrl.selected_id == o_TV){
 }
 //show_message(o_Station.station_id.type);
 if(ctrl.selected_id == o_bed){
+    draw_sprite_ext(spr_store_icons, 2, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, "Sell Price: +" + string(ctrl.store[#1,4]/2) , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_gui_width()/6);
@@ -27,6 +29,7 @@ if(ctrl.selected_id == o_bed){
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_gui_width()/6);
 }
 if(ctrl.selected_id == o_Bingo){
+    draw_sprite_ext(spr_store_icons, 4, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, "Sell Price" + string(ctrl.store[#3,4]) , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_gui_width()/6);
@@ -41,6 +44,7 @@ if(ctrl.selected_id == o_Bingo){
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_gui_width()/6);          
 }*/
 if(ctrl.selected_id == o_disco){
+    draw_sprite_ext(s_disco, 0, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#6,1] , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#6,4]) , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_gui_width()/6);
@@ -49,6 +53,7 @@ if(ctrl.selected_id == o_disco){
     
 }
 if(ctrl.selected_id == o_carpet){
+    draw_sprite_ext(spr_store_icons, 5, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_gui_width()/6);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_gui_width()/6);

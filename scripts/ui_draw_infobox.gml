@@ -54,6 +54,7 @@ else if(state == "store"){
             switch(I.object_index){
                 //#0 in store
                 case(o_wall):
+                    
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_gui_width()/6);
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#0,4]) , yoffset, display_get_gui_width()/6);
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, ctrl.store[#0,2] , yoffset, display_get_gui_width()/6);
