@@ -112,16 +112,27 @@ if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 
 if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
+    //show_debug_message("making new tilepath");
     var target_tile=tilepath[index_into_path];
     var target_tile_x=target_tile[0]*32+16;
     var target_tile_y=target_tile[1]*32+16;
+    target_x=target_tile_x;
+    target_y=target_tile_y;
     if(x==target_tile_x &amp;&amp; y==target_tile_y)
     {
+        show_debug_message("incrementing index");
+        show_debug_message("index now:");
+        show_debug_message(index_into_path);
         index_into_path+=1;
-        if(path_length&lt;index_into_path)
+        show_debug_message("path length now:");
+        show_debug_message(path_length);
+        if(path_length==index_into_path)
         {
-            tilepath=noone
+            show_debug_message("ressetting tile path");
+            tilepath=noone;
+            show_debug_message(path_length);
             path_length=0;
+            show_debug_message(path_length);
             index_into_path=0;
         }
     }
@@ -249,8 +260,8 @@ if(realmx() &gt; display_get_gui_width()/6){
 draw_text(x,y+40,target_x);
 draw_text(x,y+31,target_y);
 
-draw_text(x,y+50,tilepath);
-draw_text(x,y+60,path_length);
+for(var i=0;i&lt;array_length_1d(tilepath);i++)
+    draw_text(x+50,y+10*i,tilepath[i]);
 </string>
           </argument>
         </arguments>
