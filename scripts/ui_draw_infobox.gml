@@ -10,6 +10,7 @@ var xoffset, yoffset;
 
 xoffset = 4;
 yoffset = string_height("Loy");
+info_start_yoff = sprite_get_height(spr_funds) + 4;
 //Change stat* values to change in infobox
 var statName, statPrice, statOrderlies, statResidents, sellPrice;
 statName = "Station: ";
@@ -20,11 +21,7 @@ sellPrice = "Sell Price: ";
 /*Add for later??*/
         //Level
         //Upgrade
-
-if(hoverCancel){
-    scr_draw_box();
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
-}        
+      
         
 //For clicking stations in room
 if(!infoSelected && ctrl.selected_stuff){
@@ -36,44 +33,30 @@ if(!infoSelected && ctrl.selected_stuff){
     //7 - orderlies to man
     //8 - # of residents at a time
     //Use if because Magnus said oh god switch!
-    
     //Draw the infobox
     scr_draw_box();
-    
     //if station is clicked
     scr_station_clicked();
-    
-    
 }
-if(state == "store"){
-    //object in room selected
-    if(!infoSelected && ctrl.selected_stuff){
+else if(state == "store"){
+    if(hoverCancel){
+        //Draw the infobox
+        scr_draw_box();
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5) + info_start_yoff,"If you have selected a station you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
+    } 
+    //object in room selected (orderly/resident/station
+    else if(!infoSelected && ctrl.selected_stuff){
         //Draw the infobox
         scr_draw_box();
         //if station is clicked
         scr_station_clicked();
     }
-    //Are you hovering over the cancel button
-    if(realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
-        //hoverCancel = true;
-        //o_Station.station_selected = false;
-    }
-    //No I am not hovering over it
-    else{
-        //hoverCancel = false;
-    }
-    //This makes station info disappear when holding station in "hand" and cancel info appear  
-    if(hoverCancel){
-        //Draw the infobox
-        scr_draw_box();
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
-    }
     else if(!hoverCancel){
-        //or just regular station info
+        //Station in store is selected then info about that station will be shown
         if(infoSelected && instance_exists(I)){
             //Draw the infobox
             scr_draw_box();
-            o_Station.station_selected = false;
+            //o_Station.station_selected = false;
             switch(I.object_index){
                 //#0 in store
                 case(o_wall):
@@ -128,7 +111,7 @@ if(state == "store"){
             }
             else{
                 //Each item in store menu has info that appears in infobox when mouse hovers over it
-                o_Station.station_selected = false;
+                //o_Station.station_selected = false;
                 //Draw the info box
                 scr_draw_box();
                 
@@ -147,8 +130,8 @@ if(state == "store"){
                     //Maybe move this outside?
                     /*case("cancel"):
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);
-                        break;*/
-                    //#0 in store
+                        break;
+                    *///#0 in store
                     //Wall isn't a station so it doesn't have orderlies or residents to use it.
                     case("wall"):
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_gui_width()/6);
