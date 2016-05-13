@@ -3,20 +3,18 @@
 
 var tempx = argument0;
 var tempy = argument1;
-var cellsize=31;
-//make temps into pixel coordinates - do the is empty scripts use pixel or tile
-//done? double check - nope
-//the aboce suggestion seems wrong
+
 var resultsize=0;
 var results;
-var tempcoords;
+
 //check if right neighbour is reachable
 if(matrix_is_empty(tempx,tempy,2,1)
 && wallmatrix_is_empty(tempx,tempy,2,1))
 {
-    tempcoords[0]=tempx+1;
-    tempcoords[1]=tempy;
-    results[resultsize]=tempcoords;
+    var tempcoords1;
+    tempcoords1[0]=tempx+1;
+    tempcoords1[1]=tempy;
+    results[resultsize]=tempcoords1;
     resultsize +=1;
 }
 
@@ -24,27 +22,30 @@ if(matrix_is_empty(tempx,tempy,2,1)
 if(matrix_is_empty(tempx-1,tempy,2,1)
 && wallmatrix_is_empty(tempx-1,tempy,2,1))
 {
-    tempcoords[0]=tempx-1;
-    tempcoords[1]=tempy;
-    results[resultsize]=tempcoords;
+    var tempcoords2;
+    tempcoords2[0]=tempx-1;
+    tempcoords2[1]=tempy;
+    results[resultsize]=tempcoords2;
     resultsize +=1;
 }
 //check if top neighbour is reachable
-if(matrix_is_empty(tempx,tempy-1,2,1)
-&& wallmatrix_is_empty(tempx,tempy-1,2,1))
+if(matrix_is_empty(tempx,tempy-1,1,2)
+&& wallmatrix_is_empty(tempx,tempy-1,1,2))
 {
-    tempcoords[0]=tempx;
-    tempcoords[1]=tempy-1;
-    results[resultsize]=tempcoords;
+    var tempcoords3;
+    tempcoords3[0]=tempx;
+    tempcoords3[1]=tempy-1;
+    results[resultsize]=tempcoords3;
     resultsize +=1;
 }
 //check if bottom neighbour is reachable
 if(matrix_is_empty(tempx,tempy,1,2)
 && wallmatrix_is_empty(tempx,tempy,1,2))
 {
-    tempcoords[0]=tempx;
-    tempcoords[1]=tempy+1;
-    results[resultsize]=tempcoords;
+    var tempcoords4;
+    tempcoords4[0]=tempx;
+    tempcoords4[1]=tempy+1;
+    results[resultsize]=tempcoords4;
     resultsize +=1;
 }
 

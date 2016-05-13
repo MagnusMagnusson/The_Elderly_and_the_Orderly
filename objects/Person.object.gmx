@@ -110,9 +110,9 @@ if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
             <kind>1</kind>
             <string>///move target along path to final target
 
-if(index_into_path&lt;path_length)
+if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
-    var target_tile=path[index_into_path];
+    var target_tile=tilepath[index_into_path];
     var target_tile_x=target_tile[0]*32+16;
     var target_tile_y=target_tile[1]*32+16;
     if(x==target_tile_x &amp;&amp; y==target_tile_y)
@@ -120,7 +120,7 @@ if(index_into_path&lt;path_length)
         index_into_path+=1;
         if(path_length&lt;index_into_path)
         {
-            path=noone
+            tilepath=noone
             path_length=0;
             index_into_path=0;
         }

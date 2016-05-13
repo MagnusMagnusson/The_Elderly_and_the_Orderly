@@ -24,11 +24,14 @@ ds_list_add(checking,tempcoords);
 ds_list_add(checking_parent,noone);
 //debug variables
 var iteration_debug=false;
-var mainloop_debug=true;
+var mainloop_debug=false;
+var neighbour_debug=false;
+var debug=neighbour_debug||iteration_debug||mainloop_debug; 
 var iterations=0;
 //at the start, checking contains exactly one coordinate pair
 while(!ds_list_size(checking)==0)
 {
+    if(debug) sleep(1000000);
     if(mainloop_debug) show_debug_message(iterations++);
     if(mainloop_debug) show_debug_message("--------------II---------------");
     if(mainloop_debug) show_debug_message("checking list:");
@@ -74,18 +77,28 @@ while(!ds_list_size(checking)==0)
    
     for(var i=0;i<array_length_1d(neighbours);i++)
     {
-        if(iteration_debug) show_debug_message("adding eligible neighbours");
-        if(iteration_debug) show_debug_message(i);
+        if(iteration_debug||neighbour_debug) show_debug_message("adding eligible neighbours");
+        if(iteration_debug||neighbour_debug) show_debug_message(i);
         var checkedbefore=false;
         for(var j=0;j<ds_list_size(checked);j++)
         {
             if(iteration_debug) show_debug_message("looking for neighbours in checked");
             if(iteration_debug) show_debug_message(j);
-            if(neighbours[i]==checked[|j])
+            //extracting neighbour coords
+            var neighbourcoords=neighbours[i];
+            var neighbourx=neighbourcoords[0];
+            var neighboury=neighbourcoords[1];
+            //extracting checked coords
+            var checkedcoords=checked[|j];
+            var checkedx=checkedcoords[0];
+            var checkedy=checkedcoords[1];
+            if(neighbourx=checkedx && neighboury==checkedy)
                 checkedbefore=true;
         }
         if(!checkedbefore)
         {
+            if(neighbour_debug) show_debug_message("adding the following to checked");
+            if(neighbour_debug) show_debug_message(neighbours[i]);
             ds_list_add(checking,neighbours[i]);
             ds_list_add(checking_parent,checking[|minindex]);
         }
@@ -146,7 +159,8 @@ while(!ds_list_size(checking)==0)
             }
 
         }
-        reversetilepath[pathsize]=checked[|nextindex];
+        reversetilepath[pathlength]=checked[|nextindex];
+        pathlength+=1;
         parentcoords=checked_parent[|nextindex];
         nextx=parentcoords[0];
         nexty=parentcoords[1];
@@ -158,7 +172,8 @@ while(!ds_list_size(checking)==0)
     {
         if(iteration_debug) show_debug_message("reversing reversetilepath");
         if(iteration_debug) show_debug_message(i);
-        tilepath[i]=reversetilepath[array_length_1d(reversetilepath)-i]
+        //the index into reversetilepath walks from last element to first element
+        tilepath[i]=reversetilepath[array_length_1d(reversetilepath)-1-i]
     }
     ds_list_destroy(checking);
     ds_list_destroy(checked);
