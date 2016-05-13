@@ -23,8 +23,8 @@ sellPrice = "Sell Price: ";
         //Upgrade
       
         
-//For clicking stations in room
-if(!infoSelected && ctrl.selected_stuff){
+//For clicking stations in room but if hovering over items in menu it will show that info
+if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
     //show_debug_message(ctrl.selected_id);
     //show_message("You are here");
     //1 - name
@@ -45,12 +45,6 @@ else if(state == "store"){
         draw_text_ext(xoffset, (display_get_gui_height()/1.5) + info_start_yoff,"If you have selected a station you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
     } 
     //object in room selected (orderly/resident/station
-    else if(!infoSelected && ctrl.selected_stuff){
-        //Draw the infobox
-        scr_draw_box();
-        //if station is clicked
-        scr_station_clicked();
-    }
     else if(!hoverCancel){
         //Station in store is selected then info about that station will be shown
         if(infoSelected && instance_exists(I)){
@@ -183,6 +177,12 @@ else if(state == "store"){
                 }
             }
 
+        }
+        else if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
+            //Draw the infobox
+            scr_draw_box();
+            //if station is clicked
+            scr_station_clicked();
         }
     }
 /*I will leave this code for now until I am sure nothing is wrong*/
