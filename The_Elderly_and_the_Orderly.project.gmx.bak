@@ -9,10 +9,13 @@
       <sound>sound\snd_maple_leaf</sound>
       <sound>sound\snd_entertainer</sound>
     </sounds>
+    <sounds name="Sounds">
+      <sound>sound\snd_rooster</sound>
+      <sound>sound\snd_cash</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sprite0</sprite>
-    <sprite>sprites\sprite5</sprite>
     <sprites name="stations">
       <sprite>sprites\spr_tv</sprite>
       <sprite>sprites\spr_bed</sprite>
@@ -30,6 +33,7 @@
           <sprite>sprites\spr_person_hair_ml_2</sprite>
           <sprite>sprites\spr_person_hair_ml_3</sprite>
           <sprite>sprites\spr_person_hair_ml_4</sprite>
+          <sprite>sprites\spr_person_hair_fm_3</sprite>
         </sprites>
         <sprites name="head">
           <sprite>sprites\spr_person_head_ml_1</sprite>
@@ -37,6 +41,8 @@
           <sprite>sprites\spr_person_head_ml_2</sprite>
           <sprite>sprites\spr_person_head_ml_3</sprite>
           <sprite>sprites\spr_person_head_ml_4</sprite>
+          <sprite>sprites\spr_person_head_fm_2</sprite>
+          <sprite>sprites\spr_person_head_fm_3</sprite>
         </sprites>
         <sprites name="body">
           <sprite>sprites\spr_person_body_fm_1</sprite>
@@ -44,6 +50,8 @@
           <sprite>sprites\spr_person_body_ml_2</sprite>
           <sprite>sprites\spr_person_body_ml_3</sprite>
           <sprite>sprites\spr_person_body_ml_4</sprite>
+          <sprite>sprites\spr_person_body_fm_2</sprite>
+          <sprite>sprites\spr_person_body_fm_3</sprite>
         </sprites>
         <sprites name="legs">
           <sprite>sprites\spr_person_feet_fm_1</sprite>
@@ -51,6 +59,8 @@
           <sprite>sprites\spr_person_feet_ml_2</sprite>
           <sprite>sprites\spr_person_feet_ml_3</sprite>
           <sprite>sprites\spr_person_feet_ml_4</sprite>
+          <sprite>sprites\spr_person_feet_fm_2</sprite>
+          <sprite>sprites\spr_person_feet_fm_3</sprite>
         </sprites>
       </sprites>
       <sprites name="orderlies">
@@ -67,6 +77,7 @@
           <sprite>sprites\spr_orderly_feet_1</sprite>
         </sprites>
       </sprites>
+      <sprite>sprites\spr_person_eyes</sprite>
     </sprites>
     <sprites name="UI">
       <sprite>sprites\spr_btn</sprite>
@@ -76,6 +87,10 @@
       <sprite>sprites\spr_stations</sprite>
       <sprite>sprites\spr_courner</sprite>
       <sprite>sprites\spr_smile</sprite>
+      <sprite>sprites\s_morning</sprite>
+      <sprite>sprites\spr_go_back</sprite>
+      <sprite>sprites\spr_funds</sprite>
+      <sprite>sprites\sprite64</sprite>
     </sprites>
     <sprites name="bullethell">
       <sprite>sprites\s_explogift</sprite>
@@ -93,70 +108,6 @@
       <sprite>sprites\s_icon</sprite>
     </sprites>
     <sprite>sprites\s_applicant_ui</sprite>
-    <sprite>sprites\s_deer_new</sprite>
-    <sprite>sprites\s_disco_new</sprite>
-    <sprite>sprites\s_elf_new</sprite>
-    <sprite>sprites\s_explogift_new</sprite>
-    <sprite>sprites\s_gift_new</sprite>
-    <sprite>sprites\s_heart_new</sprite>
-    <sprite>sprites\s_icon_new</sprite>
-    <sprite>sprites\s_moon_new</sprite>
-    <sprite>sprites\s_morning</sprite>
-    <sprite>sprites\s_notes_new</sprite>
-    <sprite>sprites\s_santa_new</sprite>
-    <sprite>sprites\s_santadie_new</sprite>
-    <sprite>sprites\s_santahp_new</sprite>
-    <sprite>sprites\s_sofa_new</sprite>
-    <sprite>sprites\s_star_new</sprite>
-    <sprite>sprites\spr_bed_new</sprite>
-    <sprite>sprites\spr_bed_new_new</sprite>
-    <sprite>sprites\spr_bingo_new</sprite>
-    <sprite>sprites\spr_btn_new</sprite>
-    <sprite>sprites\spr_button_debug_new</sprite>
-    <sprite>sprites\spr_courner_new</sprite>
-    <sprite>sprites\spr_funds</sprite>
-    <sprite>sprites\spr_go_back</sprite>
-    <sprite>sprites\spr_icons_new</sprite>
-    <sprite>sprites\spr_orderly_body_1_new</sprite>
-    <sprite>sprites\spr_orderly_feet_1_new</sprite>
-    <sprite>sprites\spr_orderly_hair_1_new</sprite>
-    <sprite>sprites\spr_orderly_head_1_new</sprite>
-    <sprite>sprites\spr_person_body_fm_1_new</sprite>
-    <sprite>sprites\spr_person_body_fm_2</sprite>
-    <sprite>sprites\spr_person_body_fm_3</sprite>
-    <sprite>sprites\spr_person_body_ml_1_new</sprite>
-    <sprite>sprites\spr_person_body_ml_2_new</sprite>
-    <sprite>sprites\spr_person_body_ml_3_new</sprite>
-    <sprite>sprites\spr_person_body_ml_4_new</sprite>
-    <sprite>sprites\spr_person_feet_fm_1_new</sprite>
-    <sprite>sprites\spr_person_feet_fm_2</sprite>
-    <sprite>sprites\spr_person_feet_fm_3</sprite>
-    <sprite>sprites\spr_person_feet_ml_1_new</sprite>
-    <sprite>sprites\spr_person_feet_ml_2_new</sprite>
-    <sprite>sprites\spr_person_feet_ml_3_new</sprite>
-    <sprite>sprites\spr_person_feet_ml_4_new</sprite>
-    <sprite>sprites\spr_person_hair_fm_1_new</sprite>
-    <sprite>sprites\spr_person_hair_fm_2_new</sprite>
-    <sprite>sprites\spr_person_hair_fm_3</sprite>
-    <sprite>sprites\spr_person_hair_ml_1_new</sprite>
-    <sprite>sprites\spr_person_hair_ml_2_new</sprite>
-    <sprite>sprites\spr_person_hair_ml_3_new</sprite>
-    <sprite>sprites\spr_person_hair_ml_4_new</sprite>
-    <sprite>sprites\spr_person_head_fm_1_new</sprite>
-    <sprite>sprites\spr_person_head_fm_2</sprite>
-    <sprite>sprites\spr_person_head_fm_3</sprite>
-    <sprite>sprites\spr_person_head_ml_1_new</sprite>
-    <sprite>sprites\spr_person_head_ml_2_new</sprite>
-    <sprite>sprites\spr_person_head_ml_3_new</sprite>
-    <sprite>sprites\spr_person_head_ml_4_new</sprite>
-    <sprite>sprites\spr_smile_new</sprite>
-    <sprite>sprites\spr_stations_new</sprite>
-    <sprite>sprites\spr_tv_new</sprite>
-    <sprite>sprites\spr_uibutton_new</sprite>
-    <sprite>sprites\spr_wall_new</sprite>
-    <sprite>sprites\sprite0_new_new</sprite>
-    <sprite>sprites\sprite0_new_new_new</sprite>
-    <sprite>sprites\sprite5_new</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name="Tiles">
@@ -212,12 +163,49 @@
       <script>scripts\scr_delta.gml</script>
       <script>scripts\scr_realdelta.gml</script>
     </scripts>
-    <script>scripts\orthodist.gml</script>
-    <script>scripts\grid_neighbours.gml</script>
-    <script>scripts\Astar.gml</script>
+    <scripts name="UI Scripts">
+      <scripts name="Steps">
+        <script>scripts\ui_step_menu.gml</script>
+        <script>scripts\ui_step_staff.gml</script>
+        <script>scripts\ui_step_startNight.gml</script>
+        <script>scripts\ui_step_resident.gml</script>
+        <script>scripts\ui_step_startDay.gml</script>
+        <script>scripts\ui_step_store.gml</script>
+        <script>scripts\ui_step_dayMenu.gml</script>
+      </scripts>
+      <scripts name="Drawings">
+        <script>scripts\ui_draw_menu.gml</script>
+        <script>scripts\ui_draw_staff.gml</script>
+        <script>scripts\ui_draw_resident.gml</script>
+        <script>scripts\ui_draw_startDay.gml</script>
+        <script>scripts\ui_draw_store.gml</script>
+        <script>scripts\ui_draw_infobox.gml</script>
+        <script>scripts\ui_draw_dayMenu.gml</script>
+        <script>scripts\ui_draw_startNight.gml</script>
+      </scripts>
+      <script>scripts\scr_station_clicked.gml</script>
+    </scripts>
     <script>scripts\realmx.gml</script>
     <script>scripts\realmy.gml</script>
+    <script>scripts\orthodist.gml</script>
+    <script>scripts\Astar.gml</script>
+    <script>scripts\grid_neighbours.gml</script>
+    <script>scripts\next_power_up.gml</script>
+    <script>scripts\funds_get.gml</script>
+    <script>scripts\funds_rent.gml</script>
+    <script>scripts\funds_salary.gml</script>
+    <script>scripts\funds_utillities.gml</script>
+    <script>scripts\funds_earnings.gml</script>
+    <script>scripts\sleep.gml</script>
+    <script>scripts\applicants_get.gml</script>
+    <script>scripts\scr_draw_box.gml</script>
+    <script>scripts\reputation_update.gml</script>
+    <script>scripts\reputation_get_normalized.gml</script>
+    <script>scripts\reputation_get.gml</script>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shade_makestuffblue.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_clock</font>
     <font>fonts\fnt_normal</font>
@@ -227,6 +215,8 @@
       <font>fonts\fnt_menu</font>
       <font>fonts\fnt_game</font>
     </fonts>
+    <font>fonts\fnt_screen</font>
+    <font>fonts\fnt_funds</font>
   </fonts>
   <objects name="objects">
     <object>objects\ctrl</object>
@@ -239,6 +229,7 @@
       </objects>
       <objects name="NIGHT">
         <object>objects\o_ui_store</object>
+        <object>objects\o_ui_night</object>
       </objects>
     </objects>
     <objects name="Room_stuffies">
@@ -249,11 +240,14 @@
       <object>objects\o_sofa</object>
       <object>objects\o_Station</object>
       <object>objects\o_wall</object>
+      <object>objects\o_carpet</object>
+      <object>objects\o_toilet</object>
     </objects>
     <objects name="People">
       <object>objects\O_Orderly</object>
       <object>objects\O_Resident</object>
       <object>objects\Person</object>
+      <object>objects\o_ui_residents_night</object>
     </objects>
     <objects name="Bullethell">
       <object>objects\o_ctrl</object>
@@ -271,8 +265,13 @@
       <object>objects\o_moon</object>
       <object>objects\o_star</object>
     </objects>
+    <objects name="Other">
+      <object>objects\o_fadetext</object>
+    </objects>
+    <object>objects\o_applicant</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\grimroom_</room>
     <room>rooms\rm_magnuss_chamber</room>
     <room>rooms\rm_menu</room>
     <room>rooms\rm_game</room>
