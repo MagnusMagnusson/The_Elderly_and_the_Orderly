@@ -1,4 +1,4 @@
-//likes_get_nth(n)
+///likes_get_nth(n)
 
 var n = argument[0];
 if(argument_count == 2){

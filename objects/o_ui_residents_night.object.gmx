@@ -47,7 +47,8 @@ selected = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>x = 4;
+</string>
           </argument>
         </arguments>
       </action>
@@ -190,6 +191,16 @@ switch(state){
                 draw_text(_x + 64 +2,_y + 48 +2,string(I.happiness ) + "%");
                 draw_set_color(0)
                 draw_text(_x + 64,_y + 48,string(I.happiness ) + "%");
+                var like1,like2,dislike1,dislike2;
+                draw_set_font(fnt_normal)
+                with(I){
+                    like1 = likes_get_nth(1);
+                    like2 = likes_get_nth(2);
+                    dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
+                    dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
+                }
+                draw_text(_x + 102,120+ 1*32 + 48,"likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                draw_text(_x + 102,128 + 3*32 + 48,"hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
             //end happy
@@ -225,7 +236,22 @@ switch(state){
             var _x,_y;
             _x = 445
             _y = 450
+            draw_set_font(fnt_normal);
+            draw_set_color(0);
+            draw_set_valign(fa_middle);
+            draw_set_halign(fa_center);
             draw_text(_x,_y,I.name)
+            with(I){
+                    like1 = likes_get_nth(1);
+                    like2 = likes_get_nth(2);
+                    dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
+                    dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
+                }
+                draw_text(_x + 102,120+ 1*32 + 48,"likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                draw_text(_x + 102,128 + 3*32 + 48,"hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
+                
+                draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
         }
         //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
         break;
