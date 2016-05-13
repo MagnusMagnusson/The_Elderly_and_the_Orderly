@@ -21,8 +21,16 @@ sellPrice = "Sell Price: ";
 /*Add for later??*/
         //Level
         //Upgrade
-if(o_Station.station_selected && !infoSelected){
-    show_message("You have picked wisely");
+//For person info
+/*if(Person.info_select != noone){
+    if(Person.info_select.object_index == O_Resident){
+        show_message("congrats, you have selected a resident");
+    }
+}*/
+
+//For clicking stations in room, currently only works on one bed (the one on the right side)
+if(!infoSelected && ctrl.station_selected){
+    show_debug_message(ctrl.station_id);
     //1 - name
     //2 - desc
     //4 - price
@@ -32,52 +40,13 @@ if(o_Station.station_selected && !infoSelected){
     
     //Draw the infobox
     scr_draw_box();
-    if(o_Station.station_id.type == "TV"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_gui_width()/6);          
-    }
-    //show_message(o_Station.station_id.type);
-    if(o_Station.station_id.type == "Bed"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, "Sell Price: +" + string(ctrl.store[#1,4]/2) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#1,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_gui_width()/6);
-    }
-    if(o_Station.station_id.type == "bingo"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, "Sell Price" + string(ctrl.store[#3,4]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_gui_width()/6);          
-    }
-    if(o_Station.station_id.type == "TV"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_gui_width()/6);          
-    }
-    else if(o_Station.station_id.type == "Disco"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#6,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#6,4]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6);
-        
-    }
-    else if(o_Station.station_id.type == "Dancefloor"){
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#4,8]), yoffset, display_get_gui_width()/6);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#4,2] , yoffset, display_get_gui_width()/6); 
-    }
+    //if station is clicked
+    scr_station_clicked();
+    
+    
 }
 if(state == "store"){
+    scr_station_clicked();
     //Are you hovering over the cancel button
     if(realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
         //hoverCancel = true;

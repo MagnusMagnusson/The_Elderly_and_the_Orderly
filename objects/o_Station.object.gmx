@@ -197,14 +197,11 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
           <argument>
             <kind>1</kind>
             <string>///show profile when clicked
-if(!being_built &amp;&amp; realmx() &gt; display_get_width()/6){
-    station_id = id;
-    //show_message(station_id.type);
-    //if(station_id.type == "Bed"){
-    station_selected = true;
-    //show_message(station_selected);
-    //}
+if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
+    ctrl.station_id = object_index;
+    ctrl.station_selected = true;
 }
+
 </string>
           </argument>
         </arguments>
