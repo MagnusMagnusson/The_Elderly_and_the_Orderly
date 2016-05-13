@@ -42,6 +42,8 @@ isrunning=true;
 runnable=false;
 mannable=false;
 
+station_selected = false;
+station_id = noone;
 //currentresidentcount and currentresidents list 
 //track who is in the station
 for(var i=0;i&lt;residentcapacity;i++)
@@ -195,14 +197,10 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
           <argument>
             <kind>1</kind>
             <string>///show profile when clicked
-/*if(realmx() &gt; display_get_gui_width()/6 &amp;&amp; realmx &lt; display_get_gui_width()){
-    var station_id = id;
-    //show_message(station_id.type);
-    if(station_id.type == "Bed"){
-        //show_message("This is a bed!!!!");
-    }
-}*/
-
+if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
+    ctrl.station_id = object_index;
+    ctrl.station_selected = true;
+}
 
 </string>
           </argument>

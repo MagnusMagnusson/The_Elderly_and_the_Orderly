@@ -35,9 +35,14 @@ infoState = noone;
 infoSelected =false;
 //info showing on hover in store
 infoHover = noone;
+//hovering over station in store
 hover = true;
+//Hovering over cancel button in store
+hoverCancel = false;
 //Item created (in store)
 I = noone;
+//Back button click effect
+back_effect = false;
 cancel_build = false;
 </string>
           </argument>
@@ -64,7 +69,7 @@ cancel_build = false;
             <string>/// mouse presses in UI
 
 //Switch sentence, change state calls scripts
-    if(!ctrl.isDay){
+if(!ctrl.isDay){
     switch(state){
         case "staff":
             ui_step_staff();

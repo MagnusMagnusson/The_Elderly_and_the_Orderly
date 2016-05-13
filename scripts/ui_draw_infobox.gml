@@ -1,40 +1,226 @@
-//switch sentence between store, station, person. Store is default case.
-draw_set_colour(c_gray);
-draw_rectangle(0 , display_get_height()/1.5, display_get_width()/6 , display_get_height(), false);
-draw_set_colour(c_black);
-//Set font of funds to 14
-draw_set_font(fnt_funds);
-//Draw sprite for funds
-draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.funds))-40,  display_get_height()/1.5 + 4);
-//Amount player has
-draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
-//Font back to 12
-draw_set_font(fnt_normal);
-var hoverCancel = false;
-var xoffset, yoffset, hoverCancel;
-xoffset = 4;
-yoffset = string_height("Loy"); 
-if(state == "store" && realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
-    hoverCancel = true;
-}
-else{hoverCancel = false;}      
-if(hoverCancel){
-        draw_set_colour(c_gray);
-        draw_rectangle(0 , display_get_height()/1.5, display_get_width()/6 , display_get_height(), false);
-        draw_set_colour(c_black);
-        //Set font of funds to 14
-        draw_set_font(fnt_funds);
-        //Draw sprite for funds
-        draw_sprite(spr_funds, 0, (display_get_width()/6) - string_width(string(ctrl.funds))-40,  display_get_height()/1.5 + 4);
-        //Amount player has
-        draw_text((display_get_width()/6) - string_width(string(ctrl.funds))-4, display_get_gui_height()/1.5 + 8, ctrl.funds);
-        //Font back to 12
-        draw_set_font(fnt_normal);
-        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);      
-}
+/*This handles all info that appears in infobox*/
+//Draw the infobox
+scr_draw_box();
 
-if(infoSelected && !hoverCancel){
+//Variable for making cancel always show info on hover
+//var hoverCancel = false;
+
+//To make things in infobox be in correct place
+var xoffset, yoffset;
+
+xoffset = 4;
+yoffset = string_height("Loy");
+ 
+//Change stat* values to change in infobox
+var statName, statPrice, statOrderlies, statResidents, sellPrice;
+statName = "Station: ";
+statPrice = "Price: ";
+statOrderlies = "Orderlies: ";
+statResidents = "Residents: ";
+sellPrice = "Sell Price: ";
+/*Add for later??*/
+        //Level
+        //Upgrade
+//For person info
+/*if(Person.info_select != noone){
+    if(Person.info_select.object_index == O_Resident){
+        show_message("congrats, you have selected a resident");
+    }
+}*/
+
+//For clicking stations in room, currently only works on one bed (the one on the right side)
+if(!infoSelected && ctrl.station_selected){
+    show_debug_message(ctrl.station_id);
+    //1 - name
+    //2 - desc
+    //4 - price
+    //7 - orderlies to man
+    //8 - # of residents at a time
+    //Use if because Magnus said oh god switch!
+    
+    //Draw the infobox
+    scr_draw_box();
+    //if station is clicked
+    scr_station_clicked();
+    
+    
+}
+if(state == "store"){
+    scr_station_clicked();
+    //Are you hovering over the cancel button
+    if(realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
+        //hoverCancel = true;
+        //o_Station.station_selected = false;
+    }
+    //No I am not hovering over it
+    else{
+        //hoverCancel = false;
+    }
+    //This makes station info disappear when holding station in "hand" and cancel info appear  
+    if(hoverCancel){
+        //Draw the infobox
+        scr_draw_box();
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
+    }
+    else if(!hoverCancel){
+        //or just regular station info
+        if(infoSelected && instance_exists(I)){
+            //Draw the infobox
+            scr_draw_box();
+            o_Station.station_selected = false;
+            switch(I.object_index){
+                //#0 in store
+                case(o_wall):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#0,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, ctrl.store[#0,2] , yoffset, display_get_gui_width()/6);
+                    break;
+                //#1 in store
+                case(o_bed):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, statPrice + string(ctrl.store[#1,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#1,8]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_gui_width()/6);
+                    break;
+                //#2 in store
+                case(o_TV):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_width()/6);
+                    break;
+                //#3 in store
+                case(o_Bingo):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#3,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_gui_width()/6);
+                    break;
+                //#4 in store
+                case(o_carpet):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#4,8]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#4,2] , yoffset, display_get_gui_width()/6);
+                    break;
+                //#5 in store
+                case(o_sofa):
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#5,1] , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#5,4]) , yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#5,7]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#5,8]), yoffset, display_get_gui_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#5,2] , yoffset, display_get_gui_width()/6);
+                    break;
+                default:
+                    break;
+                
+                }
+            }
+            else{
+                //Each item in store menu has info that appears in infobox when mouse hovers over it
+                o_Station.station_selected = false;
+                //Draw the info box
+                scr_draw_box();
+                
+                /*What each number stands for*/
+                //1 - name
+                //2 - desc
+                //4 - price
+                //7 - orderlies to man
+                //8 - # of residents at a time
+                //Description of station is at the bottom of each station info due to yoffset issue
+                switch(infoHover){
+                    //Maybe move this outside?
+                    case("back"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"Back to Menu", yoffset, display_get_gui_width()/6);
+                        break;
+                    //Maybe move this outside?
+                    /*case("cancel"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);
+                        break;*/
+                    //#0 in store
+                    //Wall isn't a station so it doesn't have orderlies or residents to use it.
+                    case("wall"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#0,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, ctrl.store[#0,2] , yoffset, display_get_gui_width()/6);
+                        break;
+                    //#1 in store
+                    case("bed"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#1,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+ 64 + yoffset, statPrice + string(ctrl.store[#1,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#1,7]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#1,8]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#1,2], yoffset, display_get_gui_width()/6);
+                        break;
+                    //#2 in store
+                    case("tv"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#2,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_gui_width()/6);
+                        break;
+                    //#3 in store
+                    case("bingo"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#3,4]) , yoffset, display_get_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
+                        break;
+                    //#4 in store, shouldn't really be case disco but carpet or dancefloor...but it works
+                    case("disco"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#4,8]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#4,2] , yoffset, display_get_gui_width()/6);
+                        break;
+                    //#5 in store
+                    case("sofa"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#5,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#5,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#5,7]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#5,8]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#5,2] , yoffset, display_get_gui_width()/6);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+        }
+    }
+/*I will leave this code for now until I am sure nothing is wrong*/
+//Are you hovering over the cancel button
+/*if(state == "store" && realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
+    hoverCancel = true;
+    o_Station.station_selected = false;
+}
+//No I am not hovering over it
+else{
+    hoverCancel = false;
+}*/ 
+
+//This makes station info disappear when holding station in "hand" and cancel info appear     
+/*if(hoverCancel){
+        //Draw the infobox
+        scr_draw_box();
+        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_width()/6);      
+}*/
+//Station in room is selected, will need to do some magic if we want to make walls also selectable/sellable
+
+//or just regular station info
+/*if(infoSelected && !hoverCancel){
     if(state == "store" && instance_exists(I)){
+        //Draw the infobox
+        scr_draw_box();
+        
         switch(I.object_index){
             //#0 in store
             case(o_wall):
@@ -67,7 +253,7 @@ if(infoSelected && !hoverCancel){
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
                 break;
             //#4 in store
-            case(o_disco):
+            case(o_carpet):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#4,7]), yoffset, display_get_width()/6);
@@ -87,18 +273,13 @@ if(infoSelected && !hoverCancel){
             
         }
     }
-}
-else if(!hoverCancel){
+}*/
+/*else if(!hoverCancel){
     //Each item in store menu has info that appears in infobox when mouse hovers over it
     if(state == "store" && !hoverCancel){
-        /*Change stat values to change in infobox*/
-        statName = "Station: ";
-        statPrice = "Price: ";
-        statOrderlies = "Orderlies: ";
-        statResidents = "Residents: ";
-        /*Add for later*/
-        //Level
-        //Upgrade
+        o_Station.station_selected = false;
+        //Draw the info box
+        scr_draw_box();
         
         /*What each number stands for*/
         //1 - name
@@ -107,7 +288,7 @@ else if(!hoverCancel){
         //7 - orderlies to man
         //8 - # of residents at a time
         //Description of station is at the bottom of each station info due to yoffset issue
-        switch(infoHover){
+        /*switch(infoHover){
             //Maybe move this outside?
             case("back"):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"Back to Menu", yoffset, display_get_width()/6);
@@ -118,7 +299,7 @@ else if(!hoverCancel){
                 break;*/
             //#0 in store
             //Wall isn't a station so it doesn't have orderlies or residents to use it.
-            case("wall"):
+            /*case("wall"):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#0,1] , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#0,4]) , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, ctrl.store[#0,2] , yoffset, display_get_width()/6);
@@ -147,7 +328,7 @@ else if(!hoverCancel){
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
                 break;
-            //#4 in store
+            //#4 in store, shouldn't really be case disco but carpet or dancefloor...but it works
             case("disco"):
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#4,1] , yoffset, display_get_width()/6);
                 draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#4,4]) , yoffset, display_get_width()/6);
