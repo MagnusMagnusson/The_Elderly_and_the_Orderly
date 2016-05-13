@@ -24,14 +24,14 @@ ds_list_add(checking,tempcoords);
 ds_list_add(checking_parent,noone);
 //debug variables
 var iteration_debug=false;
-var mainloop_debug=false;
+var mainloop_debug=true;
 var neighbour_debug=false;
 var debug=neighbour_debug||iteration_debug||mainloop_debug; 
 var iterations=0;
 //at the start, checking contains exactly one coordinate pair
-while(!ds_list_size(checking)==0)
+while(!(ds_list_size(checking)==0) && false)
 {
-    if(debug) sleep(1000000);
+    if(debug) sleep(500000);
     if(mainloop_debug) show_debug_message(iterations++);
     if(mainloop_debug) show_debug_message("--------------II---------------");
     if(mainloop_debug) show_debug_message("checking list:");
@@ -80,8 +80,28 @@ while(!ds_list_size(checking)==0)
         if(iteration_debug||neighbour_debug) show_debug_message("adding eligible neighbours");
         if(iteration_debug||neighbour_debug) show_debug_message(i);
         var checkedbefore=false;
+        //iterate trough checking as well to clean up
+        for(var j=0;j<ds_list_size(checking);j++)
+        {
+            if(iteration_debug) show_debug_message("looking for neighbours in checked");
+            if(iteration_debug) show_debug_message(j);
+            //extracting neighbour coords
+            var neighbourcoords=neighbours[i];
+            var neighbourx=neighbourcoords[0];
+            var neighboury=neighbourcoords[1];
+            //extracting checked coords
+            var checkingcoords=checking[|j];
+            var checkingx=checkingcoords[0];
+            var checkingy=checkingcoords[1];
+            if(neighbourx=checkingx && neighboury==checkingy)
+            {
+                checkedbefore=true;
+                break;
+            }
+        }
         for(var j=0;j<ds_list_size(checked);j++)
         {
+            if(checkedbefore) break;
             if(iteration_debug) show_debug_message("looking for neighbours in checked");
             if(iteration_debug) show_debug_message(j);
             //extracting neighbour coords
@@ -93,7 +113,10 @@ while(!ds_list_size(checking)==0)
             var checkedx=checkedcoords[0];
             var checkedy=checkedcoords[1];
             if(neighbourx=checkedx && neighboury==checkedy)
+            {
                 checkedbefore=true;
+                break;
+            }
         }
         if(!checkedbefore)
         {

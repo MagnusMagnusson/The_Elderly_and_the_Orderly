@@ -10,7 +10,6 @@ var xoffset, yoffset;
 
 xoffset = 4;
 yoffset = string_height("Loy");
- 
 //Change stat* values to change in infobox
 var statName, statPrice, statOrderlies, statResidents, sellPrice;
 statName = "Station: ";
@@ -21,14 +20,13 @@ sellPrice = "Sell Price: ";
 /*Add for later??*/
         //Level
         //Upgrade
-//For person info
-/*if(Person.info_select != noone){
-    if(Person.info_select.object_index == O_Resident){
-        show_message("congrats, you have selected a resident");
-    }
-}*/
 
-//For clicking stations in room, currently only works on one bed (the one on the right side)
+if(hoverCancel){
+    scr_draw_box();
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"If you have selected a station#you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
+}        
+        
+//For clicking stations in room
 if(!infoSelected && ctrl.selected_stuff){
     //show_debug_message(ctrl.selected_id);
     //show_message("You are here");
@@ -48,7 +46,13 @@ if(!infoSelected && ctrl.selected_stuff){
     
 }
 if(state == "store"){
-    scr_station_clicked();
+    //object in room selected
+    if(!infoSelected && ctrl.selected_stuff){
+        //Draw the infobox
+        scr_draw_box();
+        //if station is clicked
+        scr_station_clicked();
+    }
     //Are you hovering over the cancel button
     if(realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){
         //hoverCancel = true;

@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>outside = false;
 alam = 3000;
-image_blend = irandom(c_white);
 </string>
           </argument>
         </arguments>

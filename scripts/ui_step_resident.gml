@@ -1,6 +1,7 @@
-if(!instance_exists(o_ui_residents_night) && x > 0){
+if(!instance_exists(o_ui_residents_night) && x >= 0){
     instance_create(0,0,o_ui_residents_night);
     x = -1;
+    alarm[0] = 2;
 }
 else{
     if(instance_exists(o_ui_residents_night)){
@@ -27,6 +28,6 @@ else{
     }
     else{
         x = xstart;
-        state = "menu";
+      //  state = "menu";
     }
 }

@@ -51,7 +51,7 @@ if(mouse_check_button_pressed(mb_left)){
     }
     //Station selected appears where the mouse is
     if(press != noone && press < ds_grid_width(ctrl.store)){
-        show_debug_message(string(press));
+        //show_debug_message(string(press));
         with(I){
             instance_destroy();
         }
@@ -68,9 +68,10 @@ if(mouse_check_button_pressed(mb_left)){
 //if item is hovered over, then ifo needs to show in infobox
 //info it needs is name, description, price, number of orderlies needed, number of residents that 
 //can use them, upgrade?
-else if(hover && state == "store"){ 
+else if(state == "store"){ 
     if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons)){
         if(realmy() > 2*yoffset && realmy() < 3*yoffset){
+            //show_message("I am hovering");
             hoverCancel = true;
             infoHover = "cancel";
         }

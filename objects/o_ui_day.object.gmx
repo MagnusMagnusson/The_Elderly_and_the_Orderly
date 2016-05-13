@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="8" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,8 +49,13 @@ if(ctrl.isDay){
     draw_set_valign(fa_middle);
     draw_set_halign(fa_center);
     draw_text((16 + string_width(" 8:00 ")) div 2,(16 + string_height( " 8:00 "))div 2,time);
-    draw_set_halign(fa_left);
     
+    //lol@reputation
+    draw_set_color(0)
+    draw_rectangle(display_get_gui_width() - string_width(" 100% Reputation "),0,display_get_gui_width(),string_height("100%"),false);
+    draw_set_color(make_color_rgb(1-reputation_get_normalized()*256,reputation_get_normalized()*256,25))
+    draw_text(display_get_gui_width() - string_width(" 100% Reputation ")/2,string_height("100%")/2,string(round(reputation_get())) +"% Reputation") 
+    draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(0);
 }
