@@ -179,6 +179,8 @@ switch(state){
             _x = 445
             _y = 450
             //Draw general information on them
+            draw_set_font(fnt_menu);
+            draw_set_color($FF12EB);
             draw_text(_x,_y,I.name)
             //Happy
             draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
@@ -236,11 +238,16 @@ switch(state){
             var _x,_y;
             _x = 445
             _y = 450
-            draw_set_font(fnt_normal);
-            draw_set_color(0);
+            //Name
+            draw_set_font(fnt_menu);
+            draw_set_color($FF12EB);
+            //
             draw_set_valign(fa_middle);
             draw_set_halign(fa_center);
             draw_text(_x,_y,I.name)
+            //Rest of information
+            draw_set_font(fnt_normal);
+            draw_set_color(0);
             with(I){
                     like1 = likes_get_nth(1);
                     like2 = likes_get_nth(2);

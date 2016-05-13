@@ -11,6 +11,7 @@ else{
         y = 1;
         x = -256;
         ctrl.isDay = true;
+        ctrl.day++;
         state = "menu";
         with(o_applicant){
             instance_destroy();
