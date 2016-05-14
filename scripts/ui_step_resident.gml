@@ -1,6 +1,6 @@
 if(!instance_exists(o_ui_residents_night) && x >= 0){
     instance_create(0,0,o_ui_residents_night);
-    x = -1;
+    x = -x;
     alarm[0] = 2;
 }
 else{
@@ -15,7 +15,7 @@ else{
                         instance_destroy();
                     }
                     state = "menu";
-                    x = xstart;
+                    x = -x;
                 }
                 if(realmy() > 0 && realmy() < yoffset){
                     o_ui_residents_night.state = 0;
@@ -28,6 +28,6 @@ else{
     }
     else{
         x = xstart;
-      //  state = "menu";
+        state = "menu";
     }
 }
