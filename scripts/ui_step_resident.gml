@@ -14,7 +14,7 @@ else{
                     with(o_ui_residents_night){
                         instance_destroy();
                     }
-                    state = "menu";
+                    state = noone;
                     x = xstart;
                 }
                 if(realmy() > 0 && realmy() < yoffset){
@@ -28,6 +28,6 @@ else{
     }
     else{
         x = xstart;
-      //  state = "menu";
+        //state = noone;
     }
 }

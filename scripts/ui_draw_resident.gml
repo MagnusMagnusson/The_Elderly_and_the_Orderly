@@ -6,7 +6,7 @@
     
     button[0] = "Residents";
     button[1] = "Applicants";    
-    button[2] = "Back";
+    button[2] = "Back"; //Fix this?
     
     var xwidth =  display_get_gui_width()/6;
     yoffset = (display_get_gui_height()/1.5)/10; //string_height("Word");

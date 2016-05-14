@@ -5,7 +5,7 @@ yoffset = string_height("Loy");
  
 //Change stat* values to change in infobox
 var statName, statPrice, statOrderlies, statResidents, sellPrice;
-statName = "Station: ";
+statName = "";
 statPrice = "Price: ";
 statOrderlies = "Orderlies: ";
 statResidents = "Residents: ";
