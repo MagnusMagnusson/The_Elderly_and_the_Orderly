@@ -3,7 +3,7 @@ if(mouse_check_button_pressed(mb_left)){
     if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 0 && realmy() < sprite_get_height(spr_go_back)){
         infoSelected = false;  
         hover = true;
-        state = "menu";
+        state = noone;
     }
 }
 else{
