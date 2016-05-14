@@ -1,24 +1,25 @@
 
-    if(!ctrl.isDay){
+if(!ctrl.isDay){
     //The menu box
-    draw_set_colour(c_white);
+    draw_set_colour($ffcc99);
     draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
-    
+    //Back to menu
+    draw_sprite(spr_go_back,0,0,4);
     button[0] = "Residents";
     button[1] = "Applicants";    
-    button[2] = "Back";
+    //button[2] = "Back"; //Fix this?
     
     var xwidth =  display_get_gui_width()/6;
-    yoffset = (display_get_gui_height()/1.5)/10; //string_height("Word");
+    yoffset = sprite_get_height(spr_go_back) + 8;// (display_get_gui_height()/1.5)/10; //string_height("Word");
     draw_set_colour(c_black);
     draw_set_colour(c_fuchsia);
     //Draw box for each item within the menu
-    for(var i = 0; i < 3; i ++){
+    for(var i = 1; i < 3; i ++){
         if(realmx() > 0 && realmx() < xwidth && realmy() > yoffset*i && realmy() <= yoffset * (i+1)){
             draw_set_colour(c_aqua);
         }
-       draw_rectangle(0,yoffset*i, xwidth, yoffset *(i+1), true);
-       draw_text(12, yoffset*i, button[i]);
+       draw_rectangle(0,yoffset*(i), xwidth, yoffset *(i+1), true);
+       draw_text(12, yoffset*(i), button[i-1]);
        draw_set_colour(c_fuchsia);
        
     }

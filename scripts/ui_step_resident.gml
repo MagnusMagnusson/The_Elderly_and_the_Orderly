@@ -5,22 +5,25 @@ if(!instance_exists(o_ui_residents_night) && x >= 0){
 }
 else{
     if(instance_exists(o_ui_residents_night)){
-    var xwidth =  display_get_gui_width()/6;
-        yoffset = (display_get_gui_height()/1.5)/10; //string_height("Word");
+        var xwidth =  display_get_gui_width()/6;
+        yoffset = sprite_get_height(spr_go_back) + 8;//(display_get_gui_height()/1.5)/10; //string_height("Word");
         if(mouse_check_button_pressed(mb_left)){
              if(mouse_check_button_pressed(mb_left) && realmx() > 0 && realmx() < xwidth){
-                    //Select store
-                if(realmy() > 2*yoffset && realmy() < 3*yoffset){
+                //back button
+                if(realmy() > 0 && realmy() <= sprite_get_height(spr_go_back) + 4){
                     with(o_ui_residents_night){
                         instance_destroy();
                     }
-                    state = "menu";
-                    x = -x;
+
+                    state = noone;
+                    x = xstart;
                 }
-                if(realmy() > 0 && realmy() < yoffset){
+                //Residents
+                if(realmy() > yoffset && realmy() < yoffset*2){
                     o_ui_residents_night.state = 0;
                 }
-                if(realmy() > yoffset && realmy() < 2*yoffset){
+                //Applicants
+                if(realmy() > yoffset*2 && realmy() < 3*yoffset){
                     o_ui_residents_night.state = 1;
                 }
             }
@@ -28,6 +31,6 @@ else{
     }
     else{
         x = xstart;
-        state = "menu";
+        //state = noone;
     }
 }

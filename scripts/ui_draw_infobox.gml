@@ -13,7 +13,7 @@ yoffset = string_height("Loy");
 info_start_yoff = sprite_get_height(spr_funds) + 4;
 //Change stat* values to change in infobox
 var statName, statPrice, statOrderlies, statResidents, sellPrice;
-statName = "Station: ";
+statName = "";
 statPrice = "Price: ";
 statOrderlies = "Orderlies: ";
 statResidents = "Residents: ";
@@ -73,7 +73,7 @@ else if(state == "store"){
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#2,4]) , yoffset, display_get_gui_width()/6);
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies +  string(ctrl.store[#2,7]), yoffset, display_get_gui_width()/6);
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#2,8]), yoffset, display_get_gui_width()/6);
-                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_width()/6);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#2,2] , yoffset, display_get_gui_width()/6);
                     break;
                 //#3 in store
                 case(o_Bingo):
@@ -151,11 +151,11 @@ else if(state == "store"){
                         break;
                     //#3 in store
                     case("bingo"):
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_width()/6);
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#3,4]) , yoffset, display_get_width()/6);
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_width()/6);
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_width()/6);
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#3,1] , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#3,4]) , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#3,7]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#3,8]), yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#3,2] , yoffset, display_get_gui_width()/6);
                         break;
                     //#4 in store, shouldn't really be case disco but carpet or dancefloor...but it works
                     case("disco"):
