@@ -3,7 +3,7 @@
 //Fastar hæðir, skrifað inn í hverja t.d. staff, resident, store...
 //when hover, make light over þá hæð.
 
-if(!ctrl.isDay && state == noone){
+if(!ctrl.isDay){
     //The menu box
     draw_set_colour($ffcc99);
     draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);

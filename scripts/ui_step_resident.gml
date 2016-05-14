@@ -1,6 +1,6 @@
 if(!instance_exists(o_ui_residents_night) && x >= 0){
     instance_create(0,0,o_ui_residents_night);
-    x = -1;
+    x = -x;
     alarm[0] = 2;
 }
 else{
@@ -14,6 +14,7 @@ else{
                     with(o_ui_residents_night){
                         instance_destroy();
                     }
+
                     state = noone;
                     x = xstart;
                 }
