@@ -5,22 +5,22 @@ if(!instance_exists(o_ui_residents_night) && x >= 0){
 }
 else{
     if(instance_exists(o_ui_residents_night)){
-    var xwidth =  display_get_width()/6;
-        yoffset = (display_get_height()/1.5)/10; //string_height("Word");
+    var xwidth =  display_get_gui_width()/6;
+        yoffset = (display_get_gui_height()/1.5)/10; //string_height("Word");
         if(mouse_check_button_pressed(mb_left)){
-             if(mouse_check_button_pressed(mb_left) && display_mouse_get_x() > 0 && display_mouse_get_x() < xwidth){
+             if(mouse_check_button_pressed(mb_left) && realmx() > 0 && realmx() < xwidth){
                     //Select store
-                if(display_mouse_get_y() > 2*yoffset && display_mouse_get_y() < 3*yoffset){
+                if(realmy() > 2*yoffset && realmy() < 3*yoffset){
                     with(o_ui_residents_night){
                         instance_destroy();
                     }
                     state = "menu";
                     x = xstart;
                 }
-                if(display_mouse_get_y() > 0 && display_mouse_get_y() < yoffset){
+                if(realmy() > 0 && realmy() < yoffset){
                     o_ui_residents_night.state = 0;
                 }
-                if(display_mouse_get_y() > yoffset && display_mouse_get_y() < 2*yoffset){
+                if(realmy() > yoffset && realmy() < 2*yoffset){
                     o_ui_residents_night.state = 1;
                 }
             }

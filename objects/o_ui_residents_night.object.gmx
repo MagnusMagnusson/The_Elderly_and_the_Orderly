@@ -75,13 +75,13 @@ selected = noone;
 //1 = applicants
 switch(state){
     case 0:{
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         if(mouse_check_button_pressed(mb_left)){
             selected = noone;
             for(var i = 0; i &lt; instance_number(O_Resident);i++){
                 var X,Y;
-                X = display_get_width() div 2 + 62*(i % 5);
-                Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+                X = display_get_gui_width() div 2 + 62*(i % 5);
+                Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
                 if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                     selected = i;
                 }
@@ -90,11 +90,11 @@ switch(state){
         break;
     }
     case 1:{
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         if(mouse_check_button_pressed(mb_left)){
             var bx,by;
-            bx = (4/6)*(display_get_width() div 2);
-            by = (11/10)*display_get_height() div 2;
+            bx = (4/6)*(display_get_gui_width() div 2);
+            by = (11/10)*display_get_gui_height() div 2;
             if(realmx() &gt; bx &amp;&amp; realmy() &gt; by &amp;&amp; realmx() &lt; bx + 31 &amp;&amp; realmy() &lt; by + 31){
                 if(selected != noone){
                     if(instance_number(o_bed) &gt;= instance_number(O_Resident)+1){
@@ -117,8 +117,8 @@ switch(state){
             selected = noone;
             for(var i = 0; i &lt; instance_number(o_applicant);i++){
                 var X,Y;
-                X = display_get_width() div 2 + 62*(i % 5);
-                Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+                X = display_get_gui_width() div 2 + 62*(i % 5);
+                Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
                 if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                     selected = i;
                 }
@@ -156,14 +156,14 @@ draw_set_font(fnt_screen)
 switch(state){
     case 0:{
         //We're viewing old residents (They are all old, hohohohoh)
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         for(var i = 0; i &lt; instance_number(O_Resident);i++){//For each resident we currently have
             var I = instance_find(O_Resident,i);
             
             //Draw the person on screen
             var X,Y;
-            X = display_get_width() div 2 + 62*(i % 5);
-            Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+            X = display_get_gui_width() div 2 + 62*(i % 5);
+            Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
             draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
@@ -214,16 +214,16 @@ switch(state){
     }
     case 1:{
         //Applicants
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
-        draw_sprite(spr_icons,0,(4/6)*(display_get_width() div 2), (11/10)*display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
+        draw_sprite(spr_icons,0,(4/6)*(display_get_gui_width() div 2), (11/10)*display_get_gui_height() div 2)
         //For each applicant
         for(var i = 0; i &lt; instance_number(o_applicant);i++){
             var I = instance_find(o_applicant,i);
             
             //Draw information
             var X,Y;
-            X = display_get_width() div 2 + 62*(i % 5);
-            Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+            X = display_get_gui_width() div 2 + 62*(i % 5);
+            Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
             draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);

@@ -229,7 +229,8 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button_pressed(mb_left)){
+            <string>///Profile in infobox
+if(mouse_check_button_pressed(mb_left)){
     //For showing info about station/persons when clicked in room
     selected_stuff = false;
     selected_id = noone;

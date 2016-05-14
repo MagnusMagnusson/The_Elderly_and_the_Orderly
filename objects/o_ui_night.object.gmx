@@ -113,7 +113,8 @@ if(!ctrl.isDay){
             <string>///Draw Night UI
 ui_draw_menu();
 ui_draw_infobox();
-display_set_gui_size(display_get_width(), display_get_height());
+//Might need to change to display_get_gui_width() and display_get_gui_height()
+display_set_gui_size(display_get_gui_width(), display_get_gui_height());
 
     if(!ctrl.isDay){
     switch(state){
