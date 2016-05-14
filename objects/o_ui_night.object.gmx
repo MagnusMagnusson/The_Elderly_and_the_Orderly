@@ -46,7 +46,8 @@ I = noone;
 back_effect = false;
 //For staff hiring/firing
 orderly_number = 0;
-
+orderly_salary = funds_salary();
+orderly_instance = instance_number(O_Orderly);
 cancel_build = false;
 </string>
           </argument>
