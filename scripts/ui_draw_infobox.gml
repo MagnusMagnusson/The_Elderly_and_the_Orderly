@@ -38,7 +38,7 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
     //if station is clicked
     scr_station_clicked();
 }
-else if(state == "store"){
+//else if(state == "store"){
     if(hoverCancel){
         //Draw the infobox
         scr_draw_box();
@@ -173,6 +173,13 @@ else if(state == "store"){
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#5,8]), yoffset, display_get_gui_width()/6);
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#5,2] , yoffset, display_get_gui_width()/6);
                         break;
+                    case("minus"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,  "To fire, set number to less than 0" , yoffset, display_get_gui_width()/6);
+                        break;
+                    case("plus"):{
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, "To hire, set number to more than 0" , yoffset, display_get_gui_width()/6);
+                        break;
+                    }
                     default:
                         break;
                 }
@@ -185,7 +192,7 @@ else if(state == "store"){
             //if station is clicked
             scr_station_clicked();
         }
-    }
+    //}
 /*I will leave this code for now until I am sure nothing is wrong*/
 //Are you hovering over the cancel button
 /*if(state == "store" && realmx() > 4 && realmx() < 64 && realmy() > 2*64 && realmy() < 3*64){

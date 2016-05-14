@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>selected = noone;
 hidden = false;
+//For switching between menu
 state = noone;
 //Hover over certain items (mainly store)
 infoState = noone;
@@ -43,6 +44,9 @@ hoverCancel = false;
 I = noone;
 //Back button click effect
 back_effect = false;
+//For staff hiring/firing
+orderly_number = 0;
+
 cancel_build = false;
 </string>
           </argument>
