@@ -202,8 +202,8 @@ switch(state){
                     dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
                     dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
                 }
-                draw_text(_x,_y + 64 + yoffset,"likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
-                draw_text(_x,_y + 64 + 3*yoffset,"hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
+                draw_text(_x,_y + 68 + yoffset,"Likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                draw_text(_x,_y + 72 + 3*yoffset,"Hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
                 //end happy
@@ -268,8 +268,16 @@ switch(state){
                         dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
                         dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
                     }
-                    draw_text(_x, _y + 64 + yoffset,"likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
-                    draw_text(_x, _y + 64 + 3*yoffset,"hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
+                    
+                    draw_text(_x, _y + 68 + yoffset, "Likes:");
+                    
+                    draw_set_font(fnt_not_bold);
+                    draw_text(_x, _y + 68 + 2*yoffset,string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                    
+                    draw_set_font(fnt_normal);
+                    draw_text(_x, _y + 72 + 3*yoffset, "Hates:");
+                    draw_set_font(fnt_not_bold);
+                    draw_text(_x, _y + 72 + 4*yoffset,string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
                     
                     draw_set_halign(fa_left);
                     draw_set_valign(fa_top);
