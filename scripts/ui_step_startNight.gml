@@ -16,6 +16,7 @@ else{
         reputation_update();
         applicants_get();
         instance_create(0,0,o_funds);
+        state = noone;
     }
 }
 

@@ -74,6 +74,7 @@ cancel_build = false;
             <string>/// mouse presses in UI
 
 //Switch sentence, change state calls scripts
+//ui night
 if(!ctrl.isDay){
     switch(state){
         case "staff":
@@ -90,6 +91,20 @@ if(!ctrl.isDay){
             break;
         default:
             ui_step_menu();
+            break;
+    }
+}
+//ui day
+else{
+    switch(state){
+        case "resident":
+            ui_step_resident();
+            break;
+        case "staff":
+            ui_step_staff();
+            break;
+        default:
+            ui_step_dayMenu();
             break;
     }
 }
@@ -121,7 +136,8 @@ ui_draw_infobox();
 //Might need to change to display_get_gui_width() and display_get_gui_height()
 display_set_gui_size(display_get_gui_width(), display_get_gui_height());
 
-    if(!ctrl.isDay){
+//night ui
+if(!ctrl.isDay){
     switch(state){
         case "staff":
             ui_draw_staff();
@@ -139,6 +155,21 @@ display_set_gui_size(display_get_gui_width(), display_get_gui_height());
             ui_draw_menu();
             break;
     }
+}
+//day ui
+else{
+    switch(state){
+        case "resident":
+            ui_draw_resident();
+            break;
+        case "staff":
+            ui_draw_staff();
+            break;
+        default:
+            ui_draw_dayMenu();
+            break;
+    }
+
 }
 </string>
           </argument>

@@ -162,7 +162,7 @@ randomize();
 var i = choose(snd_entertainer,snd_maple_leaf);
 //audio_play_sound(i,1,true);
 //Residents
-resident1 = instance_create(31*10, 31*20, O_Resident);
+resident1 = instance_create(31*10, 31*10, O_Resident);
 resident2 = instance_create(31*8, 31*15, O_Resident);
 
 //Orderly
