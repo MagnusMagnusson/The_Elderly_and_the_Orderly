@@ -30,6 +30,7 @@ decided=false;
 time_decided=0;
 current_station=noone;
 
+
 </string>
           </argument>
         </arguments>
@@ -59,6 +60,7 @@ gender = choose(true, false);
 name = randomize_name(gender);
 //random person
 randomize_person(gender);
+likes = likes_randomize();
 </string>
           </argument>
         </arguments>

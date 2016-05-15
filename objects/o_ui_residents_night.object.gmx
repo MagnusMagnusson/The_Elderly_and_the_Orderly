@@ -47,7 +47,8 @@ selected = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>x = 4;
+</string>
           </argument>
         </arguments>
       </action>
@@ -74,13 +75,13 @@ selected = noone;
 //1 = applicants
 switch(state){
     case 0:{
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         if(mouse_check_button_pressed(mb_left)){
             selected = noone;
             for(var i = 0; i &lt; instance_number(O_Resident);i++){
                 var X,Y;
-                X = display_get_width() div 2 + 62*(i % 5);
-                Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+                X = display_get_gui_width() div 2 + 62*(i % 5);
+                Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
                 if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                     selected = i;
                 }
@@ -89,11 +90,11 @@ switch(state){
         break;
     }
     case 1:{
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         if(mouse_check_button_pressed(mb_left)){
             var bx,by;
-            bx = (4/6)*(display_get_width() div 2);
-            by = (11/10)*display_get_height() div 2;
+            bx = (4/6)*(display_get_gui_width() div 2);
+            by = (11/10)*display_get_gui_height() div 2;
             if(realmx() &gt; bx &amp;&amp; realmy() &gt; by &amp;&amp; realmx() &lt; bx + 31 &amp;&amp; realmy() &lt; by + 31){
                 if(selected != noone){
                     if(instance_number(o_bed) &gt;= instance_number(O_Resident)+1){
@@ -116,8 +117,8 @@ switch(state){
             selected = noone;
             for(var i = 0; i &lt; instance_number(o_applicant);i++){
                 var X,Y;
-                X = display_get_width() div 2 + 62*(i % 5);
-                Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+                X = display_get_gui_width() div 2 + 62*(i % 5);
+                Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
                 if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                     selected = i;
                 }
@@ -152,17 +153,18 @@ switch(state){
 //0 = old
 //1 = applicants
 draw_set_font(fnt_screen)
+var yoffset = string_height("Loy")+4;
 switch(state){
     case 0:{
         //We're viewing old residents (They are all old, hohohohoh)
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
         for(var i = 0; i &lt; instance_number(O_Resident);i++){//For each resident we currently have
             var I = instance_find(O_Resident,i);
             
             //Draw the person on screen
             var X,Y;
-            X = display_get_width() div 2 + 62*(i % 5);
-            Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+            X = display_get_gui_width() div 2 + 62*(i % 5);
+            Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
             draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
@@ -175,24 +177,36 @@ switch(state){
             var I = instance_find(O_Resident,selected);
             //Where to draw information about them
             var _x,_y;
-            _x = 445
-            _y = 450
+            _x = (display_get_gui_width() div 3) -50 ;//445;
+            _y = display_get_gui_height() div 5;//450;
             //Draw general information on them
+            draw_set_font(fnt_14pt);
+            draw_set_color($FF12EB);
             draw_text(_x,_y,I.name)
             //Happy
             draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
             draw_set_color(c_white){
-                draw_set_halign(fa_center);
+                //draw_set_halign(fa_center);
                 draw_set_valign(fa_middle);
-                draw_text(_x + 64 -2,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x + 64 -2,_y + 48 +2,string(I.happiness ) + "%");
-                draw_text(_x + 64 +2,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x + 64 +2,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
                 draw_set_color(0)
-                draw_text(_x + 64,_y + 48,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48,string(I.happiness ) + "%");
+                var like1,like2,dislike1,dislike2;
+                draw_set_font(fnt_normal)
+                with(I){
+                    like1 = likes_get_nth(1);
+                    like2 = likes_get_nth(2);
+                    dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
+                    dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
+                }
+                draw_text(_x,_y + 68 + yoffset,"Likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                draw_text(_x,_y + 72 + 3*yoffset,"Hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
-            //end happy
+                //end happy
             }
             
         }
@@ -201,16 +215,16 @@ switch(state){
     }
     case 1:{
         //Applicants
-        draw_sprite(s_applicant_ui,0,display_get_width() div 2, display_get_height() div 2)
-        draw_sprite(spr_icons,0,(4/6)*(display_get_width() div 2), (11/10)*display_get_height() div 2)
+        draw_sprite(s_applicant_ui,0,display_get_gui_width() div 2, display_get_gui_height() div 2)
+        draw_sprite(spr_icons,0,(4/6)*(display_get_gui_width() div 2), (11/10)*display_get_gui_height() div 2)
         //For each applicant
         for(var i = 0; i &lt; instance_number(o_applicant);i++){
             var I = instance_find(o_applicant,i);
             
             //Draw information
             var X,Y;
-            X = display_get_width() div 2 + 62*(i % 5);
-            Y = 16 + display_get_height() div 2 + 115*(i div 5)- 256; 
+            X = display_get_gui_width() div 2 + 62*(i % 5);
+            Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
             draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
             draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
@@ -223,9 +237,51 @@ switch(state){
             var I = instance_find(o_applicant,selected);
             //SHIIiiIIIiIIinEeEEe Ooonn you craaaaazy diamond!
             var _x,_y;
-            _x = 445
-            _y = 450
+            _x = (display_get_gui_width() div 3) -50 ;//445
+            _y = display_get_gui_height() div 5; //450
+            //Name
+            draw_set_font(fnt_14pt);
+            draw_set_color($FF12EB);
+            //
+            draw_set_valign(fa_middle);
+            //draw_set_halign(fa_center);
+            draw_text(_x,_y,I.name);
+            draw_set_color($FF12EB);
             draw_text(_x,_y,I.name)
+            //Happy
+            draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
+            draw_set_color(c_white){
+                //draw_set_halign(fa_center);
+                draw_set_valign(fa_middle);
+                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
+                draw_set_color(0)
+                draw_text(_x,_y + 48,string(I.happiness ) + "%");
+                //Rest of information
+                draw_set_font(fnt_normal);
+                draw_set_color(0);
+                with(I){
+                        like1 = likes_get_nth(1);
+                        like2 = likes_get_nth(2);
+                        dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
+                        dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
+                    }
+                    
+                    draw_text(_x, _y + 68 + yoffset, "Likes:");
+                    
+                    draw_set_font(fnt_not_bold);
+                    draw_text(_x, _y + 68 + 2*yoffset,string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                    
+                    draw_set_font(fnt_normal);
+                    draw_text(_x, _y + 72 + 3*yoffset, "Hates:");
+                    draw_set_font(fnt_not_bold);
+                    draw_text(_x, _y + 72 + 4*yoffset,string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
+                    
+                    draw_set_halign(fa_left);
+                    draw_set_valign(fa_top);
+            }
         }
         //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
         break;

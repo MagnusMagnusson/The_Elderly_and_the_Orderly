@@ -1,5 +1,5 @@
-ctrl.player_reputation *= 0.8;
-ctrl.max_reputation *= 0.8;
+ctrl.player_reputation *= 0.93;
+ctrl.max_reputation *= 0.95;
 var happ,n;
 n = instance_number(O_Resident);
 happ = 0;

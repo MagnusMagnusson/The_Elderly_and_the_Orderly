@@ -25,30 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>selected = noone;
-hidden = false;
-//For switching between menu
-state = noone;
-//Hover over certain items (mainly store)
-infoState = noone;
-//Selected an item
-//Is station selected
-infoSelected =false;
-//info showing on hover in store
-infoHover = noone;
-//hovering over station in store
-hover = true;
-//Hovering over cancel button in store
-hoverCancel = false;
-//Item created (in store)
-I = noone;
-//Back button click effect
-back_effect = false;
-//For staff hiring/firing
-orderly_number = 0;
-orderly_salary = funds_salary();
-orderly_instance = instance_number(O_Orderly);
-cancel_build = false;
+            <string>x = (3/5)*display_get_gui_width();
+y = (3/7)*display_get_gui_height();
+image_alpha = 0;
+
+
 </string>
           </argument>
         </arguments>
@@ -71,27 +52,9 @@ cancel_build = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// mouse presses in UI
-
-//Switch sentence, change state calls scripts
-if(!ctrl.isDay){
-    switch(state){
-        case "staff":
-            ui_step_staff();
-            break;
-        case "resident":
-            ui_step_resident();
-            break;
-        case "startDay":
-            ui_step_startDay();
-            break;
-        case "store":
-            ui_step_store();
-            break;
-        default:
-            ui_step_menu();
-            break;
-    }
+            <string>image_alpha += 1/45;
+if(mouse_check_button_pressed(mb_left)){
+    instance_destroy();
 }
 </string>
           </argument>
@@ -115,31 +78,57 @@ if(!ctrl.isDay){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Draw Night UI
-ui_draw_menu();
-ui_draw_infobox();
-//Might need to change to display_get_gui_width() and display_get_gui_height()
-display_set_gui_size(display_get_gui_width(), display_get_gui_height());
+            <string>draw_set_alpha(image_alpha);
+draw_set_colour($ffcc99);
+var w,h,off;
+draw_set_font(fnt_menu);
+w = 31 + string_width("Elderly home reputation  : -100% 'Fate worse than death.'") div 2;
+h = 32 * 7;
+off = 32;
+draw_rectangle(x - w,y - h,x + w,y + h,false)
+draw_set_halign(fa_middle);
 
-    if(!ctrl.isDay){
-    switch(state){
-        case "staff":
-            ui_draw_staff();
-            break;
-        case "resident":
-            ui_draw_resident();
-            break;
-        case "startDay":
-            ui_draw_startDay();
-            break;
-        case "store":
-            ui_draw_store();
-            break;
-        default:
-            ui_draw_menu();
-            break;
-    }
-}
+draw_set_font(fnt_clock)
+draw_set_color(0);
+draw_text(x,y - h + 16,"DAY "+string(ctrl.day)+" OVER!");
+draw_set_font(fnt_menu);
+
+draw_text(x, y - h + 3*off,"Total Funds made : " + string(funds_get()));
+
+draw_set_color(c_gray);
+draw_text(x, y - h + 4*off,"As a result of");
+draw_text(x, y - h + 5*off,"Resident income : " + string(funds_earnings()));
+draw_text(x, y - h + 6*off,"Houshold Rent   : -" + string(funds_rent()));
+draw_text(x, y - h + 7*off,"Utility  costs  : -" + string(funds_utillities()));
+draw_text(x, y - h + 8*off,"Orderly Salary  : -" + string(funds_salary()));
+
+draw_set_color(0);
+var text;
+text[0] = "('Fate worse than death.')";
+text[1] = "(Universally hated)";
+text[2] = "(Extremely Disliked)";
+text[3] = "(Disliked)";
+text[4] = "(Unpopular)";
+text[5] = "(Sceptical)";
+text[6] = "(Neutral/Unknown)";
+text[7] = "(There are worse options)";
+text[8] = "(Fairly popular)";
+text[9] = "(Popular)";
+text[10] = "(Well loved)";
+text[11] = "(Universally loved)";
+text[12] = "('Heaven on earth!')";
+var rep;
+rep = reputation_get_normalized()
+var col = make_color_rgb(255*(1 - rep),255 * rep,25);
+draw_set_color(col);
+draw_text(x, y - h + 10*off,"Elderly home reputation  : " + string(reputation_get())+"%" + text[clamp(round(12 * rep),0,12)]);
+draw_set_color(0);
+draw_text(x,y-h + 11*off,"Applicants recieved : " + string(instance_number(o_applicant)));
+draw_set_color(c_gray);
+draw_text(x,y-h + 12*off,"Press anywhere to dispose of this window");
+
+draw_set_halign(fa_left);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

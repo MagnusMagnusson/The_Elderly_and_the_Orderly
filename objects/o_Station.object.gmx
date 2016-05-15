@@ -136,9 +136,14 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
         if(mouse_check_button_pressed(mb_left)){
             if(isValid){//and valid
                 if(ctrl.funds &gt;= price){//and affordable
+                    /*for ui_step_store &amp; ui_draw_infobox*/
+                    //might need to add o_ui_night in front
                     o_ui_night.I = noone;
                     o_ui_night.cancel_build = false;
                     o_ui_night.hover = true;
+                    o_ui_night.infoHover = noone;
+                    o_ui_night.infoSelected = false;
+                    
                     being_built = false;
                     ctrl.funds -= price;
                     var tex = instance_create(x,y,o_fadetext);

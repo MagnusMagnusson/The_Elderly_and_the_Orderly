@@ -4,7 +4,7 @@
 //to the ui draw event and ui_draw_infobox scripts
 
 var n,i;
-n = 9;
+n = 8;
 i = 0;
 var store = ds_grid_create(n,9);
 

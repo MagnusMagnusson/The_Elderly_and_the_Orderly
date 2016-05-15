@@ -1,1 +1,1 @@
-return (25 + 8*ctrl.days) div 5 * 5
+return (25 + (min(2*ctrl.day-1,10))) div 5 * 5
