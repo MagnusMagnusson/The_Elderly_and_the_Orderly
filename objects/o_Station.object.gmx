@@ -30,6 +30,8 @@ being_built = false;
 move_bed = false;
 timer = 0;
 
+satisfies=noone;
+
 manned=false;
 residentcapacity=0;
 width = 0;
@@ -123,7 +125,7 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
     if(move_bed){
         x = (mouse_x div 31 * 31);
         y = (mouse_y div 31 * 31);
-        if(mouse_check_button_pressed(mb_right)){
+        if(mouse_check_button_pressed(mb_left)){
             if(isValid){
                 being_built = false;
                 move_bed = false;
@@ -261,9 +263,9 @@ timer = -1;
     var theta = deltafy(room_speed / 3)
     
     if(timer &gt; theta){
-        instance_create(x,y,o_ui_stations);
+        var i = instance_create(x,y,o_contex);
+        i.station = id;
         timer = -1;
-        
     }
 }
 </string>

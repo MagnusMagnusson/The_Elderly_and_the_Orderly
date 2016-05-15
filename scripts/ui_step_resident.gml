@@ -17,6 +17,7 @@ if(!ctrl.isDay){
                         }
     
                         state = noone;
+                        infoHover = noone;
                         x = xstart;
                     }
                     //Residents
@@ -28,10 +29,16 @@ if(!ctrl.isDay){
                         o_ui_residents_night.state = 1;
                     }
                 }
-                else if(realmx() > 0 && realmx() < xwidth){
-                    
+            }
+            else{
+                if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
+                    infoHover = "back";
+                }
+                else{
+                    infoHover = noone;
                 }
             }
+            
         }
         else{
             x = xstart;
@@ -58,8 +65,17 @@ if(!instance_exists(o_ui_residents_night) && x >= 0){
                         }
     
                         state = noone;
+                        infoHover = noone;
                         x = xstart;
                     }
+                }
+            }
+            else{
+                if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
+                    infoHover = "back";
+                }
+                else{
+                    infoHover = noone;
                 }
             }
         }

@@ -28,7 +28,7 @@
             <string>///Initialize variables
 randomize();
 isDay = !true;
-dayDuration = 0.5 * room_speed * 60 //5 minutes per day
+dayDuration = 3 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 500;
 day = 1;
@@ -201,12 +201,6 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
     
     wallmatrix_reserve(961 div 31,i,1);
 }
-
-
-
-
-
-
 </string>
           </argument>
         </arguments>
@@ -228,7 +222,7 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
           <argument>
             <kind>1</kind>
             <string>///initialize Astar gating variable
-Astar_used=false;
+Astar_used=0;
 </string>
           </argument>
         </arguments>
@@ -252,7 +246,7 @@ Astar_used=false;
           <argument>
             <kind>1</kind>
             <string>///open the Astar gate
-Astar_used=false;
+Astar_used-= deltafy(1);
 </string>
           </argument>
         </arguments>
@@ -462,7 +456,7 @@ var uni = shader_get_uniform(shade_makestuffblue,"var_0");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Drawing "Good night!"
+            <string>///Drawing "Good night!"
 if(isDay){
     timeLeft--;
     if(timeLeft &lt;= 0){
@@ -470,6 +464,26 @@ if(isDay){
     }
 }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -547,9 +561,40 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create Bed
-//For debugging 
-//instance_create(x, y, o_bed);
+            <string>
+///Drawing stuff
+//draw_text(16,16,instance_number(o_bed));
+
+for(var i = 0; i &lt; room_width div 31; i += 1){
+    for(var j = 0; j &lt; room_height div 31; j += 1){
+        //draw_text(i*31 + 15, j*31 + 15,wallMatrix[i,j]);
+                     /*   for(var k = 0; k &lt; 4; k++){
+            var num,_i,_j;
+            _j = (k &lt; 2);
+            _i = !(k &gt; 0 &amp;&amp; k &lt; 3);
+            num = power(2,k) + power(2,(k+1)%4)
+            if(wallMatrix[i,j] &amp; num == num){
+                draw_sprite(spr_courner,0,(i + _i)*31-2,(j + _j)*31-4);
+            }
+        }*/
+        
+        if(wallMatrix[i,j] &amp; 1 &gt; 0){
+            draw_sprite(spr_wall,0,(1+i)*31,j*31);//+2 -4
+        }
+        if(wallMatrix[i,j] &amp; 2 &gt; 0){
+            draw_sprite_ext(spr_wall,0,(i)*31,(j+1)*31 - 4,1,1,90,c_white,1);//0 2
+        }
+        if(wallMatrix[i,j] &amp; 4 &gt; 0){
+            draw_sprite(spr_wall,0,(i)*31 ,j*31);//2 4
+        }
+        if(wallMatrix[i,j] &amp; 8 &gt; 0){
+            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 ,1,1,90,c_white,1);//0 -2
+        }
+        
+    }
+}
+
+
 </string>
           </argument>
         </arguments>

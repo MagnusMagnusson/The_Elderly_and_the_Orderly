@@ -40,10 +40,19 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize variables
-head = spr_orderly_head_1;
-hair = spr_orderly_hair_1;
-body = spr_orderly_body_1;
-legs = spr_orderly_feet_1;
+n = choose(true, false);
+if(n){
+    head = spr_orderly_head_1;
+    hair = spr_orderly_hair_1;
+    body = spr_orderly_body_1;
+    legs = spr_orderly_feet_1;
+}
+else{
+    head = spr_orderly_head_2;
+    hair = spr_orderly_hair_2;
+    body = spr_orderly_body_2;
+    legs = spr_orderly_feet_2;
+}
 velocity=2.0;
 name = random_orderly_name();
 </string>
@@ -112,8 +121,46 @@ if(global.selected_person==id)
         <relative>0</relative>
         <isnot>0</isnot>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>var n;
+n = irandom_range(75, 92);
+
+audio_play_sound(n, 1, false);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -135,20 +182,6 @@ draw_person(x, y, id);
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>

@@ -4,10 +4,10 @@
 //gating, variable is reset to false at the end of every step by the ctrl object
 //close the gate if it's open, return noone if the gate has been closed.
 //orderlies can climb over the gate
-if(ctrl.Astar_used&&object_index==O_Resident)
+if(0<ctrl.Astar_used&&object_index==O_Resident)
     return noone;
 else
-    ctrl.Astar_used=true;
+    ctrl.Astar_used=deltafy(30);
 
 //naming paramaters since GML wont
 var startx=argument0;

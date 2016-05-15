@@ -38,7 +38,8 @@ if(!ctrl.isDay){
             }
         }
         //Clicks check image
-        if(realmy() > 3*yoffset + startoffset + sprite_get_height(spr_plus_minus) && realmy() < 3*yoffset + startoffset + sprite_get_height(spr_plus_minus) + sprite_get_height(spr_cute_check)){
+        if(realmy() > 3*yoffset + startoffset + sprite_get_height(spr_plus_minus) && realmy() < 3*yoffset + startoffset + 
+                sprite_get_height(spr_plus_minus) + sprite_get_height(spr_cute_check)){
             if(realmx() > xoffset + 128 && realmx() < xoffset + 128 + sprite_get_height(spr_cute_check)){
                 //Firing
                 if(orderly_number < 0){
@@ -85,12 +86,18 @@ if(!ctrl.isDay){
             else if(realmx() > xoffset + 128 && realmx() < xoffset + 128 + sprite_get_width(spr_plus_minus)){
                 infoHover = "plus";
             }
+        }
+        //Hovers over check image
+        else if(realmy() > 3*yoffset + startoffset + sprite_get_height(spr_plus_minus) && realmy() < 3*yoffset + startoffset + sprite_get_height(spr_plus_minus) + sprite_get_height(spr_cute_check)){
+            if(realmx() > xoffset + 128 && realmx() < xoffset + 128 + sprite_get_height(spr_cute_check)){
+                infoHover = "check";
+            }
             else{
                 infoHover = noone;
             }
         }
         else{
-            infoHover = noone
+            infoHover = noone;
         }
     }
 }
@@ -99,6 +106,7 @@ else{
     if(mouse_check_button_pressed(mb_left)){
         if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             state = noone;
+            infoHover = noone;
         }
         selected = noone;
         for(var i = 0; i < instance_number(O_Orderly);i++){
@@ -112,6 +120,9 @@ else{
     }
     else if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
         infoHover = "back";
+    }
+    else{
+        infoHover = noone;
     }
     /*if(mouse_check_button_pressed(mb_left)){
         

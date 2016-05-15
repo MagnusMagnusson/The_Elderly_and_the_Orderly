@@ -8,6 +8,98 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>xx = x - view_xview[0];
+yy = y - view_yview[0];
+station = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(mouse_check_button_pressed(mb_right) == true){
+    instance_destroy();
+}
+
+if(!ctrl.isDay){
+    if(mouse_check_button_pressed(mb_left) == true){
+    //SELL!
+        if(realmy() &gt; yy &amp;&amp; realmy() &lt; 31+yy ){
+            if(realmx() &gt; xx &amp;&amp; realmx() &lt; xx + 31){
+                ctrl.profileActive = false;
+                //Remove old position from matrix
+                matrix_clear(xx div 31, yy div 31, station.width, station.height, station);
+                station.move_bed = true;
+                station.being_built = true;
+                with(object_index){
+                    instance_destroy();
+                }
+                exit;
+            }
+            if(realmx() &gt; 31+xx &amp;&amp; realmx() &lt; xx +62){
+            
+                //update funds to price of station/2
+                ctrl.funds += ctrl.store[#store_get_id(ctrl.store, station.object_index), 4]/2; 
+                var tex = instance_create(x,y,o_fadetext);
+                tex.text = ctrl.store[#store_get_id(ctrl.store, station.object_index), 4]/2;
+                audio_play_sound(snd_cash,1,false);
+                
+                matrix_clear(xx div 31, yy div 31, station.width, station.height, station);
+                for(var i =0; i &lt; ds_list_size(global.built_stations);i++)
+                {
+                    if(global.built_stations[|i]==station)
+                    {
+                        ds_list_delete(global.built_stations,i);
+                    }
+                }
+                instance_destroy();
+                with(station){
+                    instance_destroy();
+                }
+                ctrl.profileActive = false;
+                exit;
+            }        
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -25,8 +117,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var xx = x - view_xview[0];
-draw_rectangle(xx,y,xx + 25,y + 25,false);
+            <string>var w,h;
+w = 4*31;
+h = 31;
+draw_rectangle(xx,yy,xx+w,yy+h,false);
+
+if(!ctrl.isDay){
+   draw_sprite(s_context,0,xx,yy+1);
+   draw_sprite(s_context,2,xx+31,yy+1);
+}
 </string>
           </argument>
         </arguments>

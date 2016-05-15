@@ -326,7 +326,7 @@ if(!irandom(1000 / room_speed)){
             <string>timer += scr_realdelta()/30;
 
 if(hp &lt;= 0){
-    room_goto(rm_basic);
+    room_goto(global.oldroom);
 }
 </string>
           </argument>
@@ -392,12 +392,9 @@ for(i = 0; i &lt; min(10,hp); i++){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(show_question("Unprofessionally Paused!#Would you like to go to the main menu?#(Your progress is not saved")){
-    instance_destroy();
-    room_goto(rm_basic);
-}
-else{
-}
+            <string>instance_destroy();
+    room_goto(global.oldroom);
+
 </string>
           </argument>
         </arguments>

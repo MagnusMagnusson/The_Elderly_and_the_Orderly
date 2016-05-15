@@ -27,7 +27,14 @@ if(!ctrl.isDay){
     //Plus image
     draw_sprite(spr_plus_minus, 0, xoffset + 128, 2*yoffset + startoffset);
     //Check image
-    draw_sprite(spr_cute_check, 0,  xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    if(infoHover == "check"){
+        draw_sprite(spr_cute_check, 2, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+        draw_sprite(spr_cute_check, 0, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    }
+    else{
+        draw_sprite(spr_cute_check, 1, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+        draw_sprite(spr_cute_check, 0,  xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    }
 }
 //day
 else{
@@ -49,12 +56,11 @@ else{
             var I = instance_find(O_Orderly,selected);
             //Where to draw information about them
             var _x,_y;
-            _x = (display_get_gui_width() div 3) -50 ;//445;
-            _y = display_get_gui_height() div 5;//450;
+            _x = (display_get_gui_width() div 3) +4 ;//445;
+            _y = (display_get_gui_height() div 5) + 31;//450;
             //Draw general information on them
             draw_set_font(fnt_14pt);
             draw_set_color($FF12EB);
             draw_text(_x,_y,I.name)
         }
-
 }
