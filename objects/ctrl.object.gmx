@@ -162,7 +162,7 @@ randomize();
 var i = choose(snd_entertainer,snd_maple_leaf);
 //audio_play_sound(i,1,true);
 //Residents
-resident1 = instance_create(31*10, 31*20, O_Resident);
+resident1 = instance_create(31*10, 31*10, O_Resident);
 resident2 = instance_create(31*8, 31*15, O_Resident);
 
 //Orderly
@@ -508,16 +508,16 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         }*/
         
         if(wallMatrix[i,j] &amp; 1 &gt; 0){
-            draw_sprite(spr_wall,0,2+(1+i)*31 - 4,j*31-4);
+            draw_sprite(spr_wall,0,(1+i)*31,j*31);//+2 -4
         }
         if(wallMatrix[i,j] &amp; 2 &gt; 0){
-            draw_sprite_ext(spr_wall,0,(i)*31,2+(j+1)*31 - 4,1,1,90,c_white,1);
+            draw_sprite_ext(spr_wall,0,(i)*31,(j+1)*31 - 4,1,1,90,c_white,1);//0 2
         }
         if(wallMatrix[i,j] &amp; 4 &gt; 0){
-            draw_sprite(spr_wall,0,(i)*31 -2,j*31-4);
+            draw_sprite(spr_wall,0,(i)*31 ,j*31);//2 4
         }
         if(wallMatrix[i,j] &amp; 8 &gt; 0){
-            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 -2,1,1,90,c_white,1);
+            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 ,1,1,90,c_white,1);//0 -2
         }
         
     }
