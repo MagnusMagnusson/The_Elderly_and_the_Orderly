@@ -132,7 +132,7 @@ if(!(bladder&lt;90))
 
 if(!(hunger&lt;90))
 {
-    happiness-=deltafy(1,5);                    
+    happiness-=deltafy(1.5);                    
 
 }
 </string>
