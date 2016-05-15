@@ -211,6 +211,52 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///initialize Astar gating variable
+Astar_used=false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///open the Astar gate
+Astar_used=false;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="1">
       <action>
@@ -462,16 +508,16 @@ for(var i = 0; i &lt; room_width div 31; i += 1){
         }*/
         
         if(wallMatrix[i,j] &amp; 1 &gt; 0){
-            draw_sprite(spr_wall,0,2+(1+i)*31 - 4,j*31-4);
+            draw_sprite(spr_wall,0,(1+i)*31,j*31);//+2 -4
         }
         if(wallMatrix[i,j] &amp; 2 &gt; 0){
-            draw_sprite_ext(spr_wall,0,(i)*31,2+(j+1)*31 - 4,1,1,90,c_white,1);
+            draw_sprite_ext(spr_wall,0,(i)*31,(j+1)*31 - 4,1,1,90,c_white,1);//0 2
         }
         if(wallMatrix[i,j] &amp; 4 &gt; 0){
-            draw_sprite(spr_wall,0,(i)*31 -2,j*31-4);
+            draw_sprite(spr_wall,0,(i)*31 ,j*31);//2 4
         }
         if(wallMatrix[i,j] &amp; 8 &gt; 0){
-            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 -2,1,1,90,c_white,1);
+            draw_sprite_ext(spr_wall,0,(i)*31,(j)*31 ,1,1,90,c_white,1);//0 -2
         }
         
     }

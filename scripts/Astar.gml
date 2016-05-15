@@ -1,6 +1,14 @@
  ///Astar(x,y,targetx,targety)
 //returns 
 
+//gating, variable is reset to false at the end of every step by the ctrl object
+//close the gate if it's open, return noone if the gate has been closed.
+//orderlies can climb over the gate
+if(ctrl.Astar_used&&object_index==O_Resident)
+    return noone;
+else
+    ctrl.Astar_used=true;
+
 //naming paramaters since GML wont
 var startx=argument0;
 var starty=argument1;
