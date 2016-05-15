@@ -27,7 +27,14 @@ if(!ctrl.isDay){
     //Plus image
     draw_sprite(spr_plus_minus, 0, xoffset + 128, 2*yoffset + startoffset);
     //Check image
-    draw_sprite(spr_cute_check, 0,  xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    if(infoHover == "check"){
+        draw_sprite(spr_cute_check, 2, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+        draw_sprite(spr_cute_check, 0, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    }
+    else{
+        draw_sprite(spr_cute_check, 1, xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+        draw_sprite(spr_cute_check, 0,  xoffset + 128, 3*yoffset + startoffset + sprite_get_height(spr_plus_minus));
+    }
 }
 //day
 else{
@@ -56,5 +63,4 @@ else{
             draw_set_color($FF12EB);
             draw_text(_x,_y,I.name)
         }
-
 }
