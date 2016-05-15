@@ -24,12 +24,12 @@ ds_list_add(checking,tempcoords);
 ds_list_add(checking_parent,noone);
 //debug variables
 var iteration_debug=false;
-var mainloop_debug=true;
+var mainloop_debug=false;
 var neighbour_debug=false;
 var debug=neighbour_debug||iteration_debug||mainloop_debug; 
 var iterations=0;
 //at the start, checking contains exactly one coordinate pair
-while(!(ds_list_size(checking)==0) && false)
+while(!(ds_list_size(checking)==0))
 {
     if(debug) sleep(500000);
     if(mainloop_debug) show_debug_message(iterations++);
@@ -74,16 +74,19 @@ while(!(ds_list_size(checking)==0) && false)
     var checkx=checkcoords[0];
     var checky=checkcoords[1];
     var neighbours=grid_neighbours(checkx,checky);
+    if(neighbour_debug) show_debug_message("found this many neighbours:");
+    if(neighbour_debug) show_debug_message(array_length_1d(neighbours));
    
     for(var i=0;i<array_length_1d(neighbours);i++)
     {
         if(iteration_debug||neighbour_debug) show_debug_message("adding eligible neighbours");
         if(iteration_debug||neighbour_debug) show_debug_message(i);
+        if(neighbour_debug) show_debug_message(neighbours[i]);
         var checkedbefore=false;
         //iterate trough checking as well to clean up
         for(var j=0;j<ds_list_size(checking);j++)
         {
-            if(iteration_debug) show_debug_message("looking for neighbours in checked");
+            if(iteration_debug) show_debug_message("looking for neighbours in checking");
             if(iteration_debug) show_debug_message(j);
             //extracting neighbour coords
             var neighbourcoords=neighbours[i];

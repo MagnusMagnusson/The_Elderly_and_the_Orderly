@@ -41,29 +41,6 @@ max_Astar_iterations=0;
         </arguments>
       </action>
     </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>mp_grid_destroy(grid);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -84,8 +61,16 @@ max_Astar_iterations=0;
             <string>///create path to target if none exists
 if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 {
+show_debug_message("--------------------calling ASTAR------");
+    //the use of these vars is an ugly hack to compensate for the tile grid
+    //not starting at 0,0
+    var offset=0;
+    var xoffset=offset;
+    var yoffset=offset;
     tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31);
+    show_debug_message("Astar call complete");
     path_length=array_length_1d(tilepath);
+    show_debug_message(path_length);
     index_into_path=0;
 }
 </string>
@@ -112,7 +97,7 @@ if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 
 if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
-    //show_debug_message("making new tilepath");
+    show_debug_message("making new tilepath");
     var target_tile=tilepath[index_into_path];
     var target_tile_x=target_tile[0]*32+16;
     var target_tile_y=target_tile[1]*32+16;
