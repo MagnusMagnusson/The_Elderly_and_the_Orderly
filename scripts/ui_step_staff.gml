@@ -5,10 +5,11 @@ if(!ctrl.isDay){
     var fire;
     if(mouse_check_button_pressed(mb_left)){
         //Player presses go back button
-        if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)){
+        if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             infoSelected = false;  
             hover = true;
             state = noone;
+            infoHover = noone;
             orderly_number = 0;
             orderly_salary = funds_salary();
             orderly_instance = instance_number(O_Orderly);
