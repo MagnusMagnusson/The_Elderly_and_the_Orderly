@@ -63,14 +63,11 @@ velocity=1;
             <string>///create path to target if none exists
 if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 {
-show_debug_message("--------------------calling ASTAR------");
     //the use of these vars is an ugly hack to compensate for the tile grid
     //not starting at 0,0
 
     tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31);
-    show_debug_message("Astar call complete");
     path_length=array_length_1d(tilepath);
-    show_debug_message(path_length);
     index_into_path=0;
     //tilepath will be noone if target is unreachable or if
     //Astar gate has been closed
@@ -104,7 +101,7 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
     var xoffset=offset;
     var yoffset=offset-2;
     
-    show_debug_message("making new tilepath");
+    
     var target_tile=tilepath[index_into_path];
     var target_tile_x=target_tile[0]*32+16;
     var target_tile_y=target_tile[1]*32+16;
@@ -112,19 +109,13 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
     target_y=yoffset + target_tile_y;
     if(x==target_tile_x + xoffset &amp;&amp; y==target_tile_y+yoffset)
     {
-        show_debug_message("incrementing index");
-        show_debug_message("index now:");
-        show_debug_message(index_into_path);
+       
         index_into_path+=1;
-        show_debug_message("path length now:");
-        show_debug_message(path_length);
         if(path_length==index_into_path)
         {
-            show_debug_message("ressetting tile path");
+           
             tilepath=noone;
-            show_debug_message(path_length);
             path_length=0;
-            show_debug_message(path_length);
             index_into_path=0;
         }
     }
