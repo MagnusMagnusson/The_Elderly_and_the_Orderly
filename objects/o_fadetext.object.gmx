@@ -79,6 +79,7 @@ if(image_alpha &lt;= 0){
             <string>draw_set_alpha(image_alpha);
 draw_set_font(fnt_normal);
 draw_set_color($12C8FF);
+draw_sprite(spr_btn, 0, x-sprite_get_width(spr_btn)-4, y);
 draw_text(x,y,text);
 draw_set_color(0);
 draw_set_alpha(1);

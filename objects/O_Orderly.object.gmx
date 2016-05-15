@@ -44,7 +44,7 @@ head = spr_orderly_head_1;
 hair = spr_orderly_hair_1;
 body = spr_orderly_body_1;
 legs = spr_orderly_feet_1;
-name = "Albert Zweistein";
+name = random_orderly_name();
 </string>
           </argument>
         </arguments>
