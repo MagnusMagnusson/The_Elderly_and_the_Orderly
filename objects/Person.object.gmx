@@ -72,12 +72,8 @@ show_debug_message("--------------------calling ASTAR------");
     path_length=array_length_1d(tilepath);
     show_debug_message(path_length);
     index_into_path=0;
-    if(tilepath==noone)
-    {
-        //target is unreachable targeting own position.
-        target_x=x;
-        target_y=y;
-    }
+    //tilepath will be noone if target is unreachable or if
+    //Astar gate has been closed
 }
 </string>
           </argument>
