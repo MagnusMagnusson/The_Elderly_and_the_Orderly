@@ -46,6 +46,7 @@ width = 3;
 height = 3;
 
 ind = 0;
+_sleep = -1;
 </string>
           </argument>
         </arguments>
