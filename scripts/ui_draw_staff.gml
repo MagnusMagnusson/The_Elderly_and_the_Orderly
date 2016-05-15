@@ -56,8 +56,8 @@ else{
             var I = instance_find(O_Orderly,selected);
             //Where to draw information about them
             var _x,_y;
-            _x = (display_get_gui_width() div 3) -50 ;//445;
-            _y = display_get_gui_height() div 5;//450;
+            _x = (display_get_gui_width() div 3) +4 ;//445;
+            _y = (display_get_gui_height() div 5) + 31;//450;
             //Draw general information on them
             draw_set_font(fnt_14pt);
             draw_set_color($FF12EB);
