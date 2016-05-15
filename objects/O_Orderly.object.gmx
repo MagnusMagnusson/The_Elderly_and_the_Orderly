@@ -45,6 +45,7 @@ hair = spr_orderly_hair_1;
 body = spr_orderly_body_1;
 legs = spr_orderly_feet_1;
 name = "Albert Zweistein";
+velocity=2.0;
 </string>
           </argument>
         </arguments>
