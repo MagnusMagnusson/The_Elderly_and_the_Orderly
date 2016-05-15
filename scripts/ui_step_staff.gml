@@ -98,21 +98,22 @@ else{
     if(mouse_check_button_pressed(mb_left)){
         if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             state = noone;
-        }  
-    }
-    else if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
-        infoHover = "back";
-    }
-    if(mouse_check_button_pressed(mb_left)){
+        }
         selected = noone;
-        for(var i = 0; i < instance_number(O_Resident);i++){
+        for(var i = 0; i < instance_number(O_Orderly);i++){
             var X,Y;
             X = display_get_gui_width() div 2 + 62*(i % 5);
             Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
             if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                 selected = i;
             }
-        }
+        }  
     }
+    else if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
+        infoHover = "back";
+    }
+    /*if(mouse_check_button_pressed(mb_left)){
+        
+    }*/
 
 }
