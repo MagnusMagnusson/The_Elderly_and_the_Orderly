@@ -1,6 +1,6 @@
 /*This handles all info that appears in infobox*/
 //Draw the infobox
-scr_draw_box();
+//scr_draw_box();
 
 //Variable for making cancel always show info on hover
 //var hoverCancel = false;
@@ -21,7 +21,7 @@ sellPrice = "Sell Price: ";
 /*Add for later??*/
         //Level
         //Upgrade
-      
+scr_draw_box();
         
 //For clicking stations in room but if hovering over items in menu it will show that info
 if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
@@ -34,14 +34,14 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
     //8 - # of residents at a time
     //Use if because Magnus said oh god switch!
     //Draw the infobox
-    scr_draw_box();
+    //scr_draw_box();
     //if station is clicked
     scr_station_clicked();
 }
 //else if(state == "store"){
     if(hoverCancel){
         //Draw the infobox
-        scr_draw_box();
+        //scr_draw_box();
         draw_text_ext(xoffset, (display_get_gui_height()/1.5) + info_start_yoff,"If you have selected a station you can cancel#it by clicking here", yoffset, display_get_gui_width()/6);      
     } 
     //object in room selected (orderly/resident/station
@@ -49,7 +49,7 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
         //Station in store is selected then info about that station will be shown
         if(infoSelected && instance_exists(I)){
             //Draw the infobox
-            scr_draw_box();
+            //scr_draw_box();
             //o_Station.station_selected = false;
             switch(I.object_index){
                 //#0 in store
@@ -108,7 +108,7 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
                 //Each item in store menu has info that appears in infobox when mouse hovers over it
                 //o_Station.station_selected = false;
                 //Draw the info box
-                scr_draw_box();
+                //scr_draw_box();
                 
                 /*What each number stands for*/
                 //1 - name
@@ -188,7 +188,7 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
         }
         else if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
             //Draw the infobox
-            scr_draw_box();
+            //scr_draw_box();
             //if station is clicked
             scr_station_clicked();
         }
