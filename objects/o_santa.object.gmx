@@ -135,7 +135,7 @@ if(sprite_index == s_santadie){
     if(!image_alpha){
         instance_destroy()
         global.winflag = true;
-        room_goto(rm_gameover);
+        room_goto(rm_magnuss_chamber);
     }
 }
 </string>

@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>if(global.winflag){
-    background_index[0]=bg_win;
+  //  background_index[0]=bg_win;
 }
 else{
-    background_index[0]=bg_lose;
+   // background_index[0]=bg_lose;
 }
 
 keyboard_string = "";

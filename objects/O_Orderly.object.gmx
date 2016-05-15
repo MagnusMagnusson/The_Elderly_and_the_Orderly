@@ -40,10 +40,19 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize variables
-head = spr_orderly_head_1;
-hair = spr_orderly_hair_1;
-body = spr_orderly_body_1;
-legs = spr_orderly_feet_1;
+n = choose(true, false);
+if(n){
+    head = spr_orderly_head_1;
+    hair = spr_orderly_hair_1;
+    body = spr_orderly_body_1;
+    legs = spr_orderly_feet_1;
+}
+else{
+    head = spr_orderly_head_2;
+    hair = spr_orderly_hair_2;
+    body = spr_orderly_body_2;
+    legs = spr_orderly_feet_2;
+}
 velocity=2.0;
 name = random_orderly_name();
 </string>
