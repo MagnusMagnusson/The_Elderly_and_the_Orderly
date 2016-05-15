@@ -47,6 +47,7 @@ height = 3;
 
 ind = 0;
 _sleep = -1;
+
 </string>
           </argument>
         </arguments>
@@ -69,7 +70,8 @@ _sleep = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(sleep &gt;= 0){
+            <string>event_inherited()
+if(sleep &gt;= 0){
     _sleep --;
     if(_sleep == 0){
         room_persistent = false;
@@ -98,6 +100,7 @@ _sleep = -1;
           <argument>
             <kind>1</kind>
             <string>room_persistent = true;
+global.oldroom = room;
 _sleep = 4;
 room_goto(rm_menu);
 </string>

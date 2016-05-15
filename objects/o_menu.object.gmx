@@ -111,7 +111,7 @@ keyboard_check_pressed(vk_enter)){
             break;
         }
         case 1:{
-            room_goto(rm_high);
+            room_goto(rm_magnuss_chamber);
             break;
         }
         case 2:{

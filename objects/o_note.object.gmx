@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>image_index = irandom(3);
 image_blend = irandom(c_white);
-image_speed = 0;
 image_xscale = random_range(.3,.7);
 image_yscale = image_xscale;
 speed = scr_delta() * (irandom(8) + 18);
