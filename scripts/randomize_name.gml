@@ -34,6 +34,8 @@ else{
     last[3] = "Micaello";
     last[4] = "SirOldMan";
 }
+first_name = first[irandom(n)];
+last_name = last[irandom(m)];
 
-
-return first[irandom(n)] + " " + last[irandom(m)];
+return first_name + " " + last_name;
+//return last_name + ", " + first_name;

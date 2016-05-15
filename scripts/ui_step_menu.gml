@@ -14,7 +14,7 @@ if(!ctrl.isDay){
         }
         //Select Orderlies
         if(realmy() > yoffset && realmy() < yoffset*2){
-            state = "staff"
+            state = "staff";
         }
         
         //Select Residents
