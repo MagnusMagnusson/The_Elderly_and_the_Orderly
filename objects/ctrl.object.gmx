@@ -491,7 +491,8 @@ if(isDay){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Drawing stuff
+            <string>
+///Drawing stuff
 //draw_text(16,16,instance_number(o_bed));
 
 for(var i = 0; i &lt; room_width div 31; i += 1){
