@@ -99,6 +99,7 @@ else{
     if(mouse_check_button_pressed(mb_left)){
         if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             state = noone;
+            infoHover = noone;
         }
         selected = noone;
         for(var i = 0; i < instance_number(O_Orderly);i++){
@@ -112,6 +113,9 @@ else{
     }
     else if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
         infoHover = "back";
+    }
+    else{
+        infoHover = noone;
     }
     /*if(mouse_check_button_pressed(mb_left)){
         
