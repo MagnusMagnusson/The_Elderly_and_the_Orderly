@@ -9,9 +9,9 @@ if(!ctrl.isDay){
             var xwidth =  display_get_gui_width()/6;
             yoffset = sprite_get_height(spr_go_back) + 8;//(display_get_gui_height()/1.5)/10; //string_height("Word");
             if(mouse_check_button_pressed(mb_left)){
-                 if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back)){
+                 if(realmx() > 0 && realmx() < xwidth){
                     //back button
-                    if(realmy() > 0 && realmy() <= sprite_get_height(spr_go_back) + 4){
+                    if(realmx() < sprite_get_width(spr_go_back) && realmy() > 0 && realmy() <= sprite_get_height(spr_go_back) + 4){
                         with(o_ui_residents_night){
                             instance_destroy();
                         }
@@ -27,6 +27,9 @@ if(!ctrl.isDay){
                     if(realmy() > yoffset*2 && realmy() < 3*yoffset){
                         o_ui_residents_night.state = 1;
                     }
+                }
+                else if(realmx() > 0 && realmx() < xwidth){
+                    
                 }
             }
         }
@@ -65,15 +68,4 @@ if(!instance_exists(o_ui_residents_night) && x >= 0){
             //state = noone;
         }
     }
-    /*if(mouse_check_button_pressed(mb_left)){
-        if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
-            state = noone;
-        }
-        
-    }
-    else if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back)+4){
-        infoHover = "back";
-    }*/
-    
-    
 }
