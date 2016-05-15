@@ -44,6 +44,9 @@ decided=false;
 time_decided=0;
 current_station=noone;
 
+hunger=0;
+bladder=0;
+
 </string>
           </argument>
         </arguments>
@@ -110,14 +113,115 @@ likes = likes_randomize();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///bladder and hunger tick up, and happiness decreases if it is too high
+
+    //deltafy(1) is one per second,
+    //aiming for needing the toilet at least once per day, the base
+    //rate will reach 100 in 75% of the time it takes for a 3 minute day to pass
+    
+//people are meant to get hungry about 3 times a day
+bladder+=deltafy(100/(60*0.75));
+hunger+=deltafy(100/(60*0.3));
+
+if(!(bladder&lt;90))
+{
+    //TODO: add check for decided 
+    happiness-=deltafy(2)
+    //initiate looking for toile
+}
+
+if(!(hunger&lt;90))
+{
+    happiness-=deltafy(1,5);                    
+
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///choose what to do if not decided
+
+
+if(80&lt;hunger)
+{
+    var chosenstation=noone;
+    var listsize = ds_list_size(global.built_stations);
+    
+    for(var i =0; i &lt; listsize; i++)
+    {
+        if(global.built_stations[|i].satisfies=="hunger")
+            if(irandom(100)&lt;hunger)
+                chosenstation=global.built_stations[|i];
+                
+        
+        if(chosenstation!=noone)
+            break;
+    }
+    
+    if(chosenstation==noone)
+        for(var i =0; i &lt; listsize; i++)
+        {
+            if(global.built_stations[|i].satisfies=="hunger")
+            {
+                chosenstation=global.built_stations[|i];
+                break;
+            }
+         
+        }
+    
+}
+
+if(80&lt;bladder)
+{
+    var chosenstation=noone;
+    var listsize = ds_list_size(global.built_stations);
+    
+    for(var i =0; i &lt; listsize; i++)
+    {
+        if(global.built_stations[|i].satisfies=="bladder")
+            if(irandom(100)&lt;hunger)
+                chosenstation=global.built_stations[|i];
+                
+        
+        if(chosenstation!=noone)
+            break;
+    }
+    
+    if(chosenstation==noone)
+        for(var i =0; i &lt; listsize; i++)
+        {
+            if(global.built_stations[|i].satisfies=="bladder")
+            {
+                chosenstation=global.built_stations[|i];
+                break;
+            }
+         
+        }
+    
+}
 
 if(!decided &amp;&amp; ctrl.isDay)
 {
     var choice=irandom(100);
     if(-1 &lt; choice &amp;&amp; choice &lt; 30)
     {
-        //20% chance of choosing a random spot
+        //30% chance of choosing a random spot
         target_x=irandom(room_width);
         target_y=irandom(room_height);
         
@@ -156,9 +260,31 @@ if(!decided &amp;&amp; ctrl.isDay)
         current_station=chosenstation;
         decided=true;      
     }
-  
-    
+    if(59&lt;choice&lt;90)
+    {
+        var chosenstation=noone;
+        var listsize = ds_list_size(global.built_stations);
+        for(var i =0; i &lt; listsize; i++)
+        {
+            if(global.built_stations[|i].satisfies=="hunger")
+                if(irandom(100)&lt;hunger)
+                    chosenstation=global.built_stations[|i];
+                    
+            if(global.built_stations[|i].satisfies=="bladder")
+                if(irandom(100)&lt;bladder)
+                    chosenstation=global.built_stations[|i];
+            
+            if(chosenstation!=noone)
+                break;
+        }
+        target_x=chosenstation.x;
+        target_y=chosenstation.y;  
+        
+        current_station=chosenstation;
+        decided=true;         
+    }
 }
+    
 </string>
           </argument>
         </arguments>

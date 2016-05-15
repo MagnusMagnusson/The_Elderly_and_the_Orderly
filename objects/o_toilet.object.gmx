@@ -47,6 +47,8 @@ height = 3;
 
 ind = 0;
 _sleep = -1;
+
+satisfies="bladder";
 </string>
           </argument>
         </arguments>
