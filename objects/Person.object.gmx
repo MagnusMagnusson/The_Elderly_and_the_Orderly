@@ -64,14 +64,18 @@ if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 show_debug_message("--------------------calling ASTAR------");
     //the use of these vars is an ugly hack to compensate for the tile grid
     //not starting at 0,0
-    var offset=0;
-    var xoffset=offset;
-    var yoffset=offset;
+
     tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31);
     show_debug_message("Astar call complete");
     path_length=array_length_1d(tilepath);
     show_debug_message(path_length);
     index_into_path=0;
+    if(tilepath==noone)
+    {
+        //target is unreachable targeting own position.
+        target_x=x;
+        target_y=y;
+    }
 }
 </string>
           </argument>
@@ -97,13 +101,18 @@ show_debug_message("--------------------calling ASTAR------");
 
 if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
+    //offsets to fix the problem of tile (0,0) not being pixel (0,0)
+    var offset=-37;
+    var xoffset=offset;
+    var yoffset=offset-2;
+    
     show_debug_message("making new tilepath");
     var target_tile=tilepath[index_into_path];
     var target_tile_x=target_tile[0]*32+16;
     var target_tile_y=target_tile[1]*32+16;
-    target_x=target_tile_x;
-    target_y=target_tile_y;
-    if(x==target_tile_x &amp;&amp; y==target_tile_y)
+    target_x=xoffset + target_tile_x;
+    target_y=yoffset + target_tile_y;
+    if(x==target_tile_x + xoffset &amp;&amp; y==target_tile_y+yoffset)
     {
         show_debug_message("incrementing index");
         show_debug_message("index now:");
@@ -218,35 +227,6 @@ if(realmx() &gt; display_get_gui_width()/6){
     ctrl.select_peeps = id;
 }
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>
-
-draw_text(x,y+40,target_x);
-draw_text(x,y+31,target_y);
-
-for(var i=0;i&lt;array_length_1d(tilepath);i++)
-    draw_text(x+50,y+10*i,tilepath[i]);
 </string>
           </argument>
         </arguments>
