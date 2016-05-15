@@ -201,12 +201,6 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
     
     wallmatrix_reserve(961 div 31,i,1);
 }
-
-
-
-
-
-
 </string>
           </argument>
         </arguments>
@@ -228,7 +222,7 @@ for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
           <argument>
             <kind>1</kind>
             <string>///initialize Astar gating variable
-Astar_used=false;
+Astar_used=0;
 </string>
           </argument>
         </arguments>
@@ -252,7 +246,7 @@ Astar_used=false;
           <argument>
             <kind>1</kind>
             <string>///open the Astar gate
-Astar_used=true;
+Astar_used-= deltafy(1);
 </string>
           </argument>
         </arguments>
