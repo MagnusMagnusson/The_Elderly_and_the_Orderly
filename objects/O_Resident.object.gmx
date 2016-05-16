@@ -316,7 +316,7 @@ if(!decided &amp;&amp; ctrl.isDay)
             //walking one short of the target
             //SOS!! this code is as yet untested
             
-            tilepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
+            tilepath=Astar(x div 31,y div 31,chosenstation.x div 31,chosenstation.y div 31,chosenstation);
               
         }
         current_station=chosenstation;

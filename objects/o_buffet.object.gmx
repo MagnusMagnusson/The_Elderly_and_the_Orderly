@@ -55,6 +55,8 @@ width = 1;
 height = 1;
 image_index = 0;
 
+satisfies="hunger";
+
 ind = 0;
 </string>
           </argument>

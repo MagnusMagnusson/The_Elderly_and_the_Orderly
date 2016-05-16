@@ -28,7 +28,7 @@
             <string>///Initialize variables
 randomize();
 isDay = !true;
-dayDuration = .3 * room_speed * 60 //5 minutes per day
+dayDuration = 3 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 500;
 day = 1;

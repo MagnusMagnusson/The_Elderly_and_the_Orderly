@@ -66,7 +66,7 @@ if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_stati
 {
     //this person is a resident who got gated when trying to path 
     //toward his current station
-    reversepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
+    tilepath=Astar(x,y,chosenstation.x,chosenstation.y,chosenstation);
       
 }
 
