@@ -71,6 +71,24 @@ if(ctrl.selected_id == o_buffet){
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset+ ystartoffset, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6 - less);
     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset+ ystartoffset, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6 - less);
 }
+if(ctrl.selected_id == o_cards){
+    draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#7,1] , yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#7,4]) , yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#7,7]), yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#7,8]), yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#7,2] , yoffset, display_get_gui_width()/6 - 16);
+}
+if(ctrl.selected_id == o_disco){
+    //draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#8,1] , yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#8,4]) , yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#8,7]), yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#8,8]), yoffset, display_get_gui_width()/6 - 16);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#8,2] , yoffset, display_get_gui_width()/6 - 16);
+}
 //Add likes/dislikes?
 if(ctrl.selected_id == O_Resident){
     draw_sprite_ext((ctrl.select_peeps).head, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
