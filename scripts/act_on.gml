@@ -13,9 +13,10 @@ switch(argument0.type)
             argument1.happiness = argument1.happiness + 0.05*argument0.prizelevel;
         break;
     case "Bed":
-        if(argument0.isrunning)
-            //Add happiness for player??
-            break;
+        //Add happiness for player??
+        break;
+    case "Toilet":
+        argument1.bladder=0;
     default:
         argument1.happiness =argument1.happiness + 0.01
 }
