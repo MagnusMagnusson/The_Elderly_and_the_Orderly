@@ -19,16 +19,19 @@ if(!ctrl.isDay){
                         state = noone;
                         infoHover = noone;
                         x = xstart;
+                        ctrl.hide_profile = false;
                     }
                     //Residents
                     if(realmy() > yoffset && realmy() < yoffset*2){
                         chosen_res_app = "resident";
                         o_ui_residents_night.state = 0;
+                        ctrl.hide_profile = false;
                     }
                     //Applicants
                     else if(realmy() > yoffset*2 && realmy() < 3*yoffset){
                         chosen_res_app = "applicant";
                         o_ui_residents_night.state = 1;  
+                        ctrl.hide_profile = false;
                     }
                 }
             }
@@ -69,6 +72,7 @@ if(!instance_exists(o_ui_residents_night) && x >= 0){
                         state = noone;
                         infoHover = noone;
                         x = xstart;
+                        ctrl.hide_profile = false;
                     }
                 }
             }
