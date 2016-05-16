@@ -2,7 +2,7 @@
 var xbeginoffset = 12;
 var yoffset = 72;
 press = noone
-var n = abs(sprite_get_number(spr_store_icons) div 2); // ds_grid_width(ctrl.store) div 2;
+var n = abs((sprite_get_number(spr_store_icons)-2) div 2); // ds_grid_width(ctrl.store) div 2;
 //Selected
 if(mouse_check_button_pressed(mb_left) && realmx() < (display_get_gui_width()/6)){
     infoHover = noone;
@@ -61,6 +61,7 @@ if(mouse_check_button_pressed(mb_left) && realmx() < (display_get_gui_width()/6)
     //Station selected appears where the mouse is, press cannot be more then items in store minus cancel item
     if(press != noone && press < sprite_get_number(spr_store_icons) - 1){ // ds_grid_width(ctrl.store)){
         //show_debug_message(string(press));
+        press += 1;
         with(I){
             instance_destroy();
         }
@@ -101,18 +102,21 @@ else if(state == "store" && (display_get_gui_width()/6) && realmy() < display_ge
                 o_Station.station_selected = false;
             }*/
             if(realmy() > 3*yoffset && realmy() < 3*yoffset + sprite_get_height(spr_store_icons)){
-                infoHover = "bed";
+                //infoHover = "bed";
+                infoHover = "tv";
             }
             else if(realmy() > 4*yoffset && realmy() < 4*yoffset + sprite_get_height(spr_store_icons)){
-                infoHover = "bingo";
+                //infoHover = "bingo";
+                infoHover = "carpet";
             }
             else if(realmy() > 5*yoffset && realmy() < 5*yoffset + sprite_get_height(spr_store_icons)){
                 //Technically this should be toilet but then I have to change it everywhere else
-                infoHover = "toilet";
+                //infoHover = "toilet";
+                infoHover = "buffet";
             }
             else if(realmy() > 6*yoffset && realmy() < 6*yoffset + sprite_get_height(spr_store_icons)){
                 //Technically this should be toilet but then I have to change it everywhere else
-                infoHover = "cards";
+                //infoHover = "cards";
             }
             
         }
@@ -123,17 +127,21 @@ else if(state == "store" && (display_get_gui_width()/6) && realmy() < display_ge
         infoHover = noone;
         //If you have selected a station before then we must destroy it when you select another
         if(realmy() > 2*yoffset && realmy() < 2*yoffset + sprite_get_height(spr_store_icons)){
-            infoHover = "wall";
+            //infoHover = "wall";
+            infoHover = "bed";
         }
         else if(realmy() > 3*yoffset && realmy() < 3*yoffset + sprite_get_height(spr_store_icons)){
-            infoHover = "tv";
+            //infoHover = "tv";
+            infoHover = "bingo";
         }
         else if(realmy() > 4*yoffset && realmy() < 4*yoffset + sprite_get_height(spr_store_icons)){
-            infoHover = "carpet";
+            //infoHover = "carpet";
+            infoHover = "toilet";
         }
         else if(realmy() > 5*yoffset && realmy() < 5*yoffset + sprite_get_height(spr_store_icons)){
             //Technically this should be toilet but then I have to change it everywhere else
-            infoHover = "buffet";
+            //infoHover = "buffet";
+            infoHover = "cards";
         }
     } 
     else{

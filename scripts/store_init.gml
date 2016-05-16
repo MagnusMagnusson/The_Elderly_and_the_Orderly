@@ -4,7 +4,7 @@
 //to the ui draw event and ui_draw_infobox scripts
 
 var n,i;
-n = 9;
+n = 10;
 i = 0;
 var store = ds_grid_create(n,9);
 
@@ -121,7 +121,20 @@ store[#i,7] = 0; //orderlies to man
 store[#i,8] = 5; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
+
 //8
+store[#i,0] = o_wracking_ball; //obj_index
+store[#i,1] = "A wrecking Ball"; //name
+store[#i,2] = "Let's take down those walls"; //desc
+store[#i,3] = 9; //spr_icon
+store[#i,4] = 0; //price
+store[#i,5] = 1; //width
+store[#i,6] = 1; //height
+store[#i,7] = 0; //orderlies to man
+store[#i,8] = 0; //# of residents at a time
+store[#i,9] = 1; //Level
+i++;
+//9
 store[#i,0] = o_disco; //obj_index
 store[#i,1] = "A Disco floor"; //name
 store[#i,2] = "Let's get boogie with it!"; //desc
