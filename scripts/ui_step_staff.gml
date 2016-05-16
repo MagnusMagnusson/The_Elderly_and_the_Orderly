@@ -111,8 +111,8 @@ else{
         selected = noone;
         for(var i = 0; i < instance_number(O_Orderly);i++){
             var X,Y;
-            X = display_get_gui_width() div 2 + 62*(i % 5);
-            Y = 16 + display_get_gui_height() div 2 + 115*(i div 5)- 256; 
+            X = display_get_gui_width() div 2 + 8 + 62*(i % 10);
+            Y = display_get_gui_height() div 6 + 115*(i div 10) ;
             if(inside_range(realmx(),realmy(),X,Y,X+62,Y + 64 + 20 + 31)){
                 selected = i;
             }
