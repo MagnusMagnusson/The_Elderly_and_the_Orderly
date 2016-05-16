@@ -244,12 +244,16 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#8,2] , yoffset, display_get_gui_width()/6 - 16);
                         break;
                     case("minus"):
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,  "To fire, set number to less than 0" , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,  "To fire, set number to less than 0 and then press check" , yoffset, display_get_gui_width()/6- 16);
                         break;
                     case("plus"):{
-                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, "To hire, set number to more than 0" , yoffset, display_get_gui_width()/6);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, "To hire, set number to more than 0 and then press check" , yoffset, display_get_gui_width()/6- 16);
                         break;
                     }
+                    case("check"):
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, "To confirm" , yoffset, display_get_gui_width()/6- 16);
+                        
+                        break;
                     default:
                         break;
                 }
