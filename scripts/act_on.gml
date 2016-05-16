@@ -1,7 +1,7 @@
 ///act_on(station,resident)
 
 //station has it's effect on resident
-
+resident.stay_time-=deltafy(1);
 switch(argument0.type)
 {
     //need to subtract funds in bingo

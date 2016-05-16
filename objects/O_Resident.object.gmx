@@ -44,6 +44,8 @@ decided=false;
 time_decided=0;
 current_station=noone;
 
+stay_time=0;
+
 hunger=0;
 bladder=0;
 tiredness=0;
@@ -279,7 +281,7 @@ if(!decided &amp;&amp; ctrl.isDay)
             if(chosenstation!=noone)
                 break;
         }
-        if(chosensation!=noone)
+        if(chosenstation!=noone)
         {
             target_x=chosenstation.x;
             target_y=chosenstation.y;  
@@ -311,6 +313,10 @@ if(!decided &amp;&amp; ctrl.isDay)
           <argument>
             <kind>1</kind>
             <string>///choose whether or not to abandon decided course
+//if stay time is positive, resident has not been in station
+//for the minimum duration.
+if(0&lt;stay_time)
+    exit;
 if(decided &amp;&amp; ctrl.isDay)
 {
     time_decided=time_decided+deltafy(1);
