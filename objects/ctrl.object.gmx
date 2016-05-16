@@ -125,9 +125,7 @@ for(var i = 0; i &lt; room_width; i+=31){
 }
 for(var i = 0; i &lt; room_width; i+=31){
     for(var j = 0; j &lt; room_width; j+=31){
-        if(i &gt;= 31 &amp;&amp; i &lt;= 961){
-            if(j &gt;= 151 &amp;&amp; j &lt; 558){
-                tile_add(bg_tiles, irandom(2)*31, 0,31, 31,i,j,90000);
+                tile_add(bg_teppi, irandom(4)*31, 0,31, 31,i,j,90000);
                 continue;
             }
         }
