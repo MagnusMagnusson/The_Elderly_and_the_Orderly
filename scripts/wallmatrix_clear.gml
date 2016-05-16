@@ -23,7 +23,7 @@ if(dir & 1 > 0){
         ctrl.wallMatrix[_x+1,_y] = ctrl.wallMatrix[_x+1,_y] & ~4;
     }
 }
-if(dir & 2 > 0){
+else if(dir & 2 > 0){
     if(myid != noone){
         if(ctrl.matrix[_x,_y+1] != myid){
             cost += !(ctrl.wallMatrix[_x,_y] & 2 > 0)
@@ -37,7 +37,7 @@ if(dir & 2 > 0){
         ctrl.wallMatrix[_x,_y+1] = ctrl.wallMatrix[_x,_y+1] & ~8;
     }
 }
-if(dir & 4 > 0){
+else if(dir & 4 > 0){
     if(myid != noone){
         if(ctrl.matrix[_x-1,_y] != myid){
             cost += !(ctrl.wallMatrix[_x,_y] & 4 > 0)
@@ -51,7 +51,7 @@ if(dir & 4 > 0){
         ctrl.wallMatrix[_x-1,_y] = ctrl.wallMatrix[_x-1,_y] & ~1;
     }
 }
-if(dir & 8 > 0){
+else if(dir & 8 > 0){
     if(myid != noone){
         if(ctrl.matrix[_x,_y-1] != myid){
             cost += !(ctrl.wallMatrix[_x,_y] & 8 > 0)
