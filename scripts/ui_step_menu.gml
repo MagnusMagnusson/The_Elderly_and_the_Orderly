@@ -20,6 +20,7 @@ if(!ctrl.isDay){
         //Select Residents
         if(realmy() > yoffset*2 && realmy() < yoffset*3){
             state = "resident";
+            chosen_res_app = "resident";
         }
              
         //Select Start Day   

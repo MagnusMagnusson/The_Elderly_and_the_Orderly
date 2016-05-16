@@ -10,21 +10,36 @@ if(!ctrl.isDay){
     if(mouse_check_button_pressed(mb_left) && realmx() > 0 && realmx() < xwidth){
         //Select store
         if(realmy() > 0 && realmy() < yoffset){
-            state = "store";
+            state = "menu";
+            with(o_contex){
+                instance_destroy();
+            }
         }
-        //Select Orderlies
-        if(realmy() > yoffset && realmy() < yoffset*2){
-            state = "staff";
-        }
-        
-        //Select Residents
-        if(realmy() > yoffset*2 && realmy() < yoffset*3){
-            state = "resident";
-        }
-             
-        //Select Start Day   
-        if(realmy() > yoffset*3 && realmy() < yoffset*4){
-            state = "startDay";
+        var butt = realmy() div yoffset;
+        switch(o_contex.station.object_index){
+            case o_buffet:{
+            ////////////////////////////////Start Buffet
+                switch(butt){
+                    case 1:{
+                        (o_contex.station).image_index = ((o_contex.station).image_index + 1) % 5;
+                        break;
+                    }
+                }
+                break;
+            }////////////////////////////END BUFFET            
+            case o_Bingo:{
+            ////////////////////////////////Start Bingo
+                switch(butt){
+                    case 1:{
+                        (o_contex.station).prizelevel = ((o_contex.station).prizelevel + 1) % 10;
+                        break;
+                    }
+                }
+                break;
+            }////////////////////////////END Bingo
+            default:{
+                break;
+            }
         }
     }
 }

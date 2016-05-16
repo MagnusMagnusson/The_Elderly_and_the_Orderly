@@ -9,7 +9,8 @@ else{
     hspeed = .2* abs((x - display_get_gui_width() div 2)) + .5
     if(x > display_get_gui_width() +256){
         y = 1;
-        x = -256;
+        x = 0;
+        hspeed = 0;
         ctrl.isDay = true;
         ctrl.day++;
         state = noone;
