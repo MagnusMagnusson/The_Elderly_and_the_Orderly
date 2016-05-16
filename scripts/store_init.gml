@@ -47,13 +47,13 @@ i++;
 //2
 store[#i,0] = o_TV; //obj_index
 store[#i,1] = "An Old Television"; //name
-store[#i,2] = "clean the dust please."; //desc
+store[#i,2] = "Clean the dust please."; //desc
 store[#i,3] = 3; //spr_icon
 store[#i,4] = 150; //price
 store[#i,5] = 1; //width
 store[#i,6] = 1; //height
 store[#i,7] = 0; //orderlies to man
-store[#i,8] = "3-6"; //# of residents at a time
+store[#i,8] = "2"; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 
@@ -79,7 +79,7 @@ store[#i,4] = 125; //price
 store[#i,5] = 3; //width
 store[#i,6] = 3; //height
 store[#i,7] = 0; //orderlies to man
-store[#i,8] = 0; //# of residents at a time
+store[#i,8] = 3; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 

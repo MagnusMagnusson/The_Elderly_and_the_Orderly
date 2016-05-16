@@ -82,7 +82,8 @@ if(ctrl.selected_id == O_Resident){
 if(ctrl.selected_id == O_Orderly){
     draw_sprite_ext((ctrl.select_peeps).head, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
     draw_sprite_ext((ctrl.select_peeps).hair, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
-    draw_text_ext(xoffset + 4, (display_get_gui_height()/1.5)+72 , (ctrl.select_peeps).name , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset + 4, (display_get_gui_height()/1.5) + 80 , (ctrl.select_peeps).name , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset + 4, (display_get_gui_height()/1.5)+ 110 , ctrl.idle_orderly, yoffset, display_get_gui_width()/6 - 16);
 }
 
 
