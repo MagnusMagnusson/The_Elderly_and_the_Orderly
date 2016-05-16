@@ -260,8 +260,10 @@ for(var i=0;i&lt;current_resident_count;i++)
      var theta = deltafy(room_speed / 7)
      
      if(timer &gt; theta){
-         instance_create(x,y,o_contex);
+         var i = instance_create(x,y,o_contex);
+         i.station = id;
          timer = -1;
+         wasme = false;
          
      }
  }
