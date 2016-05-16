@@ -17,7 +17,12 @@ else{
         applicants_get();
         resident_leaving_update();
         instance_create(0,0,o_funds);
-        state = noone;
+        with(o_ui_night){ 
+            state = noone;
+            with(o_ui_residents_night){
+                instance_destroy();
+            }
+        }
     }
 }
 

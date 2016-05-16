@@ -158,6 +158,7 @@ switch(state){
     case 0:{
         //We're viewing old residents (They are all old, hohohohoh)
         draw_sprite(ui_persons,0, sprite_get_width(ui_menu), display_get_gui_height() div 2)
+        draw_sprite(ui_persons_line, 0,  display_get_gui_width() div 2 , display_get_gui_height() div 2);
         for(var i = 0; i &lt; instance_number(O_Resident);i++){//For each resident we currently have
             var I = instance_find(O_Resident,i);
             
