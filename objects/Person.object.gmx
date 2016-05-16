@@ -61,6 +61,7 @@ velocity=1;
           <argument>
             <kind>1</kind>
             <string>///create path to target if none exists
+/*
 show_debug_message("create path if needed");
 if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_station!=noone &amp;&amp; x&lt;0)
 {
@@ -112,6 +113,7 @@ show_debug_message("°building tilepath");
           <argument>
             <kind>1</kind>
             <string>///move target along path to final target
+/*
 show_debug_message("ready to move target along path");
 if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
@@ -168,10 +170,16 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
             <kind>1</kind>
             <string>/// move to target if not on target and path exists
 show_debug_message("starting movement");
+/*
 if(tilepath==noone)
 {
     show_debug_message("canceling movement, tilepath noone");
     exit;
+}*/
+if(object_index=O_Resident &amp;&amp; current_station!=noone)
+{
+    target_x=current_station.x;
+    target_y=current_station.y;
 }
 if( x-deltafy(velocity) &lt;= target_x &amp;&amp; target_x &lt;= x+deltafy(velocity) )
 {
