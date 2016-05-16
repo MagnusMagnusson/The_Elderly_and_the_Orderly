@@ -167,7 +167,7 @@ if(!instance_exists(o_ui_night)){
 /*Basic room with 2 beds, tv station, oderly and 2 residents*/
 randomize();
 var i = choose(snd_entertainer,snd_maple_leaf);
-//audio_play_sound(i,1,true);
+audio_play_sound(i,1,true);
 //Residents
 resident1 = instance_create(31*4, 31*4, O_Resident);
 resident2 = instance_create(31*5, 31*5, O_Resident);
@@ -221,13 +221,13 @@ matrix_reserve(bingoTEST.x div 31, bingoTEST.y div 31, bingoTEST.width, bingoTES
 for(var i = 1; i &lt;=(961/2) div 31;i++){
     wallmatrix_reserve(i,151 div 31,2);
     
-    wallmatrix_reserve(i,558 div 31,8);
+    wallmatrix_reserve(i,(558/1.25 + 31) div 31,8);
 }
 
-for(var i = 151 div 31 + 1; i &lt; (558/1.25) div 31;i++){
+for(var i = 151 div 31 + 1; i &lt; ((558/1.25)+31) div 31;i++){
     wallmatrix_reserve(1,i,4);
     
-    wallmatrix_reserve(961 div 31,i,1);
+    wallmatrix_reserve((961/2)div 31,i,1);
 }
 </string>
           </argument>
