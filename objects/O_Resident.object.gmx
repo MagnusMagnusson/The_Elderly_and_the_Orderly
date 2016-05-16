@@ -78,6 +78,7 @@ name = randomize_name(gender);
 //random person
 randomize_person(gender);
 likes = likes_randomize();
+voice = random_character_voice(O_Resident, gender);
 </string>
           </argument>
         </arguments>
@@ -364,12 +365,25 @@ if(decided &amp;&amp; ctrl.isDay)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Female
+            <string>///Voice
 var n;
+
 if((ctrl.select_peeps).gender){
+    if((ctrl.select_peeps).voice == "Reminising"){
+        
+    }
+    else if((ctrl.select_peeps).voice == "coot"){
+    
+    }
    n = irandom_range(43, 74);
 }
 else{
+    if((ctrl.select_peeps).voice == "Christian"){
+    
+    }
+    else if((ctrl.select_peeps).voice == "Sweetheart"){
+    
+    }
     n = irandom_range(5, 42);
 }
 audio_play_sound(n, 1, false);
