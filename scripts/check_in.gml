@@ -4,7 +4,7 @@
 var resident=argument0;
 var station=argument1;
 
-if(station.current_resident_count<resident_capacity)
+if(station.current_resident_count<station.resident_capacity)
 {
     station.current_residents[station.current_resident_count]=resident;
     station.current_resident_count+=1;
