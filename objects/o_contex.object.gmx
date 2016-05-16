@@ -56,7 +56,10 @@ with(o_contex){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(mouse_check_button_pressed(mb_right) == true){
+            <string>if(!instance_exists(station)){
+    instance_destroy();
+}
+if(mouse_check_button_pressed(mb_right) == true){
     instance_destroy();
 }
 
