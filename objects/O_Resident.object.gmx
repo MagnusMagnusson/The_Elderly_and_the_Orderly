@@ -279,11 +279,14 @@ if(!decided &amp;&amp; ctrl.isDay)
             if(chosenstation!=noone)
                 break;
         }
-        target_x=chosenstation.x;
-        target_y=chosenstation.y;  
+        if(chosensation!=noone)
+        {
+            target_x=chosenstation.x;
+            target_y=chosenstation.y;  
         
-        current_station=chosenstation;
-        decided=true;         
+            current_station=chosenstation;
+            decided=true;
+        }         
     }
 }
     
