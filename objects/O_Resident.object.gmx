@@ -378,14 +378,14 @@ if(0&lt;stay_time)
     exit;
 if(decided &amp;&amp; ctrl.isDay)
 {
-    time_decided=time_decided+deltafy(1);
+    time_decided=time_decided+deltafy(1/30);
     if((target_x==x &amp;&amp; target_y==y)|| (current_station != noone&amp;&amp;!current_station.isrunning)) 
     {
         decided=false;
         time_decided=0;
     }
     
-    if(time_decided &lt; deltafy(600))
+    if(time_decided &lt; 60)
     {
         var leaving_probability=(time_decided-deltafy(60))/deltafy(1800)
         if(random(1) &lt; leaving_probability)
