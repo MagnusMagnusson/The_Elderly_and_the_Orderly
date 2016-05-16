@@ -86,6 +86,31 @@ voice = random_character_voice(O_Resident, gender);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///happy clamp
+
+happiness = clamp(happiness,0,100);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -117,27 +142,29 @@ voice = random_character_voice(O_Resident, gender);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//urges tick up, and happiness decreases if any are too high
+            <string>///urges tick up, and happiness decreases if any are too high
 
     //deltafy(1) is one per second,
     //aiming for needing the toilet at least once per day, the base
     //rate will reach 100 in 75% of the time it takes for a 3 minute day to pass
     
 //people are meant to get hungry about 3 times a day
-bladder+=deltafy(100/(60*0.75));
-hunger+=deltafy(100/(60*0.3));
-
-
-if(!(bladder&lt;90))
-{
-    happiness-=deltafy(2)
-    //initiate looking for toile
-}
-
-if(!(hunger&lt;90))
-{
-    happiness-=deltafy(1.5);                    
-
+if(ctrl.isDay){
+    bladder+=deltafy(100/(60*0.75));
+    hunger+=deltafy(100/(60*0.3));
+    
+    
+    if(!(bladder&lt;90))
+    {
+        happiness-=deltafy(2)
+        //initiate looking for toile
+    }
+    
+    if(!(hunger&lt;90))
+    {
+        happiness-=deltafy(1.5);                    
+    
+    }
 }
 </string>
           </argument>

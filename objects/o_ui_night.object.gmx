@@ -107,7 +107,7 @@ else{
             ui_step_staff();
             break;
         case "config":
-            ui_set_config();
+            ui_step_config();
             break;
         default:
             ui_step_dayMenu();
