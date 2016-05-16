@@ -218,13 +218,13 @@ matrix_reserve(buffet.x div 31, buffet.y div 31, buffet.width, buffet.height, bu
 /*bingoTEST = instance_create(31*11 ,31* 16 ,o_Bingo);
 matrix_reserve(bingoTEST.x div 31, bingoTEST.y div 31, bingoTEST.width, bingoTEST.height, bingoTEST.id);
 */
-for(var i = 1; i &lt;=961 div 31;i++){
+for(var i = 1; i &lt;=(961/2) div 31;i++){
     wallmatrix_reserve(i,151 div 31,2);
     
     wallmatrix_reserve(i,558 div 31,8);
 }
 
-for(var i = 151 div 31 + 1; i &lt; 558 div 31;i++){
+for(var i = 151 div 31 + 1; i &lt; (558/1.25) div 31;i++){
     wallmatrix_reserve(1,i,4);
     
     wallmatrix_reserve(961 div 31,i,1);
