@@ -436,6 +436,13 @@ if(!ctrl.isDay){
         }
     }
 }
+else{
+    if((ctrl.matrix[x div 31,y div 31]) == mybed){
+       while(ctrl.matrix[x div 31,y div 31] != noone){
+            x += 31;
+       }
+    }
+}
 </string>
           </argument>
         </arguments>
