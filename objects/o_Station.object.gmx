@@ -316,6 +316,7 @@ for(var i=0;i&lt;current_resident_count;i++)
         if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
             ctrl.selected_id = object_index;
             ctrl.selected_stuff = true;
+            ctrl._selected = id;
         }
     }
     
@@ -347,6 +348,28 @@ wasme = false;
             <string>timer = 0;
 wasme = true;
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>

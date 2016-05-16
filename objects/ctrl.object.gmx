@@ -36,6 +36,7 @@ profileActive = false; //for clicking stations
 isclicked=false;
 camerax = mouse_x;
 cameray = mouse_y;
+_selected = noone;
 
 lastx = -1;
 lasty = -1;
