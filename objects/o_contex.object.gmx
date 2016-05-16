@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xx = x - view_xview[0];
-yy = y - view_yview[0];
+            <string>xx = realmx();
+yy = realmy();
 station = noone;
 
 with(o_contex){
@@ -66,9 +66,9 @@ if(mouse_check_button_pressed(mb_right) == true){
 if(!ctrl.isDay){
     if(mouse_check_button_released(mb_left) == true){
     //MOVE!
-        if(realmy() &gt; yy &amp;&amp; realmy() &lt; 31+yy ){
+        if(realmy() &gt; yy &amp;&amp; realmy() &lt; 62+yy ){
                 
-            if(realmx() &gt; xx &amp;&amp; realmx() &lt; xx + 31){
+            if(realmx() &gt; xx &amp;&amp; realmx() &lt; xx + 62){
             instance_destroy()
                 ctrl.profileActive = false;
                 //Remove old position from matrix
@@ -81,7 +81,7 @@ if(!ctrl.isDay){
                 exit;
             }
             //SELL
-            if(realmx() &gt; 31+xx &amp;&amp; realmx() &lt; xx +62){
+            if(realmx() &gt; 62+xx &amp;&amp; realmx() &lt; xx +62+62){
                     instance_destroy()
                 //update funds to price of station/2
                 ctrl.funds += ctrl.store[#store_get_id(ctrl.store, station.object_index), 4]/2; 
@@ -105,12 +105,12 @@ if(!ctrl.isDay){
                 exit;
             }        
             //CONFIG
-            if(realmx() &gt; 2*31+xx &amp;&amp; realmx() &lt; xx +3*31){
+            if(realmx() &gt; 3*62+xx &amp;&amp; realmx() &lt; xx +4*62){
                 o_ui_night.state = "config";
                 exit;
             }             
             //upgrade
-            if(realmx() &gt; 3*31+xx &amp;&amp; realmx() &lt; xx +4*31){
+            if(realmx() &gt; 4*62+xx &amp;&amp; realmx() &lt; xx +5*62){
                 switch(station.object_index){
                     case o_carpet:{
                         break;
@@ -150,19 +150,19 @@ if(!ctrl.isDay){
           <argument>
             <kind>1</kind>
             <string>var w,h;
-w = 4*31;
-h = 31;
-var butt = ( realmx() - xx ) div 31;
+w = 2*4*31;
+h = 2*31;
+var butt = ( realmx() - xx ) div 62;
 draw_rectangle(xx,yy,xx+w,yy+h,false);
 
 if(!ctrl.isDay){
-   draw_sprite(s_context,0 + (butt==0),xx,yy+1);
-   draw_sprite(s_context,2 + (butt==1),xx+31,yy+1);
-   draw_sprite(s_context,4 + (butt==3),xx+31*3,yy+1);
+   draw_sprite_ext(s_context,0 + (butt==0),xx,yy+1,2,2,0,c_white,1);
+   draw_sprite_ext(s_context,2 + (butt==1),xx+62,yy+1,2,2,0,c_white,1);;
+   draw_sprite_ext(s_context,4 + (butt==3),xx+62*3,yy+1,2,2,0,c_white,1);;
 }
 
 
-draw_sprite(s_context,10 + (butt==2),xx+31*2,yy+1);
+draw_sprite_ext(s_context,10 + (butt==2),xx+62*2,yy+1,2,2,0,c_white,1);;
 </string>
           </argument>
         </arguments>
