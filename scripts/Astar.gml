@@ -1,4 +1,4 @@
- ///Astar(x,y,targetx,targety)
+ ///Astar(x,y,targetx,targety,exception)
 //returns 
 
 //gating, variable is reset to false at the end of every step by the ctrl object
@@ -14,6 +14,7 @@ var startx=argument0;
 var starty=argument1;
 var targetx=argument2;
 var targety=argument3;
+var exception=argument4;
 
 var tempcoords;
 tempcoords[0]=startx;
@@ -81,7 +82,7 @@ while(!(ds_list_size(checking)==0))
     var checkcoords = checking[|minindex]
     var checkx=checkcoords[0];
     var checky=checkcoords[1];
-    var neighbours=grid_neighbours(checkx,checky);
+    var neighbours=grid_neighbours(checkx,checky,exception);
     if(neighbour_debug) show_debug_message("found this many neighbours:");
     if(neighbour_debug) show_debug_message(array_length_1d(neighbours));
    

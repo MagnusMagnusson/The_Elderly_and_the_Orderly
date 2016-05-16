@@ -61,12 +61,31 @@ velocity=1;
           <argument>
             <kind>1</kind>
             <string>///create path to target if none exists
+
+if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_station!=noone &amp;&amp; x&lt;0)
+{
+    //this person is a resident who got gated when trying to path 
+    //toward his current station
+    var reversepath=noone;
+    reversepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
+    if(reversepath!=noone)
+    {   
+        var newpath;
+        for(var i=1;i&lt;array_length_1d(reversetilepath);i++)
+        {
+            //the index into reversetilepath walks from last element to first element
+            newpath[i]=reversetilepath[array_length_1d(reversetilepath)-1-i]
+        }
+        tilepath=newpath;
+    }  
+}
+
 if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 {
     //the use of these vars is an ugly hack to compensate for the tile grid
     //not starting at 0,0
 
-    tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31);
+    tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31,noone);
     path_length=array_length_1d(tilepath);
     index_into_path=0;
     //tilepath will be noone if target is unreachable or if
@@ -113,10 +132,11 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
         index_into_path+=1;
         if(path_length==index_into_path)
         {
-           
             tilepath=noone;
             path_length=0;
             index_into_path=0;
+            if(object_index==O_Resident &amp;&amp; current_station!=noone)
+                check_in(id,current_station);
         }
     }
 }

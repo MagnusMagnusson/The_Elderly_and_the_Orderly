@@ -188,7 +188,8 @@ if(ctrl.isDay){
             <kind>1</kind>
             <string>///choose what to do if not decided
 
-
+//these consecutive ifs deal with urges and are essentially the
+//same
 if(80&lt;hunger)
 {
     var chosenstation=noone;
@@ -215,7 +216,7 @@ if(80&lt;hunger)
             }
          
         }
-    
+    decided=true;    
 }
 
 if(80&lt;bladder)
@@ -244,7 +245,7 @@ if(80&lt;bladder)
             }
          
         }
-    
+    decided=true;
 }
 
 if(!decided &amp;&amp; ctrl.isDay)
@@ -285,8 +286,22 @@ if(!decided &amp;&amp; ctrl.isDay)
             }               
         }
         if(chosenstation != noone){
-            target_x=chosenstation.x;
-            target_y=chosenstation.y;  
+            //moving to station doesn't work currently.
+            //walking one short of the target
+            //SOS!! this code is as yet untested
+            var reversepath=noone;
+            reversepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
+            if(reversepath!=noone)
+            {
+                
+                var newpath;
+                for(var i=1;i&lt;array_length_1d(reversetilepath);i++)
+                {
+                    //the index into reversetilepath walks from last element to first element
+                    newpath[i]=reversetilepath[array_length_1d(reversetilepath)-1-i]
+                }
+                tilepath=newpath;
+            }  
         }
         current_station=chosenstation;
         decided=true;      
