@@ -126,6 +126,9 @@ if(!ctrl.isDay){
    draw_sprite(s_context,0,xx,yy+1);
    draw_sprite(s_context,2,xx+31,yy+1);
 }
+
+
+   draw_sprite(s_context,10,xx+31*2,yy+1);
 </string>
           </argument>
         </arguments>

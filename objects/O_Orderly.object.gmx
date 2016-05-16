@@ -55,6 +55,7 @@ else{
 }
 velocity=2.0;
 name = random_orderly_name();
+voice = random_character_voice(O_Orderly, 3);
 </string>
           </argument>
         </arguments>
@@ -138,9 +139,15 @@ if(global.selected_person==id)
           <argument>
             <kind>1</kind>
             <string>var n;
-n = irandom_range(75, 92);
-
-audio_play_sound(n, 1, false);
+if((ctrl.select_peeps).voice == "basic"){
+    audio_play_sound(soundbyte_random("basic"), 1, false);
+}
+else if((ctrl.select_peeps).voice == "lazy"){
+    audio_play_sound(soundbyte_random("lazy"), 1, false);
+}
+else if((ctrl.select_peeps).voice == "ent"){
+    audio_play_sound(soundbyte_random("ent"), 1, false);
+}
 </string>
           </argument>
         </arguments>
