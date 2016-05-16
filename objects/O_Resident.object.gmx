@@ -216,7 +216,8 @@ if(ctrl.isDay){
 
 //these consecutive ifs deal with urges and are essentially the
 //same
-
+if(!decided)
+{
 if(80&lt;hunger)
 {
     var chosenstation=noone;
@@ -351,6 +352,7 @@ if(!decided &amp;&amp; ctrl.isDay)
     }
 }
     
+}
 </string>
           </argument>
         </arguments>
