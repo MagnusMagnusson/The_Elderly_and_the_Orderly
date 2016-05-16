@@ -2,7 +2,6 @@ if(y > 0){
     audio_play_sound(snd_rooster,1,false);
     y = -1;
     x = -256;
-    bounce = 0;
 }
 else{
     
