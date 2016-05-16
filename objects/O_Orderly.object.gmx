@@ -56,6 +56,8 @@ else{
 velocity=2.0;
 name = random_orderly_name();
 voice = random_character_voice(O_Orderly, 3);
+
+is_doing=noone;
 </string>
           </argument>
         </arguments>
