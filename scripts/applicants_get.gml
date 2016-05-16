@@ -16,7 +16,7 @@ n = ((happ / instance_number(O_Resident))/100 * 15 )
 * reputation_get_normalized()
 
 
-for(var j = 0; j < n; j++){
+for(var j = 0; j <= n; j++){
     var I = instance_create(0,0,o_applicant);
     name = I.name;
     head = I.head;

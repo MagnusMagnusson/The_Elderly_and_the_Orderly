@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>///initializing procedure
+wasme = false
+
 being_built = false;
 move_bed = false;
 timer = 0;
@@ -212,6 +214,82 @@ for(var i=0;i&lt;current_resident_count;i++)
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>wasme = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="50">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(timer &gt;= 0 &amp;&amp; wasme){
+     timer += deltafy(1);
+     
+     var theta = deltafy(room_speed / 7)
+     
+     if(timer &gt; theta){
+         instance_create(x,y,o_contex);
+         timer = -1;
+         
+     }
+ }
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="6" enumb="7">
       <action>
         <libid>1</libid>
@@ -229,16 +307,19 @@ for(var i=0;i&lt;current_resident_count;i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>var theta = deltafy(room_speed / 3);
-if(timer &lt; theta){
-    ///show profile when clicked
-    if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
-        ctrl.selected_id = object_index;
-        ctrl.selected_stuff = true;
+            <string>if(wasme){
+    var theta = deltafy(room_speed / 7);
+    if(timer &lt; theta){
+        ///show profile when clicked
+        if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
+            ctrl.selected_id = object_index;
+            ctrl.selected_stuff = true;
+        }
     }
+    
+    timer = -1;
 }
-
-timer = -1;
+wasme = false;
 </string>
           </argument>
         </arguments>
@@ -262,39 +343,7 @@ timer = -1;
           <argument>
             <kind>1</kind>
             <string>timer = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if(timer &gt;= 0){
-    timer += deltafy(1);
-    
-    var theta = deltafy(room_speed / 3)
-    
-    if(timer &gt; theta){
-        var i = instance_create(x,y,o_contex);
-        i.station = id;
-        timer = -1;
-    }
-}
+wasme = true;
 </string>
           </argument>
         </arguments>

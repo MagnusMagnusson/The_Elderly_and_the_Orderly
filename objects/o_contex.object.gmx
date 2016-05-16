@@ -28,6 +28,12 @@
             <string>xx = x - view_xview[0];
 yy = y - view_yview[0];
 station = noone;
+
+with(o_contex){
+    if other.id != id{
+        instance_destroy();
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -100,6 +106,9 @@ if(!ctrl.isDay){
                 o_ui_night.state = "config";
                 exit;
             } 
+            if(realmx() &gt; display_get_gui_width()/6){
+                instance_destroy();
+            }
         }
     }
 }

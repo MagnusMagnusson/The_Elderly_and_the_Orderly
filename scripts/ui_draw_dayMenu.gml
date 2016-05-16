@@ -6,6 +6,8 @@
 //The menu box
 draw_sprite(ui_menu,0,0,0);
 ui_draw_infobox();
+//Draw funds
+draw_funds(display_get_gui_width()/8, 560 );
 button[0] = "Staff";
 button[1] = "Residents";
 

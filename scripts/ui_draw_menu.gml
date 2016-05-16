@@ -9,6 +9,8 @@ if(!ctrl.isDay){
     //draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
     draw_sprite(ui_menu,0,0,0);
     ui_draw_infobox();
+    //Draw funds
+    draw_funds(display_get_gui_width()/8, 560 );
     
     button[0] = "Store";
     button[1] = "Staff";

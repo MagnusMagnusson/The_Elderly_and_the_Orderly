@@ -42,8 +42,8 @@
             <string>///Initialize variables
 image_speed = 0;
 type="toilet";
-width = 3;
-height = 3;
+width = 2;
+height = 1;
 
 ind = 0;
 _sleep = -1;

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -37,6 +37,9 @@ isclicked=false;
 camerax = mouse_x;
 cameray = mouse_y;
 
+lastx = -1;
+lasty = -1;
+
 error = "";
 
 //For showing info about station/persons when clicked in room
@@ -57,6 +60,7 @@ dark = 1;
 player_reputation = 0;
 max_reputation = 200;
 left = 0;
+hide_profile = false;
 </string>
           </argument>
         </arguments>
@@ -123,11 +127,11 @@ for(var i = 0; i &lt; room_width; i+=31){
     for(var j = 0; j &lt; room_width; j+=31){
         if(i &gt;= 31 &amp;&amp; i &lt;= 961){
             if(j &gt;= 151 &amp;&amp; j &lt; 558){
-                tile_add(bg_tiles, irandom(2)*31, 0,31, 31,i,j,255);
+                tile_add(bg_tiles, irandom(2)*31, 0,31, 31,i,j,90000);
                 continue;
             }
         }
-        tile_add(bg_grass, irandom(19)*31, 0,31, 31,i,j,255);
+        tile_add(bg_grass, irandom(19)*31, 0,31, 31,i,j,90000);
     }
 }
 
@@ -332,6 +336,11 @@ if(isDay){
             <kind>1</kind>
             <string>///camera
 
+if(mouse_check_button_pressed(mb_left)){
+    lastx = mouse_x;
+    lasty = mouse_y;
+}
+
 if(mouse_check_button_pressed(mb_right)){
     camera_x = mouse_x;
     camera_y = mouse_y;
@@ -488,14 +497,16 @@ if(isDay){
             <kind>1</kind>
             <string>display_set_gui_size(1440,900);
 
-///Profile in infobox
-if(mouse_check_button_pressed(mb_left)){
-    //For showing info about station/persons when clicked in room
-    selected_stuff = false;
-    selected_id = noone;
-    select_peeps = noone;
+if(error != ""){
+    draw_set_color(0);
+    draw_set_font(fnt_normal);
+    var w,h;
+    w = string_width(error);
+    h = string_width(error);
+    draw_rectangle(realmx(),realmy(),realmx()+w,realmy() + h, false);
+    draw_set_color(c_white);
+    draw_text(realmx(),realmy(),error);
 }
-
 </string>
           </argument>
         </arguments>
@@ -518,8 +529,7 @@ if(mouse_check_button_pressed(mb_left)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-///Drawing stuff
+            <string>///Drawing wall
 //draw_text(16,16,instance_number(o_bed));
 
 for(var i = 0; i &lt; room_width div 31; i += 1){

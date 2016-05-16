@@ -77,8 +77,6 @@ if(ctrl.selected_id == O_Resident){
     draw_sprite_ext((ctrl.select_peeps).hair, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
     draw_sprite(spr_smile,4-round((ctrl.select_peeps).happiness / 25),xoffset, (display_get_gui_height()/1.5)+72);
     draw_text_ext(xoffset + 4, (display_get_gui_height()/1.5)+64 + (sprite_get_height(spr_smile)/2)+ ystartoffset, (ctrl.select_peeps).name , yoffset, display_get_gui_width()/6);
-    
-    
 }
 //Add likes/dislikes?
 if(ctrl.selected_id == O_Orderly){
