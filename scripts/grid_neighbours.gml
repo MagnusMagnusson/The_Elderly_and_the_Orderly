@@ -79,7 +79,8 @@ if(matrix_is_empty(tempx,tempy,1,2)
     results[resultsize]=tempcoords4;
     resultsize +=1;
 }
-else if(ctrl.matrix[tempx,(tempy+1)%(room_height div 31)]==exception
+else if(tempy+1<room_height div 31 
+&& ctrl.matrix[tempx,tempy+1]==exception
 && wallmatrix_is_empty(tempx,tempy,1,2))
 {
     var tempcoords4;
