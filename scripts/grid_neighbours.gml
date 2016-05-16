@@ -39,7 +39,7 @@ if(matrix_is_empty(tempx-1,tempy,2,1)
     results[resultsize]=tempcoords2;
     resultsize +=1;
 }
-else if(tempx-1<room_width div 31 
+else if(-1<tempx-1 
 && ctrl.matrix[(tempx-1)%(room_width div 31),tempy]==exception
 && wallmatrix_is_empty(tempx-1,tempy,2,1))
 {
@@ -59,7 +59,7 @@ if(matrix_is_empty(tempx,tempy-1,1,2)
     results[resultsize]=tempcoords3;
     resultsize +=1;
 }
-else if(tempy-1<room_height div 31 
+else if(-1<tempy-1
 && ctrl.matrix[tempx,(tempy-1)%(room_height div 31)]==exception
 && wallmatrix_is_empty(tempx,tempy-1,1,2))
 {
