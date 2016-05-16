@@ -176,19 +176,19 @@ happiness = clamp(happiness,0,100);
     
 //people are meant to get hungry about 3 times a day
 if(ctrl.isDay){
-    bladder+=deltafy(100/(60*0.75));
-    hunger+=deltafy(100/(60*0.3));
+    bladder+=deltafy(4/(30));
+    hunger+=deltafy(7/(30*60*0.3));
     
     
     if(!(bladder&lt;90))
     {
-        happiness-=deltafy(2)
+        happiness-=deltafy(2/30)
         //initiate looking for toile
     }
     
     if(!(hunger&lt;90))
     {
-        happiness-=deltafy(1.5);                    
+        happiness-=deltafy(1.5/30);                    
     
     }
 }
@@ -216,7 +216,7 @@ if(ctrl.isDay){
 
 //these consecutive ifs deal with urges and are essentially the
 //same
-/*
+
 if(80&lt;hunger)
 {
     var chosenstation=noone;
@@ -274,7 +274,7 @@ if(80&lt;bladder)
         }
     decided=true;
 }
-*/
+
 if(!decided &amp;&amp; ctrl.isDay)
 {
     var choice=irandom(100);
@@ -437,6 +437,7 @@ if(!ctrl.isDay){
         }
     }
 }
+/*
 else{
     if((ctrl.matrix[x div 31,y div 31]) == mybed){
        while(ctrl.matrix[x div 31,y div 31] != noone){
