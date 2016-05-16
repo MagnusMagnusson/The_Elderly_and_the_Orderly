@@ -7,10 +7,14 @@ if(!ctrl.isDay){
     //The menu box
     //draw_set_colour($ffcc99);
     //draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
+    
     draw_sprite(ui_menu,0,0,0);
+    
     ui_draw_infobox();
     //Draw funds
-    draw_funds(display_get_gui_width()/8, 560 );
+    draw_set_alpha(0.6);
+    draw_funds(display_get_gui_width()/8, 555 );
+    draw_set_alpha(1);
     
     button[0] = "Store";
     button[1] = "Staff";
