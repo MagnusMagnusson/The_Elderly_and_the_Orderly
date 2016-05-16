@@ -55,10 +55,12 @@ station = noone;
 }
 
 if(!ctrl.isDay){
-    if(mouse_check_button_pressed(mb_left) == true){
-    //SELL!
+    if(mouse_check_button_released(mb_left) == true){
+    //MOVE!
         if(realmy() &gt; yy &amp;&amp; realmy() &lt; 31+yy ){
+                
             if(realmx() &gt; xx &amp;&amp; realmx() &lt; xx + 31){
+            instance_destroy()
                 ctrl.profileActive = false;
                 //Remove old position from matrix
                 matrix_clear(xx div 31, yy div 31, station.width, station.height, station);
@@ -69,8 +71,9 @@ if(!ctrl.isDay){
                 }
                 exit;
             }
+            //SELL
             if(realmx() &gt; 31+xx &amp;&amp; realmx() &lt; xx +62){
-            
+                    instance_destroy()
                 //update funds to price of station/2
                 ctrl.funds += ctrl.store[#store_get_id(ctrl.store, station.object_index), 4]/2; 
                 var tex = instance_create(x,y,o_fadetext);
@@ -92,6 +95,11 @@ if(!ctrl.isDay){
                 ctrl.profileActive = false;
                 exit;
             }        
+            //CONFIG
+            if(realmx() &gt; 2*31+xx &amp;&amp; realmx() &lt; xx +3*31){
+                o_ui_night.state = "config";
+                exit;
+            } 
         }
     }
 }
@@ -120,15 +128,16 @@ if(!ctrl.isDay){
             <string>var w,h;
 w = 4*31;
 h = 31;
+var butt = ( realmx() - xx ) div 31;
 draw_rectangle(xx,yy,xx+w,yy+h,false);
 
 if(!ctrl.isDay){
-   draw_sprite(s_context,0,xx,yy+1);
-   draw_sprite(s_context,2,xx+31,yy+1);
+   draw_sprite(s_context,0 + (butt==0),xx,yy+1);
+   draw_sprite(s_context,2 + (butt==1),xx+31,yy+1);
 }
 
 
-   draw_sprite(s_context,10,xx+31*2,yy+1);
+draw_sprite(s_context,10 + (butt==2),xx+31*2,yy+1);
 </string>
           </argument>
         </arguments>

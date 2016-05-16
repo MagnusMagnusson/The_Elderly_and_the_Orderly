@@ -89,6 +89,9 @@ if(!ctrl.isDay){
         case "store":
             ui_step_store();
             break;
+        case "config":
+            ui_step_config();
+            break;
         default:
             ui_step_menu();
             break;
@@ -102,6 +105,9 @@ else{
             break;
         case "staff":
             ui_step_staff();
+            break;
+        case "config":
+            ui_step_config();
             break;
         default:
             ui_step_dayMenu();
@@ -132,7 +138,7 @@ else{
             <kind>1</kind>
             <string>///Draw Night UI
 ui_draw_menu();
-ui_draw_infobox();
+//ui_draw_infobox();
 //Might need to change to display_get_gui_width() and display_get_gui_height()
 display_set_gui_size(display_get_gui_width(), display_get_gui_height());
 
@@ -151,6 +157,9 @@ if(!ctrl.isDay){
         case "store":
             ui_draw_store();
             break;
+        case "config":
+            ui_draw_config();
+            break;
         default:
             ui_draw_menu();
             break;
@@ -164,6 +173,9 @@ else{
             break;
         case "staff":
             ui_draw_staff();
+            break;
+        case "config":
+            ui_draw_config()
             break;
         default:
             ui_draw_dayMenu();

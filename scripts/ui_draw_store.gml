@@ -1,9 +1,7 @@
 //Draws the stations in the store, their price, number of orderlies needed to man them,
 // and how many residents can use them at a time
 //TODO: Scrollbar!
-
-draw_set_colour($ffcc99);
-draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
+draw_sprite(ui_menu,0,0,0);
 //Back to menu
 draw_sprite(spr_go_back,0,0,4);
 
@@ -21,10 +19,8 @@ for (var i = k; i < sprite_get_number(spr_store_icons); i = i+2){
     yy += 72;
     //When hovering we draw rectangle around the sprite
     if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons) && realmy() > yy && realmy() < yy + sprite_get_height(spr_store_icons)){
-        draw_set_color(c_red);
-        draw_rectangle(xbeginoffset, yy, xbeginoffset + sprite_get_width(spr_store_icons), yy + sprite_get_height(spr_store_icons), true);
-        draw_set_colour($ffcc99);
         draw_sprite(spr_store_icons, i, xbeginoffset, yy);
+        draw_sprite(store_border, i, xbeginoffset, yy);
     }
     //Otherwise just print the sprite
     else{
@@ -36,10 +32,8 @@ for (var i = k; i < sprite_get_number(spr_store_icons); i = i+2){
     }
     //When hovering we draw rectangle around the sprite
     if(realmx() > (display_get_gui_width()/6)/2 && realmx() < (display_get_gui_width()/6)/2 + sprite_get_width(spr_store_icons) && realmy() > yy && realmy() < yy + sprite_get_height(spr_store_icons)){
-        draw_set_color(c_red);
-        draw_rectangle((display_get_width()/6)/2, yy, (display_get_gui_width()/6)/2 + sprite_get_width(spr_store_icons), yy + sprite_get_height(spr_store_icons), true);
-        draw_set_colour($ffcc99);
         draw_sprite(spr_store_icons, i+1, (display_get_gui_width()/6)/2, yy);
+        draw_sprite(store_border, 0, (display_get_gui_width()/6)/2, yy);
     }
     //Otherwise just print the sprite
     else{
@@ -53,9 +47,7 @@ for (var i = k; i < sprite_get_number(spr_store_icons); i = i+2){
 if(hover && state == "store"){
     if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             //Back to menu
-        draw_sprite(spr_go_back,0,0,4);
-            
+        draw_sprite(spr_go_back,1,0,4);       
     }
-
 }
 

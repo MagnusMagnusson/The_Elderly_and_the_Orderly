@@ -5,11 +5,12 @@ if(y > 0){
     bounce = 0;
 }
 else{
-    
     hspeed = -.2* abs((x - display_get_gui_width() div 2)) - .5
-    if(x < -256){
+    if(x < -256 && !instance_exists(o_applicant)){
         y = 1;
-        x = -256;
+        x = 0;
+        hspeed = 0;
+        show_debug_message("WHY ARE YOU CREATING STUFF!");
         ctrl.isDay = false;
         funds += funds_get();
         timeLeft = dayDuration;

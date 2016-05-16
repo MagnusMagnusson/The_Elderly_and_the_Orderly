@@ -1,5 +1,5 @@
-draw_set_colour($ffcc99);
-draw_rectangle(0, 0,display_get_gui_width()/6 , display_get_gui_height()/1.5, false);
+draw_sprite(ui_menu,0,0,0);
+ui_draw_infobox();
 //Back to menu
 if(infoHover == "back"){
     draw_sprite(spr_go_back,1,0,4);

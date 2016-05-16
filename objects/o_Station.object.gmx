@@ -32,8 +32,10 @@ timer = 0;
 
 satisfies=noone;
 
+minimum_stay_time=5;
+
 manned=false;
-residentcapacity=0;
+resident_capacity=0;
 width = 0;
 height = 0;
 price = 0;
@@ -47,11 +49,11 @@ mannable=false;
 
 //currentresidentcount and currentresidents list 
 //track who is in the station
-for(var i=0;i&lt;residentcapacity;i++)
+for(var i=0;i&lt;resident_capacity;i++)
 {
-       currentresidents[i]=noone;
+       current_residents[i]=noone;
 }
-currentresidentcount=0;
+current_resident_count=0;
 alarm[0] = 3 * (30/fps);
 
 
@@ -180,6 +182,31 @@ if(being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
 }*/
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///act on participating residents
+for(var i=0;i&lt;current_resident_count;i++)
+{
+    act_on(id,current_residents[i]);
+}
 </string>
           </argument>
         </arguments>
