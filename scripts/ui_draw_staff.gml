@@ -26,7 +26,7 @@ if(!ctrl.isDay){
     draw_sprite(spr_plus_minus, 1, 2*xoffset, 2*yoffset + startoffset);
     //the number of orderlies chosen, will be changed to sprites?
     draw_set_font(fnt_14pt);
-    draw_text((display_get_gui_width()/6)/2 - xoffset, 2*yoffset + startoffset + sprite_get_height(spr_plus_minus)/4, orderly_number);
+    draw_text((display_get_gui_width()/6)/3 - xoffset, 2*yoffset + startoffset + sprite_get_height(spr_plus_minus)/3, orderly_number);
     draw_set_font(fnt_normal);
     //Plus image
     draw_sprite(spr_plus_minus, 0, xoffset + 128, 2*yoffset + startoffset);
