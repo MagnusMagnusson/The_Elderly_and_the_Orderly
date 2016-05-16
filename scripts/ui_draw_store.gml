@@ -20,7 +20,7 @@ k = 0;
 //stations at lvl 1 in store
 
 //First image is cancel!
-for (var i = k; i < sprite_get_number(spr_store_icons); i = i+2){
+for (var i = k; i < (sprite_get_number(spr_store_icons)-2); i = i+2){
     yy += 72;
     //When hovering we draw rectangle around the sprite
     if(realmx() > xbeginoffset && realmx() < xbeginoffset + sprite_get_width(spr_store_icons) && realmy() > yy && realmy() < yy + sprite_get_height(spr_store_icons)){
