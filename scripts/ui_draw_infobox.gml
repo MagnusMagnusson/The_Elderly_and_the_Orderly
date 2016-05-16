@@ -125,6 +125,7 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
                 //8 - # of residents at a time
                 //Description of station is at the bottom of each station info due to yoffset issue
                 switch(infoHover){
+                    
                     //Maybe move this outside?
                     case("back"):
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,"Back to Menu", yoffset, display_get_gui_width()/6);
