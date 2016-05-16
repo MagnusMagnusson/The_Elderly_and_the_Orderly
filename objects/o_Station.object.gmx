@@ -254,20 +254,38 @@ for(var i=0;i&lt;current_resident_count;i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(wasme){
-    if(timer &gt;= 0){
-        timer += deltafy(1);
-        
-        var theta = deltafy(room_speed / 3)
-        
-        if(timer &gt; theta){
-            var i = instance_create(x,y,o_contex);
-            i.station = id;
-            timer = -1;
-        }
-    }
-}
+            <string>if(timer &gt;= 0 &amp;&amp; wasme){
+     timer += deltafy(1);
+     
+     var theta = deltafy(room_speed / 7)
+     
+     if(timer &gt; theta){
+         instance_create(x,y,o_contex);
+         timer = -1;
+         
+     }
+ }
 </string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -290,7 +308,7 @@ for(var i=0;i&lt;current_resident_count;i++)
           <argument>
             <kind>1</kind>
             <string>if(wasme){
-    var theta = deltafy(room_speed / 3);
+    var theta = deltafy(room_speed / 7);
     if(timer &lt; theta){
         ///show profile when clicked
         if(!being_built &amp;&amp; realmx() &gt; display_get_gui_width()/6){
