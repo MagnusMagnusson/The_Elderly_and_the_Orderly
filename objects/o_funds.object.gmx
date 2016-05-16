@@ -124,7 +124,7 @@ draw_set_color(col);
 draw_text(x, y - h + 10*off,"Elderly home reputation  : " + string(reputation_get())+"%" + text[clamp(round(12 * rep),0,12)]);
 draw_set_color(0);
 draw_text(x,y-h + 11*off,"Applicants recieved : " + string(instance_number(o_applicant)));
-draw_text(x,y-h + 12*off,"Residents that left today : " + string(instance_number(ctrl.left)));
+draw_text(x,y-h + 12*off,"Residents that left today : " + string(ctrl.left));
 draw_set_color(c_gray);
 draw_text(x,y-h + 13*off,"Press anywhere to dispose of this window");
 

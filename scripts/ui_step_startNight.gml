@@ -15,6 +15,7 @@ else{
         timeLeft = dayDuration;
         reputation_update();
         applicants_get();
+        resident_leaving_update();
         instance_create(0,0,o_funds);
         state = noone;
     }
