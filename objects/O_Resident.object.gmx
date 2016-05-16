@@ -416,8 +416,8 @@ else{
     if((ctrl.select_peeps).voice == "christ"){
         audio_play_sound(soundbyte_random("christ"), 1, false);
     }
-    else if((ctrl.select_peeps).voice == "swee"){
-        audio_play_sound(soundbyte_random("swee"), 1, false);
+    else if((ctrl.select_peeps).voice == "sweet"){
+        audio_play_sound(soundbyte_random("sweet"), 1, false);
     }
 }
 </string>
