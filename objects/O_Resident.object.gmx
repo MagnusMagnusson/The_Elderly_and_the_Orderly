@@ -50,6 +50,7 @@ hunger=0;
 bladder=0;
 tiredness=0;
 
+sadtolerance = 1;
 </string>
           </argument>
         </arguments>

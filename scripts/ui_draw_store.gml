@@ -2,6 +2,7 @@
 // and how many residents can use them at a time
 //TODO: Scrollbar!
 draw_sprite(ui_menu,0,0,0);
+ui_draw_infobox();
 //Back to menu
 draw_sprite(spr_go_back,0,0,4);
 

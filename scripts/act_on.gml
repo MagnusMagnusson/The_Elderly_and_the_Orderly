@@ -17,6 +17,7 @@ switch(argument0.type)
         break;
     case "Toilet":
         argument1.bladder=0;
+        break;
     default:
         argument1.happiness =argument1.happiness + 0.01
 }

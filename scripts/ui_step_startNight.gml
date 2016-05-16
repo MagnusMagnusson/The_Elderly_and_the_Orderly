@@ -10,14 +10,19 @@ else{
         y = 1;
         x = 0;
         hspeed = 0;
-        show_debug_message("WHY ARE YOU CREATING STUFF!");
         ctrl.isDay = false;
         funds += funds_get();
         timeLeft = dayDuration;
         reputation_update();
         applicants_get();
+        resident_leaving_update();
         instance_create(0,0,o_funds);
-        state = noone;
+        with(o_ui_night){ 
+            state = noone;
+            with(o_ui_residents_night){
+                instance_destroy();
+            }
+        }
     }
 }
 
