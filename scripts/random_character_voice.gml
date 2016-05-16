@@ -3,12 +3,12 @@ var object = argument0;
 if(object == O_Resident){
     //Female
     if(!argument1){
-        return choose("Christian", "Sweetheart");
+        return choose("christ", "sweet");
     }
     else{
-        return choose("Reminising", "coot")
+        return choose("rem", "coo")
     }
 }
 else if(object == O_Orderly){
-    return choose("Basic", "Lazy", "enthusiastic");
+    return choose("basic", "lazy", "ent");
 }

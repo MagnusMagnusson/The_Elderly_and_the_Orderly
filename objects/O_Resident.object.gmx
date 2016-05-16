@@ -372,24 +372,21 @@ if(decided &amp;&amp; ctrl.isDay)
 var n;
 
 if((ctrl.select_peeps).gender){
-    if((ctrl.select_peeps).voice == "Reminising"){
-        
+    if((ctrl.select_peeps).voice == "rem"){
+        audio_play_sound(soundbyte_random("rem"), 1, false);
     }
-    else if((ctrl.select_peeps).voice == "coot"){
-    
+    else if((ctrl.select_peeps).voice == "coo"){
+        audio_play_sound(soundbyte_random("coo"), 1, false);
     }
-   n = irandom_range(43, 74);
 }
 else{
-    if((ctrl.select_peeps).voice == "Christian"){
-    
+    if((ctrl.select_peeps).voice == "christ"){
+        audio_play_sound(soundbyte_random("christ"), 1, false);
     }
-    else if((ctrl.select_peeps).voice == "Sweetheart"){
-    
+    else if((ctrl.select_peeps).voice == "swee"){
+        audio_play_sound(soundbyte_random("swee"), 1, false);
     }
-    n = irandom_range(5, 42);
 }
-audio_play_sound(n, 1, false);
 </string>
           </argument>
         </arguments>
