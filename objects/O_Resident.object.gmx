@@ -387,7 +387,7 @@ if(decided &amp;&amp; ctrl.isDay)
         time_decided=0;
     }
     
-    if(time_decided &lt; 60)
+    if(60 &lt; time_decided)
     {
         var leaving_probability=(time_decided-deltafy(60))/deltafy(1800)
         if(random(1) &lt; leaving_probability)
@@ -476,7 +476,7 @@ if(current_station!=noone &amp;&amp;decided &amp;&amp; x==current_station.x &amp
 }
 else
    {
-        decided=false;
+       // decided=false;
    }
 </string>
           </argument>
