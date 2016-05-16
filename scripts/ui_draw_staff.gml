@@ -1,5 +1,7 @@
 draw_sprite(ui_menu,0,0,0);
 ui_draw_infobox();
+//Draw funds
+draw_funds(display_get_gui_width()/8, 560 );
 //Back to menu
 if(infoHover == "back"){
     draw_sprite(spr_go_back,1,0,4);
