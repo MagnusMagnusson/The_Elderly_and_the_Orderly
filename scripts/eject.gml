@@ -8,6 +8,7 @@ current_resident_count //hve margir er  hér*/
 var player, station;
 player = argument0;
 station = argument1;
+//d
 
 player.current_station = noone;
 station.current_resident_count--;
