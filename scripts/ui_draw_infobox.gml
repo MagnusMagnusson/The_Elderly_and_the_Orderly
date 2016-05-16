@@ -117,6 +117,24 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6 - 16);
                     draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6 - 16);
                     break;
+                case(o_cards):
+                    draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+    
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#7,1] , yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#7,4]) , yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#7,7]), yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#7,8]), yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#7,2] , yoffset, display_get_gui_width()/6 - 16);
+                    break;
+                case(o_disco):
+                    //draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+    
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#8,1] , yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#8,4]) , yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#8,7]), yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#8,8]), yoffset, display_get_gui_width()/6 - 16);
+                    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#8,2] , yoffset, display_get_gui_width()/6 - 16);
+                    break;
                 default:
                     break;
                 
@@ -206,6 +224,24 @@ if(!infoSelected && infoHover == noone && ctrl.selected_stuff){
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_gui_width()/6 - 16);
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6 - 16);
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6 - 16);
+                        break;
+                    case("cards"):
+                        draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+        
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#7,1] , yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#7,4]) , yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#7,7]), yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#7,8]), yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#7,2] , yoffset, display_get_gui_width()/6 - 16);
+                        break;
+                    case("disco"):
+                        //draw_sprite_ext(spr_store_icons, 8, 0, (display_get_gui_height()/1.5)+ spriteoffset, 1, 1, false, c_white, 1);
+        
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + info_start_yoff, statName + ctrl.store[#8,1] , yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset + info_start_yoff, statPrice + string(ctrl.store[#8,4]) , yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset + info_start_yoff, statOrderlies + string(ctrl.store[#8,7]), yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset + info_start_yoff, statResidents + string(ctrl.store[#8,8]), yoffset, display_get_gui_width()/6 - 16);
+                        draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 5*yoffset + info_start_yoff, ctrl.store[#8,2] , yoffset, display_get_gui_width()/6 - 16);
                         break;
                     case("minus"):
                         draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64,  "To fire, set number to less than 0" , yoffset, display_get_gui_width()/6);

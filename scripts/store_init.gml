@@ -110,9 +110,9 @@ store[#i,8] = 4; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 //7
-store[#i,0] = o_carpet; //obj_index
-store[#i,1] = "A Carpet"; //name
-store[#i,2] = "Look at those handcrafted pixels"; //desc
+store[#i,0] = o_cards; //obj_index
+store[#i,1] = "A bridge table"; //name
+store[#i,2] = "Where you can lose your money"; //desc
 store[#i,3] = 7; //spr_icon
 store[#i,4] = 125; //price
 store[#i,5] = 3; //width
@@ -122,7 +122,6 @@ store[#i,8] = 5; //# of residents at a time
 store[#i,9] = 1; //Level
 i++;
 //8
-
 store[#i,0] = o_disco; //obj_index
 store[#i,1] = "A Disco floor"; //name
 store[#i,2] = "Let's get boogie with it!"; //desc

@@ -110,6 +110,11 @@ else if(state == "store" && (display_get_gui_width()/6) && realmy() < display_ge
                 //Technically this should be toilet but then I have to change it everywhere else
                 infoHover = "toilet";
             }
+            else if(realmy() > 6*yoffset && realmy() < 6*yoffset + sprite_get_height(spr_store_icons)){
+                //Technically this should be toilet but then I have to change it everywhere else
+                infoHover = "cards";
+            }
+            
         }
         
     }

@@ -177,18 +177,27 @@ global.selected_person = noone; //ugly hack
 //The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
 bed2 = instance_create(31*2 ,31*6 ,o_bed);
+ds_list_add(global.built_stations,bed1);
+ds_list_add(global.built_stations,bed2);
+
 bed1.being_built = false;
 bed2.being_built = false;
 
 //TV
 tv = instance_create(31*6 , 31*7, o_TV);
+ds_list_add(global.built_stations,tv);
+
 tv.being_built = false;
 //Toilet
 toilet = instance_create(31*11, 31*3, o_toilet);
+ds_list_add(global.built_stations,toilet);
+
 toilet.being_built = false;
 
 //Buffet
 buffet = instance_create(31*7, 31*7, o_buffet);
+ds_list_add(global.built_stations,buffet);
+
 buffet.being_built = false;
 //Objects added to the matrix
 //Beds
