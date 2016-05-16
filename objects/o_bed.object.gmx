@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///call the inherited event
 event_inherited();
-
+myperson = noone;
 
 </string>
           </argument>
@@ -60,6 +60,31 @@ image_speed = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(instance_exists(myperson)){
+    myperson.mybed = noone;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -81,6 +106,7 @@ image_speed = 0;
 draw_self();
 //draw_text(x,y,instance_position(x,y,o_bed));
 //draw_text(x,y+16,id);
+draw_text(x,y,myperson);
 </string>
           </argument>
         </arguments>

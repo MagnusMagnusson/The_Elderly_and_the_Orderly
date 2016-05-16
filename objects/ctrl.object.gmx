@@ -37,6 +37,9 @@ isclicked=false;
 camerax = mouse_x;
 cameray = mouse_y;
 
+lastx = -1;
+lasty = -1;
+
 error = "";
 
 //For showing info about station/persons when clicked in room
@@ -331,6 +334,11 @@ if(isDay){
           <argument>
             <kind>1</kind>
             <string>///camera
+
+if(mouse_check_button_pressed(mb_left)){
+    lastx = mouse_x;
+    lasty = mouse_y;
+}
 
 if(mouse_check_button_pressed(mb_right)){
     camera_x = mouse_x;
