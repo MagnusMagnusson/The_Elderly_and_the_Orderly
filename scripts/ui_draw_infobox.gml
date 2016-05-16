@@ -10,7 +10,7 @@ var xoffset, yoffset;
 
 xoffset = 4;
 yoffset = string_height("Loy");
-info_start_yoff = sprite_get_height(spr_funds) + 4;
+info_start_yoff = 62;
 //Change stat* values to change in infobox
 var statName, statPrice, statOrderlies, statResidents, sellPrice;
 statName = "";
@@ -21,7 +21,7 @@ sellPrice = "Sell Price: ";
 /*Add for later??*/
         //Level
         //Upgrade
-scr_draw_box();
+//scr_draw_box();
         
 //For clicking stations in room but if hovering over items in menu it will show that info
 if(!infoSelected && infoHover == noone && ctrl.selected_stuff){

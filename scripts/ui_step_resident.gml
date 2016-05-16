@@ -7,7 +7,7 @@ if(!ctrl.isDay){
     else{
         if(instance_exists(o_ui_residents_night)){
             var xwidth =  display_get_gui_width()/6;
-            yoffset = sprite_get_height(spr_go_back) + 8;//(display_get_gui_height()/1.5)/10; //string_height("Word");
+            yoffset = sprite_get_height(ui_menu_normal_buttons);//(display_get_gui_height()/1.5)/10; //string_height("Word");
             if(mouse_check_button_pressed(mb_left)){
                  if(realmx() > 0 && realmx() < xwidth){
                     //back button
@@ -22,11 +22,13 @@ if(!ctrl.isDay){
                     }
                     //Residents
                     if(realmy() > yoffset && realmy() < yoffset*2){
+                        chosen_res_app = "resident";
                         o_ui_residents_night.state = 0;
                     }
                     //Applicants
-                    if(realmy() > yoffset*2 && realmy() < 3*yoffset){
-                        o_ui_residents_night.state = 1;
+                    else if(realmy() > yoffset*2 && realmy() < 3*yoffset){
+                        chosen_res_app = "applicant";
+                        o_ui_residents_night.state = 1;  
                     }
                 }
             }
