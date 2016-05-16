@@ -17,8 +17,8 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>300</width>
-  <height>438</height>
+  <width>400</width>
+  <height>400</height>
   <frames>
     <frame index="0">images\s_santa_0.png</frame>
     <frame index="1">images\s_santa_1.png</frame>

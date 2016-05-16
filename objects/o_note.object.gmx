@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = irandom(3);
-image_blend = irandom(c_white);
-image_xscale = random_range(.3,.7);
+            <string>image_index = 1/20;
+//image_blend = irandom(c_white);
+image_xscale = 3
 image_yscale = image_xscale;
-speed = scr_delta() * (irandom(8) + 18);
+speed = scr_delta() * 10;
 direction = point_direction(x,y,mouse_x,mouse_y);
 count = 0;
 /*

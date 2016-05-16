@@ -56,7 +56,7 @@ station = noone;
 
 if(!ctrl.isDay){
     if(mouse_check_button_pressed(mb_left) == true){
-    //SELL!
+    //MOVE!
         if(realmy() &gt; yy &amp;&amp; realmy() &lt; 31+yy ){
             if(realmx() &gt; xx &amp;&amp; realmx() &lt; xx + 31){
                 ctrl.profileActive = false;
@@ -69,6 +69,7 @@ if(!ctrl.isDay){
                 }
                 exit;
             }
+            //SELL
             if(realmx() &gt; 31+xx &amp;&amp; realmx() &lt; xx +62){
             
                 //update funds to price of station/2

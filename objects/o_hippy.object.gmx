@@ -29,7 +29,7 @@
 image_xscale = 0.5;
 image_yscale = 0.5;
 count = 0;
-
+counter = 0;
 hp = 5;
 </string>
           </argument>
@@ -75,12 +75,14 @@ hp = 5;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(count &gt; 1){
+            <string>counter++;
+if(count &gt; 1){
     count = 0;
     if(o_ctrl.timer &lt; 180 || o_ctrl.timer &gt; 196 || instance_exists(o_deer)){
-        repeat(irandom(3)+1){
-            var ii = instance_create(x + irandom_range(-6,6),y+ irandom_range(-13,13),o_note);
+        if(counter &gt;= 10){
+            var ii = instance_create(x + 64,y,o_note);
             ii.direction = 0;
+            counter = 0;
         }
     }
     

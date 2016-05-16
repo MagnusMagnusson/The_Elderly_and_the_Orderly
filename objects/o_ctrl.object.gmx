@@ -359,7 +359,7 @@ draw_set_color(c_white);
 draw_text(0,64,fps);
 draw_text(0,96,fps_real);
 */
-var str = "Santa incoming in : "
+var str = "Big Boss incoming in : "
 draw_text(240,16,str +  + string(max(0,180-timer)));
 
 for(var i = 0; i &lt; 6; i++){
