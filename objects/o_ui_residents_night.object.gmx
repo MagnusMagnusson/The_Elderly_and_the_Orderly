@@ -81,6 +81,7 @@ if(!ctrl.hide_profile){
                 if(realmx() &gt; sprite_get_width(ui_menu)+76 &amp;&amp; realmx() &lt; display_get_gui_width() div 3 - 24 &amp;&amp; realmy() &gt; display_get_gui_height() - 186 &amp;&amp; realmy() &lt;  display_get_gui_height() - 88){
                     ctrl.hide_profile = true;
                 }
+                
                 else{
                     var bx,by;
                     bx = (4/6)*(display_get_gui_width() div 2);
@@ -120,7 +121,11 @@ if(!ctrl.hide_profile){
     }
 }
 else{
-
+    if(mouse_check_button_pressed(mb_left)){
+        if(realmx() &gt; sprite_get_width(ui_menu)+76 &amp;&amp; realmx() &lt; display_get_gui_width() div 3 - 24 &amp;&amp; realmy() &gt; 0 &amp;&amp; realmy() &lt;  76){
+            ctrl.hide_profile = false;
+        }
+    }
 }
 </string>
           </argument>
@@ -295,6 +300,13 @@ if(!ctrl.hide_profile){
 }
 else{
     //Insert the other sprite at the top
+    draw_sprite(ui_reverse_persons,0, sprite_get_width(ui_menu), display_get_gui_height() div 2);
+    if(realmx() &gt; sprite_get_width(ui_menu)+76 &amp;&amp; realmx() &lt; display_get_gui_width() div 3 - 24 &amp;&amp; realmy() &gt; 0 &amp;&amp; realmy() &lt;  76){
+        draw_sprite_ext(ui_reverse_house_button, 1,  sprite_get_width(ui_menu), display_get_gui_height() div 2, 1, 1, 0, $e6e6e6, 1);
+    }
+    else{
+        draw_sprite(ui_reverse_house_button, 0, sprite_get_width(ui_menu), display_get_gui_height() div 2)
+    }
 }
 </string>
           </argument>
