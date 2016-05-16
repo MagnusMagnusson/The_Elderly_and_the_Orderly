@@ -168,11 +168,11 @@ randomize();
 var i = choose(snd_entertainer,snd_maple_leaf);
 //audio_play_sound(i,1,true);
 //Residents
-resident1 = instance_create(31*10, 31*10, O_Resident);
-resident2 = instance_create(31*8, 31*15, O_Resident);
+resident1 = instance_create(31*4, 31*4, O_Resident);
+resident2 = instance_create(31*5, 31*5, O_Resident);
 
 //Orderly
-orderly = instance_create(31*20, 31*16, O_Orderly);
+orderly = instance_create(31*10, 31*10, O_Orderly);
 global.selected_person = noone; //ugly hack
 //The beds
 bed1 = instance_create(31*3 ,31*6 ,o_bed);
@@ -184,11 +184,11 @@ bed2.being_built = false;
 tv = instance_create(31*6 , 31*7, o_TV);
 tv.being_built = false;
 //Toilet
-toilet = instance_create(31*13, 31*13, o_toilet);
+toilet = instance_create(31*11, 31*3, o_toilet);
 toilet.being_built = false;
 
 //Buffet
-buffet = instance_create(31*5, 31*5, o_buffet);
+buffet = instance_create(31*7, 31*7, o_buffet);
 buffet.being_built = false;
 //Objects added to the matrix
 //Beds
