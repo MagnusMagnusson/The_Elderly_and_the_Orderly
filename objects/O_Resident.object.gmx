@@ -467,9 +467,15 @@ else{
             <kind>1</kind>
             <string>///check in to current_station if on its coords
 
-if(decided &amp;&amp; x=current_station.x &amp;&amp; y == current_station.y)
+if(current_station!=noone &amp;&amp; current_station.current_resident_count&lt;current_station.resident_capacity)
+{
+if(current_station!=noone &amp;&amp;decided &amp;&amp; x==current_station.x &amp;&amp; y == current_station.y)
     check_in(id,current_station);
-    
+}
+else
+   {
+        decided=false;
+   }
 </string>
           </argument>
         </arguments>
