@@ -18,7 +18,8 @@ if(matrix_is_empty(tempx,tempy,2,1)
     results[resultsize]=tempcoords1;
     resultsize +=1;
 }
-else if(ctrl.matrix[tempx+1,tempy]==exception
+else if(tempx+1<room_width div 31 
+&& ctrl.matrix[tempx+1,tempy]==exception
 && wallmatrix_is_empty(tempx,tempy,2,1))
 {
     var tempcoords1;
@@ -38,7 +39,8 @@ if(matrix_is_empty(tempx-1,tempy,2,1)
     results[resultsize]=tempcoords2;
     resultsize +=1;
 }
-else if(ctrl.matrix[tempx-1,tempy]==exception
+else if(tempx-1<room_width div 31 
+&& ctrl.matrix[(tempx-1)%(room_width div 31),tempy]==exception
 && wallmatrix_is_empty(tempx-1,tempy,2,1))
 {
     var tempcoords2;
@@ -57,7 +59,8 @@ if(matrix_is_empty(tempx,tempy-1,1,2)
     results[resultsize]=tempcoords3;
     resultsize +=1;
 }
-else if(ctrl.matrix[tempx,tempy-1]==exception
+else if(tempy-1<room_height div 31 
+&& ctrl.matrix[tempx,(tempy-1)%(room_height div 31)]==exception
 && wallmatrix_is_empty(tempx,tempy-1,1,2))
 {
     var tempcoords3;
@@ -76,7 +79,7 @@ if(matrix_is_empty(tempx,tempy,1,2)
     results[resultsize]=tempcoords4;
     resultsize +=1;
 }
-else if(ctrl.matrix[tempx,tempy+1]==exception
+else if(ctrl.matrix[tempx,(tempy+1)%(room_height div 31)]==exception
 && wallmatrix_is_empty(tempx,tempy,1,2))
 {
     var tempcoords4;

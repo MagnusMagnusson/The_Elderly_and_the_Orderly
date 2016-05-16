@@ -290,19 +290,9 @@ if(!decided &amp;&amp; ctrl.isDay)
             //moving to station doesn't work currently.
             //walking one short of the target
             //SOS!! this code is as yet untested
-            var reversepath=noone;
-            reversepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
-            if(reversepath!=noone)
-            {
-                
-                var newpath;
-                for(var i=1;i&lt;array_length_1d(reversetilepath);i++)
-                {
-                    //the index into reversetilepath walks from last element to first element
-                    newpath[i]=reversetilepath[array_length_1d(reversetilepath)-1-i]
-                }
-                tilepath=newpath;
-            }  
+            
+            tilepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
+              
         }
         current_station=chosenstation;
         decided=true;      

@@ -66,18 +66,8 @@ if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_stati
 {
     //this person is a resident who got gated when trying to path 
     //toward his current station
-    var reversepath=noone;
     reversepath=Astar(chosenstation.x,chosenstation.y,x,y,chosenstation);
-    if(reversepath!=noone)
-    {   
-        var newpath;
-        for(var i=1;i&lt;array_length_1d(reversetilepath);i++)
-        {
-            //the index into reversetilepath walks from last element to first element
-            newpath[i]=reversetilepath[array_length_1d(reversetilepath)-1-i]
-        }
-        tilepath=newpath;
-    }  
+      
 }
 
 if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
