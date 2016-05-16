@@ -182,14 +182,26 @@ bed2.being_built = false;
 //TV
 tv = instance_create(31*6 , 31*7, o_TV);
 tv.being_built = false;
+//Toilet
+toilet = instance_create(31*13, 31*13, o_toilet);
+toilet.being_built = false;
 
-
+//Buffet
+buffet = instance_create(31*5, 31*5, o_buffet);
+buffet.being_built = false;
 //Objects added to the matrix
 //Beds
 matrix_reserve(bed1.x div 31, bed1.y div 31, bed1.width, bed1.height, bed1.id );
 matrix_reserve(bed2.x div 31, bed2.y div 31, bed2.width, bed2.height, bed2.id );
 //TV
 matrix_reserve(tv.x div 31, tv.y div 31, tv.width, tv.height, tv.id);
+
+//Toilet
+matrix_reserve(toilet.x div 31, toilet.y div 31, toilet.width, toilet.height, toilet.id); 
+
+//Buffet
+matrix_reserve(buffet.x div 31, buffet.y div 31, buffet.width, buffet.height, buffet.id); 
+
 
 //Remove before alpha day!!!!
 /*bingoTEST = instance_create(31*11 ,31* 16 ,o_Bingo);

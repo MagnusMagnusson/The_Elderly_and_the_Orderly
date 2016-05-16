@@ -474,23 +474,7 @@ if(!ctrl.isDay){
             <kind>1</kind>
             <string>///Voice
 var n;
-
-if((ctrl.select_peeps).gender){
-    if((ctrl.select_peeps).voice == "rem"){
-        audio_play_sound(soundbyte_random("rem"), 1, false);
-    }
-    else if((ctrl.select_peeps).voice == "coo"){
-        audio_play_sound(soundbyte_random("coo"), 1, false);
-    }
-}
-else{
-    if((ctrl.select_peeps).voice == "christ"){
-        audio_play_sound(soundbyte_random("christ"), 1, false);
-    }
-    else if((ctrl.select_peeps).voice == "sweet"){
-        audio_play_sound(soundbyte_random("sweet"), 1, false);
-    }
-}
+audio_play_sound(soundbyte_random(voice), 1, false);
 </string>
           </argument>
         </arguments>
