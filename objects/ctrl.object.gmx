@@ -46,6 +46,7 @@ error = "";
 selected_stuff = false;
 selected_id = noone;
 select_peeps = noone;
+idle_orderly = "";
 
 global.built_stations=ds_list_create();
 for(var i=0;i &lt; instance_number(o_Station);i++)

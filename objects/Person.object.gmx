@@ -224,6 +224,7 @@ if(realmx() &gt; display_get_gui_width()/6){
     ctrl.selected_id = object_index;
     ctrl.selected_stuff = true;
     ctrl.select_peeps = id;
+    ctrl.idle_orderly = ui_idle_orderly();
 }
 
 </string>
