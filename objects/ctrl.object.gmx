@@ -60,6 +60,7 @@ dark = 1;
 player_reputation = 0;
 max_reputation = 200;
 left = 0;
+hide_profile = false;
 </string>
           </argument>
         </arguments>

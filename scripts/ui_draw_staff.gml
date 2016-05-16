@@ -40,6 +40,12 @@ if(!ctrl.isDay){
 else{
     draw_sprite(ui_persons,0, sprite_get_width(ui_menu), display_get_gui_height() div 2)
     draw_sprite(ui_persons_line, 0,  display_get_gui_width() div 2 - 32 , display_get_gui_height() div 2);
+    if(realmx() > sprite_get_width(ui_menu)+76 && realmx() < display_get_gui_width() div 3 - 24 && realmy() > display_get_gui_height() - 186 && realmy() <  display_get_gui_height() - 88){
+        draw_sprite_ext(ui_house_button, 1, sprite_get_width(ui_menu)-17 , display_get_gui_height()div 2, 1, 1, 0, $e6e6e6, 1);
+    }
+    else{
+        draw_sprite(ui_house_button, 0, sprite_get_width(ui_menu)-17, display_get_gui_height() div 2);
+    }
     for(var i = 0; i < instance_number(O_Orderly);i++){//For each resident we currently have
         var I = instance_find(O_Orderly,i);
         

@@ -104,9 +104,13 @@ if(!ctrl.isDay){
 //daytime staff ui
 else{
     if(mouse_check_button_pressed(mb_left)){
+        if(realmx() > sprite_get_width(ui_menu)+76 && realmx() < display_get_gui_width() div 3 - 24 && realmy() > display_get_gui_height() - 186 && realmy() <  display_get_gui_height() - 88){
+            ctrl.hide_profile = true;
+        }
         if(realmx() > 0 && realmx() < sprite_get_width(spr_go_back) && realmy() > 4 && realmy() < sprite_get_height(spr_go_back) + 4){
             state = noone;
             infoHover = noone;
+            ctrl.hide_profile = false;
         }
         selected = noone;
         for(var i = 0; i < instance_number(O_Orderly);i++){
