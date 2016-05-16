@@ -61,22 +61,38 @@ velocity=1;
           <argument>
             <kind>1</kind>
             <string>///create path to target if none exists
+if(tilepath==noone)
+    path_length=0;
 
-if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_station!=noone &amp;&amp; x&lt;0)
+show_debug_message("create path to targetif none exists")
+if(path_length==0 &amp;&amp; object_index == O_Resident &amp;&amp; current_station!=noone &amp;&amp; 0&lt;x)
 {
+    show_debug_message("gated resident seeking station");
     //this person is a resident who got gated when trying to path 
     //toward his current station
     tilepath=Astar(x,y,chosenstation.x,chosenstation.y,chosenstation);
+    path_length=array_length_1d(tilepath);
+    if(tilepath==noone)
+    {
+        path_length=0;   
+    }
+    
+    exit;
       
 }
 
 if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 {
+    show_debug_message("off target, making path");
     //the use of these vars is an ugly hack to compensate for the tile grid
     //not starting at 0,0
 
     tilepath=Astar(x div 31,y div 31,target_x div 31,target_y div 31,noone);
     path_length=array_length_1d(tilepath);
+    if(tilepath==noone)
+    {
+        path_length=0;   
+    }
     index_into_path=0;
     //tilepath will be noone if target is unreachable or if
     //Astar gate has been closed
@@ -105,6 +121,7 @@ if(path_length==0 &amp;&amp; target_x!=x &amp;&amp; target_y!=y)
 
 if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
 {
+    show_debug_message("moving target along path");    
     //offsets to fix the problem of tile (0,0) not being pixel (0,0)
     var offset=-37;
     var xoffset=offset;
@@ -118,15 +135,20 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
     target_y=yoffset + target_tile_y;
     if(x==target_tile_x + xoffset &amp;&amp; y==target_tile_y+yoffset)
     {
+        show_debug_message("incrementing index into path");
        
         index_into_path+=1;
         if(path_length==index_into_path)
         {
+            show_debug_message("reached end of path");
             tilepath=noone;
             path_length=0;
             index_into_path=0;
             if(object_index==O_Resident &amp;&amp; current_station!=noone)
+            {
+                show_debug_message("reached station, checking in");
                 check_in(id,current_station);
+            }
         }
     }
 }
@@ -150,10 +172,40 @@ if(tilepath!=noone &amp;&amp; index_into_path&lt;path_length)
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>///declare current station for debug purposes, if resident
+if(object_index==O_Resident)
+{
+    show_debug_message(current_station);
+    show_debug_message("Am I decided?");
+    show_debug_message(decided);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// move to target if not on target and path exists
-
+show_debug_message("moving along path");
 if(tilepath==noone)
+{
+    show_debug_message("tilepath was noone, canceling movement");
     exit;
+}
 if( x-deltafy(velocity) &lt;= target_x &amp;&amp; target_x &lt;= x+deltafy(velocity) )
 {
     x=target_x;

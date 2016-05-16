@@ -242,6 +242,7 @@ if(80&lt;hunger)
             }
          
         }
+    current_station=chosenstation;
     decided=true;    
 }
 
@@ -271,6 +272,7 @@ if(80&lt;bladder)
             }
          
         }
+    current_station=chosenstation;
     decided=true;
 }
 
