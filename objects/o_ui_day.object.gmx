@@ -33,22 +33,28 @@ var totminute = ((duration - currtime) / duration) * totalminutes;
 var currdate = date_create_datetime(1995,06,20,8,0,0)
 currdate = date_inc_minute(currdate,totminute);
 var hour = date_get_hour(currdate);
-var minute = string(date_get_minute(currdate));
+if(hour &gt;= 12){
+    var minute = "Pm";
+}
+else{
+    var minute = "Am";
+}
 
 if(string_length(minute)&lt;2){
 
 minute = "0" + minute;
 }
-var time = string(hour) + ":" +minute;
+var time = string(hour % 12) + " " +minute;
 
 draw_set_font(fnt_clock);
 if(ctrl.isDay){
     draw_set_color($FA540C);
-    draw_rectangle(0,0,16 + string_width(" 8:00 "), 16 + string_height( " 8:00 "),false);
+    var _x = display_get_gui_width() / 6 + 16;
+    draw_rectangle(_x,0,_x + string_width(" 8:00 "), 16 + string_height( " 8:00 "),false);
     draw_set_color(c_white);
     draw_set_valign(fa_middle);
     draw_set_halign(fa_center);
-    draw_text((16 + string_width(" 8:00 ")) div 2,(16 + string_height( " 8:00 "))div 2,time);
+    draw_text((_x + 8 + (string_width(" 8:00 ")) div 2),(16 + string_height( " 8:00 "))div 2,time);
     
     //lol@reputation
     draw_set_color(0)
