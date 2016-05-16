@@ -45,11 +45,11 @@ if(ctrl.selected_id == o_toilet){
 }
 if(ctrl.selected_id == o_disco){
     draw_sprite_ext(s_disco, 0, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#6,1] , yoffset, display_get_gui_width()/6);
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#6,4]) , yoffset, display_get_gui_width()/6);
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_gui_width()/6);
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6);
-    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#8,1] , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#8,4]) , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#8,7]), yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#8,8]), yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#8,2] , yoffset, display_get_gui_width()/6);
     
 }
 if(ctrl.selected_id == o_carpet){
@@ -71,5 +71,14 @@ if(ctrl.selected_id == O_Orderly){
     draw_sprite_ext((ctrl.select_peeps).head, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
     draw_sprite_ext((ctrl.select_peeps).hair, 0, 0, (display_get_gui_height()/1.5), 3, 3, false, c_white, 1);
     draw_text_ext(xoffset + 4, (display_get_gui_height()/1.5)+72 , (ctrl.select_peeps).name , yoffset, display_get_gui_width()/6);
+}
+if(ctrl.selected_id == o_buffet){
+    draw_sprite_ext(s_buffet, 0, 0, (display_get_gui_height()/1.5), 1, 1, false, c_white, 1);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64, statName + ctrl.store[#6,1] , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + yoffset, statPrice + string(ctrl.store[#6,4]) , yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 2*yoffset, statOrderlies + string(ctrl.store[#6,7]), yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 3*yoffset, statResidents + string(ctrl.store[#6,8]), yoffset, display_get_gui_width()/6);
+    draw_text_ext(xoffset, (display_get_gui_height()/1.5)+64 + 4*yoffset, ctrl.store[#6,2] , yoffset, display_get_gui_width()/6);
+    
 }
 

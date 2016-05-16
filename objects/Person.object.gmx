@@ -261,7 +261,7 @@ if(realmx() &gt; display_get_gui_width()/6){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(ctrl.selected_stuff){
+            <string>if(ctrl.selected_stuff &amp;&amp; (ctrl.selected_id == O_Orderly || ctrl.selected_id == O_Resident)){
     draw_sprite(spr_selected_person, 0, (ctrl.select_peeps).x, (ctrl.select_peeps).y-12);
 }
 </string>
