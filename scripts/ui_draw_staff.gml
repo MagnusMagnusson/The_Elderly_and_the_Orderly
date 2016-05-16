@@ -57,11 +57,11 @@ else{
         var I = instance_find(O_Orderly,selected);
         //Where to draw information about them
         var _x,_y;
-        _x = (display_get_gui_width() div 3) +4 ;//445;
-        _y = (display_get_gui_height() div 5) + 31;//450;
+        _x = (display_get_gui_width() div 3) + 4;//445;
+        _y = (display_get_gui_height() div 6) + 31;//450;
         //Draw general information on them
-        draw_set_font(fnt_14pt);
-        draw_set_color($FF12EB);
+        draw_set_font(fnt_screen);
+        draw_set_halign(fa_center);
         draw_text(_x,_y,I.name)
     }
 }

@@ -496,14 +496,6 @@ if(isDay){
             <kind>1</kind>
             <string>display_set_gui_size(1440,900);
 
-///Profile in infobox
-if(mouse_check_button_pressed(mb_left)){
-    //For showing info about station/persons when clicked in room
-    selected_stuff = false;
-    selected_id = noone;
-    select_peeps = noone;
-}
-
 if(error != ""){
     draw_set_color(0);
     draw_set_font(fnt_normal);

@@ -25,29 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>state = 0;
-selected = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>x = 4;
+state = 0;
+selected = noone;
 </string>
           </argument>
         </arguments>
@@ -179,24 +159,27 @@ switch(state){
             //Where to draw information about them
             var _x,_y;
             _x = (display_get_gui_width() div 3) + 4;//445;
-            _y = (display_get_gui_height() div 5) + 31;//450;
+            _y = (display_get_gui_height() div 6) + 31;//450;
             //Draw general information on them
-            draw_set_font(fnt_14pt);
-            draw_set_color($FF12EB);
+            draw_set_font(fnt_screen);
+            draw_set_halign(fa_center);
             draw_text(_x,_y,I.name)
+            draw_set_halign(fa_left);
             //Happy
-            draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
+            draw_set_font(fnt_14pt);
+            draw_healthbar(_x-62,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
             draw_set_color(c_white){
                 //draw_set_halign(fa_center);
                 draw_set_valign(fa_middle);
-                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 +2,string(I.happiness ) + "%");
                 draw_set_color(0)
-                draw_text(_x,_y + 48,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48,string(I.happiness ) + "%");
                 var like1,like2,dislike1,dislike2;
                 draw_set_font(fnt_normal)
+                draw_set_halign(fa_center);
                 with(I){
                     like1 = likes_get_nth(1);
                     like2 = likes_get_nth(2);
@@ -238,30 +221,29 @@ switch(state){
             var I = instance_find(o_applicant,selected);
             //SHIIiiIIIiIIinEeEEe Ooonn you craaaaazy diamond!
             var _x,_y;
-            _x = (display_get_gui_width() div 3) +4 ;//445
-            _y = (display_get_gui_height() div 5) + 40; //450
-            //Name
-            draw_set_font(fnt_14pt);
-            draw_set_color($FF12EB);
-            //
-            draw_set_valign(fa_middle);
-            //draw_set_halign(fa_center);
-            draw_text(_x,_y,I.name);
-            draw_set_color($FF12EB);
+            _x = (display_get_gui_width() div 3) + 4;//445;
+            _y = (display_get_gui_height() div 6) + 31;//450;
+            
+            //Draw general information on them
+            draw_set_font(fnt_screen);
+            draw_set_halign(fa_center);
             draw_text(_x,_y,I.name)
+            draw_set_halign(fa_left);
+
             //Happy
-            draw_healthbar(_x,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false)
+            draw_healthbar(_x-62,_y + 31,_x + 128,_y + 62,I.happiness,0,c_red,c_lime,0,true,false);
             draw_set_color(c_white){
                 //draw_set_halign(fa_center);
                 draw_set_valign(fa_middle);
-                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 -2,string(I.happiness ) + "%");
-                draw_text(_x,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 +2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 -2,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48 +2,string(I.happiness ) + "%");
                 draw_set_color(0)
-                draw_text(_x,_y + 48,string(I.happiness ) + "%");
+                draw_text(_x-62,_y + 48,string(I.happiness ) + "%");
                 //Rest of information
                 draw_set_font(fnt_normal);
+                draw_set_halign(fa_center);
                 draw_set_color(0);
                 with(I){
                         like1 = likes_get_nth(1);
@@ -269,19 +251,12 @@ switch(state){
                         dislike1 = likes_get_nth(ds_grid_width(ctrl.store));
                         dislike2 = likes_get_nth(ds_grid_width(ctrl.store)-1);
                     }
-                    
-                    draw_text(_x, _y + 68 + yoffset, "Likes:");
-                    
-                    draw_set_font(fnt_not_bold);
-                    draw_text(_x, _y + 68 + 2*yoffset,string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
-                    
-                    draw_set_font(fnt_normal);
-                    draw_text(_x, _y + 72 + 3*yoffset, "Hates:");
-                    draw_set_font(fnt_not_bold);
-                    draw_text(_x, _y + 72 + 4*yoffset,string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
-                    
-                    draw_set_halign(fa_left);
-                    draw_set_valign(fa_top);
+
+           
+                draw_text(_x,_y + 68 + yoffset,"Likes:#" +string(ctrl.store[#like1,1])+",#"+string(ctrl.store[#like2,1]));
+                draw_text(_x,_y + 72 + 3*yoffset,"Hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
+                draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
             }
         }
         //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
