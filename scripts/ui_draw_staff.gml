@@ -39,28 +39,29 @@ if(!ctrl.isDay){
 //day
 else{
     draw_sprite(ui_persons,0, sprite_get_width(ui_menu), display_get_gui_height() div 2)
+    draw_sprite(ui_persons_line, 0,  display_get_gui_width() div 2 - 32 , display_get_gui_height() div 2);
     for(var i = 0; i < instance_number(O_Orderly);i++){//For each resident we currently have
-            var I = instance_find(O_Orderly,i);
-            
-            //Draw the person on screen
-            var X,Y;
-            X = display_get_gui_width() div 2 + 62*(i % 10);
-            Y = display_get_gui_height() div 8 + 115*(i div 10); 
-            draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
-            draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
-            draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
-            draw_sprite_ext(I.hair,0,X,Y,2,2,0,c_white,1);
-        }
+        var I = instance_find(O_Orderly,i);
         
-        if(selected != noone){ //If someone is selected
-            var I = instance_find(O_Orderly,selected);
-            //Where to draw information about them
-            var _x,_y;
-            _x = (display_get_gui_width() div 3) +4 ;//445;
-            _y = (display_get_gui_height() div 5) + 31;//450;
-            //Draw general information on them
-            draw_set_font(fnt_14pt);
-            draw_set_color($FF12EB);
-            draw_text(_x,_y,I.name)
-        }
+        //Draw the person on screen
+        var X,Y;
+        X = display_get_gui_width() div 2 + 8 + 62*(i % 10);
+        Y = display_get_gui_height() div 6 + 115*(i div 10) ;
+        draw_sprite_ext(I.legs,0,X,Y,2,2,0,c_white,1);
+        draw_sprite_ext(I.body,0,X,Y,2,2,0,c_white,1);
+        draw_sprite_ext(I.head,0,X,Y,2,2,0,c_white,1);
+        draw_sprite_ext(I.hair,0,X,Y,2,2,0,c_white,1);
+    }
+        
+    if(selected != noone){ //If someone is selected
+        var I = instance_find(O_Orderly,selected);
+        //Where to draw information about them
+        var _x,_y;
+        _x = (display_get_gui_width() div 3) +4 ;//445;
+        _y = (display_get_gui_height() div 5) + 31;//450;
+        //Draw general information on them
+        draw_set_font(fnt_14pt);
+        draw_set_color($FF12EB);
+        draw_text(_x,_y,I.name)
+    }
 }
