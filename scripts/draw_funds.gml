@@ -1,5 +1,6 @@
 ///draw_funds(x,y)
-var f = string(ctrl.funds);
+var f = string(floor(ctrl.funds));
+
 
 
 for(var i = 1; i <= string_length(f); i++){

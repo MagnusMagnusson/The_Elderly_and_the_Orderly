@@ -216,6 +216,7 @@ if(ctrl.isDay){
 
 //these consecutive ifs deal with urges and are essentially the
 //same
+/*
 if(80&lt;hunger)
 {
     var chosenstation=noone;
@@ -273,7 +274,7 @@ if(80&lt;bladder)
         }
     decided=true;
 }
-
+*/
 if(!decided &amp;&amp; ctrl.isDay)
 {
     var choice=irandom(100);
