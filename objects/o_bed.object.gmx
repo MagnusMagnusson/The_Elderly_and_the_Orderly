@@ -106,7 +106,7 @@ image_speed = 0;
 draw_self();
 //draw_text(x,y,instance_position(x,y,o_bed));
 //draw_text(x,y+16,id);
-draw_text(x,y,myperson);
+//draw_text(x,y,myperson);
 </string>
           </argument>
         </arguments>

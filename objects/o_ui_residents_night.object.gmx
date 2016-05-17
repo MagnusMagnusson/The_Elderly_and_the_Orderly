@@ -86,8 +86,9 @@ if(!ctrl.hide_profile){
                     var bx,by;
                     bx = (4/6)*(display_get_gui_width() div 2);
                     by = (11/10)*display_get_gui_height() div 2;
-                    if(realmx() &gt; (display_get_gui_width() div 3) + 4 &amp;&amp; realmy() &gt; 4*string_height("Loy")+4 &amp;&amp; realmx() &lt; (display_get_gui_width() div 3) + 31 &amp;&amp; realmy() &lt; 4*string_height("Loy")+4 + 31){
-                        if(selected != noone){
+                    if(selected != noone){
+                        if(realmx() &gt; (display_get_gui_width() div 3) + 4 &amp;&amp; realmy() &gt; 4*string_height("Loy")+4 &amp;&amp; realmx() &lt; (display_get_gui_width() div 3) + 31 &amp;&amp; realmy() &lt; 4*string_height("Loy")+4 + 31){
+                    
                             if(instance_number(o_bed) &gt;= instance_number(O_Resident)+1){
                                 var I = instance_find(o_applicant,selected);
                                 with(I){
@@ -115,9 +116,9 @@ if(!ctrl.hide_profile){
                         }
                     }
                 }
-                if(realmx() &gt; _x &amp;&amp; realmx() &lt; _x + 31 &amp;&amp; realmy() &lt; 4*yoffset +31 &amp;&amp; realmy() &gt; 4*yoffset){
+                /*if(realmx() &gt; _x &amp;&amp; realmx() &lt; _x + 31 &amp;&amp; realmy() &lt; 4*yoffset +31 &amp;&amp; realmy() &gt; 4*yoffset){
                     
-                }
+                }*/
             }
             
             break;
@@ -296,9 +297,10 @@ if(!ctrl.hide_profile){
                     draw_text(_x,_y + 72 + 3*yoffset,"Hates:#" +string(ctrl.store[#dislike1,1])+",#"+string(ctrl.store[#dislike2,1]));
                     draw_set_halign(fa_left);
                     draw_set_valign(fa_top);
+                    draw_sprite(spr_icons,0,_x,4*yoffset);
                 }
             }
-            draw_sprite(spr_icons,0,_x,4*yoffset);
+           
             //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
             break;
         }
