@@ -2,6 +2,9 @@
 //Fastar hæðir, skrifað inn í hverja t.d. staff, resident, store...
 //when hover, make light over þá hæð.
 //If these 2 sentences are changed then ui_draw_menu also needs to change
+if(!instance_exists(o_contex)){
+    state = noone;
+}
 if(!ctrl.isDay){
     var xwidth =  display_get_gui_width()/6;
     yoffset = (display_get_gui_height()/1.5)/10;

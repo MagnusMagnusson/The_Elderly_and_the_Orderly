@@ -21,4 +21,6 @@ switch(argument0.type)
     default:
         argument1.happiness =argument1.happiness + 0.01
 }
+
+station_animate();
         
