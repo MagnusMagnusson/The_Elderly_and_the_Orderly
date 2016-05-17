@@ -4,7 +4,7 @@
 var store,obj;
 store = argument0;
 obj = argument1;
-for(var i = 0; i < ds_grid_height(store);i++){
+for(var i = 0; i < ds_grid_width(store);i++){
     if(store[#i,0] == obj){
         return i;
     }

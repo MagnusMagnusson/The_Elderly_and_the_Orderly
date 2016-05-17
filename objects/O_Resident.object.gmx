@@ -176,6 +176,7 @@ happiness = clamp(happiness,40,100);
     
 //people are meant to get hungry about 3 times a day
 if(ctrl.isDay){
+    happyhappy();
     bladder+=deltafy(4/(30));
     hunger+=deltafy(7/(30*60*0.3));
     
