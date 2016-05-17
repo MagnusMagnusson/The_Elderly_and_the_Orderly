@@ -28,7 +28,7 @@
             <string>///Initialize variables
 randomize();
 isDay = !true;
-dayDuration = 3 * room_speed * 60 //5 minutes per day
+dayDuration = 2.5 * room_speed * 60 //5 minutes per day
 timeLeft = dayDuration;
 funds = 500;
 day = 1;
@@ -362,6 +362,7 @@ if(isDay){
 if(mouse_check_button_pressed(mb_left)){
     lastx = mouse_x;
     lasty = mouse_y;
+    error = "";
 }
 
 if(mouse_check_button_pressed(mb_right)){
