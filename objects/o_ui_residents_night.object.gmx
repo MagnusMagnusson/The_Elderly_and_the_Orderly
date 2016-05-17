@@ -86,7 +86,7 @@ if(!ctrl.hide_profile){
                     var bx,by;
                     bx = (4/6)*(display_get_gui_width() div 2);
                     by = (11/10)*display_get_gui_height() div 2;
-                    if(realmx() &gt; bx &amp;&amp; realmy() &gt; by &amp;&amp; realmx() &lt; bx + 31 &amp;&amp; realmy() &lt; by + 31){
+                    if(realmx() &gt; (display_get_gui_width() div 3) + 4 &amp;&amp; realmy() &gt; 4*string_height("Loy")+4 &amp;&amp; realmx() &lt; (display_get_gui_width() div 3) + 31 &amp;&amp; realmy() &lt; 4*string_height("Loy")+4 + 31){
                         if(selected != noone){
                             if(instance_number(o_bed) &gt;= instance_number(O_Resident)+1){
                                 var I = instance_find(o_applicant,selected);
@@ -115,7 +115,11 @@ if(!ctrl.hide_profile){
                         }
                     }
                 }
+                if(realmx() &gt; _x &amp;&amp; realmx() &lt; _x + 31 &amp;&amp; realmy() &lt; 4*yoffset +31 &amp;&amp; realmy() &gt; 4*yoffset){
+                    
+                }
             }
+            
             break;
         }
     }
@@ -125,6 +129,7 @@ else{
         if(realmx() &gt; sprite_get_width(ui_menu)+76 &amp;&amp; realmx() &lt; display_get_gui_width() div 3 - 24 &amp;&amp; realmy() &gt; 0 &amp;&amp; realmy() &lt;  76){
             ctrl.hide_profile = false;
         }
+        
     }
 }
 </string>
@@ -293,6 +298,7 @@ if(!ctrl.hide_profile){
                     draw_set_valign(fa_top);
                 }
             }
+            draw_sprite(spr_icons,0,_x,4*yoffset);
             //draw_text(display_get_width() div 2 - 256 + 16,display_get_height() div 2 + 62+64,string(display_mouse_get_x()) + ":" + string(display_mouse_get_y()))
             break;
         }
