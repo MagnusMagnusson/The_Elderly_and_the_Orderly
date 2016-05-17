@@ -131,7 +131,7 @@ voice = random_character_voice(O_Resident, gender);
             <kind>1</kind>
             <string>///happy clamp
 
-happiness = clamp(happiness,0,100);
+happiness = clamp(happiness,40,100);
 </string>
           </argument>
         </arguments>
@@ -182,13 +182,13 @@ if(ctrl.isDay){
     
     if(!(bladder&lt;90))
     {
-        happiness-=deltafy(2/30)
+        happiness-=deltafy(2/300)
         //initiate looking for toile
     }
     
     if(!(hunger&lt;90))
     {
-        happiness-=deltafy(1.5/30);                    
+        happiness-=deltafy(1.5/300);                    
     
     }
 }

@@ -15,9 +15,13 @@ switch(argument0.type)
     case "Bed":
         //Add happiness for player??
         break;
-    case "Toilet":
+    case "toilet":
         argument1.bladder=0;
+        argument1.happiness+=0.2
         break;
+    case "buffet":
+        argument1.hunger=0;
+        argument1.happiness+=0.2;
     default:
         argument1.happiness =argument1.happiness + 0.01
 }
